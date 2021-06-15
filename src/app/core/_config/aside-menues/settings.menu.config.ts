@@ -33,12 +33,6 @@ export class SettingsMenuConfig {
 		page: RoutesName.admins()
 	};
 
-	public DISTRICTS = {
-		icon: SectionIconsName.districts(),
-		title:'MENUS.SETTINGS.MENU.DISTRICTS',
-		translate: 'MENUS.SETTINGS.MENU.DISTRICTS',
-		page: RoutesName.districts()
-	};
 
 	public ROLES = {
 		icon: SectionIconsName.roles(),
@@ -46,7 +40,6 @@ export class SettingsMenuConfig {
 		translate: 'MENUS.SETTINGS.MENU.ROLES',
 		page: RoutesName.roles()
 	};
-
 
 
 	public menu: any = {
@@ -60,9 +53,6 @@ export class SettingsMenuConfig {
 		this.attachMenuItem([],this.ADMINS);
 
 		this.attachMenuItem([],this.ROLES);
-
-		this.attachMenuItem([],this.DISTRICTS);
-
 
 		this.attachMenu();
 

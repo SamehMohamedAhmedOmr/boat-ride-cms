@@ -1,10 +1,10 @@
 import {BaseSerializer} from '../Base/Base.serializer';
 import {Serializer} from '../Base/Serializer';
-import {ServicesModel} from '../../models/Yacht-Module/services.model';
+import {TemplateModel} from '../../models/TEMPLATE/template.model';
 
-export class ServicesSerializer extends BaseSerializer implements Serializer {
+export class TemplateSerializer extends BaseSerializer implements Serializer {
 
-	fromJson(json: any): ServicesModel {
+	fromJson(json: any): TemplateModel {
 		return this.adapt(json.body);
 	}
 
@@ -12,7 +12,7 @@ export class ServicesSerializer extends BaseSerializer implements Serializer {
 		return this.adaptList(json.body, json.pagination);
 	}
 
-	toJson(model: ServicesModel): any {
+	toJson(model: TemplateModel): any {
 		let object = {
 			'id' : model.id,
 			'name' : model.languages,
@@ -31,8 +31,8 @@ export class ServicesSerializer extends BaseSerializer implements Serializer {
 		return null;
 	}
 
-	public adapt(item: any): ServicesModel {
-		let model =  new ServicesModel(item.id);
+	public adapt(item: any): TemplateModel {
+		let model =  new TemplateModel(item.id);
 
 		model.name = item.name;
 		model.languages = item.name?.en ? item.name : null;

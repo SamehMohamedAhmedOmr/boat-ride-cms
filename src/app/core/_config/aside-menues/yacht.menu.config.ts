@@ -7,7 +7,7 @@ import {RoutesName} from '../../Global/routes.name';
 @Injectable({
 	providedIn: 'root'
 })
-export class MarketingMenuConfig {
+export class YachtMenuConfig {
 
 	systemPermissionsHelperService: SystemPermissionsHelperService;
 
@@ -15,22 +15,23 @@ export class MarketingMenuConfig {
 		this.systemPermissionsHelperService = new SystemPermissionsHelperService();
 	}
 
-	private header = {section: 'MARKETING', translate: 'MENUS.MARKETING.TITLE'};
+	private header = {section: 'YACHT', translate: 'MENUS.YACHT_SETTINGS.TITLE'};
 
 	private section = {
-		title: 'MENUS.MARKETING.TITLE',
+		title: 'MENUS.YACHT_SETTINGS.TITLE',
 		root: true,
-		translate: 'MENUS.MARKETING.TITLE',
-		icon: SectionIconsName.marketing(),
+		translate: 'MENUS.YACHT_SETTINGS.TITLE',
+		icon: SectionIconsName.setting(),
 		submenu: [
 		]
 	};
 
-	public BANNERS = {
-		icon: SectionIconsName.banners(),
-		title: 'MENUS.MARKETING.MENU.BANNERS',
-		translate: 'MENUS.MARKETING.MENU.BANNERS',
-		page: RoutesName.banners()
+
+	public SERVICES = {
+		icon: SectionIconsName.services(),
+		title: 'MENUS.YACHT_SETTINGS.MENU.SERVICES',
+		translate: 'MENUS.YACHT_SETTINGS.MENU.SERVICES',
+		page: RoutesName.services()
 	};
 
 
@@ -42,7 +43,8 @@ export class MarketingMenuConfig {
 
 	public checkRoutePermissions(){
 
-		this.attachMenuItem([],this.BANNERS);
+		this.attachMenuItem([],this.SERVICES);
+
 
 		this.attachMenu();
 

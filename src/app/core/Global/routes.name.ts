@@ -13,32 +13,12 @@ export class RoutesName {
 		return 'admins';
 	}
 
-	public static doctors() {
-		return 'doctors';
-	}
-
-	public static patients() {
-		return 'patients';
-	}
-
-	public static districts() {
-		return 'districts';
-	}
-
 	public static roles() {
 		return 'roles';
 	}
 
-	public static packages() {
-		return 'packages';
-	}
-
 	public static services() {
 		return 'services';
-	}
-
-	public static specialities() {
-		return 'specialities';
 	}
 
 	public static banners() {
@@ -47,14 +27,6 @@ export class RoutesName {
 
 	public static collections() {
 		return 'collections';
-	}
-
-	public static forgetPassword() {
-		return 'forget-password';
-	}
-
-	public static profile() {
-		return 'profile';
 	}
 
 	public static users() {
@@ -69,11 +41,4 @@ export class RoutesName {
 		return 'show';
 	}
 
-	public static appointments(){
-		return 'appointments';
-	}
-
-	static operations() {
-		return 'operations';
-	}
 }

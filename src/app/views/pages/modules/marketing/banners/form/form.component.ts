@@ -1,6 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {FormGroup} from '@angular/forms';
-import {BannersTypesModel} from '../../../../../../core/models/Marketing-Module/banners..types.model';
 
 
 @Component({
@@ -11,7 +10,6 @@ import {BannersTypesModel} from '../../../../../../core/models/Marketing-Module/
 export class FormComponent implements OnInit {
 
 	@Input() form: FormGroup;
-	@Input() banners_types: BannersTypesModel[] = [];
 
 	constructor() {
 	}

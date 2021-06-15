@@ -7,7 +7,7 @@ import {RoutesName} from '../../Global/routes.name';
 @Injectable({
 	providedIn: 'root'
 })
-export class MarketingMenuConfig {
+export class WaterSportMenuConfig {
 
 	systemPermissionsHelperService: SystemPermissionsHelperService;
 
@@ -15,22 +15,23 @@ export class MarketingMenuConfig {
 		this.systemPermissionsHelperService = new SystemPermissionsHelperService();
 	}
 
-	private header = {section: 'MARKETING', translate: 'MENUS.MARKETING.TITLE'};
+	private header = {section: 'YACHT', translate: 'MENUS.WATER_SPORT_SETTINGS.TITLE'};
 
 	private section = {
-		title: 'MENUS.MARKETING.TITLE',
+		title: 'MENUS.WATER_SPORT_SETTINGS.TITLE',
 		root: true,
-		translate: 'MENUS.MARKETING.TITLE',
-		icon: SectionIconsName.marketing(),
+		translate: 'MENUS.WATER_SPORT_SETTINGS.TITLE',
+		icon: SectionIconsName.setting(),
 		submenu: [
 		]
 	};
 
-	public BANNERS = {
-		icon: SectionIconsName.banners(),
-		title: 'MENUS.MARKETING.MENU.BANNERS',
-		translate: 'MENUS.MARKETING.MENU.BANNERS',
-		page: RoutesName.banners()
+
+	public WATER_SPORT = {
+		icon: SectionIconsName.services(),
+		title: 'MENUS.WATER_SPORT_SETTINGS.MENU.WATER_SPORT',
+		translate: 'MENUS.WATER_SPORT_SETTINGS.MENU.WATER_SPORT',
+		page: RoutesName.services()
 	};
 
 
@@ -42,7 +43,8 @@ export class MarketingMenuConfig {
 
 	public checkRoutePermissions(){
 
-		this.attachMenuItem([],this.BANNERS);
+		this.attachMenuItem([],this.WATER_SPORT);
+
 
 		this.attachMenu();
 

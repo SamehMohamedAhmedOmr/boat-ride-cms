@@ -6,10 +6,9 @@ import {InitializeComponentInterface} from '../../../../../shared/Base-Interface
 import {FormErrorService} from '../../../../../../core/services/FormError.service';
 import {AuthNoticeService} from '../../../../../../core/services/auth-notice.service';
 import {HelperService} from '../../../../../../core/services/helper.service';
-import { BannersService } from '../../../../../../core/services/Marketing-Module/banners.service';
-import { BannersModel } from '../../../../../../core/models/Marketing-Module/banners.model';
-import {BannersManager} from '../../../../../../core/managers/Marketing-Module/banners.manager';
-import {BannersTypesModel} from '../../../../../../core/models/Marketing-Module/banners..types.model';
+import {BannersService} from '../../../../../../core/services/Marketing-Module/banners.service';
+import {BannersModel} from '../../../../../../core/models/Marketing-Module/banners.model';
+
 
 @Component({
 	selector: 'kt-add',
@@ -28,13 +27,10 @@ export class AddComponent implements OnInit, DoCheck, OnDestroy, InitializeCompo
 	form: FormGroup;
 	selected_image: [] = [];
 
-	is_result:boolean;
-
-	banners_types:BannersTypesModel[] = [];
+	is_result: boolean;
 
 	constructor(private fb: FormBuilder,
 				private service: BannersService,
-				private bannersManager: BannersManager,
 				private formErrorService: FormErrorService,
 				private route: ActivatedRoute,
 				private router: Router,
@@ -46,7 +42,6 @@ export class AddComponent implements OnInit, DoCheck, OnDestroy, InitializeCompo
 	}
 
 
-
 	ngOnInit() {
 		this.initialiseComponent();
 		this.initializePageName();
@@ -56,38 +51,18 @@ export class AddComponent implements OnInit, DoCheck, OnDestroy, InitializeCompo
 		this.initializePageName();
 	}
 
-	initializePageName(){
+	initializePageName() {
 		this.page_name = this.translateService.instant('Components.BANNERS.name');
 		this.content_name = this.translateService.instant('Components.BANNERS.single');
 	}
 
 	initialiseComponent() {
 		this.isLoadingResults = false;
-		this.getDependencies();
+		this.initForm();
 	}
 
 
-	private getDependencies() {
-		this.isLoadingResults = true;
-		this.bannersManager.getBannersTypeObservable().subscribe(model => {
-			if (model){
-				this.banners_types = model;
-			}
-		});
 
-
-		this.bannersManager.getAllLoadingObservable().subscribe(model => {
-			if (model){
-				this.is_result = model;
-				this.isLoadingResults = !model;
-				this.cdr.markForCheck();
-				if (this.is_result){
-					this.initForm();
-				}
-			}
-		});
-
-	}
 	/**
 	 * Initiate the form
 	 *
@@ -95,13 +70,13 @@ export class AddComponent implements OnInit, DoCheck, OnDestroy, InitializeCompo
 	private initForm() {
 		this.form = this.fb.group({
 
-			name_ar: ['', Validators.required] ,
-			name_en: ['', Validators.required] ,
+			name_ar: ['', Validators.required],
+			name_en: ['', Validators.required],
 
-			type_id: ['', Validators.required] ,
-			link: ['', Validators.required] ,
+			type_id: ['', Validators.required],
+			link: ['', Validators.required],
 
-			is_active: 	['1', Validators.required],
+			is_active: ['1', Validators.required],
 		});
 	}
 
@@ -110,7 +85,7 @@ export class AddComponent implements OnInit, DoCheck, OnDestroy, InitializeCompo
 		this.form.reset();
 	}
 
-	submitForm () {
+	submitForm() {
 		const controls = this.form.controls;
 		/** showing Errors  */
 		if (this.form.invalid) {
@@ -125,14 +100,14 @@ export class AddComponent implements OnInit, DoCheck, OnDestroy, InitializeCompo
 		model.type_id = controls['type_id'].value;
 		model.link = controls['link'].value;
 
-		if (this.selected_image.length){
+		if (this.selected_image.length) {
 			// @ts-ignore
 			model.image = this.selected_image[0];
 		}
 
-		if (!model.image){
+		if (!model.image) {
 			this.authNoticeService.setNotice('Please select image', 'danger');
-			return ;
+			return;
 		}
 
 		// call service to store Banner
@@ -141,10 +116,10 @@ export class AddComponent implements OnInit, DoCheck, OnDestroy, InitializeCompo
 			this.form.reset();
 			this.isLoadingResults = false;
 			this.authNoticeService.setNotice(this.translateService.instant('COMMON.Added_successfully',
-				{name : this.content_name}),
+				{name: this.content_name}),
 				'success');
-			this.router.navigate(['../'], { relativeTo: this.route }).then();
-		} , handler => {
+			this.router.navigate(['../'], {relativeTo: this.route}).then();
+		}, handler => {
 			this.authNoticeService.setNotice(this.helper.showingErrors(handler.error), 'danger');
 			this.isLoadingResults = false;
 			this.isValidationError = true;
@@ -161,7 +136,7 @@ export class AddComponent implements OnInit, DoCheck, OnDestroy, InitializeCompo
 			this.navigationSubscription.unsubscribe();
 		}
 
-		if (this.isValidationError){
+		if (this.isValidationError) {
 			this.authNoticeService.setNotice(null);
 		}
 
@@ -170,7 +145,6 @@ export class AddComponent implements OnInit, DoCheck, OnDestroy, InitializeCompo
 	handleSelectedImage($event) {
 		this.selected_image = $event;
 	}
-
 
 
 }

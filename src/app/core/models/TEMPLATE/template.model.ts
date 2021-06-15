@@ -1,7 +1,7 @@
 import {ModelBase} from '../Base/base.model';
 import {MultiLanguageModel} from '../Base/multi.language.model';
 
-export class ServicesModel extends ModelBase {
+export class TemplateModel extends ModelBase {
 
 	public name:string;
 	public description:string;

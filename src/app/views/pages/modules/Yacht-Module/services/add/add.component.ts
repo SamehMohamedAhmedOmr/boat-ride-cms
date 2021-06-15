@@ -6,12 +6,8 @@ import {InitializeComponentInterface} from '../../../../../shared/Base-Interface
 import {FormErrorService} from '../../../../../../core/services/FormError.service';
 import {AuthNoticeService} from '../../../../../../core/services/auth-notice.service';
 import {HelperService} from '../../../../../../core/services/helper.service';
-import {ServicesService} from '../../../../../../core/services/Setting/services.service';
-import {ServicesModel} from '../../../../../../core/models/Settings/services.model';
-import {SpecialitiesService} from '../../../../../../core/services/Setting/specialities.service';
-import {SpecialitiesModel} from '../../../../../../core/models/Settings/specialities.model';
-import {PaginateParams} from '../../../../../../core/models/paginateParams.interface';
-import {GlobalConfig} from '../../../../../../core/Global/global.config';
+import {ServicesService} from '../../../../../../core/services/Yacht-Module/services.service';
+import {ServicesModel} from '../../../../../../core/models/Yacht-Module/services.model';
 
 @Component({
 	selector: 'kt-add',
@@ -30,13 +26,10 @@ export class AddComponent implements OnInit, DoCheck, OnDestroy, InitializeCompo
 	form: FormGroup;
 	is_result:boolean;
 
-	specialities: SpecialitiesModel[] = [];
-
 	selected_images: [] = [];
 
 	constructor(private fb: FormBuilder,
 				private service: ServicesService,
-				private specialitiesService: SpecialitiesService,
 				private formErrorService: FormErrorService,
 				private cdr: ChangeDetectorRef,
 				private route: ActivatedRoute,
@@ -64,9 +57,8 @@ export class AddComponent implements OnInit, DoCheck, OnDestroy, InitializeCompo
 	}
 
 	initialiseComponent() {
-		this.getSpecialities();
+		this.initForm();
 	}
-
 
 	/**
 	 * Initiate the form
@@ -80,32 +72,11 @@ export class AddComponent implements OnInit, DoCheck, OnDestroy, InitializeCompo
 			description_en: ['', Validators.required] ,
 			description_ar: ['', Validators.required] ,
 
-			speciality_id: ['', Validators.required] ,
 			is_active: 	['1', Validators.required],
 		});
 	}
 
-	private getSpecialities() {
-		let headerParams : PaginateParams = {
-			active : 1,
-			per_page: GlobalConfig.pagination_per_page ,
-			search_key: null ,
-			sort_key: null ,
-			sort_order: null ,
-			next_page_index: 0,
-		};
 
-		this.specialitiesService.list(headerParams, 0).subscribe(
-			(resp) => {
-				this.specialities = resp;
-				this.initForm();
-				this.is_result = true;
-				this.isLoadingResults = false;
-				this.cdr.markForCheck();
-			} , error => {
-				this.isLoadingResults = false;
-			});
-	}
 
 	clearForm() {
 		this.form.reset();
@@ -128,8 +99,6 @@ export class AddComponent implements OnInit, DoCheck, OnDestroy, InitializeCompo
 		model.description_languages.ar = controls['description_ar'].value;
 
 		model.images = this.selected_images;
-
-		model.speciality_id = controls['speciality_id'].value;
 
 		// call service to store Banner
 		this.isLoadingResults = true;

@@ -10,109 +10,109 @@
 </div>
 
 
-<div class="row" *ngIf="isResults">
-	<div class="col-lg-4 col-md-6">
-		<div class="border content text-center bg-white py-5">
-			<h4>{{'Components.DOCTORS.name' | translate}}</h4>
-			<p>{{Dashbard.DoctorCount}}</p>
-			<a [routerLink]="doctorURL()">
-				<u>{{ 
-					'STATISTICS.link' | 
-					translate:{title: 
-					'Components.DOCTORS.name' 
-					| translate }
-				    }}</u></a>
-		</div>
-	</div>
-	<div class="col-lg-4 col-md-6">
-		<div class="border content text-center bg-white py-5">
-			<h4>{{'Components.PATIENTS.name' | translate}}</h4>
-			<p>{{Dashbard.PatientsCount}}</p>
-			<a [routerLink]="patientsURL()">
-				    <u>{{ 
-				       'STATISTICS.link' | 
-						translate:{title: 
-						'Components.PATIENTS.name' 
-						 | translate } 
-						 }}
-						</u>
-					</a>
-		</div>
-	</div>
-	<div class="col-lg-4 col-md-6">
-		<div class="border content text-center bg-white py-5">
-			<h4>{{'Components.PACKAGES.name' | translate}}</h4>
-			<p>{{Dashbard.PackagesCount}}</p>
-			<a [routerLink]="packagesURL()">
-				<u>
-					{{
-					'STATISTICS.link' 
-					| translate:{title:
-					 'Components.PACKAGES.name'
-					  | translate }
-					 }}
-					</u>
-				</a>
-		</div>
-	</div>
-	<div class="col-lg-4 col-md-6">
-		<div class="border content text-center bg-white py-5">
-			<h4>{{'Components.SPECIALITIES.name' | translate}}</h4>
-			<p>{{Dashbard.SpecialitesCount}}</p>
-			<a [routerLink]="specialitiesURL()">
-				<u>
-				{{ 
-				'STATISTICS.link' 
-				| translate:{title:
-				'Components.SPECIALITIES.name'
-				 | translate } }}
-				</u>
-			</a>
-		</div>
-	</div>
-	<div class="col-lg-4 col-md-6">
-		<div class="border content text-center bg-white py-5">
-			<h4>{{'Components.SERVICES.name' | translate}}</h4>
-			<p>{{Dashbard.ServicesCount}}</p>
-			<a [routerLink]="servicesURL()">
-				<u>
-				{{ 'STATISTICS.link'
-				| translate:{title:
-				'Components.SERVICES.name'
-				 | translate } }}
-				</u>
-			</a>
-		</div>
-	</div>
-	<div class="col-lg-4 col-md-6">
-		<div class="border content text-center bg-white py-5">
-			<h4>{{'Components.APPOINTMENTS.name' | translate}}</h4>
-			<p>{{Dashbard.AppointmentsCount}}</p>
-			<a [routerLink]="appointmentsURL()">
-				<u>
-					{{ 'STATISTICS.link' 
-					| translate:{title: 
-					'Components.APPOINTMENTS.name' 
-					| translate } }}
-				</u>
-			</a>
-		</div>
-	</div>
-	<div class="col-lg-4 col-md-6">
-		<div class="border content text-center bg-white py-5">
-			<h4>{{'Components.OPERATIONS.name' | translate}}</h4>
-			<p>{{Dashbard.OperationsCount}}</p>
-			<a [routerLink]="operationsURL()">
-				<u>
-				{{ 'STATISTICS.link' 
-				| translate:{title: 
-				'Components.OPERATIONS.name' 
-				| translate } }}
-			</u>
-		   </a>
-		</div>
-	</div>
-	
-	
-</div>
+<!--<div class="row" *ngIf="isResults">-->
+<!--	<div class="col-lg-4 col-md-6">-->
+<!--		<div class="border content text-center bg-white py-5">-->
+<!--			<h4>{{'Components.DOCTORS.name' | translate}}</h4>-->
+<!--			<p>{{Dashbard.DoctorCount}}</p>-->
+<!--			<a [routerLink]="doctorURL()">-->
+<!--				<u>{{ -->
+<!--					'STATISTICS.link' | -->
+<!--					translate:{title: -->
+<!--					'Components.DOCTORS.name' -->
+<!--					| translate }-->
+<!--				    }}</u></a>-->
+<!--		</div>-->
+<!--	</div>-->
+<!--	<div class="col-lg-4 col-md-6">-->
+<!--		<div class="border content text-center bg-white py-5">-->
+<!--			<h4>{{'Components.PATIENTS.name' | translate}}</h4>-->
+<!--			<p>{{Dashbard.PatientsCount}}</p>-->
+<!--			<a [routerLink]="patientsURL()">-->
+<!--				    <u>{{ -->
+<!--				       'STATISTICS.link' | -->
+<!--						translate:{title: -->
+<!--						'Components.PATIENTS.name' -->
+<!--						 | translate } -->
+<!--						 }}-->
+<!--						</u>-->
+<!--					</a>-->
+<!--		</div>-->
+<!--	</div>-->
+<!--	<div class="col-lg-4 col-md-6">-->
+<!--		<div class="border content text-center bg-white py-5">-->
+<!--			<h4>{{'Components.PACKAGES.name' | translate}}</h4>-->
+<!--			<p>{{Dashbard.PackagesCount}}</p>-->
+<!--			<a [routerLink]="packagesURL()">-->
+<!--				<u>-->
+<!--					{{-->
+<!--					'STATISTICS.link' -->
+<!--					| translate:{title:-->
+<!--					 'Components.PACKAGES.name'-->
+<!--					  | translate }-->
+<!--					 }}-->
+<!--					</u>-->
+<!--				</a>-->
+<!--		</div>-->
+<!--	</div>-->
+<!--	<div class="col-lg-4 col-md-6">-->
+<!--		<div class="border content text-center bg-white py-5">-->
+<!--			<h4>{{'Components.SPECIALITIES.name' | translate}}</h4>-->
+<!--			<p>{{Dashbard.SpecialitesCount}}</p>-->
+<!--			<a [routerLink]="specialitiesURL()">-->
+<!--				<u>-->
+<!--				{{ -->
+<!--				'STATISTICS.link' -->
+<!--				| translate:{title:-->
+<!--				'Components.SPECIALITIES.name'-->
+<!--				 | translate } }}-->
+<!--				</u>-->
+<!--			</a>-->
+<!--		</div>-->
+<!--	</div>-->
+<!--	<div class="col-lg-4 col-md-6">-->
+<!--		<div class="border content text-center bg-white py-5">-->
+<!--			<h4>{{'Components.SERVICES.name' | translate}}</h4>-->
+<!--			<p>{{Dashbard.ServicesCount}}</p>-->
+<!--			<a [routerLink]="servicesURL()">-->
+<!--				<u>-->
+<!--				{{ 'STATISTICS.link'-->
+<!--				| translate:{title:-->
+<!--				'Components.SERVICES.name'-->
+<!--				 | translate } }}-->
+<!--				</u>-->
+<!--			</a>-->
+<!--		</div>-->
+<!--	</div>-->
+<!--	<div class="col-lg-4 col-md-6">-->
+<!--		<div class="border content text-center bg-white py-5">-->
+<!--			<h4>{{'Components.APPOINTMENTS.name' | translate}}</h4>-->
+<!--			<p>{{Dashbard.AppointmentsCount}}</p>-->
+<!--			<a [routerLink]="appointmentsURL()">-->
+<!--				<u>-->
+<!--					{{ 'STATISTICS.link' -->
+<!--					| translate:{title: -->
+<!--					'Components.APPOINTMENTS.name' -->
+<!--					| translate } }}-->
+<!--				</u>-->
+<!--			</a>-->
+<!--		</div>-->
+<!--	</div>-->
+<!--	<div class="col-lg-4 col-md-6">-->
+<!--		<div class="border content text-center bg-white py-5">-->
+<!--			<h4>{{'Components.OPERATIONS.name' | translate}}</h4>-->
+<!--			<p>{{Dashbard.OperationsCount}}</p>-->
+<!--			<a [routerLink]="operationsURL()">-->
+<!--				<u>-->
+<!--				{{ 'STATISTICS.link' -->
+<!--				| translate:{title: -->
+<!--				'Components.OPERATIONS.name' -->
+<!--				| translate } }}-->
+<!--			</u>-->
+<!--		   </a>-->
+<!--		</div>-->
+<!--	</div>-->
+<!--	-->
+<!--	-->
+<!--</div>-->
 

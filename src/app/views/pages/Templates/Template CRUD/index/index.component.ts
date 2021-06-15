@@ -11,7 +11,7 @@ import {GlobalConfig} from '../../../../../core/Global/global.config';
 import {SectionIconsName} from '../../../../../core/Global/section.icons.name';
 import {TranslateService} from '@ngx-translate/core';
 import {RoutesName} from '../../../../../core/Global/routes.name';
-import {DoctorsService} from '../../../../../core/services/User-Module/doctors.service';
+import {TemplateService} from '../../../../../core/services/TEMPLATE/template.service';
 
 declare var $ :any;
 
@@ -49,7 +49,7 @@ export class IndexComponent implements OnInit , OnDestroy, IndexInterface , Init
 	};
 
 	constructor(private cdr: ChangeDetectorRef ,
-				public service: DoctorsService,
+				public service: TemplateService,
 				private authNoticeService: AuthNoticeService,
 				public translateService : TranslateService,
 				private router: Router,
@@ -108,7 +108,7 @@ export class IndexComponent implements OnInit , OnDestroy, IndexInterface , Init
 	}
 
 	pageIcon(){
-		return SectionIconsName.doctors();
+		return SectionIconsName.template();
 	}
 
 	displayContent(text){

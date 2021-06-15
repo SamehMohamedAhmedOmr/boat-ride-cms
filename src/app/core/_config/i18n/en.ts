@@ -46,15 +46,12 @@ export const locale = {
 				TITLE: 'Users',
 				MENU: {
 					ADMINS: 'CMS Users',
-					DOCTORS: 'Doctors',
-					PATIENTS: 'Patients',
 				},
 
 			},
 			SETTINGS: {
 				TITLE: 'Settings',
 				MENU: {
-					DISTRICTS: 'Districts',
 					ROLES: 'Roles',
 				}
 			},
@@ -62,17 +59,19 @@ export const locale = {
 				TITLE: 'Marketing',
 				MENU: {
 					BANNERS: 'Banners',
-					COLLECTIONS: 'Collections',
 				}
 			},
-			DOCTORS_SETTINGS: {
-				TITLE: 'Doctors',
+			YACHT_SETTINGS: {
+				TITLE: 'Yacht Settings',
 				MENU: {
-					PACKAGES: 'Packages',
 					SERVICES: 'Services',
-					SPECIALITIES: 'Specialises',
-					APPOINTMENTS: 'Appointments',
-					OPERATIONS: 'Operations',
+					YACHT: 'Yachts',
+				}
+			},
+			WATER_SPORT_SETTINGS: {
+				TITLE: 'Water Sport Settings',
+				MENU: {
+					WATER_SPORT: 'Water Sport',
 				}
 			},
 		},
@@ -139,72 +138,11 @@ export const locale = {
             Accept : "Accept" ,
 			Reject : "Reject",
 			Pending : "Pending",
-			PACKAGES: {
-				name: 'Packages',
-				single: 'Package',
-				columns: {
-					price: 'Price',
-					description_ar: 'Description in Arabic',
-					description_en: 'Description in English',
-					duration: 'Duration in days',
-				}
-			},
-
-			APPOINTMENTS: {
-				name: 'Appointments',
-				single: 'Appointment',
-				columns: {
-					date: 'date',
-					time: 'time',
-					patient: 'patient',
-					doctor: 'doctor',
-					payment_method: 'Payment Method',
-					service: 'Service',
-				}
-			},
-
-			OPERATIONS: {
-				name: 'Operations',
-				single: 'Operation',
-				columns: {
-					creation_date: 'Creation date',
-					national_id: 'National Id',
-					number_of_months: 'Number of months',
-					operation_cost: 'Operation cost',
-					wallet_cost: 'Wallet cost',
-					doctor_status: 'Doctor status',
-					patient: 'patient',
-					doctor: 'doctor',
-
-					calculation:{
-						actual_finance_portion_with_mu_qr: 'Actual Finance Portion',
-						down_payment: 'Down payment',
-						souhoola_admin_fees: 'Souhoola Admin Fees',
-						total_transaction_amount: 'Total Transaction Amount',
-						monthly_installment : 'Monthly installment',
-					},
-				}
-			},
 
 			SERVICES: {
 				name: 'Services',
 				single: 'Service',
 				columns: {
-				}
-			},
-
-			SPECIALITIES: {
-				name: 'Specialities',
-				single: 'Speciality',
-				columns: {
-				}
-			},
-
-			DISTRICTS: {
-				name: 'Districts',
-				single: 'District',
-				columns: {
-					parent: 'City',
 				}
 			},
 
@@ -215,13 +153,6 @@ export const locale = {
 					type: 'Type',
 					link: 'Link',
 					image : "Image",
-				}
-			},
-			COLLECTIONS: {
-				name: 'Collections',
-				single: 'Collection',
-				columns: {
-					type: 'Type',
 				}
 			},
 
@@ -241,33 +172,6 @@ export const locale = {
 				columns: {
 				}
 			},
-
-			PATIENTS: {
-				name: 'Patients',
-				single: 'Patient',
-				columns: {
-				}
-			},
-
-			DOCTORS: {
-				name: 'Doctors',
-				single: 'Doctor',
-				columns: {
-					date_of_birth: 'Date of Birth',
-					title: 'Title',
-					package_expiration_date: 'Package Expiration date',
-					locations: 'locations',
-					bio: 'Bio',
-					location : 'Location',
-					district: 'District',
-					no_locations: 'No Locations available',
-					certificate:'Certificate',
-					card_image: 'Card image',
-					bank_name: 'Bank Name',
-					bank_account_number: 'Bank Account Number',
-				}
-			},
-
 
 			Gallery: {
 				name: 'Gallery',
@@ -293,7 +197,7 @@ export const locale = {
 		},
 
 		BASIC: {
-			APP_NAME: 'BeIN Health',
+			APP_NAME: 'Boats Ride',
 			ADMIN_PANEL: 'Admin Panel',
 		},
 

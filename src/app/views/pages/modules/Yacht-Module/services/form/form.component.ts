@@ -1,6 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {FormGroup} from '@angular/forms';
-import {SpecialitiesModel} from '../../../../../../core/models/Settings/specialities.model';
 
 @Component({
 	selector: 'kt-form',
@@ -10,7 +9,6 @@ import {SpecialitiesModel} from '../../../../../../core/models/Settings/speciali
 export class FormComponent implements OnInit {
 
 	@Input() form: FormGroup;
-	@Input() specialities:SpecialitiesModel[];
 
 	constructor() {
 	}

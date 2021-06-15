@@ -26,21 +26,16 @@ export class UsersMenuConfig {
 		]
 	};
 
-	public DOCTORS = {
-		icon: SectionIconsName.doctors(),
-		title: 'MENUS.USERS.MENU.DOCTORS',
-		translate: 'MENUS.USERS.MENU.DOCTORS',
-		page: RoutesName.doctors()
-	};
 
 
 
-	public PATIENTS = {
-		icon: SectionIconsName.patients(),
-		title:'MENUS.USERS.MENU.PATIENTS',
-		translate: 'MENUS.USERS.MENU.PATIENTS',
-		page: RoutesName.patients()
-	};
+
+	// public PATIENTS = {
+	// 	icon: SectionIconsName.patients(),
+	// 	title:'MENUS.USERS.MENU.PATIENTS',
+	// 	translate: 'MENUS.USERS.MENU.PATIENTS',
+	// 	page: RoutesName.patients()
+	// };
 
 
 
@@ -52,8 +47,7 @@ export class UsersMenuConfig {
 
 	public checkRoutePermissions(){
 
-		this.attachMenuItem([],this.DOCTORS);
-		this.attachMenuItem([],this.PATIENTS);
+		// this.attachMenuItem([],this.PATIENTS);
 
 
 		this.attachMenu();

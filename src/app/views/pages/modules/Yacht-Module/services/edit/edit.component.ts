@@ -6,12 +6,8 @@ import {InitializeComponentInterface} from '../../../../../shared/Base-Interface
 import {FormErrorService} from '../../../../../../core/services/FormError.service';
 import {AuthNoticeService} from '../../../../../../core/services/auth-notice.service';
 import {HelperService} from '../../../../../../core/services/helper.service';
-import {ServicesService} from '../../../../../../core/services/Setting/services.service';
-import {ServicesModel} from '../../../../../../core/models/Settings/services.model';
-import {SpecialitiesService} from '../../../../../../core/services/Setting/specialities.service';
-import {SpecialitiesModel} from '../../../../../../core/models/Settings/specialities.model';
-import {PaginateParams} from '../../../../../../core/models/paginateParams.interface';
-import {GlobalConfig} from '../../../../../../core/Global/global.config';
+import {ServicesService} from '../../../../../../core/services/Yacht-Module/services.service';
+import {ServicesModel} from '../../../../../../core/models/Yacht-Module/services.model';
 
 @Component({
 	selector: 'kt-edit',
@@ -33,7 +29,6 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 
 	id = null;
 	is_result: boolean;
-	specialities: SpecialitiesModel[] = [];
 
 	selected_images: [] = [];
 	current_images: [] = [];
@@ -41,7 +36,6 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 
 	constructor(private formBuilder: FormBuilder,
 				private service: ServicesService,
-				private specialitiesService: SpecialitiesService,
 				private formErrorService: FormErrorService,
 				private route: ActivatedRoute,
 				private router: Router,
@@ -82,7 +76,7 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 				(data) => {
 					this.model = data;
 					this.current_images = this.model.images;
-					this.getSpecialities();
+					this.initializeForm();
 				}, error => {
 					this.authNoticeService.setNotice(this.translateService.instant('COMMON.Item_not_found',
 						{name: this.content_name}),
@@ -108,7 +102,6 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 			description_en: [this.model.description_languages?.en, Validators.required],
 			description_ar: [this.model.description_languages?.ar, Validators.required],
 
-			speciality_id: [this.model.speciality_id, Validators.required],
 			is_active: [this.model.is_active + '', Validators.required],
 		});
 
@@ -117,28 +110,6 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 
 	}
 
-
-	private getSpecialities() {
-		let headerParams : PaginateParams = {
-			active : 1,
-			per_page: GlobalConfig.pagination_per_page ,
-			search_key: null ,
-			sort_key: null ,
-			sort_order: null ,
-			next_page_index: 0,
-		};
-
-		this.specialitiesService.list(headerParams, 0).subscribe(
-			(resp) => {
-				this.specialities = resp;
-				this.initializeForm();
-				this.is_result = true;
-				this.isLoadingResults = false;
-				this.cdr.markForCheck();
-			} , error => {
-				this.isLoadingResults = false;
-			});
-	}
 
 	/**
 	 * Checking control validation
@@ -166,7 +137,6 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 		this.model.description_languages.ar = controls['description_ar'].value;
 
 		this.model.is_active = controls['is_active'].value;
-		this.model.speciality_id = controls['speciality_id'].value;
 
 		this.model.images = this.selected_images;
 

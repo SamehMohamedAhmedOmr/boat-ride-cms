@@ -8,8 +8,6 @@ import {AuthNoticeService} from '../../../../../../core/services/auth-notice.ser
 import {HelperService} from '../../../../../../core/services/helper.service';
 import {BannersService} from '../../../../../../core/services/Marketing-Module/banners.service';
 import {BannersModel} from '../../../../../../core/models/Marketing-Module/banners.model';
-import {BannersTypesModel} from '../../../../../../core/models/Marketing-Module/banners..types.model';
-import {BannersManager} from '../../../../../../core/managers/Marketing-Module/banners.manager';
 
 @Component({
 	selector: 'kt-edit',
@@ -31,14 +29,12 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 
 	id = null;
 	is_result: boolean;
-	banners_types: BannersTypesModel[] = [];
 
 	selected_images: [] = [];
 	current_images: [] = [];
 
 	constructor(private formBuilder: FormBuilder,
 				private service: BannersService,
-				private bannersManager: BannersManager,
 				private formErrorService: FormErrorService,
 				private route: ActivatedRoute,
 				private router: Router,
@@ -66,30 +62,8 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 	initialiseComponent() {
 		this.isLoadingResults = false;
 		this.is_result = false;
-		this.getDependencies();
+		this.get();
 	}
-
-	private getDependencies() {
-		this.isLoadingResults = true;
-		this.bannersManager.getBannersTypeObservable().subscribe(model => {
-			if (model){
-				this.banners_types = model;
-			}
-		});
-
-
-		this.bannersManager.getAllLoadingObservable().subscribe(model => {
-			if (model){
-				this.isLoadingResults = !model;
-				this.cdr.markForCheck();
-				if (!this.is_result){
-					this.get();
-				}
-			}
-		});
-
-	}
-
 
 	private get() {
 		this.isLoadingResults = true;

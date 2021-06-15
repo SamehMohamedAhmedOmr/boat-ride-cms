@@ -12,7 +12,7 @@ import {HelperService} from '../../../../../../core/services/helper.service';
 import {RoutesName} from '../../../../../../core/Global/routes.name';
 import {SectionIconsName} from '../../../../../../core/Global/section.icons.name';
 import {MatTableDataSource} from '@angular/material';
-import {ServicesService} from '../../../../../../core/services/Setting/services.service';
+import {ServicesService} from '../../../../../../core/services/Yacht-Module/services.service';
 
 @Component({
 	selector: 'kt-index',

@@ -45,14 +45,11 @@ export const locale = {
 				TITLE: 'المستخدمين',
 				MENU: {
 					ADMINS: 'مديرين الموقع',
-					DOCTORS: 'الأطباء',
-					PATIENTS: 'المرضى',
 				},
 			},
 			SETTINGS: {
 				TITLE: 'الاعدادات',
 				MENU: {
-					DISTRICTS: 'المناطق',
 					ROLES: 'الادوار',
 				}
 			},
@@ -60,17 +57,19 @@ export const locale = {
 				TITLE: 'التسويق',
 				MENU: {
 					BANNERS: 'اللافتات',
-					COLLECTIONS: 'المجموعات',
 				}
 			},
-			DOCTORS_SETTINGS: {
-				TITLE: 'الأطباء',
+			YACHT_SETTINGS: {
+				TITLE: 'اعدادات اليخوت',
 				MENU: {
-					PACKAGES: 'الحزم',
 					SERVICES: 'الخدمات',
-					SPECIALITIES: 'التخصصات',
-					APPOINTMENTS: 'الحجوزات',
-					OPERATIONS: 'العمليات',
+					YACHT: 'اليخوت',
+				}
+			},
+			WATER_SPORT_SETTINGS: {
+				TITLE: 'اعدادات العاب المياه',
+				MENU: {
+					WATER_SPORT: 'ألعاب المياه',
 				}
 			},
 		},
@@ -139,52 +138,7 @@ export const locale = {
 			Accept : "قبول" ,
 			Reject : "رفض",
 			Pending : "معلق",
-			PACKAGES: {
-				name: 'الحزم',
-				single: 'الحزمة',
-				columns: {
-					price: 'السعر',
-					description_ar: 'الوصف باللغة العربية',
-					description_en: 'الوصف باللغة الانجليزية',
-					duration: 'المدة باليوم',
-				}
-			},
 
-			APPOINTMENTS: {
-				name: 'الحجوزات',
-				single: 'الحجز',
-				columns: {
-					date: 'التاريخ',
-					time: 'الميعاد',
-					patient: 'المريض',
-					doctor: 'الطبيب',
-					payment_method: 'طريقة الدفع',
-					service: 'الخدمة',
-				}
-			},
-
-			OPERATIONS: {
-				name: 'العمليات',
-				single: 'العملية',
-				columns: {
-					creation_date: 'وقت الانشاء',
-					national_id: 'الرقم القومي',
-					number_of_months: 'عدد الشهور',
-					operation_cost: 'تكلفة العملية',
-					wallet_cost: 'تكلفة المحفظة',
-					doctor_status: 'حالة الدكتور',
-					patient: 'المريض',
-					doctor: 'الطبيب',
-
-					calculation:{
-						actual_finance_portion_with_mu_qr: 'جزء التمويل الفعلي',
-						down_payment: 'الدفعة الأولى',
-						souhoola_admin_fees: 'الرسوم الإدارية لـ souhoola',
-						total_transaction_amount: 'إجمالي مبلغ الصفقة',
-						monthly_installment : 'القسط الشهري',
-					},
-				}
-			},
 
 			SERVICES: {
 				name: 'الخدمات',
@@ -193,20 +147,6 @@ export const locale = {
 				}
 			},
 
-			SPECIALITIES: {
-				name: 'التخصصات',
-				single: 'التخصص',
-				columns: {
-				}
-			},
-
-			DISTRICTS: {
-				name: 'المناطق',
-				single: 'المنطقة',
-				columns: {
-					parent: 'الحي',
-				}
-			},
 
 			BANNERS: {
 				name: 'اللافتات',
@@ -218,13 +158,6 @@ export const locale = {
 				}
 			},
 
-			COLLECTIONS: {
-				name: 'المجموعات',
-				single: 'المجموعة',
-				columns: {
-					type: 'النوع',
-				}
-			},
 
 			ROLES: {
 				name: 'الأدوار',
@@ -242,33 +175,6 @@ export const locale = {
 				columns: {
 				}
 			},
-
-			PATIENTS: {
-				name: 'المرضى',
-				single: 'المريض',
-				columns: {
-				}
-			},
-
-			DOCTORS: {
-				name: 'الأطباء',
-				single: 'الطبيب',
-				columns: {
-					date_of_birth: 'تاريخ الميلاد',
-					title: 'اللقب',
-					package_expiration_date: 'تاريخ انتهاء الحزمة',
-					locations: 'المواقع',
-					bio: 'السيرة الذاتية',
-					location : 'الموقع',
-					district: 'المنطقة',
-					no_locations: 'لا يوجد مناطق متوفرة',
-					certificate:'الشهادة',
-					card_image: 'صورة الكارنية',
-					bank_name: 'اسم البنك',
-					bank_account_number: 'رقم حساب البنك',
-				}
-			},
-
 
 
 			Gallery: {
@@ -295,7 +201,7 @@ export const locale = {
 		},
 
 		BASIC: {
-			APP_NAME: 'BeIN Health',
+			APP_NAME: 'Boats Ride',
 			ADMIN_PANEL: 'لوحة التحكم',
 		},
 

@@ -4,8 +4,8 @@ import {InitializeComponentInterface} from '../../shared/Base-Interface/Initiali
 import {Router} from '@angular/router';
 import {HelperService} from '../../../core/services/helper.service';
 import {DashboardModel} from '../../../core/models/Settings/dashboard.model';
-import {DashboardService} from '../../../core/services/Marketing-Module/dashboard.service';
-import { RoutesName } from '../../../core/Global/routes.name';
+import {RoutesName} from '../../../core/Global/routes.name';
+import {DashboardService} from '../../../core/services/Setting/dashboard.service';
 
 
 @Component({
@@ -44,9 +44,9 @@ export class DashboardComponent implements OnInit, OnDestroy, InitializeComponen
 	orders_prices: any[] = [];
 
 
-	Dashbard:DashboardModel;
+	Dashbard: DashboardModel;
 
-	base_url:string;
+	base_url: string;
 
 	constructor(private translate: TranslateService,
 				private router: Router,
@@ -55,8 +55,6 @@ export class DashboardComponent implements OnInit, OnDestroy, InitializeComponen
 				private cdr: ChangeDetectorRef) {
 		this.navigationSubscription = this.helper.routingSubscribe(this);
 	}
-
-
 
 
 	// onInit get Data from api
@@ -97,25 +95,4 @@ export class DashboardComponent implements OnInit, OnDestroy, InitializeComponen
 	}
 
 
-     doctorURL() {
-	   return this.base_url + RoutesName.doctors();
-     }
-	 patientsURL() {
-		return this.base_url + RoutesName.patients();
-	  }
-	  packagesURL() {
-		return this.base_url + RoutesName.packages();
-	  }
-	  specialitiesURL() {
-		return this.base_url + RoutesName.specialities();
-	  }
-	  servicesURL() {
-		return this.base_url + RoutesName.services();
-	  }
-	  appointmentsURL() {
-		return this.base_url + RoutesName.appointments();
-	  }
-	  operationsURL() {
-		return this.base_url + RoutesName.operations();
-	  }
 }

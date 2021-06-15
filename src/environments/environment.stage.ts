@@ -1,7 +1,7 @@
 export const environment = {
 	production: false,
 	apisVersion: "v1" ,
-	baseUrl: 'http://163.172.8.204:8017',
+	baseUrl: 'http://boats-ride-backend.sameh.store',
 	debug: window["env"]["debug"] || false,
 
 	url : function url (version: string = null) {

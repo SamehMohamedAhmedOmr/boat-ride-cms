@@ -35,39 +35,6 @@ const routes: Routes = [
 				loadChildren: () => import('./views/pages/modules/users/admins/admins.module')
 					.then(m => m.AdminsModule)
 			},
-			// doctors
-			{
-				path: RoutesName.doctors(), // <= Page URL ,
-				// canActivate: [PermissionsGuard],
-				// data: {
-				// 	permissions: permissionCatalogueConfig.product_permissions,
-				// },
-				loadChildren: () => import('./views/pages/modules/users/doctors/doctors.module')
-					.then(m => m.DoctorsModule)
-			},
-			// patient
-			{
-				path: RoutesName.patients(), // <= Page URL ,
-				// canActivate: [PermissionsGuard],
-				// data: {
-				// 	permissions: permissionCatalogueConfig.product_permissions,
-				// },
-				loadChildren: () => import('./views/pages/modules/users/patients/patients.module')
-					.then(m => m.PatientsModule)
-			},
-
-
-			/*  setting-modules */
-			// districts
-			{
-				path: RoutesName.districts(), // <= Page URL ,
-				// canActivate: [PermissionsGuard],
-				// data: {
-				// 	permissions: permissionCatalogueConfig.product_permissions,
-				// },
-				loadChildren: () => import('./views/pages/modules/settings/district/district.module')
-					.then(m => m.DistrictModule)
-			},
 			// roles
 			{
 				path: RoutesName.roles(), // <= Page URL ,
@@ -91,29 +58,6 @@ const routes: Routes = [
 				loadChildren: () => import('./views/pages/modules/marketing/banners/banners.module')
 					.then(m => m.BannersModule)
 			},
-			// collection
-			{
-				path: RoutesName.collections(), // <= Page URL ,
-				// canActivate: [PermissionsGuard],
-				// data: {
-				// 	permissions: permissionCatalogueConfig.product_permissions,
-				// },
-				loadChildren: () => import('./views/pages/modules/marketing/collections/collections.module')
-					.then(m => m.CollectionsModule)
-			},
-
-
-			/*  doctor-setting-modules */
-			// packages
-			{
-				path: RoutesName.packages(), // <= Page URL ,
-				// canActivate: [PermissionsGuard],
-				// data: {
-				// 	permissions: permissionCatalogueConfig.product_permissions,
-				// },
-				loadChildren: () => import('./views/pages/modules/doctor-settings/packages/packages.module')
-					.then(m => m.PackagesModule)
-			},
 			// services
 			{
 				path: RoutesName.services(), // <= Page URL ,
@@ -121,40 +65,8 @@ const routes: Routes = [
 				// data: {
 				// 	permissions: permissionCatalogueConfig.product_permissions,
 				// },
-				loadChildren: () => import('./views/pages/modules/doctor-settings/services/services.module')
+				loadChildren: () => import('./views/pages/modules/Yacht-Module/services/services.module')
 					.then(m => m.ServicesModule)
-			},
-			// specialities
-			{
-				path: RoutesName.specialities(), // <= Page URL ,
-				// canActivate: [PermissionsGuard],
-				// data: {
-				// 	permissions: permissionCatalogueConfig.product_permissions,
-				// },
-				loadChildren: () => import('./views/pages/modules/doctor-settings/specialities/specialities.module')
-					.then(m => m.SpecialitiesModule)
-			},
-
-			// appointments
-			{
-				path: RoutesName.appointments(), // <= Page URL ,
-				// canActivate: [PermissionsGuard],
-				// data: {
-				// 	permissions: permissionCatalogueConfig.product_permissions,
-				// },
-				loadChildren: () => import('./views/pages/modules/doctor-settings/appointment/appointment.module')
-					.then(m => m.AppointmentModule)
-			},
-
-			// operations
-			{
-				path: RoutesName.operations(), // <= Page URL ,
-				// canActivate: [PermissionsGuard],
-				// data: {
-				// 	permissions: permissionCatalogueConfig.product_permissions,
-				// },
-				loadChildren: () => import('./views/pages/modules/doctor-settings/operations/operations.module')
-					.then(m => m.OperationsModule)
 			},
 
 		]
