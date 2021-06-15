@@ -120,10 +120,10 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 			description_ar: [this.model.description?.ar, Validators.required],
 
 			price: [this.model.price, Validators.required],
-			price_model: [this.model.price_model, Validators.required],
+			price_model: [this.model.price_model + '', Validators.required],
 			minimum_hours_booking: [this.model.minimum_hours_booking, Validators.required],
 			max_quantity: [this.model.max_quantity, Validators.required],
-			image: [this.model.image, Validators.required],
+			image: [''],
 
 		});
 
@@ -163,7 +163,7 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 		this.model.max_quantity = controls['max_quantity'].value;
 		this.model.seo.title = this.model.name;
 		this.model.seo.description = this.model.description;
-		//this.model.images = this.selected_images;
+		this.model.image = controls['image'].value;
 
 		// call service to store shipping rule
 		this.isLoadingResults = true;
@@ -197,11 +197,6 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 			this.authNoticeService.setNotice(null);
 		}
 
-	}
-
-
-	handleSelectedImage($event: []) {
-		this.selected_images = $event;
 	}
 
 }

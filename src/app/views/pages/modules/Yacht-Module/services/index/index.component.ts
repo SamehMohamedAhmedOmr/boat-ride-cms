@@ -32,7 +32,7 @@ export class IndexComponent implements OnInit , DoCheck, OnDestroy, IndexInterfa
 
 	//Data table variables
 	dataSource;
-	displayedColumns: string[] = ['id' , 'name' , 'image' , 'price' , 'options'];
+	displayedColumns: string[] = ['id' , 'name' , 'image' , 'price', 'max_quantity' , 'options'];
 	isLoadingResults:boolean = true;
 	// pagination variables
 	resultsLength = 0;
