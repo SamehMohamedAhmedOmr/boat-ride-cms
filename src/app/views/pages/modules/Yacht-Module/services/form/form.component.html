@@ -1,0 +1,63 @@
+<div class="form-div">
+
+	<form class="p-3" [formGroup]="form" autocomplete="off">
+
+
+		<div class="row">
+			<div class="col-md-6">
+				<kt-form-input
+					[form]="form"
+					[label]="'COMMON.name_ar' | translate"
+					[form_control_name]="'name_ar'"
+					[validation_type]="'required'">
+				</kt-form-input>
+			</div>
+			<div class="col-md-6">
+				<kt-form-input
+					[form]="form"
+					[label]="'COMMON.name_en' | translate"
+					[form_control_name]="'name_en'"
+					[validation_type]="'required'">
+				</kt-form-input>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-6">
+				<kt-form-textarea
+					[form]="form"
+					[label]="'COMMON.description_ar' | translate"
+					[form_control_name]="'description_ar'"
+					[validation_type]="'required'">
+				</kt-form-textarea>
+			</div>
+			<div class="col-md-6">
+				<kt-form-textarea
+					[form]="form"
+					[label]="'COMMON.description_en' | translate"
+					[form_control_name]="'description_en'"
+					[validation_type]="'required'">
+				</kt-form-textarea>
+			</div>
+		</div>
+
+		<kt-form-select
+			[form]="form"
+			[label]="'Components.SPECIALITIES.name' | translate"
+			[form_control_name]="'speciality_id'"
+			[list]="specialities"
+			[validation_type]="'required'">
+		</kt-form-select>
+
+		<kt-form-radio-group
+			[form]="form"
+			[label]="'COMMON.activation' | translate"
+			[form_control_name]="'is_active'"
+			[first_choice]="'COMMON.active' | translate"
+			[second_choice]="'COMMON.in_active' | translate"
+			[validation_type]="'required'">
+		</kt-form-radio-group>
+
+	</form>
+
+</div>

@@ -1,0 +1,70 @@
+<kt-portlet-header [title]="'COMMON.Edit_Button' | translate : {name : content_name}"
+				   [icon]="'far fa-edit'"></kt-portlet-header>
+
+<kt-api-loader [isLoadingResults]="isLoadingResults"></kt-api-loader>
+
+<!-- Form-->
+<div class="example-container" *ngIf="!isLoadingResults">
+	<kt-auth-notice></kt-auth-notice>
+	<div>
+		<form class="example-form p-3" [formGroup]="form" autocomplete="off" *ngIf="is_result">
+
+			<kt-form-input
+				[form]="form"
+				[label]="'COMMON.name' | translate"
+				[form_control_name]="'name'"
+				[validation_type]="'required'">
+			</kt-form-input>
+
+			<!-- Permissions -->
+			<div class="col-12 row my-3">
+				<div class="col-3 mt-3">
+					<label class="w-100">
+						{{ 'Components.ROLES.columns.permissions' | translate }}
+					</label>
+				</div>
+				<div class="col-8">
+
+					<div class="text-center mb-5 mt-4">
+						<div class="mb-4">
+							<mat-checkbox
+								[checked]="checkSelectAll()"
+								(change)="selectAll()">
+							<span style="white-space: normal !important;">
+								{{ 'Components.ROLES.columns.select_all' | translate }}
+							</span>
+							</mat-checkbox>
+						</div>
+						<div>
+							{{ 'Components.ROLES.columns.selected_permission' | translate }} = {{ this.SelectedPermissions.length }}
+						</div>
+					</div>
+
+
+					<div class="row w-100">
+						<div *ngFor="let permission of permissions" class="col-md-6 col-12 mb-3">
+							<mat-checkbox [value]="permission.id"
+										  [checked]="checkSelected(permission)"
+										  (change)="pushPermissions(permission)">
+								<span style="white-space: normal !important;">
+									{{ permission.name }}
+								</span>
+							</mat-checkbox>
+						</div>
+					</div>
+
+				</div>
+			</div>
+			<!-- Permissions  -->
+
+
+			<div class="col-12 text-center px-3">
+				<button type="submit" class="btn btn-outline-primary mx-3" (click)="updateForm()">
+					{{ 'COMMON.Edit_Button' | translate : {name : content_name} }}
+				</button>
+			</div>
+
+		</form>
+	</div>
+</div>
+

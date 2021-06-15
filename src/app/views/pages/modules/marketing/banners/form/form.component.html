@@ -1,0 +1,63 @@
+<div class="form-div">
+
+	<form class="p-3" [formGroup]="form" autocomplete="off">
+
+
+		<div class="row">
+			<div class="col-md-6">
+				<kt-form-input
+					[form]="form"
+					[label]="'COMMON.name_ar' | translate"
+					[form_control_name]="'name_ar'"
+					[validation_type]="'required'">
+				</kt-form-input>
+			</div>
+			<div class="col-md-6">
+				<kt-form-input
+					[form]="form"
+					[label]="'COMMON.name_en' | translate"
+					[form_control_name]="'name_en'"
+					[validation_type]="'required'">
+				</kt-form-input>
+			</div>
+		</div>
+
+
+		<div class="row" aria-label="link and type">
+			<div class="col-md-6">
+				<kt-form-textarea
+					[form]="form"
+					[label]="'Components.BANNERS.columns.link' | translate"
+					[form_control_name]="'link'"
+					[validation_type]="'required'">
+				</kt-form-textarea>
+			</div>
+
+			<div class="col-md-6">
+				<kt-form-select
+					[form]="form"
+					[label]="'Components.BANNERS.columns.type' | translate"
+					[form_control_name]="'type_id'"
+					[validation_type]="'required'"
+					[list]="banners_types">
+				</kt-form-select>
+			</div>
+		</div>
+
+		<div class="row">
+
+
+		</div>
+
+		<kt-form-radio-group
+			[form]="form"
+			[label]="'COMMON.activation' | translate"
+			[form_control_name]="'is_active'"
+			[first_choice]="'COMMON.active' | translate"
+			[second_choice]="'COMMON.in_active' | translate"
+			[validation_type]="'required'">
+		</kt-form-radio-group>
+
+	</form>
+
+</div>
