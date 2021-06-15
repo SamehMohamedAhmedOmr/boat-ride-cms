@@ -92,7 +92,7 @@ export class LayoutConfig {
 		},
 		'brand': {
 			'self': {
-				'skin': 'dark',
+				'skin': 'light',
 			},
 		},
 		'aside': {
