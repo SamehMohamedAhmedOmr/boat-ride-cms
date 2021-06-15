@@ -15,13 +15,17 @@ export class ServicesSerializer extends BaseSerializer implements Serializer {
 	toJson(model: ServicesModel): any {
 		let object = {
 			'id' : model.id,
-			'name' : model.languages,
-			'description' : model.description_languages,
-			'is_active' : model.is_active,
+			'name' : model.name,
+			'description' : model.description,
+			'price' : model.price,
+			'price_model' : model.price_model,
+			'minimum_hours_booking' : model.minimum_hours_booking,
+			'max_quantity' : model.max_quantity,
+
 		};
 
-		if (model.images){
-			object['images'] = model.images;
+		if (model.image){
+			object['image'] = model.image;
 		}
 
 		return object;
@@ -35,13 +39,16 @@ export class ServicesSerializer extends BaseSerializer implements Serializer {
 		let model =  new ServicesModel(item.id);
 
 		model.name = item.name;
-		model.languages = item.name?.en ? item.name : null;
 
 		model.description = item.description;
-		model.description_languages = item.description?.en ? item.description : null;
 
-		model.is_active = item.is_active;
-		model.images = item.images;
+		model.price = item.price;
+		model.price_model = item.price_model;
+		model.minimum_hours_booking = item.minimum_hours_booking;
+		model.max_quantity = item.max_quantity;
+		model.seo = item.seo;
+
+		model.image = item.image;
 		return model;
 	}
 

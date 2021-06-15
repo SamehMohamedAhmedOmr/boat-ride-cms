@@ -13,11 +13,7 @@
 	<div [hidden]="isLoadingResults" class="my-4">
 
 		<div *ngIf="is_result">
-			<kt-form [form]="form"></kt-form>
-
-			<mat-divider class="my-5"></mat-divider>
-
-			<kt-images (image_event)="handleSelectedImage($event)"></kt-images>
+			<kt-form [form]="form" [price_model]="enums"></kt-form>
 
 			<div class="col-12 text-center px-3">
 				<button type="submit" class="btn btn-success mx-3" (click)="submitForm()">

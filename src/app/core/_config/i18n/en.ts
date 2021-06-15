@@ -139,10 +139,16 @@ export const locale = {
 			Reject : "Reject",
 			Pending : "Pending",
 
+			price: 'Price',
+			image: 'Image',
+
 			SERVICES: {
 				name: 'Services',
 				single: 'Service',
 				columns: {
+					price_model: 'Price Model',
+					minimum_hours_booking: 'Minimum hours booking',
+					max_quantity: 'Max Quantity',
 				}
 			},
 

@@ -139,11 +139,16 @@ export const locale = {
 			Reject : "رفض",
 			Pending : "معلق",
 
+			price: 'السعر',
+			image: 'الصورة',
 
 			SERVICES: {
 				name: 'الخدمات',
 				single: 'الخدمة',
 				columns: {
+					price_model: 'نموذج السعر',
+					minimum_hours_booking: 'الحد الأدنى من ساعات الحجز',
+					max_quantity: 'الكمية القصوى',
 				}
 			},
 

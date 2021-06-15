@@ -8,6 +8,7 @@ import {AuthNoticeService} from '../../../../../../core/services/auth-notice.ser
 import {HelperService} from '../../../../../../core/services/helper.service';
 import {ServicesService} from '../../../../../../core/services/Yacht-Module/services.service';
 import {ServicesModel} from '../../../../../../core/models/Yacht-Module/services.model';
+import {ServicesEnumsModel} from '../../../../../../core/models/Yacht-Module/services.enums.model';
 
 @Component({
 	selector: 'kt-add',
@@ -27,6 +28,8 @@ export class AddComponent implements OnInit, DoCheck, OnDestroy, InitializeCompo
 	is_result:boolean;
 
 	selected_images: [] = [];
+
+	enums: ServicesEnumsModel;
 
 	constructor(private fb: FormBuilder,
 				private service: ServicesService,
@@ -57,9 +60,22 @@ export class AddComponent implements OnInit, DoCheck, OnDestroy, InitializeCompo
 	}
 
 	initialiseComponent() {
-		this.initForm();
+		this.getEnums();
 	}
 
+	private getEnums() {
+
+		this.service.listEnums().subscribe(
+			(resp) => {
+				this.enums = resp;
+				this.initForm();
+				this.is_result = true;
+				this.isLoadingResults = false;
+				this.cdr.markForCheck();
+			} , error => {
+				this.isLoadingResults = false;
+			});
+	}
 	/**
 	 * Initiate the form
 	 *
@@ -72,7 +88,11 @@ export class AddComponent implements OnInit, DoCheck, OnDestroy, InitializeCompo
 			description_en: ['', Validators.required] ,
 			description_ar: ['', Validators.required] ,
 
-			is_active: 	['1', Validators.required],
+			price: ['', Validators.required] ,
+			price_model: ['', Validators.required] ,
+			minimum_hours_booking: ['', Validators.required] ,
+			max_quantity: ['', Validators.required] ,
+			image: ['', Validators.required] ,
 		});
 	}
 
@@ -90,15 +110,21 @@ export class AddComponent implements OnInit, DoCheck, OnDestroy, InitializeCompo
 		}
 
 		const model = new ServicesModel(null);
-		model.is_active = controls['is_active'].value;
 
-		model.languages.en = controls['name_en'].value;
-		model.languages.ar = controls['name_ar'].value;
+		model.name.en = controls['name_en'].value;
+		model.name.ar = controls['name_ar'].value;
 
-		model.description_languages.en = controls['description_en'].value;
-		model.description_languages.ar = controls['description_ar'].value;
+		model.description.en = controls['description_en'].value;
+		model.description.ar = controls['description_ar'].value;
 
-		model.images = this.selected_images;
+		model.price = controls['price'].value;
+		model.price_model = controls['price_model'].value;
+		model.minimum_hours_booking = controls['minimum_hours_booking'].value;
+		model.max_quantity = controls['max_quantity'].value;
+		model.seo.title = model.name;
+		model.seo.description = model.description;
+
+		model.image = controls['image'].value;
 
 		// call service to store Banner
 		this.isLoadingResults = true;

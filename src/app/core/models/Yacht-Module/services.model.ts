@@ -1,14 +1,17 @@
 import {ModelBase} from '../Base/base.model';
 import {MultiLanguageModel} from '../Base/multi.language.model';
+import {SeoModel} from '../SEO-Module/seo.model';
 
 export class ServicesModel extends ModelBase {
 
-	public name:string;
-	public description:string;
-	public languages: MultiLanguageModel;
-	public description_languages: MultiLanguageModel;
-	public is_active: boolean;
-	public images:[];
+	public name:MultiLanguageModel;
+	public description:MultiLanguageModel;
+	public price:number;
+	public price_model:number;
+	public minimum_hours_booking:number;
+	public max_quantity:number;
+	public image:string;
+	public seo:SeoModel;
 
 	constructor(id: number){
 		super(id);
@@ -20,12 +23,17 @@ export class ServicesModel extends ModelBase {
 			'id': this.id,
 			'name' : this.name,
 			'description' : this.description,
-			'is_active': this.is_active,
+			'price' : this.price,
+			'price_model' : this.price_model,
+			'minimum_hours_booking' : this.minimum_hours_booking,
+			'max_quantity' : this.max_quantity,
+			'image' : this.image,
 		};
 	}
 
 	public createObjects(){
-		this.languages = new MultiLanguageModel();
-		this.description_languages = new MultiLanguageModel();
+		this.name = new MultiLanguageModel();
+		this.description = new MultiLanguageModel();
+		this.seo = new SeoModel(null);
 	}
 }
