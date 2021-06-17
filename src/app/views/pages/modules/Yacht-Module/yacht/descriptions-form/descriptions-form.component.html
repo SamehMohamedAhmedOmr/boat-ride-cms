@@ -1,0 +1,58 @@
+<div [formGroup]="form">
+<div class="row" aria-label="facilities">
+		<div class="col-md-6">
+			<kt-form-textarea
+				[form]="form"
+				[label]="'Components.YACHTS.columns.basic_information.facilities_en' | translate"
+				[form_control_name]="'facilities_en'"
+				[validation_type]="'required'">
+			</kt-form-textarea>
+		</div>
+		<div class="col-md-6">
+			<kt-form-textarea
+				[form]="form"
+				[label]="'Components.YACHTS.columns.basic_information.facilities_ar' | translate"
+				[form_control_name]="'facilities_ar'"
+				[validation_type]="'required'">
+			</kt-form-textarea>
+		</div>
+	</div>
+
+	<div class="row" aria-label="what_is_included">
+		<div class="col-md-6">
+			<kt-form-textarea
+				[form]="form"
+				[label]="'Components.YACHTS.columns.basic_information.what_is_included_en' | translate"
+				[form_control_name]="'what_is_included_en'"
+				[validation_type]="'required'">
+			</kt-form-textarea>
+		</div>
+		<div class="col-md-6">
+			<kt-form-textarea
+				[form]="form"
+				[label]="'Components.YACHTS.columns.basic_information.what_is_included_ar' | translate"
+				[form_control_name]="'what_is_included_ar'"
+				[validation_type]="'required'">
+			</kt-form-textarea>
+		</div>
+	</div>
+
+	<div class="row" aria-label="what_expect_description">
+		<div class="col-md-6">
+			<kt-form-textarea
+				[form]="form"
+				[label]="'Components.YACHTS.columns.basic_information.what_expect_description_en' | translate"
+				[form_control_name]="'what_expect_description_en'"
+				[validation_type]="'required'">
+			</kt-form-textarea>
+		</div>
+		<div class="col-md-6">
+			<kt-form-textarea
+				[form]="form"
+				[label]="'Components.YACHTS.columns.basic_information.what_expect_description_ar' | translate"
+				[form_control_name]="'what_expect_description_ar'"
+				[validation_type]="'required'">
+			</kt-form-textarea>
+		</div>
+	</div>
+</div>

@@ -141,7 +141,8 @@ export const locale = {
 			image: 'الصورة',
 			apply_vat: 'تطبيق ضريبة القيمة المضافة',
 			images: 'الصور',
-
+			yes: 'نعم',
+			no: 'لا',
 
 			SERVICES: {
 				name: 'الخدمات',
@@ -182,6 +183,10 @@ export const locale = {
 			YACHTS: {
 				name: 'اليخوت',
 				single: 'يخت',
+				basic_information: 'المعلومات الاساسية',
+				technical_information: 'المعلومات الفنية',
+				descriptions: 'الأوصاف',
+				key_features: 'السمات الرئيسية',
 				columns: {
 					/* Basic Information*/
 					basic_information: {

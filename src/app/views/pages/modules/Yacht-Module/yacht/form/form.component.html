@@ -2,109 +2,110 @@
 
 	<form class="p-3" [formGroup]="form" autocomplete="off">
 
+		<mat-vertical-stepper #stepper>
+			<mat-step [stepControl]="form">
+				<form [formGroup]="form">
+					<ng-template matStepLabel>
+						{{ 'Components.YACHTS.basic_information' | translate }}
+					</ng-template>
 
-		<div class="row">
-			<div class="col-md-6">
-				<kt-form-input
-					[form]="form"
-					[label]="'COMMON.name_ar' | translate"
-					[form_control_name]="'name_ar'"
-					[validation_type]="'required'">
-				</kt-form-input>
-			</div>
-			<div class="col-md-6">
-				<kt-form-input
-					[form]="form"
-					[label]="'COMMON.name_en' | translate"
-					[form_control_name]="'name_en'"
-					[validation_type]="'required'">
-				</kt-form-input>
-			</div>
-		</div>
+					<kt-basic-information-form [form]="form" [enumsModel]="enumsModel"></kt-basic-information-form>
+				</form>
+			</mat-step>
+			<mat-step [stepControl]="form">
+				<form [formGroup]="form">
+					<ng-template matStepLabel>
+						{{ 'Components.YACHTS.technical_information' | translate }}
+					</ng-template>
 
-		<div class="row">
-			<div class="col-md-6">
-				<kt-form-textarea
-					[form]="form"
-					[label]="'COMMON.description_ar' | translate"
-					[form_control_name]="'description_ar'"
-					[validation_type]="'required'">
-				</kt-form-textarea>
-			</div>
-			<div class="col-md-6">
-				<kt-form-textarea
-					[form]="form"
-					[label]="'COMMON.description_en' | translate"
-					[form_control_name]="'description_en'"
-					[validation_type]="'required'">
-				</kt-form-textarea>
-			</div>
-		</div>
+					<kt-technical-form [form]="form" [enumsModel]="enumsModel"></kt-technical-form>
+				</form>
+			</mat-step>
 
-		<div class="row">
-			<div class="col-md-6">
-				<kt-form-input
-					[form]="form"
-					[label]="'Components.price' | translate"
-					[type]="'number'"
-					[form_control_name]="'price'"
-					[validation_type]="'required'">
-				</kt-form-input>
-			</div>
-			<div class="col-md-6">
-				<div class="my-3">
-					<div aria-label="select-box">
-						<mat-form-field appearance="fill" class="w-100">
-							<mat-label> {{ 'Components.SERVICES.columns.price_model' | translate }}</mat-label>
-							<mat-select formControlName="price_model">
-								<mat-option *ngFor="let item of price_model.price_models" [value]="item.value">
-									{{ item.key.replace('_', ' ') | titlecase }}
-								</mat-option>
-							</mat-select>
-						</mat-form-field>
-					</div>
-					<kt-form-error [form]="form"
-								   [controlName]="'price_model'"
-								   [validationType]="'required'"
-								   [controlText]="'Components.SERVICES.columns.price_model' | translate "
-					></kt-form-error>
-				</div>
-			</div>
-		</div>
+			<mat-step [stepControl]="form">
+				<form [formGroup]="form">
+					<ng-template matStepLabel>
+						{{ 'Components.YACHTS.key_features' | translate }}
+					</ng-template>
 
-		<div class="row">
-			<div class="col-md-6">
-				<kt-form-input
-					[form]="form"
-					[label]="'Components.SERVICES.columns.minimum_hours_booking' | translate"
-					[type]="'number'"
-					[form_control_name]="'minimum_hours_booking'"
-					[validation_type]="'required'">
-				</kt-form-input>
-			</div>
-			<div class="col-md-6">
-				<kt-form-input
-					[form]="form"
-					[label]="'Components.SERVICES.columns.max_quantity' | translate"
-					[type]="'number'"
-					[form_control_name]="'max_quantity'"
-					[validation_type]="'required'">
-				</kt-form-input>
-			</div>
-		</div>
+				</form>
+			</mat-step>
 
-		<div class="row">
-			<div class="col-md-6">
-				<kt-form-upload-image
-					[form]="form"
-					[to_base64]="true"
-					[validation_type]="'required'"
-					[imgURL]="imgURL"
-					[label]="'Components.image' | translate"
-					[form_control_name]="'image'">
-				</kt-form-upload-image>
-			</div>
-		</div>
+			<mat-step [stepControl]="form">
+				<form [formGroup]="form">
+					<ng-template matStepLabel>
+						{{ 'Components.YACHTS.descriptions' | translate }}
+					</ng-template>
+
+					<kt-descriptions-form [form]="form"></kt-descriptions-form>
+				</form>
+			</mat-step>
+
+			<mat-step [stepControl]="form">
+				<form [formGroup]="form">
+					<ng-template matStepLabel>Fill out your address</ng-template>
+
+				</form>
+			</mat-step>
+		</mat-vertical-stepper>
+
+
+
+<!--		<div class="row">-->
+<!--			<div class="col-md-6">-->
+<!--				<div class="my-3">-->
+<!--					<div aria-label="select-box">-->
+<!--						<mat-form-field appearance="fill" class="w-100">-->
+<!--							<mat-label> {{ 'Components.SERVICES.columns.price_model' | translate }}</mat-label>-->
+<!--							<mat-select formControlName="price_model">-->
+<!--								<mat-option *ngFor="let item of price_model.price_models" [value]="item.value">-->
+<!--									{{ item.key.replace('_', ' ') | titlecase }}-->
+<!--								</mat-option>-->
+<!--							</mat-select>-->
+<!--						</mat-form-field>-->
+<!--					</div>-->
+<!--					<kt-form-error [form]="form"-->
+<!--								   [controlName]="'price_model'"-->
+<!--								   [validationType]="'required'"-->
+<!--								   [controlText]="'Components.SERVICES.columns.price_model' | translate "-->
+<!--					></kt-form-error>-->
+<!--				</div>-->
+<!--			</div>-->
+<!--		</div>-->
+
+<!--		<div class="row">-->
+<!--			<div class="col-md-6">-->
+<!--				<kt-form-input-->
+<!--					[form]="form"-->
+<!--					[label]="'Components.SERVICES.columns.minimum_hours_booking' | translate"-->
+<!--					[type]="'number'"-->
+<!--					[form_control_name]="'minimum_hours_booking'"-->
+<!--					[validation_type]="'required'">-->
+<!--				</kt-form-input>-->
+<!--			</div>-->
+<!--			<div class="col-md-6">-->
+<!--				<kt-form-input-->
+<!--					[form]="form"-->
+<!--					[label]="'Components.SERVICES.columns.max_quantity' | translate"-->
+<!--					[type]="'number'"-->
+<!--					[form_control_name]="'max_quantity'"-->
+<!--					[validation_type]="'required'">-->
+<!--				</kt-form-input>-->
+<!--			</div>-->
+<!--		</div>-->
+
+<!--		<div class="row">-->
+<!--			<div class="col-md-6">-->
+<!--				<kt-form-upload-image-->
+<!--					[form]="form"-->
+<!--					[to_base64]="true"-->
+<!--					[validation_type]="'required'"-->
+<!--					[imgURL]="imgURL"-->
+<!--					[label]="'Components.image' | translate"-->
+<!--					[form_control_name]="'image'">-->
+<!--				</kt-form-upload-image>-->
+<!--			</div>-->
+<!--		</div>-->
 
 	</form>
 

@@ -3,15 +3,14 @@ import {FormGroup} from '@angular/forms';
 import {YachtsEnumsModel} from '../../../../../../core/models/Yacht-Module/yachts.enums.model';
 
 @Component({
-	selector: 'kt-form',
-	templateUrl: './form.component.html',
-	styleUrls: ['./form.component.scss']
+	selector: 'kt-basic-information-form',
+	templateUrl: './basic-information-form.component.html',
+	styleUrls: ['./basic-information-form.component.scss']
 })
-export class FormComponent implements OnInit {
+export class BasicInformationFormComponent implements OnInit {
 
 	@Input() form: FormGroup;
 	@Input() enumsModel: YachtsEnumsModel;
-	@Input() imgURL: string;
 
 	constructor() {
 	}

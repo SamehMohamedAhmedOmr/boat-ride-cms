@@ -144,6 +144,8 @@ export const locale = {
 			apply_vat: 'apply vat',
 			images: 'images',
 
+			yes: 'Yes',
+			no: 'No',
 
 			SERVICES: {
 				name: 'Services',
@@ -185,6 +187,10 @@ export const locale = {
 			YACHTS: {
 				name: 'Yachts',
 				single: 'Yacht',
+				basic_information: 'Basic Information',
+				technical_information: 'Technical Information',
+				descriptions: 'Descriptions',
+				key_features: 'Key Features',
 				columns: {
 					/* Basic Information*/
 					basic_information: {

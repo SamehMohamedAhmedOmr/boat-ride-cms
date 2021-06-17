@@ -2,13 +2,13 @@
 	<div class="my-3">
 		<div aria-label="input">
 			<mat-form-field class="w-100">
-				<mat-label>{{label}}</mat-label>
+				<mat-label>{{label | titlecase}}</mat-label>
 				<label class="w-100">
 					<input matInput
 						   [type]="type"
 						   [min]="0.1"
 						   formControlName="{{form_control_name}}"
-						   placeholder="{{label}}">
+						   placeholder="{{label | titlecase}}">
 				</label>
 			</mat-form-field>
 		</div>

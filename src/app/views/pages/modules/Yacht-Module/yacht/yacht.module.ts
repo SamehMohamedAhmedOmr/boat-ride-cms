@@ -6,14 +6,17 @@ import {YachtsRoutingModule} from './yachts-routing.module';
 import {PagesModule} from '../../../pages.module';
 import {TranslateModule} from '@ngx-translate/core';
 import {GalleryModule} from '@ngx-gallery/core';
-import {MatDividerModule} from '@angular/material';
+import {MatDividerModule, MatStepperModule} from '@angular/material';
 import {IndexComponent} from './index/index.component';
 import {AddComponent} from './add/add.component';
 import {EditComponent} from './edit/edit.component';
 import {FormComponent} from './form/form.component';
+import { BasicInformationFormComponent } from './basic-information-form/basic-information-form.component';
+import { DescriptionsFormComponent } from './descriptions-form/descriptions-form.component';
+import { TechnicalFormComponent } from './technical-form/technical-form.component';
 
 @NgModule({
-	declarations: [YachtComponent, IndexComponent, AddComponent, EditComponent, FormComponent,],
+	declarations: [YachtComponent, IndexComponent, AddComponent, EditComponent, FormComponent, BasicInformationFormComponent, DescriptionsFormComponent, TechnicalFormComponent,],
 	imports: [
 		CommonModule,
 		SharedModule,
@@ -22,6 +25,7 @@ import {FormComponent} from './form/form.component';
 		TranslateModule,
 		GalleryModule,
 		MatDividerModule,
+		MatStepperModule,
 	]
 })
 export class YachtModule {

@@ -6,9 +6,9 @@ import {InitializeComponentInterface} from '../../../../../shared/Base-Interface
 import {FormErrorService} from '../../../../../../core/services/FormError.service';
 import {AuthNoticeService} from '../../../../../../core/services/auth-notice.service';
 import {HelperService} from '../../../../../../core/services/helper.service';
-import {ServicesModel} from '../../../../../../core/models/Marketing-Module/services.model';
-import {ServicesEnumsModel} from '../../../../../../core/models/Marketing-Module/services.enums.model';
-import {ServicesService} from '../../../../../../core/services/Marketing-Module/services.service';
+import {YachtsService} from '../../../../../../core/services/Yacht-Module/yachts.service';
+import {YachtsEnumsModel} from '../../../../../../core/models/Yacht-Module/yachts.enums.model';
+import {YachtsModel} from '../../../../../../core/models/Yacht-Module/yachts.model';
 
 
 @Component({
@@ -27,7 +27,7 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 	isLoadingResults: any = true;
 	form: FormGroup;
 
-	model: ServicesModel;
+	model: YachtsModel;
 
 	id = null;
 	is_result: boolean;
@@ -35,11 +35,11 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 	selected_images: [] = [];
 	current_image: string;
 
-	enums: ServicesEnumsModel;
+	enums: YachtsEnumsModel;
 
 
 	constructor(private formBuilder: FormBuilder,
-				private service: ServicesService,
+				private service: YachtsService,
 				private formErrorService: FormErrorService,
 				private route: ActivatedRoute,
 				private router: Router,
@@ -93,7 +93,7 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 			this.service.get(this.id).subscribe(
 				(data) => {
 					this.model = data;
-					this.current_image = this.model.image;
+					///this.current_image = this.model.image;
 					this.getEnums();
 				}, error => {
 					this.authNoticeService.setNotice(this.translateService.instant('COMMON.Item_not_found',
@@ -201,18 +201,8 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 
 		this.model.createObjects();
 
-		this.model.name.en = controls['name_en'].value;
-		this.model.name.ar = controls['name_ar'].value;
+		this.model = this.service.prepareObject(this.model, controls);
 
-		this.model.description.en = controls['description_en'].value;
-		this.model.description.ar = controls['description_ar'].value;
-		this.model.price = controls['price'].value;
-		this.model.price_model = controls['price_model'].value;
-		this.model.minimum_hours_booking = controls['minimum_hours_booking'].value;
-		this.model.max_quantity = controls['max_quantity'].value;
-		this.model.seo.title = this.model.name;
-		this.model.seo.description = this.model.description;
-		this.model.image = controls['image'].value;
 
 		// call service to store shipping rule
 		this.isLoadingResults = true;

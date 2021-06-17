@@ -102,12 +102,13 @@ export class AddComponent implements OnInit, DoCheck, OnDestroy, InitializeCompo
 			size: ['', Validators.required] ,
 			no_of_captain: ['', Validators.required] ,
 			crew_members: ['', Validators.required] ,
+
 			corporate_company: ['', Validators.required] ,
 			corporate_price: ['', Validators.required] ,
 			selling_per_hour: ['', Validators.required] ,
 			yacht_special_price: ['', Validators.required] ,
 			minimum_hours_booking: ['', Validators.required] ,
-			apply_vat: ['', Validators.required] ,
+			apply_vat: ['0', Validators.required] ,
 			status: ['', Validators.required] ,
 
 			services: ['', Validators.required] ,
@@ -159,24 +160,9 @@ export class AddComponent implements OnInit, DoCheck, OnDestroy, InitializeCompo
 			return this.formErrorService.markAsTouched(controls);
 		}
 
-		const model = new YachtsModel(null);
+		let model = new YachtsModel(null);
+		model = this.service.prepareObject(model, controls);
 
-		model.name.en = controls['name_en'].value;
-		model.name.ar = controls['name_ar'].value;
-
-		// model.description.en = controls['description_en'].value;
-		// model.description.ar = controls['description_ar'].value;
-		//
-		// model.price = controls['price'].value;
-		// model.price_model = controls['price_model'].value;
-		// model.minimum_hours_booking = controls['minimum_hours_booking'].value;
-		// model.max_quantity = controls['max_quantity'].value;
-		model.seo.title = model.name;
-		// model.seo.description = model.description;
-		//
-		// model.image = controls['image'].value;
-
-		// call service to store Banner
 		this.isLoadingResults = true;
 		this.service.create(model).subscribe(resp => {
 			this.form.reset();

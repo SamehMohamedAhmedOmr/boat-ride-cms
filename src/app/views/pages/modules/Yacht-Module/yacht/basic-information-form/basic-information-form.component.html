@@ -1,0 +1,190 @@
+<div [formGroup]="form">
+
+	<div class="row" aria-label="name">
+		<div class="col-md-6">
+			<kt-form-input
+				[form]="form"
+				[label]="'COMMON.name_ar' | translate"
+				[form_control_name]="'name_ar'"
+				[validation_type]="'required'">
+			</kt-form-input>
+		</div>
+		<div class="col-md-6">
+			<kt-form-input
+				[form]="form"
+				[label]="'COMMON.name_en' | translate"
+				[form_control_name]="'name_en'"
+				[validation_type]="'required'">
+			</kt-form-input>
+		</div>
+	</div>
+
+	<div class="row" aria-label="type, code, color">
+		<div class="col-md-4">
+			<div class="my-3 w-100">
+				<div aria-label="select-box">
+					<mat-form-field appearance="fill" class="w-100">
+						<mat-label> {{ 'Components.YACHTS.columns.basic_information.type' | translate }}</mat-label>
+						<mat-select formControlName="type">
+							<mat-option *ngFor="let item of enumsModel.yacht_types" [value]="item.value">
+								{{ item.key.replace('_', ' ') | titlecase }}
+							</mat-option>
+						</mat-select>
+					</mat-form-field>
+				</div>
+				<kt-form-error [form]="form"
+							   [controlName]="'type'"
+							   [validationType]="'required'"
+							   [controlText]="'Components.YACHTS.columns.basic_information.type' | translate "
+				></kt-form-error>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<kt-form-input
+				[form]="form"
+				[label]="'Components.YACHTS.columns.basic_information.code' | translate"
+				[form_control_name]="'code'"
+				[validation_type]="'required'">
+			</kt-form-input>
+		</div>
+		<div class="col-md-4">
+			<kt-form-input
+				[form]="form"
+				[label]="'Components.YACHTS.columns.basic_information.color' | translate"
+				[form_control_name]="'color'"
+				[type]="'color'"
+				[validation_type]="'required'">
+			</kt-form-input>
+		</div>
+	</div>
+
+	<div class="row" aria-label="passenger_capacity,size,no_of_captain,crew_members">
+		<div class="col-md-3">
+			<kt-form-input
+				[form]="form"
+				[label]="'Components.YACHTS.columns.basic_information.passenger_capacity' | translate"
+				[form_control_name]="'passenger_capacity'"
+				[type]="'number'"
+				[validation_type]="'required'">
+			</kt-form-input>
+		</div>
+		<div class="col-md-3">
+			<kt-form-input
+				[form]="form"
+				[label]="'Components.YACHTS.columns.basic_information.size' | translate"
+				[form_control_name]="'size'"
+				[type]="'number'"
+				[validation_type]="'required'">
+			</kt-form-input>
+		</div>
+		<div class="col-md-3">
+			<kt-form-input
+				[form]="form"
+				[label]="'Components.YACHTS.columns.basic_information.no_of_captain' | translate"
+				[form_control_name]="'no_of_captain'"
+				[type]="'number'"
+				[validation_type]="'required'">
+			</kt-form-input>
+		</div>
+		<div class="col-md-3">
+			<kt-form-input
+				[form]="form"
+				[label]="'Components.YACHTS.columns.basic_information.crew_members' | translate"
+				[form_control_name]="'crew_members'"
+				[type]="'number'"
+				[validation_type]="'required'">
+			</kt-form-input>
+		</div>
+	</div>
+
+	<div class="row" aria-label="corporate_company,corporate_price,selling_per_hour,yacht_special_price">
+		<div class="col-md-3">
+			<kt-form-input
+				[form]="form"
+				[label]="'Components.YACHTS.columns.basic_information.corporate_company' | translate"
+				[form_control_name]="'corporate_company'"
+				[validation_type]="'required'">
+			</kt-form-input>
+		</div>
+		<div class="col-md-3">
+			<kt-form-input
+				[form]="form"
+				[label]="'Components.YACHTS.columns.basic_information.corporate_price' | translate"
+				[form_control_name]="'corporate_price'"
+				[type]="'number'"
+				[validation_type]="'required'">
+			</kt-form-input>
+		</div>
+		<div class="col-md-3">
+			<kt-form-input
+				[form]="form"
+				[label]="'Components.YACHTS.columns.basic_information.selling_per_hour' | translate"
+				[form_control_name]="'selling_per_hour'"
+				[type]="'number'"
+				[validation_type]="'required'">
+			</kt-form-input>
+		</div>
+		<div class="col-md-3">
+			<kt-form-input
+				[form]="form"
+				[label]="'Components.YACHTS.columns.basic_information.yacht_special_price' | translate"
+				[form_control_name]="'yacht_special_price'"
+				[type]="'number'"
+				[validation_type]="'required'">
+			</kt-form-input>
+		</div>
+	</div>
+
+	<div class="row" aria-label="minimum_hours_booking, apply_vat, status">
+		<div class="col-md-4">
+			<kt-form-input
+				[form]="form"
+				[label]="'Components.YACHTS.columns.basic_information.minimum_hours_booking' | translate"
+				[form_control_name]="'minimum_hours_booking'"
+				[type]="'number'"
+				[validation_type]="'required'">
+			</kt-form-input>
+		</div>
+		<div class="col-md-4">
+			<div class="my-3 w-100">
+				<div aria-label="select-box">
+					<mat-form-field appearance="fill" class="w-100">
+						<mat-label> {{ 'Components.apply_vat' | translate | titlecase }}</mat-label>
+						<mat-select formControlName="apply_vat">
+							<mat-option [value]="'0'">
+								{{ 'Components.no' | translate | titlecase}}
+							</mat-option>
+							<mat-option [value]="'1'">
+								{{ 'Components.yes' | translate | titlecase }}
+							</mat-option>
+						</mat-select>
+					</mat-form-field>
+				</div>
+				<kt-form-error [form]="form"
+							   [controlName]="'apply_vat'"
+							   [validationType]="'required'"
+							   [controlText]="'Components.apply_vat' | translate "
+				></kt-form-error>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="my-3 w-100">
+				<div aria-label="select-box">
+					<mat-form-field appearance="fill" class="w-100">
+						<mat-label> {{ 'Components.YACHTS.columns.basic_information.status' | translate }}</mat-label>
+						<mat-select formControlName="status">
+							<mat-option *ngFor="let item of enumsModel.yacht_status" [value]="item.value">
+								{{ item.key.replace('_', ' ') | titlecase }}
+							</mat-option>
+						</mat-select>
+					</mat-form-field>
+				</div>
+				<kt-form-error [form]="form"
+							   [controlName]="'status'"
+							   [validationType]="'required'"
+							   [controlText]="'Components.YACHTS.columns.basic_information.status' | translate "
+				></kt-form-error>
+			</div>
+		</div>
+	</div>
+</div>

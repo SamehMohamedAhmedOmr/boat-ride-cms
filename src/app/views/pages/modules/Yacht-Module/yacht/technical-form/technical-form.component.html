@@ -1,0 +1,133 @@
+<div [formGroup]="form">
+
+	<div class="row" aria-label="manufacturer, fuel_type, hull_type">
+
+		<div class="col-md-4">
+			<kt-form-input
+				[form]="form"
+				[label]="'Components.YACHTS.columns.technical_information.manufacturer' | translate"
+				[form_control_name]="'manufacturer'"
+				[validation_type]="'required'">
+			</kt-form-input>
+		</div>
+
+		<div class="col-md-4">
+			<div class="my-3 w-100">
+				<div aria-label="select-box">
+					<mat-form-field appearance="fill" class="w-100">
+						<mat-label> {{ 'Components.YACHTS.columns.technical_information.fuel_type' | translate }}</mat-label>
+						<mat-select formControlName="fuel_type">
+							<mat-option *ngFor="let item of enumsModel.fuel_types" [value]="item.value">
+								{{ item.key.replace('_', ' ') | titlecase }}
+							</mat-option>
+						</mat-select>
+					</mat-form-field>
+				</div>
+				<kt-form-error [form]="form"
+							   [controlName]="'fuel_type'"
+							   [validationType]="'required'"
+							   [controlText]="'Components.YACHTS.columns.technical_information.fuel_type' | translate "
+				></kt-form-error>
+			</div>
+		</div>
+
+		<div class="col-md-4">
+			<div class="my-3 w-100">
+				<div aria-label="select-box">
+					<mat-form-field appearance="fill" class="w-100">
+						<mat-label> {{ 'Components.YACHTS.columns.technical_information.hull_type' | translate }}</mat-label>
+						<mat-select formControlName="hull_type">
+							<mat-option *ngFor="let item of enumsModel.hull_types" [value]="item.value">
+								{{ item.key.replace('_', ' ') | titlecase }}
+							</mat-option>
+						</mat-select>
+					</mat-form-field>
+				</div>
+				<kt-form-error [form]="form"
+							   [controlName]="'hull_type'"
+							   [validationType]="'required'"
+							   [controlText]="'Components.YACHTS.columns.technical_information.hull_type' | translate "
+				></kt-form-error>
+			</div>
+		</div>
+
+	</div>
+
+	<div class="row" aria-label="engine_type, horse_Power, max_speed">
+
+		<div class="col-md-4">
+			<div class="my-3 w-100">
+				<div aria-label="select-box">
+					<mat-form-field appearance="fill" class="w-100">
+						<mat-label> {{ 'Components.YACHTS.columns.technical_information.engine_type' | translate }}</mat-label>
+						<mat-select formControlName="engine_type">
+							<mat-option *ngFor="let item of enumsModel.engine_types" [value]="item.value">
+								{{ item.key.replace('_', ' ') | titlecase }}
+							</mat-option>
+						</mat-select>
+					</mat-form-field>
+				</div>
+				<kt-form-error [form]="form"
+							   [controlName]="'engine_type'"
+							   [validationType]="'required'"
+							   [controlText]="'Components.YACHTS.columns.technical_information.engine_type' | translate "
+				></kt-form-error>
+			</div>
+		</div>
+
+		<div class="col-md-4">
+			<kt-form-input
+				[form]="form"
+				[label]="'Components.YACHTS.columns.technical_information.horse_power' | translate"
+				[form_control_name]="'horse_Power'"
+				[type]="'number'"
+				[validation_type]="'required'">
+			</kt-form-input>
+		</div>
+
+		<div class="col-md-4">
+			<kt-form-input
+				[form]="form"
+				[label]="'Components.YACHTS.columns.technical_information.max_speed' | translate"
+				[form_control_name]="'max_speed'"
+				[type]="'number'"
+				[validation_type]="'required'">
+			</kt-form-input>
+		</div>
+
+	</div>
+
+	<div class="row" aria-label="cruising_speed, length, beam">
+
+		<div class="col-md-4">
+			<kt-form-input
+				[form]="form"
+				[label]="'Components.YACHTS.columns.technical_information.cruising_speed' | translate"
+				[form_control_name]="'cruising_speed'"
+				[type]="'number'"
+				[validation_type]="'required'">
+			</kt-form-input>
+		</div>
+
+		<div class="col-md-4">
+			<kt-form-input
+				[form]="form"
+				[label]="'Components.YACHTS.columns.technical_information.length' | translate"
+				[form_control_name]="'length'"
+				[type]="'number'"
+				[validation_type]="'required'">
+			</kt-form-input>
+		</div>
+
+		<div class="col-md-4">
+			<kt-form-input
+				[form]="form"
+				[label]="'Components.YACHTS.columns.technical_information.beam' | translate"
+				[form_control_name]="'beam'"
+				[type]="'number'"
+				[validation_type]="'required'">
+			</kt-form-input>
+		</div>
+
+	</div>
+</div>
