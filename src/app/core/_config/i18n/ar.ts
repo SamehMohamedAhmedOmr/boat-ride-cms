@@ -45,31 +45,30 @@ export const locale = {
 				TITLE: 'المستخدمين',
 				MENU: {
 					ADMINS: 'مديرين الموقع',
-				},
-			},
-			SETTINGS: {
-				TITLE: 'الاعدادات',
-				MENU: {
 					ROLES: 'الادوار',
-				}
+				},
 			},
 			MARKETING: {
 				TITLE: 'التسويق',
 				MENU: {
 					BANNERS: 'اللافتات',
+					SERVICES: 'الخدمات',
+					OFFERS: 'العروض',
+					SEO: 'محرك البحث',
 				}
 			},
 			YACHT_SETTINGS: {
 				TITLE: 'اعدادات اليخوت',
 				MENU: {
-					SERVICES: 'الخدمات',
-					YACHT: 'اليخوت',
+					YACHTS: 'اليخوت',
+					YACHTS_RESERVATION: 'حجوزات اليخوت',
 				}
 			},
 			WATER_SPORT_SETTINGS: {
 				TITLE: 'اعدادات العاب المياه',
 				MENU: {
-					WATER_SPORT: 'ألعاب المياه',
+					WATER_SPORTS: 'ألعاب المياه',
+					WATER_SPORTS_RESERVATION: 'حجوزات العاب المياه',
 				}
 			},
 		},

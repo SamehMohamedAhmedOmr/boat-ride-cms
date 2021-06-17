@@ -28,8 +28,8 @@ export class ShortAccessMenuConfig {
 
 	public SERVICES = {
 		icon: SectionIconsName.services(),
-		title: 'MENUS.DOCTORS_SETTINGS.MENU.SERVICES',
-		translate: 'MENUS.DOCTORS_SETTINGS.MENU.SERVICES',
+		title: 'MENUS.MARKETING.MENU.SERVICES',
+		translate: 'MENUS.MARKETING.MENU.SERVICES',
 		page: RoutesName.services()
 	};
 

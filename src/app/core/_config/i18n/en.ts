@@ -46,32 +46,31 @@ export const locale = {
 				TITLE: 'Users',
 				MENU: {
 					ADMINS: 'CMS Users',
+					ROLES: 'Roles',
 				},
 
-			},
-			SETTINGS: {
-				TITLE: 'Settings',
-				MENU: {
-					ROLES: 'Roles',
-				}
 			},
 			MARKETING: {
 				TITLE: 'Marketing',
 				MENU: {
 					BANNERS: 'Banners',
+					SERVICES: 'Services',
+					OFFERS: 'Offers',
+					SEO: 'Seo',
 				}
 			},
 			YACHT_SETTINGS: {
 				TITLE: 'Yacht Settings',
 				MENU: {
-					SERVICES: 'Services',
-					YACHT: 'Yachts',
+					YACHTS: 'Yachts',
+					YACHTS_RESERVATION: 'Yachts Reservation',
 				}
 			},
 			WATER_SPORT_SETTINGS: {
 				TITLE: 'Water Sport Settings',
 				MENU: {
-					WATER_SPORT: 'Water Sport',
+					WATER_SPORTS: 'Water Sports',
+					WATER_SPORTS_RESERVATION: 'Water Sports Reservation',
 				}
 			},
 		},

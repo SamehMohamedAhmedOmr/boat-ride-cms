@@ -49,4 +49,31 @@ export class SectionIconsName {
 	public static template(){
 		return 'flaticon2-add';
 	}
+
+
+	public static offers() {
+		return 'flaticon-squares';
+	}
+
+
+	public static seo() {
+		return 'flaticon-squares';
+	}
+
+
+	public static yachts() {
+		return 'flaticon-squares';
+	}
+
+	public static yachtsReservation() {
+		return 'flaticon-squares';
+	}
+
+	public static waterSports() {
+		return 'flaticon-squares';
+	}
+
+	public static waterSportsReservation() {
+		return 'flaticon-squares';
+	}
 }

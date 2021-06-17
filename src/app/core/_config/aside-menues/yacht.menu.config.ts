@@ -27,11 +27,18 @@ export class YachtMenuConfig {
 	};
 
 
-	public SERVICES = {
-		icon: SectionIconsName.services(),
-		title: 'MENUS.YACHT_SETTINGS.MENU.SERVICES',
-		translate: 'MENUS.YACHT_SETTINGS.MENU.SERVICES',
-		page: RoutesName.services()
+	public YACHTS = {
+		icon: SectionIconsName.yachts(),
+		title: 'MENUS.YACHT_SETTINGS.MENU.YACHTS',
+		translate: 'MENUS.YACHT_SETTINGS.MENU.YACHTS',
+		page: RoutesName.yachts()
+	};
+
+	public YACHTS_RESERVATION = {
+		icon: SectionIconsName.yachtsReservation(),
+		title: 'MENUS.YACHT_SETTINGS.MENU.YACHTS_RESERVATION',
+		translate: 'MENUS.YACHT_SETTINGS.MENU.YACHTS_RESERVATION',
+		page: RoutesName.yachtsReservation()
 	};
 
 
@@ -43,7 +50,8 @@ export class YachtMenuConfig {
 
 	public checkRoutePermissions(){
 
-		this.attachMenuItem([],this.SERVICES);
+		this.attachMenuItem([],this.YACHTS);
+		this.attachMenuItem([],this.YACHTS_RESERVATION);
 
 
 		this.attachMenu();

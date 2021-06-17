@@ -33,6 +33,26 @@ export class MarketingMenuConfig {
 		page: RoutesName.banners()
 	};
 
+	public SERVICES = {
+		icon: SectionIconsName.services(),
+		title: 'MENUS.MARKETING.MENU.SERVICES',
+		translate: 'MENUS.MARKETING.MENU.SERVICES',
+		page: RoutesName.services()
+	};
+
+	public OFFERS = {
+		icon: SectionIconsName.offers(),
+		title: 'MENUS.MARKETING.MENU.OFFERS',
+		translate: 'MENUS.MARKETING.MENU.OFFERS',
+		page: RoutesName.offers()
+	};
+
+	public SEO = {
+		icon: SectionIconsName.seo(),
+		title: 'MENUS.MARKETING.MENU.SEO',
+		translate: 'MENUS.MARKETING.MENU.SEO',
+		page: RoutesName.seo()
+	};
 
 	public menu: any = {
 		items: [
@@ -42,7 +62,10 @@ export class MarketingMenuConfig {
 
 	public checkRoutePermissions(){
 
-		this.attachMenuItem([],this.BANNERS);
+		// this.attachMenuItem([],this.BANNERS);
+		this.attachMenuItem([],this.SERVICES);
+		this.attachMenuItem([],this.OFFERS);
+		this.attachMenuItem([],this.SEO);
 
 		this.attachMenu();
 

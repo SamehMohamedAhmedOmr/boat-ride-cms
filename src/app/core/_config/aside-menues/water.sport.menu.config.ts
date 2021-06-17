@@ -27,13 +27,19 @@ export class WaterSportMenuConfig {
 	};
 
 
-	public WATER_SPORT = {
-		icon: SectionIconsName.services(),
-		title: 'MENUS.WATER_SPORT_SETTINGS.MENU.WATER_SPORT',
-		translate: 'MENUS.WATER_SPORT_SETTINGS.MENU.WATER_SPORT',
-		page: RoutesName.services()
+	public WATER_SPORTS = {
+		icon: SectionIconsName.waterSports(),
+		title: 'MENUS.WATER_SPORT_SETTINGS.MENU.WATER_SPORTS',
+		translate: 'MENUS.WATER_SPORT_SETTINGS.MENU.WATER_SPORTS',
+		page: RoutesName.waterSports()
 	};
 
+	public WATER_SPORTS_RESERVATION = {
+		icon: SectionIconsName.waterSportsReservation(),
+		title: 'MENUS.WATER_SPORT_SETTINGS.MENU.WATER_SPORTS_RESERVATION',
+		translate: 'MENUS.WATER_SPORT_SETTINGS.MENU.WATER_SPORTS_RESERVATION',
+		page: RoutesName.waterSportsReservation()
+	};
 
 	public menu: any = {
 		items: [
@@ -43,7 +49,8 @@ export class WaterSportMenuConfig {
 
 	public checkRoutePermissions(){
 
-		this.attachMenuItem([],this.WATER_SPORT);
+		this.attachMenuItem([],this.WATER_SPORTS);
+		this.attachMenuItem([],this.WATER_SPORTS_RESERVATION);
 
 
 		this.attachMenu();

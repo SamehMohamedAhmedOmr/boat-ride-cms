@@ -1,7 +1,6 @@
 import {ShortAccessMenuConfig} from './header-menues/short.access.menu.config';
 import {AddNewMenuConfig} from './header-menues/add.new.menu.config';
 import {UsersMenuConfig} from './aside-menues/users.menu.config';
-import {SettingsMenuConfig} from './aside-menues/settings.menu.config';
 import {MarketingMenuConfig} from './aside-menues/marketing.menu.config';
 import {YachtMenuConfig} from './aside-menues/yacht.menu.config';
 import {WaterSportMenuConfig} from './aside-menues/water.sport.menu.config';
@@ -11,7 +10,6 @@ export class MenuConfig {
 
 	// Aside Menu
 	usersMenuConfig:UsersMenuConfig;
-	settingsMenuConfig:SettingsMenuConfig;
 	marketingMenuConfig:MarketingMenuConfig;
 	yachtMenuConfig:YachtMenuConfig;
 	waterSportMenuConfig:WaterSportMenuConfig;
@@ -22,7 +20,6 @@ export class MenuConfig {
 
 	constructor() {
 		this.usersMenuConfig = new UsersMenuConfig();
-		this.settingsMenuConfig = new SettingsMenuConfig();
 		this.marketingMenuConfig = new MarketingMenuConfig();
 		this.yachtMenuConfig = new YachtMenuConfig();
 		this.waterSportMenuConfig = new WaterSportMenuConfig();
@@ -72,22 +69,18 @@ export class MenuConfig {
 		let yachtMenuConfig = this.yachtMenuConfig.configs;
 		this.attachAsideMenu(yachtMenuConfig);
 
-		// Yacht Settings Config
+		// Water-Sport Settings Config
 		let waterSportMenuConfig = this.waterSportMenuConfig.configs;
 		this.attachAsideMenu(waterSportMenuConfig);
 
-		// // Users Config
-		// let users_items = this.usersMenuConfig.configs;
-		// this.attachAsideMenu(users_items);
-		//
-		// // Marketing Config
-		// let marketing_items = this.marketingMenuConfig.configs;
-		// this.attachAsideMenu(marketing_items);
 
-		// Settings Config
-		let settings_items = this.settingsMenuConfig.configs;
-		this.attachAsideMenu(settings_items);
+		// Marketing Config
+		let marketing_items = this.marketingMenuConfig.configs;
+		this.attachAsideMenu(marketing_items);
 
+		// Users Config
+		let users_items = this.usersMenuConfig.configs;
+		this.attachAsideMenu(users_items);
 	}
 
 	public attachHeaderMenuItems() {

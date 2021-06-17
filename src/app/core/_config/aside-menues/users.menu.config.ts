@@ -27,15 +27,20 @@ export class UsersMenuConfig {
 	};
 
 
+	public ADMINS = {
+		icon: SectionIconsName.admins(),
+		title: 'MENUS.USERS.MENU.ADMINS',
+		translate: 'MENUS.USERS.MENU.ADMINS',
+		page: RoutesName.admins()
+	};
 
 
-
-	// public PATIENTS = {
-	// 	icon: SectionIconsName.patients(),
-	// 	title:'MENUS.USERS.MENU.PATIENTS',
-	// 	translate: 'MENUS.USERS.MENU.PATIENTS',
-	// 	page: RoutesName.patients()
-	// };
+	public ROLES = {
+		icon: SectionIconsName.roles(),
+		title: 'MENUS.USERS.MENU.ROLES',
+		translate: 'MENUS.USERS.MENU.ROLES',
+		page: RoutesName.roles()
+	};
 
 
 
@@ -47,8 +52,9 @@ export class UsersMenuConfig {
 
 	public checkRoutePermissions(){
 
-		// this.attachMenuItem([],this.PATIENTS);
+		this.attachMenuItem([],this.ADMINS);
 
+		// this.attachMenuItem([],this.ROLES);
 
 		this.attachMenu();
 
