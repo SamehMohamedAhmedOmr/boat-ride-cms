@@ -32,7 +32,7 @@ const routes: Routes = [
 				// data: {
 				// 	permissions: permissionCatalogueConfig.product_permissions,
 				// },
-				loadChildren: () => import('./views/pages/modules/users/admins/admins.module')
+				loadChildren: () => import('./views/pages/modules/Users-Module/admins/admins.module')
 					.then(m => m.AdminsModule)
 			},
 			// roles
@@ -42,7 +42,7 @@ const routes: Routes = [
 				// data: {
 				// 	permissions: permissionCatalogueConfig.product_permissions,
 				// },
-				loadChildren: () => import('./views/pages/modules/settings/roles/roles.module')
+				loadChildren: () => import('./views/pages/modules/Users-Module/roles/roles.module')
 					.then(m => m.RolesModule)
 			},
 
@@ -55,7 +55,7 @@ const routes: Routes = [
 				// data: {
 				// 	permissions: permissionCatalogueConfig.product_permissions,
 				// },
-				loadChildren: () => import('./views/pages/modules/marketing/banners/banners.module')
+				loadChildren: () => import('./views/pages/modules/Marketing-Module/banners/banners.module')
 					.then(m => m.BannersModule)
 			},
 			// services
@@ -65,10 +65,74 @@ const routes: Routes = [
 				// data: {
 				// 	permissions: permissionCatalogueConfig.product_permissions,
 				// },
-				loadChildren: () => import('./views/pages/modules/Yacht-Module/services/services.module')
+				loadChildren: () => import('./views/pages/modules/Marketing-Module/services/services.module')
 					.then(m => m.ServicesModule)
 			},
+			// offers
+			{
+				path: RoutesName.offers(), // <= Page URL ,
+				// canActivate: [PermissionsGuard],
+				// data: {
+				// 	permissions: permissionCatalogueConfig.product_permissions,
+				// },
+				loadChildren: () => import('./views/pages/modules/Marketing-Module/offers/offers.module')
+					.then(m => m.OffersModule)
+			},
+			// seo
+			{
+				path: RoutesName.seo(), // <= Page URL ,
+				// canActivate: [PermissionsGuard],
+				// data: {
+				// 	permissions: permissionCatalogueConfig.product_permissions,
+				// },
+				loadChildren: () => import('./views/pages/modules/Marketing-Module/seo/seo.module')
+					.then(m => m.SeoModule)
+			},
 
+			/*  yachts-modules */
+			// yachts
+			{
+				path: RoutesName.yachts(), // <= Page URL ,
+				// canActivate: [PermissionsGuard],
+				// data: {
+				// 	permissions: permissionCatalogueConfig.product_permissions,
+				// },
+				loadChildren: () => import('./views/pages/modules/Yacht-Module/yacht/yacht.module')
+					.then(m => m.YachtModule)
+			},
+
+			// yachtsReservation
+			{
+				path: RoutesName.yachtsReservation(), // <= Page URL ,
+				// canActivate: [PermissionsGuard],
+				// data: {
+				// 	permissions: permissionCatalogueConfig.product_permissions,
+				// },
+				loadChildren: () => import('./views/pages/modules/Yacht-Module/yacht-reservation/yacht-reservation.module')
+					.then(m => m.YachtReservationModule)
+			},
+
+			/*  waterSports-modules */
+			// waterSports
+			{
+				path: RoutesName.waterSports(), // <= Page URL ,
+				// canActivate: [PermissionsGuard],
+				// data: {
+				// 	permissions: permissionCatalogueConfig.product_permissions,
+				// },
+				loadChildren: () => import('./views/pages/modules/Water-Sports-Module/water-sports/water-sports.module')
+					.then(m => m.WaterSportsModule)
+			},
+			// waterSportsReservation
+			{
+				path: RoutesName.waterSportsReservation(), // <= Page URL ,
+				// canActivate: [PermissionsGuard],
+				// data: {
+				// 	permissions: permissionCatalogueConfig.product_permissions,
+				// },
+				loadChildren: () => import('./views/pages/modules/Water-Sports-Module/water-sports-reservation/water-sports-reservation.module')
+					.then(m => m.WaterSportsReservationModule)
+			},
 		]
 	},
 

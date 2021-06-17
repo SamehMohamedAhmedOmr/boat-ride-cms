@@ -25,10 +25,6 @@ export class RoutesName {
 		return 'banners';
 	}
 
-	public static collections() {
-		return 'collections';
-	}
-
 	public static users() {
 		return 'users';
 	}
@@ -40,5 +36,30 @@ export class RoutesName {
 	public static show(){
 		return 'show';
 	}
+
+	public static yachts() {
+		return 'yachts';
+	}
+
+	public static yachtsReservation() {
+		return 'yachts-reservation';
+	}
+
+	public static waterSports() {
+		return 'water-sports';
+	}
+
+	public static waterSportsReservation() {
+		return 'water-sports-reservation';
+	}
+
+	public static seo() {
+		return 'seo';
+	}
+
+	public static offers() {
+		return 'offers';
+	}
+
 
 }

@@ -10,13 +10,12 @@ import {IndexComponent} from './index/index.component';
 import {AddComponent} from './add/add.component';
 import {EditComponent} from './edit/edit.component';
 import {FormComponent} from './form/form.component';
-import { ImagesComponent } from './images/images.component';
 import {GalleryModule} from '@ngx-gallery/core';
 import {MatDividerModule} from '@angular/material';
 
 @NgModule({
 	declarations: [
-		ServicesComponent, IndexComponent, AddComponent, EditComponent, FormComponent, ImagesComponent
+		ServicesComponent, IndexComponent, AddComponent, EditComponent, FormComponent,
 	],
 	imports: [
 		CommonModule,
