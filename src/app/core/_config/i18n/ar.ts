@@ -36,7 +36,7 @@ export const locale = {
 		STATISTICS: {
 			name: 'الاحصائيات',
 			visitors_count: '',
-			link  : 'افتح قائمه {{title}}'
+			link: 'افتح قائمه {{title}}'
 
 		},
 
@@ -134,12 +134,14 @@ export const locale = {
 			Select: 'اختار',
 			export: 'تصدير',
 			no_image: 'لا يوجد صوره',
-			Accept : "قبول" ,
-			Reject : "رفض",
-			Pending : "معلق",
-
+			Accept: 'قبول',
+			Reject: 'رفض',
+			Pending: 'معلق',
 			price: 'السعر',
 			image: 'الصورة',
+			apply_vat: 'تطبيق ضريبة القيمة المضافة',
+			images: 'الصور',
+
 
 			SERVICES: {
 				name: 'الخدمات',
@@ -151,17 +153,15 @@ export const locale = {
 				}
 			},
 
-
 			BANNERS: {
 				name: 'اللافتات',
 				single: 'اللافتة',
 				columns: {
 					type: 'النوع',
 					link: 'الرابط',
-					image : 'صوره' ,
+					image: 'صوره',
 				}
 			},
-
 
 			ROLES: {
 				name: 'الأدوار',
@@ -176,10 +176,75 @@ export const locale = {
 			CMS_USERS: {
 				name: 'مستخدمين لوحة التحكم',
 				single: 'مستخدم لوحة التحكم',
-				columns: {
-				}
+				columns: {}
 			},
 
+			YACHTS: {
+				name: 'اليخوت',
+				single: 'يخت',
+				columns: {
+					/* Basic Information*/
+					basic_information: {
+						type: 'النوع',
+						code: 'الكود',
+						color: 'اللون',
+						passenger_capacity: 'سعة الركاب',
+						size: 'الحجم',
+						no_of_captain: 'عدد الكباتن',
+						crew_members: 'عدد اعضاء الطاقم',
+
+						facilities_en: 'المرافق باللغة الانجليزية',
+						facilities_ar: 'المرافق باللغة العربية',
+						what_is_included_en: 'المحتويات باللغة الانجليزية',
+						what_is_included_ar: 'المحتويات باللغة العربية',
+						what_expect_description_en: 'وصف المتوقع باللغة الانجليزية',
+						what_expect_description_ar: 'وصف المتوقع باللغة العربية',
+
+						corporate_company: 'الشركات الخاصة',
+						corporate_price: 'سعر الشركة',
+						selling_per_hour: 'بيع في الساعة',
+						yacht_special_price: 'اليخت بسعر خاص',
+						minimum_hours_booking: 'الحد الأدنى من ساعات الحجز',
+						status: 'الحالة',
+					},
+
+					/* Technical Information*/
+					technical_information: {
+						manufacturer: 'الصانع',
+						fuel_type: 'نوع الوقود',
+						hull_type: 'نوع بدن',
+						engine_type: 'نوع المحرك',
+						horse_power: 'قوة الحصام',
+						max_speed: 'السرعة القصوى',
+						cruising_speed: 'سرعة الانطلاق',
+						length: 'الطول',
+						beam: 'الكمرة',
+					},
+
+					/* Key Feature*/
+					key_feature: {
+						water_slider: 'زلاجة مياه',
+						safety_equipment: 'معدات السلامة',
+						soft_drinks_refreshments: 'مرطبات المشروبات الغازية',
+						swimming_equipment: 'معدات السباحة',
+						ice_tea_water: 'ماء الشاي المثلج',
+						DVD_player: 'مشغل اسطوانات',
+						satellite_system: 'نظام الأقمار الصناعية',
+						red_carpet_on_arrival: 'السجادة الحمراء عند الوصول',
+						spacious_saloon: 'صالون واسع',
+						BBQ_grill_equipment: 'معدات الشواء',
+						fresh_towels: 'مناشف جديدة',
+						yacht_slippers: 'النعال اليخوت',
+						bathroom_amenities: 'مرافق الحمام',
+						under_water_light: 'تحت ضوء الماء',
+						LED_screen_tv: 'تلفزيون بشاشة LED',
+						sunbathing_on_the_foredeck: 'حمامات الشمس على مقدمة السفينة',
+						fishing_equipment: 'معدات الصيد',
+					},
+
+
+				}
+			},
 
 			Gallery: {
 				name: 'المعرض',
@@ -217,8 +282,8 @@ export const locale = {
 
 			activation_button: 'تفعيل',
 			deactivation_button: 'تعطيل',
-			accepted : 'مقبول',
-			rejected : 'مرفوض',
+			accepted: 'مقبول',
+			rejected: 'مرفوض',
 
 			email: 'البريد الالكتروني',
 			password: 'كلمة المرور',

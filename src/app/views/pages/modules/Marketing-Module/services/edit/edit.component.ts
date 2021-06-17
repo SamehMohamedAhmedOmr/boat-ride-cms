@@ -6,9 +6,9 @@ import {InitializeComponentInterface} from '../../../../../shared/Base-Interface
 import {FormErrorService} from '../../../../../../core/services/FormError.service';
 import {AuthNoticeService} from '../../../../../../core/services/auth-notice.service';
 import {HelperService} from '../../../../../../core/services/helper.service';
-import {ServicesService} from '../../../../../../core/services/Yacht-Module/services.service';
-import {ServicesModel} from '../../../../../../core/models/Yacht-Module/services.model';
-import {ServicesEnumsModel} from '../../../../../../core/models/Yacht-Module/services.enums.model';
+import {ServicesService} from '../../../../../../core/services/Marketing-Module/services.service';
+import {ServicesEnumsModel} from '../../../../../../core/models/Marketing-Module/services.enums.model';
+import {ServicesModel} from '../../../../../../core/models/Marketing-Module/services.model';
 
 @Component({
 	selector: 'kt-edit',

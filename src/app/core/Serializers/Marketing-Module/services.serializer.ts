@@ -1,6 +1,6 @@
 import {BaseSerializer} from '../Base/Base.serializer';
 import {Serializer} from '../Base/Serializer';
-import {ServicesModel} from '../../models/Yacht-Module/services.model';
+import {ServicesModel} from '../../models/Marketing-Module/services.model';
 
 export class ServicesSerializer extends BaseSerializer implements Serializer {
 

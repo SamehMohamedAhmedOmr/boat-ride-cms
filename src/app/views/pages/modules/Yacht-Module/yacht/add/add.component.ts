@@ -6,9 +6,9 @@ import {InitializeComponentInterface} from '../../../../../shared/Base-Interface
 import {FormErrorService} from '../../../../../../core/services/FormError.service';
 import {AuthNoticeService} from '../../../../../../core/services/auth-notice.service';
 import {HelperService} from '../../../../../../core/services/helper.service';
-import {ServicesService} from '../../../../../../core/services/Yacht-Module/services.service';
-import {ServicesModel} from '../../../../../../core/models/Yacht-Module/services.model';
-import {ServicesEnumsModel} from '../../../../../../core/models/Yacht-Module/services.enums.model';
+import {YachtsService} from '../../../../../../core/services/Yacht-Module/yachts.service';
+import {YachtsModel} from '../../../../../../core/models/Yacht-Module/yachts.model';
+import {YachtsEnumsModel} from '../../../../../../core/models/Yacht-Module/yachts.enums.model';
 
 @Component({
 	selector: 'kt-add',
@@ -29,10 +29,10 @@ export class AddComponent implements OnInit, DoCheck, OnDestroy, InitializeCompo
 
 	selected_images: [] = [];
 
-	enums: ServicesEnumsModel;
+	enums: YachtsEnumsModel;
 
 	constructor(private fb: FormBuilder,
-				private service: ServicesService,
+				private service: YachtsService,
 				private formErrorService: FormErrorService,
 				private cdr: ChangeDetectorRef,
 				private route: ActivatedRoute,
@@ -55,8 +55,8 @@ export class AddComponent implements OnInit, DoCheck, OnDestroy, InitializeCompo
 	}
 
 	initializePageName(){
-		this.page_name = this.translateService.instant('Components.SERVICES.name');
-		this.content_name = this.translateService.instant('Components.SERVICES.single');
+		this.page_name = this.translateService.instant('Components.YACHTS.name');
+		this.content_name = this.translateService.instant('Components.YACHTS.single');
 	}
 
 	initialiseComponent() {
@@ -82,17 +82,67 @@ export class AddComponent implements OnInit, DoCheck, OnDestroy, InitializeCompo
 	 */
 	private initForm() {
 		this.form = this.fb.group({
+			/* Basic Information*/
 			name_en: ['', Validators.required] ,
 			name_ar: ['', Validators.required] ,
 
-			description_en: ['', Validators.required] ,
-			description_ar: ['', Validators.required] ,
+			facilities_en: ['', Validators.required] ,
+			facilities_ar: ['', Validators.required] ,
 
-			price: ['', Validators.required] ,
-			price_model: ['', Validators.required] ,
+			what_is_included_en: ['', Validators.required] ,
+			what_is_included_ar: ['', Validators.required] ,
+
+			what_expect_description_en: ['', Validators.required] ,
+			what_expect_description_ar: ['', Validators.required] ,
+
+			type: ['', Validators.required] ,
+			code: ['', Validators.required] ,
+			color: ['', Validators.required] ,
+			passenger_capacity: ['', Validators.required] ,
+			size: ['', Validators.required] ,
+			no_of_captain: ['', Validators.required] ,
+			crew_members: ['', Validators.required] ,
+			corporate_company: ['', Validators.required] ,
+			corporate_price: ['', Validators.required] ,
+			selling_per_hour: ['', Validators.required] ,
+			yacht_special_price: ['', Validators.required] ,
 			minimum_hours_booking: ['', Validators.required] ,
-			max_quantity: ['', Validators.required] ,
-			image: ['', Validators.required] ,
+			apply_vat: ['', Validators.required] ,
+			status: ['', Validators.required] ,
+
+			services: ['', Validators.required] ,
+			images: ['', Validators.required] ,
+
+			/* Technical Information*/
+			manufacturer: ['', Validators.required] ,
+			fuel_type: ['', Validators.required] ,
+			hull_type: ['', Validators.required] ,
+			engine_type: ['', Validators.required] ,
+			horse_Power: ['', Validators.required] ,
+			max_speed: ['', Validators.required] ,
+			cruising_speed: ['', Validators.required] ,
+			length: ['', Validators.required] ,
+			beam: ['', Validators.required] ,
+
+
+			/* Key Feature*/
+			water_slider: ['', Validators.required] ,
+			safety_equipment: ['', Validators.required] ,
+			soft_drinks_refreshments: ['', Validators.required] ,
+			swimming_equipment: ['', Validators.required] ,
+			ice_tea_water: ['', Validators.required] ,
+			DVD_player: ['', Validators.required] ,
+			satellite_system: ['', Validators.required] ,
+			red_carpet_on_arrival: ['', Validators.required] ,
+			spacious_saloon: ['', Validators.required] ,
+			BBQ_grill_equipment: ['', Validators.required] ,
+			fresh_towels: ['', Validators.required] ,
+			yacht_slippers: ['', Validators.required] ,
+			bathroom_amenities: ['', Validators.required] ,
+			under_water_light: ['', Validators.required] ,
+			LED_screen_tv: ['', Validators.required] ,
+			sunbathing_on_the_foredeck: ['', Validators.required] ,
+			fishing_equipment: ['', Validators.required] ,
 		});
 	}
 
@@ -109,22 +159,22 @@ export class AddComponent implements OnInit, DoCheck, OnDestroy, InitializeCompo
 			return this.formErrorService.markAsTouched(controls);
 		}
 
-		const model = new ServicesModel(null);
+		const model = new YachtsModel(null);
 
 		model.name.en = controls['name_en'].value;
 		model.name.ar = controls['name_ar'].value;
 
-		model.description.en = controls['description_en'].value;
-		model.description.ar = controls['description_ar'].value;
-
-		model.price = controls['price'].value;
-		model.price_model = controls['price_model'].value;
-		model.minimum_hours_booking = controls['minimum_hours_booking'].value;
-		model.max_quantity = controls['max_quantity'].value;
+		// model.description.en = controls['description_en'].value;
+		// model.description.ar = controls['description_ar'].value;
+		//
+		// model.price = controls['price'].value;
+		// model.price_model = controls['price_model'].value;
+		// model.minimum_hours_booking = controls['minimum_hours_booking'].value;
+		// model.max_quantity = controls['max_quantity'].value;
 		model.seo.title = model.name;
-		model.seo.description = model.description;
-
-		model.image = controls['image'].value;
+		// model.seo.description = model.description;
+		//
+		// model.image = controls['image'].value;
 
 		// call service to store Banner
 		this.isLoadingResults = true;
@@ -158,8 +208,4 @@ export class AddComponent implements OnInit, DoCheck, OnDestroy, InitializeCompo
 
 	}
 
-
-	handleSelectedImage($event: []) {
-		this.selected_images = $event;
-	}
 }

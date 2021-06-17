@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {FormGroup} from '@angular/forms';
-import {ServicesEnumsModel} from '../../../../../../core/models/Yacht-Module/services.enums.model';
+import {ServicesEnumsModel} from '../../../../../../core/models/Marketing-Module/services.enums.model';
 
 @Component({
 	selector: 'kt-form',

@@ -141,6 +141,10 @@ export const locale = {
 			price: 'Price',
 			image: 'Image',
 
+			apply_vat: 'apply vat',
+			images: 'images',
+
+
 			SERVICES: {
 				name: 'Services',
 				single: 'Service',
@@ -175,6 +179,73 @@ export const locale = {
 				name: 'CMS Users',
 				single: 'CMS User',
 				columns: {
+				}
+			},
+
+			YACHTS: {
+				name: 'Yachts',
+				single: 'Yacht',
+				columns: {
+					/* Basic Information*/
+					basic_information: {
+						type: 'Type',
+						code: 'Code',
+						color: 'Color',
+						passenger_capacity: 'Passenger Capacity',
+						size: 'Size',
+						no_of_captain: 'Number of Captain',
+						crew_members: 'Number of Crew',
+
+						facilities_en: 'Facilities in English',
+						facilities_ar: 'Facilities in Arabic',
+						what_is_included_en: 'What is included in English',
+						what_is_included_ar: 'What is included in Arabic',
+						what_expect_description_en: 'What expect description in English',
+						what_expect_description_ar: 'What expect description in Arabic',
+
+						corporate_company: 'Corporate company',
+						corporate_price: 'corporate price',
+						selling_per_hour: 'selling per hour ',
+						yacht_special_price: 'yacht special price',
+						minimum_hours_booking: 'minimum hours booking',
+						status: 'Status',
+					},
+
+					/* Technical Information*/
+					technical_information: {
+						manufacturer: 'Manufacturer',
+						fuel_type: 'fuel type',
+						hull_type: 'hull type',
+						engine_type: 'engine type',
+						horse_power: 'horse Power\n',
+						max_speed: 'max speed',
+						cruising_speed: 'cruising speed',
+						length: 'length',
+						beam: 'Beam',
+					},
+
+					/* Key Feature*/
+					key_feature:{
+						water_slider: 'water slider',
+						safety_equipment: 'safety equipment',
+						soft_drinks_refreshments: 'soft drinks refreshments',
+						swimming_equipment: 'swimming equipment',
+						ice_tea_water: 'ice tea water',
+						DVD_player: 'DVD player',
+						satellite_system: 'satellite system',
+						red_carpet_on_arrival: 'red carpet on arrival',
+						spacious_saloon: 'spacious saloon',
+						BBQ_grill_equipment: 'BBQ grill equipment',
+						fresh_towels: 'fresh towels',
+						yacht_slippers: 'yacht slippers',
+						bathroom_amenities: 'bathroom amenities',
+						under_water_light: 'underwater light',
+						LED_screen_tv: 'LED screen tv',
+						sunbathing_on_the_foredeck: 'sunbathing on the foredeck',
+						fishing_equipment: 'fishing equipment',
+					},
+
+
 				}
 			},
 

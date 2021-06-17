@@ -6,9 +6,10 @@ import {InitializeComponentInterface} from '../../../../../shared/Base-Interface
 import {FormErrorService} from '../../../../../../core/services/FormError.service';
 import {AuthNoticeService} from '../../../../../../core/services/auth-notice.service';
 import {HelperService} from '../../../../../../core/services/helper.service';
-import {ServicesService} from '../../../../../../core/services/Yacht-Module/services.service';
-import {ServicesModel} from '../../../../../../core/models/Yacht-Module/services.model';
-import {ServicesEnumsModel} from '../../../../../../core/models/Yacht-Module/services.enums.model';
+import {ServicesModel} from '../../../../../../core/models/Marketing-Module/services.model';
+import {ServicesEnumsModel} from '../../../../../../core/models/Marketing-Module/services.enums.model';
+import {ServicesService} from '../../../../../../core/services/Marketing-Module/services.service';
+
 
 @Component({
 	selector: 'kt-edit',
@@ -59,8 +60,8 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 	}
 
 	initializePageName() {
-		this.page_name = this.translateService.instant('Components.SERVICES.name');
-		this.content_name = this.translateService.instant('Components.SERVICES.single');
+		this.page_name = this.translateService.instant('Components.YACHTS.name');
+		this.content_name = this.translateService.instant('Components.YACHTS.single');
 	}
 
 	initialiseComponent() {
@@ -112,19 +113,67 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 	 */
 	initializeForm() {
 		this.form = this.formBuilder.group({
+			/* Basic Information*/
+			name_en: ['', Validators.required] ,
+			name_ar: ['', Validators.required] ,
 
-			name_en: [this.model.name?.en, Validators.required],
-			name_ar: [this.model.name?.ar, Validators.required],
+			facilities_en: ['', Validators.required] ,
+			facilities_ar: ['', Validators.required] ,
 
-			description_en: [this.model.description?.en, Validators.required],
-			description_ar: [this.model.description?.ar, Validators.required],
+			what_is_included_en: ['', Validators.required] ,
+			what_is_included_ar: ['', Validators.required] ,
 
-			price: [this.model.price, Validators.required],
-			price_model: [this.model.price_model + '', Validators.required],
-			minimum_hours_booking: [this.model.minimum_hours_booking, Validators.required],
-			max_quantity: [this.model.max_quantity, Validators.required],
-			image: [''],
+			what_expect_description_en: ['', Validators.required] ,
+			what_expect_description_ar: ['', Validators.required] ,
 
+			type: ['', Validators.required] ,
+			code: ['', Validators.required] ,
+			color: ['', Validators.required] ,
+			passenger_capacity: ['', Validators.required] ,
+			size: ['', Validators.required] ,
+			no_of_captain: ['', Validators.required] ,
+			crew_members: ['', Validators.required] ,
+			corporate_company: ['', Validators.required] ,
+			corporate_price: ['', Validators.required] ,
+			selling_per_hour: ['', Validators.required] ,
+			yacht_special_price: ['', Validators.required] ,
+			minimum_hours_booking: ['', Validators.required] ,
+			apply_vat: ['', Validators.required] ,
+			status: ['', Validators.required] ,
+
+			services: ['', Validators.required] ,
+			images: ['', Validators.required] ,
+
+			/* Technical Information*/
+			manufacturer: ['', Validators.required] ,
+			fuel_type: ['', Validators.required] ,
+			hull_type: ['', Validators.required] ,
+			engine_type: ['', Validators.required] ,
+			horse_Power: ['', Validators.required] ,
+			max_speed: ['', Validators.required] ,
+			cruising_speed: ['', Validators.required] ,
+			length: ['', Validators.required] ,
+			beam: ['', Validators.required] ,
+
+
+			/* Key Feature*/
+			water_slider: ['', Validators.required] ,
+			safety_equipment: ['', Validators.required] ,
+			soft_drinks_refreshments: ['', Validators.required] ,
+			swimming_equipment: ['', Validators.required] ,
+			ice_tea_water: ['', Validators.required] ,
+			DVD_player: ['', Validators.required] ,
+			satellite_system: ['', Validators.required] ,
+			red_carpet_on_arrival: ['', Validators.required] ,
+			spacious_saloon: ['', Validators.required] ,
+			BBQ_grill_equipment: ['', Validators.required] ,
+			fresh_towels: ['', Validators.required] ,
+			yacht_slippers: ['', Validators.required] ,
+			bathroom_amenities: ['', Validators.required] ,
+			under_water_light: ['', Validators.required] ,
+			LED_screen_tv: ['', Validators.required] ,
+			sunbathing_on_the_foredeck: ['', Validators.required] ,
+			fishing_equipment: ['', Validators.required] ,
 		});
 
 		this.isLoadingResults = false;

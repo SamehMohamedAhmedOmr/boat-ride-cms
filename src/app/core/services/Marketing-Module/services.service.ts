@@ -2,13 +2,12 @@ import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {BaseService} from '../Base/base.service';
 import {environment} from '../../../../environments/environment';
-import {ServicesModel} from '../../models/Yacht-Module/services.model';
-import {ServicesSerializer} from '../../Serializers/Yacht-Module/services.serializer';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
-import {ServicesEnumsModel} from '../../models/Yacht-Module/services.enums.model';
-import {ServicesEnumSerializer} from '../../Serializers/Yacht-Module/services.enum.serializer';
-
+import {ServicesModel} from '../../models/Marketing-Module/services.model';
+import {ServicesSerializer} from '../../Serializers/Marketing-Module/services.serializer';
+import {ServicesEnumsModel} from '../../models/Marketing-Module/services.enums.model';
+import {ServicesEnumSerializer} from '../../Serializers/Marketing-Module/services.enum.serializer';
 
 @Injectable({
 	providedIn: 'root'

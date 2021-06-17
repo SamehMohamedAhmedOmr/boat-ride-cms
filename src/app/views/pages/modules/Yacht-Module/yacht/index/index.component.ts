@@ -12,7 +12,7 @@ import {HelperService} from '../../../../../../core/services/helper.service';
 import {RoutesName} from '../../../../../../core/Global/routes.name';
 import {SectionIconsName} from '../../../../../../core/Global/section.icons.name';
 import {MatTableDataSource} from '@angular/material';
-import {ServicesService} from '../../../../../../core/services/Yacht-Module/services.service';
+import {ServicesService} from '../../../../../../core/services/Marketing-Module/services.service';
 
 @Component({
 	selector: 'kt-index',
@@ -68,8 +68,8 @@ export class IndexComponent implements OnInit , DoCheck, OnDestroy, IndexInterfa
 	}
 
 	initializePageName(){
-		this.page_name = this.translateService.instant('Components.SERVICES.name');
-		this.content_name = this.translateService.instant('Components.SERVICES.single');
+		this.page_name = this.translateService.instant('Components.YACHTS.name');
+		this.content_name = this.translateService.instant('Components.YACHTS.single');
 	}
 
 	initialiseComponent() {
