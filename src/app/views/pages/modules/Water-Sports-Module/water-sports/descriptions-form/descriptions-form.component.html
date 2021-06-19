@@ -1,37 +1,38 @@
 <div [formGroup]="form">
-<div class="row" aria-label="facilities">
+
+	<div class="row" aria-label="water_sport_descriptions">
 		<div class="col-md-6">
 			<kt-form-richtext
 				[form]="form"
-				[label]="'Components.YACHTS.columns.basic_information.facilities_en' | translate"
-				[form_control_name]="'facilities_en'"
+				[label]="'Components.WATER_SPORTS.columns.basic_information.description_en' | translate"
+				[form_control_name]="'water_sport_description_en'"
 				[validation_type]="'required'">
 			</kt-form-richtext>
 		</div>
 		<div class="col-md-6">
 			<kt-form-richtext
 				[form]="form"
-				[label]="'Components.YACHTS.columns.basic_information.facilities_ar' | translate"
-				[form_control_name]="'facilities_ar'"
+				[label]="'Components.WATER_SPORTS.columns.basic_information.description_ar' | translate"
+				[form_control_name]="'water_sport_descriptions_ar'"
 				[validation_type]="'required'">
 			</kt-form-richtext>
 		</div>
 	</div>
 
-	<div class="row" aria-label="what_is_included">
+	<div class="row" aria-label="routes_en">
 		<div class="col-md-6">
 			<kt-form-richtext
 				[form]="form"
-				[label]="'Components.YACHTS.columns.basic_information.what_is_included_en' | translate"
-				[form_control_name]="'what_is_included_en'"
+				[label]="'Components.WATER_SPORTS.columns.basic_information.routes_en' | translate"
+				[form_control_name]="'routes_en'"
 				[validation_type]="'required'">
 			</kt-form-richtext>
 		</div>
 		<div class="col-md-6">
 			<kt-form-richtext
 				[form]="form"
-				[label]="'Components.YACHTS.columns.basic_information.what_is_included_ar' | translate"
-				[form_control_name]="'what_is_included_ar'"
+				[label]="'Components.WATER_SPORTS.columns.basic_information.routes_en' | translate"
+				[form_control_name]="'routes_en'"
 				[validation_type]="'required'">
 			</kt-form-richtext>
 		</div>
@@ -41,7 +42,7 @@
 		<div class="col-md-6">
 			<kt-form-richtext
 				[form]="form"
-				[label]="'Components.YACHTS.columns.basic_information.what_expect_description_en' | translate"
+				[label]="'Components.WATER_SPORTS.columns.basic_information.what_expect_description_en' | translate"
 				[form_control_name]="'what_expect_description_en'"
 				[validation_type]="'required'">
 			</kt-form-richtext>
@@ -49,8 +50,27 @@
 		<div class="col-md-6">
 			<kt-form-richtext
 				[form]="form"
-				[label]="'Components.YACHTS.columns.basic_information.what_expect_description_ar' | translate"
+				[label]="'Components.WATER_SPORTS.columns.basic_information.what_expect_description_ar' | translate"
 				[form_control_name]="'what_expect_description_ar'"
+				[validation_type]="'required'">
+			</kt-form-richtext>
+		</div>
+	</div>
+
+	<div class="row" aria-label="location">
+		<div class="col-md-6">
+			<kt-form-richtext
+				[form]="form"
+				[label]="'Components.WATER_SPORTS.columns.basic_information.location_en' | translate"
+				[form_control_name]="'location_en'"
+				[validation_type]="'required'">
+			</kt-form-richtext>
+		</div>
+		<div class="col-md-6">
+			<kt-form-richtext
+				[form]="form"
+				[label]="'Components.WATER_SPORTS.columns.basic_information.location_ar' | translate"
+				[form_control_name]="'location_ar'"
 				[validation_type]="'required'">
 			</kt-form-richtext>
 		</div>

@@ -6,11 +6,10 @@ import {InitializeComponentInterface} from '../../../../../shared/Base-Interface
 import {FormErrorService} from '../../../../../../core/services/FormError.service';
 import {AuthNoticeService} from '../../../../../../core/services/auth-notice.service';
 import {HelperService} from '../../../../../../core/services/helper.service';
-import {YachtsModel} from '../../../../../../core/models/Yacht-Module/yachts.model';
-import {YachtsEnumsModel} from '../../../../../../core/models/Yacht-Module/yachts.enums.model';
-import {YachtsService} from '../../../../../../core/services/Yacht-Module/yachts/yachts.service';
-import {YachtsObservableService} from '../../../../../../core/services/Yacht-Module/yachts/yachts.observable.service';
-import {ServicesModel} from '../../../../../../core/models/Marketing-Module/services.model';
+import {WaterSportObservableService} from '../../../../../../core/services/Water-Sport-Module/Water-Sport/water.sport.observable.service';
+import {WaterSportsService} from '../../../../../../core/services/Water-Sport-Module/Water-Sport/water.sports.service';
+import {WaterSportsEnumsModel} from '../../../../../../core/models/Water-Sport-Module/water.sports.enums.model';
+import {WaterSportsModel} from '../../../../../../core/models/Water-Sport-Module/water.sports.model';
 
 @Component({
 	selector: 'kt-add',
@@ -31,12 +30,11 @@ export class AddComponent implements OnInit, DoCheck, OnDestroy, InitializeCompo
 
 	selected_images: [] = [];
 
-	enums: YachtsEnumsModel;
-	services: ServicesModel[] = [];
+	enums: WaterSportsEnumsModel;
 
 	constructor(private fb: FormBuilder,
-				private service: YachtsService,
-				private yachtsObservableService: YachtsObservableService,
+				private service: WaterSportsService,
+				private waterSportObservableService: WaterSportObservableService,
 				private formErrorService: FormErrorService,
 				private cdr: ChangeDetectorRef,
 				private route: ActivatedRoute,
@@ -68,19 +66,14 @@ export class AddComponent implements OnInit, DoCheck, OnDestroy, InitializeCompo
 	}
 
 	private getDependencies() {
-		this.yachtsObservableService.getEnums();
+		this.waterSportObservableService.getEnums();
 
-		this.yachtsObservableService.enums_observable.subscribe((value:YachtsEnumsModel) => {
+		this.waterSportObservableService.enums_observable.subscribe((value:WaterSportsEnumsModel) => {
 			this.enums = value;
 			this.cdr.markForCheck();
 		});
 
-		this.yachtsObservableService.services_observable.subscribe((value:ServicesModel[]) => {
-			this.services = value;
-			this.cdr.markForCheck();
-		});
-
-		this.yachtsObservableService.loading_observable.subscribe((value:boolean) => {
+		this.waterSportObservableService.loading_observable.subscribe((value:boolean) => {
 			if (!value){
 				this.initForm();
 				this.is_result = true;
@@ -99,64 +92,30 @@ export class AddComponent implements OnInit, DoCheck, OnDestroy, InitializeCompo
 			name_en: ['', Validators.required] ,
 			name_ar: ['', Validators.required] ,
 
-			facilities_en: ['', Validators.required] ,
-			facilities_ar: ['', Validators.required] ,
+			water_sport_description_en: ['', Validators.required] ,
+			water_sport_descriptions_ar: ['', Validators.required] ,
 
-			what_is_included_en: ['', Validators.required] ,
-			what_is_included_ar: ['', Validators.required] ,
+			routes_en: ['', Validators.required] ,
+			routes_ar: ['', Validators.required] ,
 
 			what_expect_description_en: ['', Validators.required] ,
 			what_expect_description_ar: ['', Validators.required] ,
 
-			type: ['', Validators.required] ,
+			location_en: ['', Validators.required] ,
+			location_ar: ['', Validators.required] ,
+
 			code: ['', Validators.required] ,
 			color: ['', Validators.required] ,
-			passenger_capacity: ['', Validators.required] ,
-			size: ['', Validators.required] ,
-			no_of_captain: ['', Validators.required] ,
-			crew_members: ['', Validators.required] ,
 
 			corporate_company: ['', Validators.required] ,
 			corporate_price: ['', Validators.required] ,
 			selling_per_hour: ['', Validators.required] ,
-			yacht_special_price: ['', Validators.required] ,
+			special_price: ['', Validators.required] ,
 			minimum_hours_booking: ['', Validators.required] ,
 			apply_vat: ['0', Validators.required] ,
 			status: ['', Validators.required] ,
 
-			services: ['', Validators.required] ,
 			images: [''] ,
-
-			/* Technical Information*/
-			manufacturer: ['', Validators.required] ,
-			fuel_type: ['', Validators.required] ,
-			hull_type: ['', Validators.required] ,
-			engine_type: ['', Validators.required] ,
-			horse_Power: ['', Validators.required] ,
-			max_speed: ['', Validators.required] ,
-			cruising_speed: ['', Validators.required] ,
-			length: ['', Validators.required] ,
-			beam: ['', Validators.required] ,
-
-
-			/* Key Feature*/
-			water_slider: [false] ,
-			safety_equipment: [false] ,
-			soft_drinks_refreshments: [false] ,
-			swimming_equipment: [false] ,
-			ice_tea_water: [false] ,
-			DVD_player: [false] ,
-			satellite_system: [false] ,
-			red_carpet_on_arrival: [false] ,
-			spacious_saloon: [false] ,
-			BBQ_grill_equipment: [false] ,
-			fresh_towels: [false] ,
-			yacht_slippers: [false] ,
-			bathroom_amenities: [false] ,
-			under_water_light: [false] ,
-			LED_screen_tv: [false] ,
-			sunbathing_on_the_foredeck: [false] ,
-			fishing_equipment: [false] ,
 		});
 	}
 
@@ -173,7 +132,7 @@ export class AddComponent implements OnInit, DoCheck, OnDestroy, InitializeCompo
 			return this.formErrorService.markAsTouched(controls);
 		}
 
-		let model = new YachtsModel(null);
+		let model = new WaterSportsModel(null);
 		model = this.service.prepareObject(model, controls);
 
 		this.isLoadingResults = true;

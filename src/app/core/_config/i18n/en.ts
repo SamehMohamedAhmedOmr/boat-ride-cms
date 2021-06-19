@@ -269,8 +269,8 @@ export const locale = {
 
 						description_en: 'Description in English',
 						description_ar: 'Description in Arabic',
-						routes_en: 'What is included in English',
-						routes_ar: 'What is included in Arabic',
+						routes_en: 'Routes in English',
+						routes_ar: 'Routes in Arabic',
 						what_expect_description_en: 'What expect description in English',
 						what_expect_description_ar: 'What expect description in Arabic',
 						location_en: 'Location in English',

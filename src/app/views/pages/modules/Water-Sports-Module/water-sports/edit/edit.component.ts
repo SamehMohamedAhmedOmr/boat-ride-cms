@@ -6,11 +6,10 @@ import {InitializeComponentInterface} from '../../../../../shared/Base-Interface
 import {FormErrorService} from '../../../../../../core/services/FormError.service';
 import {AuthNoticeService} from '../../../../../../core/services/auth-notice.service';
 import {HelperService} from '../../../../../../core/services/helper.service';
-import {YachtsEnumsModel} from '../../../../../../core/models/Yacht-Module/yachts.enums.model';
-import {YachtsModel} from '../../../../../../core/models/Yacht-Module/yachts.model';
-import {YachtsService} from '../../../../../../core/services/Yacht-Module/yachts/yachts.service';
-import {ServicesModel} from '../../../../../../core/models/Marketing-Module/services.model';
-import {YachtsObservableService} from '../../../../../../core/services/Yacht-Module/yachts/yachts.observable.service';
+import {WaterSportsEnumsModel} from '../../../../../../core/models/Water-Sport-Module/water.sports.enums.model';
+import {WaterSportsService} from '../../../../../../core/services/Water-Sport-Module/Water-Sport/water.sports.service';
+import {WaterSportObservableService} from '../../../../../../core/services/Water-Sport-Module/Water-Sport/water.sport.observable.service';
+import {WaterSportsModel} from '../../../../../../core/models/Water-Sport-Module/water.sports.model';
 
 
 @Component({
@@ -29,20 +28,18 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 	isLoadingResults: any = true;
 	form: FormGroup;
 
-	model: YachtsModel;
+	model: WaterSportsModel;
 
 	id = null;
 	is_result: boolean;
 
 	selected_images: [] = [];
 
-	enums: YachtsEnumsModel;
-	services: ServicesModel[] = [];
-
+	enums: WaterSportsEnumsModel;
 
 	constructor(private formBuilder: FormBuilder,
-				private service: YachtsService,
-				private yachtsObservableService: YachtsObservableService,
+				private service: WaterSportsService,
+				private waterSportObservableService: WaterSportObservableService,
 				private formErrorService: FormErrorService,
 				private route: ActivatedRoute,
 				private router: Router,
@@ -75,19 +72,15 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 	}
 
 	private getDependencies() {
-		this.yachtsObservableService.getEnums();
+		this.waterSportObservableService.getEnums();
 
-		this.yachtsObservableService.enums_observable.subscribe((value:YachtsEnumsModel) => {
+		this.waterSportObservableService.enums_observable.subscribe((value:WaterSportsEnumsModel) => {
 			this.enums = value;
 			this.cdr.markForCheck();
 		});
 
-		this.yachtsObservableService.services_observable.subscribe((value:ServicesModel[]) => {
-			this.services = value;
-			this.cdr.markForCheck();
-		});
 
-		this.yachtsObservableService.loading_observable.subscribe((value:boolean) => {
+		this.waterSportObservableService.loading_observable.subscribe((value:boolean) => {
 			if ((!value) && this.model){
 				this.initializeForm();
 				this.is_result = true;
@@ -129,64 +122,30 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 			name_en: [this.model.name?.en, Validators.required] ,
 			name_ar: [this.model.name?.ar, Validators.required] ,
 
-			facilities_en: [this.model.facilities?.en, Validators.required] ,
-			facilities_ar: [this.model.facilities?.ar, Validators.required] ,
+			water_sport_description_en: [this.model.water_sport_description?.en, Validators.required] ,
+			water_sport_descriptions_ar: [this.model.water_sport_description?.ar, Validators.required] ,
 
-			what_is_included_en: [this.model.what_is_included?.en, Validators.required] ,
-			what_is_included_ar: [this.model.what_is_included?.ar, Validators.required] ,
+			routes_en: [this.model.routes?.en, Validators.required] ,
+			routes_ar: [this.model.routes?.ar, Validators.required] ,
 
-			what_expect_description_en: [this.model.what_expect_description?.en, Validators.required] ,
-			what_expect_description_ar: [this.model.what_expect_description?.ar, Validators.required] ,
+			what_expect_description_en: [this.model.what_to_expect_description?.en, Validators.required] ,
+			what_expect_description_ar: [this.model.what_to_expect_description?.ar, Validators.required] ,
 
-			type: [this.model.type, Validators.required] ,
+			location_en: [this.model.location?.en, Validators.required] ,
+			location_ar: [this.model.location?.ar, Validators.required] ,
+
 			code: [this.model.code, Validators.required] ,
 			color: [this.model.color, Validators.required] ,
-			passenger_capacity: [this.model.passenger_capacity, Validators.required] ,
-			size: [this.model.size, Validators.required] ,
-			no_of_captain: [this.model.no_of_captain, Validators.required] ,
-			crew_members: [this.model.crew_members, Validators.required] ,
+
 			corporate_company: [this.model.corporate_company, Validators.required] ,
 			corporate_price: [this.model.corporate_price, Validators.required] ,
 			selling_per_hour: [this.model.selling_per_hour, Validators.required] ,
-			yacht_special_price: [this.model.yacht_special_price, Validators.required] ,
-			minimum_hours_booking: [this.model.minimum_hours_booking, Validators.required] ,
+			special_price: [this.model.special_price, Validators.required] ,
+			minimum_hours_booking: [this.model.minimum_booking, Validators.required] ,
 			apply_vat: [this.model.apply_vat ? '1' : '0', Validators.required] ,
 			status: [this.model.status, Validators.required] ,
 
-			// @ts-ignore
-			services: [this.model.services.map(k => k.id), Validators.required] ,
 			images: [''] ,
-
-			/* Technical Information*/
-			manufacturer: [this.model.manufacturer, Validators.required] ,
-			fuel_type: [this.model.fuel_type + '', Validators.required] ,
-			hull_type: [this.model.hull_type + '', Validators.required] ,
-			engine_type: [this.model.engine_type + '', Validators.required] ,
-			horse_Power: [this.model.horse_Power , Validators.required] ,
-			max_speed: [this.model.max_speed, Validators.required] ,
-			cruising_speed: [this.model.cruising_speed, Validators.required] ,
-			length: [this.model.length, Validators.required] ,
-			beam: [this.model.beam, Validators.required] ,
-
-
-			/* Key Feature*/
-			water_slider: [this.model.water_slider] ,
-			safety_equipment: [this.model.safety_equipment] ,
-			soft_drinks_refreshments: [this.model.soft_drinks_refreshments] ,
-			swimming_equipment: [this.model.swimming_equipment] ,
-			ice_tea_water: [this.model.ice_tea_water] ,
-			DVD_player: [this.model.DVD_player] ,
-			satellite_system: [this.model.satellite_system] ,
-			red_carpet_on_arrival: [this.model.red_carpet_on_arrival] ,
-			spacious_saloon: [this.model.spacious_saloon] ,
-			BBQ_grill_equipment: [this.model.BBQ_grill_equipment] ,
-			fresh_towels: [this.model.fresh_towels] ,
-			yacht_slippers: [this.model.yacht_slippers] ,
-			bathroom_amenities: [this.model.bathroom_amenities] ,
-			under_water_light: [this.model.under_water_light] ,
-			LED_screen_tv: [this.model.LED_screen_tv] ,
-			sunbathing_on_the_foredeck: [this.model.sunbathing_on_the_foredeck] ,
-			fishing_equipment: [this.model.fishing_equipment] ,
 		});
 
 		this.isLoadingResults = false;

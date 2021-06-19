@@ -23,11 +23,7 @@ export class WaterSportsEnumSerializer extends BaseSerializer implements Seriali
 	public adapt(item: any): WaterSportsEnumsModel {
 		let model =  new WaterSportsEnumsModel(item.id);
 
-		model.engine_types = item.engine_types;
-		model.fuel_types = item.fuel_types;
-		model.hull_types = item.hull_types;
-		model.yacht_status = item.yacht_status;
-		model.yacht_types = item.yacht_types;
+		model.water_sport_status = item.water_sport_status;
 
 		return model;
 	}

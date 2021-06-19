@@ -265,8 +265,8 @@ export const locale = {
 
 						description_en: 'الوصف باللغة الانجليزية',
 						description_ar: 'الوصف باللغة العربية',
-						routes_en: 'المحتويات باللغة الانجليزية',
-						routes_ar: 'المحتويات باللغة العربية',
+						routes_en: 'الطرق باللغة الانجليزية',
+						routes_ar: 'الطرق باللغة العربية',
 						what_expect_description_en: 'وصف المتوقع باللغة الانجليزية',
 						what_expect_description_ar: 'وصف المتوقع باللغة العربية',
 						location_en: 'الموقع باللغة الانجليزية',

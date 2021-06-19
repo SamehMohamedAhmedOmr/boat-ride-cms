@@ -12,7 +12,7 @@ import {HelperService} from '../../../../../../core/services/helper.service';
 import {RoutesName} from '../../../../../../core/Global/routes.name';
 import {SectionIconsName} from '../../../../../../core/Global/section.icons.name';
 import {MatTableDataSource} from '@angular/material';
-import {YachtsService} from '../../../../../../core/services/Yacht-Module/yachts/yachts.service';
+import {WaterSportsService} from '../../../../../../core/services/Water-Sport-Module/Water-Sport/water.sports.service';
 
 @Component({
 	selector: 'kt-index',
@@ -48,7 +48,7 @@ export class IndexComponent implements OnInit , DoCheck, OnDestroy, IndexInterfa
 	};
 
 	constructor(private cdr: ChangeDetectorRef ,
-				public service: YachtsService,
+				public service: WaterSportsService,
 				private authNoticeService: AuthNoticeService,
 				public translateService : TranslateService,
 				private router: Router,
