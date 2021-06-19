@@ -22,4 +22,7 @@ export class FormComponent implements OnInit {
 	ngOnInit() {
 	}
 
+	stepChanged(event, stepper){
+		stepper.selected.interacted = false;
+	}
 }

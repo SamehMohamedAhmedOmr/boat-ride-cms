@@ -88,7 +88,7 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 		});
 
 		this.yachtsObservableService.loading_observable.subscribe((value:boolean) => {
-			if (!value){
+			if ((!value) && this.model){
 				this.initializeForm();
 				this.is_result = true;
 				this.isLoadingResults = false;

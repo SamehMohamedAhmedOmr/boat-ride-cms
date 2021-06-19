@@ -15,7 +15,7 @@
 			<div class="my-3 w-100">
 				<div aria-label="select-box">
 					<mat-form-field appearance="fill" class="w-100">
-						<mat-label> {{ 'Components.YACHTS.columns.technical_information.fuel_type' | translate }}</mat-label>
+						<mat-label> {{ 'Components.YACHTS.columns.technical_information.fuel_type' | translate | titlecase }}</mat-label>
 						<mat-select formControlName="fuel_type">
 							<mat-option *ngFor="let item of enumsModel.fuel_types" [value]="item.value">
 								{{ item.key.replace('_', ' ') | titlecase }}
@@ -35,7 +35,7 @@
 			<div class="my-3 w-100">
 				<div aria-label="select-box">
 					<mat-form-field appearance="fill" class="w-100">
-						<mat-label> {{ 'Components.YACHTS.columns.technical_information.hull_type' | translate }}</mat-label>
+						<mat-label> {{ 'Components.YACHTS.columns.technical_information.hull_type' | translate | titlecase }}</mat-label>
 						<mat-select formControlName="hull_type">
 							<mat-option *ngFor="let item of enumsModel.hull_types" [value]="item.value">
 								{{ item.key.replace('_', ' ') | titlecase }}
@@ -59,7 +59,7 @@
 			<div class="my-3 w-100">
 				<div aria-label="select-box">
 					<mat-form-field appearance="fill" class="w-100">
-						<mat-label> {{ 'Components.YACHTS.columns.technical_information.engine_type' | translate }}</mat-label>
+						<mat-label> {{ 'Components.YACHTS.columns.technical_information.engine_type' | translate | titlecase }}</mat-label>
 						<mat-select formControlName="engine_type">
 							<mat-option *ngFor="let item of enumsModel.engine_types" [value]="item.value">
 								{{ item.key.replace('_', ' ') | titlecase }}

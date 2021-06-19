@@ -3,7 +3,8 @@
 	<div class="mb-4">
 		<label *ngIf="!multiple" class="d-block mb-4">{{label}}</label>
 		<label class="btn btn-outline-dark">
-			{{ 'Components.Gallery.change_image' | translate }} <i class="flaticon2-image-file mx-2"></i>
+			{{ 'Components.Gallery.change_image' | translate }}
+			<i class="flaticon2-image-file mx-2"></i>
 			<input type="file"
 				   [multiple]="multiple"
 				   (change)="onFileSelect($event)"

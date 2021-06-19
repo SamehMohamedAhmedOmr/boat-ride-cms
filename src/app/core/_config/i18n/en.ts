@@ -261,7 +261,7 @@ export const locale = {
 				images: 'Images',
 				columns: {},
 				view_image: 'View Image',
-				change_image: 'Add / Change imageِِ',
+				change_image: 'Add / change Images',
 				upload: 'Upload',
 				no_images: 'No Gallery Image yet',
 				no_attached_images: 'No Images attached yet',
