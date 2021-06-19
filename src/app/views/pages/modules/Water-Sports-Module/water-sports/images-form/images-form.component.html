@@ -1,0 +1,15 @@
+<div [formGroup]="form">
+	<div class="my-4">
+		<div class="col-19">
+			<kt-form-upload-image
+				[form]="form"
+				[to_base64]="true"
+				[multiple]="true"
+				[image_urls]="image_urls"
+				[validation_type]="'required'"
+				[label]="'Components.image' | translate"
+				[form_control_name]="'images'">
+			</kt-form-upload-image>
+		</div>
+	</div>
+</div>

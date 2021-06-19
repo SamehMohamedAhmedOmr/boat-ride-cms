@@ -58,14 +58,14 @@ export const locale = {
 				}
 			},
 			YACHT_SETTINGS: {
-				TITLE: 'اعدادات اليخوت',
+				TITLE: 'ادارة اليخوت',
 				MENU: {
 					YACHTS: 'اليخوت',
 					YACHTS_RESERVATION: 'حجوزات اليخوت',
 				}
 			},
 			WATER_SPORT_SETTINGS: {
-				TITLE: 'اعدادات العاب المياه',
+				TITLE: 'ادارة العاب المياه',
 				MENU: {
 					WATER_SPORTS: 'ألعاب المياه',
 					WATER_SPORTS_RESERVATION: 'حجوزات العاب المياه',
@@ -248,6 +248,37 @@ export const locale = {
 					},
 
 
+				}
+			},
+
+			WATER_SPORTS: {
+				name: 'العاب المياه',
+				single: 'لعبة مياه',
+				basic_information: 'المعلومات الاساسية',
+				descriptions: 'الأوصاف',
+				columns: {
+					/* Basic Information*/
+					basic_information: {
+						code: 'الكود',
+						color: 'اللون',
+						size: 'الحجم',
+
+						description_en: 'الوصف باللغة الانجليزية',
+						description_ar: 'الوصف باللغة العربية',
+						routes_en: 'المحتويات باللغة الانجليزية',
+						routes_ar: 'المحتويات باللغة العربية',
+						what_expect_description_en: 'وصف المتوقع باللغة الانجليزية',
+						what_expect_description_ar: 'وصف المتوقع باللغة العربية',
+						location_en: 'الموقع باللغة الانجليزية',
+						location_ar: 'الموقع باللغة العربية',
+
+						corporate_company: 'الشركات الخاصة',
+						corporate_price: 'سعر الشركة',
+						selling_per_hour: 'بيع في الساعة',
+						special_price: 'اليخت بسعر خاص',
+						minimum_hours_booking: 'الحد الأدنى من ساعات الحجز',
+						status: 'الحالة',
+					},
 				}
 			},
 

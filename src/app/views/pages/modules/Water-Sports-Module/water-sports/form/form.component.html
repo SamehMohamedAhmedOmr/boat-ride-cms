@@ -1,0 +1,39 @@
+<div class="form-div">
+
+	<form class="p-3" [formGroup]="form" autocomplete="off">
+
+		<mat-vertical-stepper #stepper (selectionChange)="stepChanged($event, stepper);">
+			<mat-step>
+				<form [formGroup]="form">
+					<ng-template matStepLabel>
+						{{ 'Components.YACHTS.basic_information' | translate | titlecase }}
+					</ng-template>
+
+					<kt-basic-information-form [form]="form"
+											   [services]="services"
+											   [enumsModel]="enumsModel"></kt-basic-information-form>
+				</form>
+			</mat-step>
+			<mat-step>
+				<form [formGroup]="form">
+					<ng-template matStepLabel>
+						{{ 'Components.YACHTS.descriptions' | translate | titlecase }}
+					</ng-template>
+
+					<kt-descriptions-form [form]="form"></kt-descriptions-form>
+				</form>
+			</mat-step>
+
+			<mat-step>
+				<form [formGroup]="form">
+					<ng-template matStepLabel>
+						{{ 'Components.images' | translate | titlecase }}
+					</ng-template>
+					<kt-images-form [form]="form" [image_urls]="image_urls"></kt-images-form>
+				</form>
+			</mat-step>
+		</mat-vertical-stepper>
+
+	</form>
+
+</div>

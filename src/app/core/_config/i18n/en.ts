@@ -60,14 +60,14 @@ export const locale = {
 				}
 			},
 			YACHT_SETTINGS: {
-				TITLE: 'Yacht Settings',
+				TITLE: 'Yacht Management',
 				MENU: {
 					YACHTS: 'Yachts',
 					YACHTS_RESERVATION: 'Yachts Reservation',
 				}
 			},
 			WATER_SPORT_SETTINGS: {
-				TITLE: 'Water Sport Settings',
+				TITLE: 'Water Sport Management',
 				MENU: {
 					WATER_SPORTS: 'Water Sports',
 					WATER_SPORTS_RESERVATION: 'Water Sports Reservation',
@@ -252,6 +252,38 @@ export const locale = {
 					},
 
 
+				}
+			},
+
+			WATER_SPORTS: {
+				name: 'Water Sports',
+				single: 'Water Sport',
+				basic_information: 'Basic Information',
+				descriptions: 'Descriptions',
+				columns: {
+					/* Basic Information*/
+					basic_information: {
+						code: 'Code',
+						color: 'Color',
+						size: 'Size',
+
+						description_en: 'Description in English',
+						description_ar: 'Description in Arabic',
+						routes_en: 'What is included in English',
+						routes_ar: 'What is included in Arabic',
+						what_expect_description_en: 'What expect description in English',
+						what_expect_description_ar: 'What expect description in Arabic',
+						location_en: 'Location in English',
+						location_ar: 'Location in Arabic',
+
+
+						corporate_company: 'Corporate company',
+						corporate_price: 'corporate price',
+						selling_per_hour: 'selling per hour ',
+						special_price: 'special price',
+						minimum_hours_booking: 'minimum hours booking',
+						status: 'Status',
+					},
 				}
 			},
 
