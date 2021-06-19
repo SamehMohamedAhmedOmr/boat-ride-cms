@@ -39,6 +39,8 @@ import { FormUploadImageComponent } from './forms/form-upload-image/form-upload-
 import { FormStatusComponent } from './forms/form-status/form-status.component';
 import {MatMenuModule} from '@angular/material/menu';
 import { FormDatePickerComponent } from './forms/form-date-picker/form-date-picker.component';
+import {FormRichtextComponent} from './forms/form-richtext/form-richtext.component';
+import {CKEditorModule} from '@ckeditor/ckeditor5-angular';
 
 
 @NgModule({
@@ -55,7 +57,8 @@ import { FormDatePickerComponent } from './forms/form-date-picker/form-date-pick
 		FormShowComponent,
 		FormUploadImageComponent,
 		FormStatusComponent,
-		FormDatePickerComponent
+		FormDatePickerComponent,
+		FormRichtextComponent
 	],
 	imports: [
 		CommonModule,
@@ -81,7 +84,8 @@ import { FormDatePickerComponent } from './forms/form-date-picker/form-date-pick
 		MatIconModule,
 		MatLineModule,
 		MatListModule,
-		MatMenuModule
+		MatMenuModule,
+		CKEditorModule
 	],
 	entryComponents: [
 		DeleteModalComponent,
@@ -109,7 +113,8 @@ import { FormDatePickerComponent } from './forms/form-date-picker/form-date-pick
         FormShowComponent,
         FormUploadImageComponent,
         MatMenuModule,
-        FormDatePickerComponent
+        FormDatePickerComponent,
+		FormRichtextComponent
     ]
 })
 export class SharedModule {

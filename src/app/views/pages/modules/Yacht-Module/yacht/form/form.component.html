@@ -9,7 +9,8 @@
 						{{ 'Components.YACHTS.basic_information' | translate }}
 					</ng-template>
 
-					<kt-basic-information-form [form]="form" [enumsModel]="enumsModel"></kt-basic-information-form>
+					<kt-basic-information-form [form]="form"
+											   [enumsModel]="enumsModel"></kt-basic-information-form>
 				</form>
 			</mat-step>
 			<mat-step [stepControl]="form">
@@ -18,7 +19,8 @@
 						{{ 'Components.YACHTS.technical_information' | translate }}
 					</ng-template>
 
-					<kt-technical-form [form]="form" [enumsModel]="enumsModel"></kt-technical-form>
+					<kt-technical-form [form]="form"
+									   [enumsModel]="enumsModel"></kt-technical-form>
 				</form>
 			</mat-step>
 
