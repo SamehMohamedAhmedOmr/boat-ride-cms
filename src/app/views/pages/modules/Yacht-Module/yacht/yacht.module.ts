@@ -15,9 +15,10 @@ import { BasicInformationFormComponent } from './basic-information-form/basic-in
 import { DescriptionsFormComponent } from './descriptions-form/descriptions-form.component';
 import { TechnicalFormComponent } from './technical-form/technical-form.component';
 import { KeyFeatureFormComponent } from './key-feature-form/key-feature-form.component';
+import { ImagesFormComponent } from './images-form/images-form.component';
 
 @NgModule({
-	declarations: [YachtComponent, IndexComponent, AddComponent, EditComponent, FormComponent, BasicInformationFormComponent, DescriptionsFormComponent, TechnicalFormComponent, KeyFeatureFormComponent,],
+	declarations: [YachtComponent, IndexComponent, AddComponent, EditComponent, FormComponent, BasicInformationFormComponent, DescriptionsFormComponent, TechnicalFormComponent, KeyFeatureFormComponent, ImagesFormComponent,],
 	imports: [
 		CommonModule,
 		SharedModule,

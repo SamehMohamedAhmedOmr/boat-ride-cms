@@ -14,6 +14,7 @@ export class FormComponent implements OnInit {
 	@Input() enumsModel: YachtsEnumsModel;
 	@Input() services: ServicesModel[];
 	@Input() imgURL: string;
+	@Input() image_urls: [] = [];
 
 	constructor() {
 	}

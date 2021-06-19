@@ -14,6 +14,8 @@ export class FormUploadImageComponent implements OnInit {
 	@Input() validation_type: string = null;
 	@Input() to_base64:boolean = false;
 	@Input() imgURL:any = null;
+	@Input() multiple:boolean = false;
+	@Input() image_urls: [] = [];
 
 	constructor(private cdr: ChangeDetectorRef,) {
 	}
@@ -23,21 +25,59 @@ export class FormUploadImageComponent implements OnInit {
 
 	onFileSelect(event) {
 		if (event.target.files.length > 0) {
-			const file = event.target.files[0];
+
+			if (!this.multiple){ // single Image
+				this.handleSingleImage(event)
+			}
+			else{
+				this.handleMultiImages(event);
+			}
+		}
+	}
+
+	handleMultiImages(event){
+
+		let files: [] = [];
+
+		Array.from(event.target.files).forEach((file) => {
 			if (!this.to_base64){
-				this.form.controls[this.form_control_name].setValue(file);
+				// @ts-ignore
+				files.push(file);
 			}
 
 			let reader = new FileReader();
+			// @ts-ignore
 			reader.readAsDataURL(file);
 			reader.onload = (_event) => {
-				this.imgURL = reader.result;
+				let imgURL = reader.result;
+				// @ts-ignore
+				this.image_urls.push(imgURL);
 				if (this.to_base64){
-					this.form.controls[this.form_control_name].setValue(this.imgURL);
+					// @ts-ignore
+					files.push(imgURL);
 				}
 				this.cdr.markForCheck();
 			};
+		});
 
-		}
+		this.form.controls[this.form_control_name].setValue(files);
 	}
+
+	handleSingleImage(event){
+		const file = event.target.files[0];
+		if (!this.to_base64){
+			this.form.controls[this.form_control_name].setValue(file);
+		}
+
+		let reader = new FileReader();
+		reader.readAsDataURL(file);
+		reader.onload = (_event) => {
+			this.imgURL = reader.result;
+			if (this.to_base64){
+				this.form.controls[this.form_control_name].setValue(this.imgURL);
+			}
+			this.cdr.markForCheck();
+		};
+	}
+
 }
