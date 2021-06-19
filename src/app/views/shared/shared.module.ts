@@ -42,6 +42,7 @@ import { FormDatePickerComponent } from './forms/form-date-picker/form-date-pick
 import {FormRichtextComponent} from './forms/form-richtext/form-richtext.component';
 import {CKEditorModule} from '@ckeditor/ckeditor5-angular';
 import {FormCheckboxComponent} from './forms/form-checkbox/form-checkbox.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -87,7 +88,8 @@ import {FormCheckboxComponent} from './forms/form-checkbox/form-checkbox.compone
 		MatLineModule,
 		MatListModule,
 		MatMenuModule,
-		CKEditorModule
+		CKEditorModule,
+		NgbModule
 	],
 	entryComponents: [
 		DeleteModalComponent,

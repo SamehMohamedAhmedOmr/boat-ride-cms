@@ -45,22 +45,22 @@
 					{{ 'Components.image' | translate }}
 				</th>
 				<td mat-cell *matCellDef="let element">
-					<img class="img-thumbnail" src="{{element.image}}" style="width: 100%">
+					<img class="img-thumbnail" src="{{element.image }}" style="width: 100%">
 				</td>
 			</ng-container>
 
-			<ng-container matColumnDef="price">
+			<ng-container matColumnDef="selling_per_hour">
 				<th mat-header-cell *matHeaderCellDef mat-sort-header>
 					{{ 'Components.price' | translate }}
 				</th>
-				<td mat-cell *matCellDef="let element"> {{ element.price }} </td>
+				<td mat-cell *matCellDef="let element"> {{ element.selling_per_hour }} </td>
 			</ng-container>
 
-			<ng-container matColumnDef="max_quantity">
+			<ng-container matColumnDef="status">
 				<th mat-header-cell *matHeaderCellDef mat-sort-header>
-					{{ 'Components.SERVICES.columns.max_quantity' | translate }}
+					{{ 'Components.YACHTS.columns.basic_information.status' | translate }}
 				</th>
-				<td mat-cell *matCellDef="let element"> {{ element.max_quantity }} </td>
+				<td mat-cell *matCellDef="let element"> {{ element.status }} </td>
 			</ng-container>
 
 

@@ -12,7 +12,7 @@ import {HelperService} from '../../../../../../core/services/helper.service';
 import {RoutesName} from '../../../../../../core/Global/routes.name';
 import {SectionIconsName} from '../../../../../../core/Global/section.icons.name';
 import {MatTableDataSource} from '@angular/material';
-import {ServicesService} from '../../../../../../core/services/Marketing-Module/services.service';
+import {YachtsService} from '../../../../../../core/services/Yacht-Module/yachts/yachts.service';
 
 @Component({
 	selector: 'kt-index',
@@ -32,7 +32,7 @@ export class IndexComponent implements OnInit , DoCheck, OnDestroy, IndexInterfa
 
 	//Data table variables
 	dataSource;
-	displayedColumns: string[] = ['id' , 'name' , 'image' , 'price', 'max_quantity' , 'options'];
+	displayedColumns: string[] = ['id' , 'name' , 'image' , 'selling_per_hour', 'status' , 'options'];
 	isLoadingResults:boolean = true;
 	// pagination variables
 	resultsLength = 0;
@@ -48,7 +48,7 @@ export class IndexComponent implements OnInit , DoCheck, OnDestroy, IndexInterfa
 	};
 
 	constructor(private cdr: ChangeDetectorRef ,
-				public service: ServicesService,
+				public service: YachtsService,
 				private authNoticeService: AuthNoticeService,
 				public translateService : TranslateService,
 				private router: Router,

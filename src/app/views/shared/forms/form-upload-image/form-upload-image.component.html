@@ -1,22 +1,38 @@
 <div class="mb-4 w-100">
-	<label *ngIf="!multiple" class="d-block mb-4">{{label}}</label>
-	<label class="btn btn-outline-dark w-100">
-		{{ 'Components.Gallery.change_image' | translate }} <i class="flaticon2-image-file mx-2"></i>
-		<input type="file"
-			   [multiple]="multiple"
-			   (change)="onFileSelect($event)"
-			   accept="image/*" hidden/>
-	</label>
-	<kt-form-error *ngIf="validation_type"
-				   [form]="form"
-				   [controlName]="form_control_name"
-				   [validationType]="validation_type"
-				   [controlText]="label"
-	></kt-form-error>
 
-	<div *ngIf="imgURL && !multiple" class="uploaded-preview my-4">
-		<div>
-			<img src="{{ imgURL }}" alt="" class="w-100 h-100">
+	<div class="mb-4">
+		<label *ngIf="!multiple" class="d-block mb-4">{{label}}</label>
+		<label class="btn btn-outline-dark">
+			{{ 'Components.Gallery.change_image' | translate }} <i class="flaticon2-image-file mx-2"></i>
+			<input type="file"
+				   [multiple]="multiple"
+				   (change)="onFileSelect($event)"
+				   accept="image/*" hidden/>
+		</label>
+		<kt-form-error *ngIf="validation_type"
+					   [form]="form"
+					   [controlName]="form_control_name"
+					   [validationType]="validation_type"
+					   [controlText]="label">
+		</kt-form-error>
+	</div>
+
+	<div class="mb-4" *ngIf="!multiple">
+		<div *ngIf="imgURL && !multiple" class="uploaded-preview my-4">
+			<div>
+				<img src="{{ imgURL }}" alt="" class="w-100 h-100">
+			</div>
 		</div>
 	</div>
+
+	<div *ngIf="multiple">
+		<ngb-carousel *ngIf="image_urls">
+			<ng-template ngbSlide *ngFor="let image of image_urls">
+				<div class="picsum-img-wrapper">
+					<img [src]="image">
+				</div>
+			</ng-template>
+		</ngb-carousel>
+	</div>
+
 </div>

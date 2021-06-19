@@ -125,7 +125,7 @@ export class AddComponent implements OnInit, DoCheck, OnDestroy, InitializeCompo
 			status: ['', Validators.required] ,
 
 			services: ['', Validators.required] ,
-			images: ['', Validators.required] ,
+			images: [''] ,
 
 			/* Technical Information*/
 			manufacturer: ['', Validators.required] ,
@@ -140,26 +140,23 @@ export class AddComponent implements OnInit, DoCheck, OnDestroy, InitializeCompo
 
 
 			/* Key Feature*/
-			water_slider: [''] ,
-			safety_equipment: [''] ,
-			soft_drinks_refreshments: [''] ,
-			swimming_equipment: [''] ,
-
-			ice_tea_water: [''] ,
-			DVD_player: [''] ,
-			satellite_system: [''] ,
-			red_carpet_on_arrival: [''] ,
-
-			spacious_saloon: [''] ,
-			BBQ_grill_equipment: [''] ,
-			fresh_towels: [''] ,
-			yacht_slippers: [''] ,
-
-			bathroom_amenities: [''] ,
-			under_water_light: [''] ,
-			LED_screen_tv: [''] ,
-			sunbathing_on_the_foredeck: [''] ,
-			fishing_equipment: [''] ,
+			water_slider: [false] ,
+			safety_equipment: [false] ,
+			soft_drinks_refreshments: [false] ,
+			swimming_equipment: [false] ,
+			ice_tea_water: [false] ,
+			DVD_player: [false] ,
+			satellite_system: [false] ,
+			red_carpet_on_arrival: [false] ,
+			spacious_saloon: [false] ,
+			BBQ_grill_equipment: [false] ,
+			fresh_towels: [false] ,
+			yacht_slippers: [false] ,
+			bathroom_amenities: [false] ,
+			under_water_light: [false] ,
+			LED_screen_tv: [false] ,
+			sunbathing_on_the_foredeck: [false] ,
+			fishing_equipment: [false] ,
 		});
 	}
 

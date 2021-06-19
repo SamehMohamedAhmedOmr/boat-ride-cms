@@ -35,7 +35,6 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 	is_result: boolean;
 
 	selected_images: [] = [];
-	current_image: string;
 
 	enums: YachtsEnumsModel;
 	services: ServicesModel[] = [];
@@ -106,7 +105,8 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 			this.service.get(this.id).subscribe(
 				(data) => {
 					this.model = data;
-					///this.current_image = this.model.image;
+					// @ts-ignore
+					this.selected_images = this.model.images.map(k => k.image);
 				}, error => {
 					this.authNoticeService.setNotice(this.translateService.instant('COMMON.Item_not_found',
 						{name: this.content_name}),
@@ -126,67 +126,67 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 	initializeForm() {
 		this.form = this.formBuilder.group({
 			/* Basic Information*/
-			name_en: ['', Validators.required] ,
-			name_ar: ['', Validators.required] ,
+			name_en: [this.model.name?.en, Validators.required] ,
+			name_ar: [this.model.name?.ar, Validators.required] ,
 
-			facilities_en: ['', Validators.required] ,
-			facilities_ar: ['', Validators.required] ,
+			facilities_en: [this.model.facilities?.en, Validators.required] ,
+			facilities_ar: [this.model.facilities?.ar, Validators.required] ,
 
-			what_is_included_en: ['', Validators.required] ,
-			what_is_included_ar: ['', Validators.required] ,
+			what_is_included_en: [this.model.what_is_included?.en, Validators.required] ,
+			what_is_included_ar: [this.model.what_is_included?.ar, Validators.required] ,
 
-			what_expect_description_en: ['', Validators.required] ,
-			what_expect_description_ar: ['', Validators.required] ,
+			what_expect_description_en: [this.model.what_expect_description?.en, Validators.required] ,
+			what_expect_description_ar: [this.model.what_expect_description?.ar, Validators.required] ,
 
-			type: ['', Validators.required] ,
-			code: ['', Validators.required] ,
-			color: ['', Validators.required] ,
-			passenger_capacity: ['', Validators.required] ,
-			size: ['', Validators.required] ,
-			no_of_captain: ['', Validators.required] ,
-			crew_members: ['', Validators.required] ,
-			corporate_company: ['', Validators.required] ,
-			corporate_price: ['', Validators.required] ,
-			selling_per_hour: ['', Validators.required] ,
-			yacht_special_price: ['', Validators.required] ,
-			minimum_hours_booking: ['', Validators.required] ,
-			apply_vat: ['', Validators.required] ,
-			status: ['', Validators.required] ,
+			type: [this.model.type, Validators.required] ,
+			code: [this.model.code, Validators.required] ,
+			color: [this.model.color, Validators.required] ,
+			passenger_capacity: [this.model.passenger_capacity, Validators.required] ,
+			size: [this.model.size, Validators.required] ,
+			no_of_captain: [this.model.no_of_captain, Validators.required] ,
+			crew_members: [this.model.crew_members, Validators.required] ,
+			corporate_company: [this.model.corporate_company, Validators.required] ,
+			corporate_price: [this.model.corporate_price, Validators.required] ,
+			selling_per_hour: [this.model.selling_per_hour, Validators.required] ,
+			yacht_special_price: [this.model.yacht_special_price, Validators.required] ,
+			minimum_hours_booking: [this.model.minimum_hours_booking, Validators.required] ,
+			apply_vat: [this.model.apply_vat ? '1' : '0', Validators.required] ,
+			status: [this.model.status, Validators.required] ,
 
-			services: ['', Validators.required] ,
-			images: ['', Validators.required] ,
+			// @ts-ignore
+			services: [this.model.services.map(k => k.id), Validators.required] ,
+			images: [''] ,
 
 			/* Technical Information*/
-			manufacturer: ['', Validators.required] ,
-			fuel_type: ['', Validators.required] ,
-			hull_type: ['', Validators.required] ,
-			engine_type: ['', Validators.required] ,
-			horse_Power: ['', Validators.required] ,
-			max_speed: ['', Validators.required] ,
-			cruising_speed: ['', Validators.required] ,
-			length: ['', Validators.required] ,
-			beam: ['', Validators.required] ,
+			manufacturer: [this.model.manufacturer, Validators.required] ,
+			fuel_type: [this.model.fuel_type + '', Validators.required] ,
+			hull_type: [this.model.hull_type + '', Validators.required] ,
+			engine_type: [this.model.engine_type + '', Validators.required] ,
+			horse_Power: [this.model.horse_Power , Validators.required] ,
+			max_speed: [this.model.max_speed, Validators.required] ,
+			cruising_speed: [this.model.cruising_speed, Validators.required] ,
+			length: [this.model.length, Validators.required] ,
+			beam: [this.model.beam, Validators.required] ,
 
 
 			/* Key Feature*/
-			/* Key Feature*/
-			water_slider: [''] ,
-			safety_equipment: [''] ,
-			soft_drinks_refreshments: [''] ,
-			swimming_equipment: [''] ,
-			ice_tea_water: [''] ,
-			DVD_player: [''] ,
-			satellite_system: [''] ,
-			red_carpet_on_arrival: [''] ,
-			spacious_saloon: [''] ,
-			BBQ_grill_equipment: [''] ,
-			fresh_towels: [''] ,
-			yacht_slippers: [''] ,
-			bathroom_amenities: [''] ,
-			under_water_light: [''] ,
-			LED_screen_tv: [''] ,
-			sunbathing_on_the_foredeck: [''] ,
-			fishing_equipment: [''] ,
+			water_slider: [this.model.water_slider] ,
+			safety_equipment: [this.model.safety_equipment] ,
+			soft_drinks_refreshments: [this.model.soft_drinks_refreshments] ,
+			swimming_equipment: [this.model.swimming_equipment] ,
+			ice_tea_water: [this.model.ice_tea_water] ,
+			DVD_player: [this.model.DVD_player] ,
+			satellite_system: [this.model.satellite_system] ,
+			red_carpet_on_arrival: [this.model.red_carpet_on_arrival] ,
+			spacious_saloon: [this.model.spacious_saloon] ,
+			BBQ_grill_equipment: [this.model.BBQ_grill_equipment] ,
+			fresh_towels: [this.model.fresh_towels] ,
+			yacht_slippers: [this.model.yacht_slippers] ,
+			bathroom_amenities: [this.model.bathroom_amenities] ,
+			under_water_light: [this.model.under_water_light] ,
+			LED_screen_tv: [this.model.LED_screen_tv] ,
+			sunbathing_on_the_foredeck: [this.model.sunbathing_on_the_foredeck] ,
+			fishing_equipment: [this.model.fishing_equipment] ,
 		});
 
 		this.isLoadingResults = false;
