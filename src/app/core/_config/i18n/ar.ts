@@ -154,6 +154,14 @@ export const locale = {
 				}
 			},
 
+			OFFERS: {
+				name: 'العروض',
+				single: 'عرض',
+				columns: {
+					valid_date: 'صالح حتى',
+				}
+			},
+
 			BANNERS: {
 				name: 'اللافتات',
 				single: 'اللافتة',

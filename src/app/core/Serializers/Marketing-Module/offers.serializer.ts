@@ -1,10 +1,10 @@
 import {BaseSerializer} from '../Base/Base.serializer';
 import {Serializer} from '../Base/Serializer';
-import {ServicesModel} from '../../models/Marketing-Module/services.model';
+import {OffersModel} from '../../models/Marketing-Module/offers.model';
 
-export class ServicesSerializer extends BaseSerializer implements Serializer {
+export class OffersSerializer extends BaseSerializer implements Serializer {
 
-	fromJson(json: any): ServicesModel {
+	fromJson(json: any): OffersModel {
 		return this.adapt(json.body);
 	}
 
@@ -12,15 +12,13 @@ export class ServicesSerializer extends BaseSerializer implements Serializer {
 		return this.adaptList(json.body, json.pagination);
 	}
 
-	toJson(model: ServicesModel): any {
+	toJson(model: OffersModel): any {
 		let object = {
 			'id' : model.id,
 			'name' : model.name,
 			'description' : model.description,
-			'price' : model.price,
-			'price_model' : model.price_model,
-			'minimum_hours_booking' : model.minimum_hours_booking,
-			'max_quantity' : model.max_quantity,
+			'valid_date' : model.valid_date,
+			'is_active' : model.is_active,
 			'seo' : model.seo,
 		};
 
@@ -35,17 +33,13 @@ export class ServicesSerializer extends BaseSerializer implements Serializer {
 		return null;
 	}
 
-	public adapt(item: any): ServicesModel {
-		let model =  new ServicesModel(item.id);
+	public adapt(item: any): OffersModel {
+		let model =  new OffersModel(item.id);
 
 		model.name = item.name;
-
 		model.description = item.description;
-
-		model.price = item.price;
-		model.price_model = item.price_model;
-		model.minimum_hours_booking = item.minimum_hours_booking;
-		model.max_quantity = item.max_quantity;
+		model.valid_date = item.valid_date;
+		model.is_active = item.is_active;
 		model.seo = item.seo;
 
 		model.image = item.image;

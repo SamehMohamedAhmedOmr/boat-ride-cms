@@ -157,6 +157,14 @@ export const locale = {
 				}
 			},
 
+			OFFERS: {
+				name: 'Offers',
+				single: 'Offer',
+				columns: {
+					valid_date: 'Valid Date',
+				}
+			},
+
 			BANNERS: {
 				name: 'Banners',
 				single: 'Banner',
