@@ -37,8 +37,8 @@ export class WaterSportsService extends BaseService<WaterSportsModel> {
 		model.water_sport_description.en = controls['water_sport_description_en'].value;
 		model.water_sport_description.ar = controls['water_sport_descriptions_ar'].value;
 
-		model.routes.en = controls['what_is_included_en'].value;
-		model.routes.ar = controls['what_is_included_ar'].value;
+		model.routes.en = controls['routes_en'].value;
+		model.routes.ar = controls['routes_ar'].value;
 
 		model.what_to_expect_description.en = controls['what_expect_description_en'].value;
 		model.what_to_expect_description.ar = controls['what_expect_description_ar'].value;
@@ -56,7 +56,7 @@ export class WaterSportsService extends BaseService<WaterSportsModel> {
 		model.corporate_price = controls['corporate_price'].value;
 		model.selling_per_hour = controls['selling_per_hour'].value;
 		model.special_price = controls['special_price'].value;
-		model.minimum_booking = controls['minimum_booking'].value;
+		model.minimum_booking = controls['minimum_hours_booking'].value;
 		model.apply_vat = controls['apply_vat'].value;
 		model.status = controls['status'].value;
 

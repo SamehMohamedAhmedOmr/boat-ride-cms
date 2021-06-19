@@ -118,7 +118,7 @@
 					<mat-form-field appearance="fill" class="w-100">
 						<mat-label> {{ 'Components.WATER_SPORTS.columns.basic_information.status' | translate }}</mat-label>
 						<mat-select formControlName="status">
-							<mat-option *ngFor="let item of enumsModel.yacht_status" [value]="item.value">
+							<mat-option *ngFor="let item of enumsModel.water_sport_status" [value]="item.value">
 								{{ item.key.replace('_', ' ') | titlecase }}
 							</mat-option>
 						</mat-select>

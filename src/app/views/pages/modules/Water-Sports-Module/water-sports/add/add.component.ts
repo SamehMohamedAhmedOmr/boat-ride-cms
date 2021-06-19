@@ -129,6 +129,7 @@ export class AddComponent implements OnInit, DoCheck, OnDestroy, InitializeCompo
 		const controls = this.form.controls;
 		/** showing Errors  */
 		if (this.form.invalid) {
+			console.log(this.form.controls);
 			return this.formErrorService.markAsTouched(controls);
 		}
 

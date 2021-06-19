@@ -30,7 +30,7 @@
 		<ngb-carousel *ngIf="image_urls">
 			<ng-template ngbSlide *ngFor="let image of image_urls">
 				<div class="picsum-img-wrapper">
-					<img [src]="image">
+					<img [src]="image" class="w-100">
 				</div>
 			</ng-template>
 		</ngb-carousel>
