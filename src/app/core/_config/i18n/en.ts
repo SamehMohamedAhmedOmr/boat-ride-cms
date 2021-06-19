@@ -231,7 +231,7 @@ export const locale = {
 					},
 
 					/* Key Feature*/
-					key_feature:{
+					key_features:{
 						water_slider: 'water slider',
 						safety_equipment: 'safety equipment',
 						soft_drinks_refreshments: 'soft drinks refreshments',

@@ -41,6 +41,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import { FormDatePickerComponent } from './forms/form-date-picker/form-date-picker.component';
 import {FormRichtextComponent} from './forms/form-richtext/form-richtext.component';
 import {CKEditorModule} from '@ckeditor/ckeditor5-angular';
+import {FormCheckboxComponent} from './forms/form-checkbox/form-checkbox.component';
 
 
 @NgModule({
@@ -58,7 +59,8 @@ import {CKEditorModule} from '@ckeditor/ckeditor5-angular';
 		FormUploadImageComponent,
 		FormStatusComponent,
 		FormDatePickerComponent,
-		FormRichtextComponent
+		FormRichtextComponent,
+		FormCheckboxComponent,
 	],
 	imports: [
 		CommonModule,
@@ -114,7 +116,8 @@ import {CKEditorModule} from '@ckeditor/ckeditor5-angular';
         FormUploadImageComponent,
         MatMenuModule,
         FormDatePickerComponent,
-		FormRichtextComponent
+		FormRichtextComponent,
+		FormCheckboxComponent,
     ]
 })
 export class SharedModule {

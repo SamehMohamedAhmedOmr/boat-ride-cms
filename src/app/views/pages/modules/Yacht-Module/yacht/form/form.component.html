@@ -6,17 +6,18 @@
 			<mat-step [stepControl]="form">
 				<form [formGroup]="form">
 					<ng-template matStepLabel>
-						{{ 'Components.YACHTS.basic_information' | translate }}
+						{{ 'Components.YACHTS.basic_information' | translate | titlecase }}
 					</ng-template>
 
 					<kt-basic-information-form [form]="form"
+											   [services]="services"
 											   [enumsModel]="enumsModel"></kt-basic-information-form>
 				</form>
 			</mat-step>
 			<mat-step [stepControl]="form">
 				<form [formGroup]="form">
 					<ng-template matStepLabel>
-						{{ 'Components.YACHTS.technical_information' | translate }}
+						{{ 'Components.YACHTS.technical_information' | translate | titlecase }}
 					</ng-template>
 
 					<kt-technical-form [form]="form"
@@ -27,16 +28,16 @@
 			<mat-step [stepControl]="form">
 				<form [formGroup]="form">
 					<ng-template matStepLabel>
-						{{ 'Components.YACHTS.key_features' | translate }}
+						{{ 'Components.YACHTS.key_features' | translate | titlecase }}
 					</ng-template>
-
+					<kt-key-feature-form [form]="form"></kt-key-feature-form>
 				</form>
 			</mat-step>
 
 			<mat-step [stepControl]="form">
 				<form [formGroup]="form">
 					<ng-template matStepLabel>
-						{{ 'Components.YACHTS.descriptions' | translate }}
+						{{ 'Components.YACHTS.descriptions' | translate | titlecase }}
 					</ng-template>
 
 					<kt-descriptions-form [form]="form"></kt-descriptions-form>
@@ -45,69 +46,13 @@
 
 			<mat-step [stepControl]="form">
 				<form [formGroup]="form">
-					<ng-template matStepLabel>Fill out your address</ng-template>
+					<ng-template matStepLabel>
+						{{ 'Components.images' | translate | titlecase }}
+					</ng-template>
 
 				</form>
 			</mat-step>
 		</mat-vertical-stepper>
-
-
-
-<!--		<div class="row">-->
-<!--			<div class="col-md-6">-->
-<!--				<div class="my-3">-->
-<!--					<div aria-label="select-box">-->
-<!--						<mat-form-field appearance="fill" class="w-100">-->
-<!--							<mat-label> {{ 'Components.SERVICES.columns.price_model' | translate }}</mat-label>-->
-<!--							<mat-select formControlName="price_model">-->
-<!--								<mat-option *ngFor="let item of price_model.price_models" [value]="item.value">-->
-<!--									{{ item.key.replace('_', ' ') | titlecase }}-->
-<!--								</mat-option>-->
-<!--							</mat-select>-->
-<!--						</mat-form-field>-->
-<!--					</div>-->
-<!--					<kt-form-error [form]="form"-->
-<!--								   [controlName]="'price_model'"-->
-<!--								   [validationType]="'required'"-->
-<!--								   [controlText]="'Components.SERVICES.columns.price_model' | translate "-->
-<!--					></kt-form-error>-->
-<!--				</div>-->
-<!--			</div>-->
-<!--		</div>-->
-
-<!--		<div class="row">-->
-<!--			<div class="col-md-6">-->
-<!--				<kt-form-input-->
-<!--					[form]="form"-->
-<!--					[label]="'Components.SERVICES.columns.minimum_hours_booking' | translate"-->
-<!--					[type]="'number'"-->
-<!--					[form_control_name]="'minimum_hours_booking'"-->
-<!--					[validation_type]="'required'">-->
-<!--				</kt-form-input>-->
-<!--			</div>-->
-<!--			<div class="col-md-6">-->
-<!--				<kt-form-input-->
-<!--					[form]="form"-->
-<!--					[label]="'Components.SERVICES.columns.max_quantity' | translate"-->
-<!--					[type]="'number'"-->
-<!--					[form_control_name]="'max_quantity'"-->
-<!--					[validation_type]="'required'">-->
-<!--				</kt-form-input>-->
-<!--			</div>-->
-<!--		</div>-->
-
-<!--		<div class="row">-->
-<!--			<div class="col-md-6">-->
-<!--				<kt-form-upload-image-->
-<!--					[form]="form"-->
-<!--					[to_base64]="true"-->
-<!--					[validation_type]="'required'"-->
-<!--					[imgURL]="imgURL"-->
-<!--					[label]="'Components.image' | translate"-->
-<!--					[form_control_name]="'image'">-->
-<!--				</kt-form-upload-image>-->
-<!--			</div>-->
-<!--		</div>-->
 
 	</form>
 

@@ -187,4 +187,18 @@
 			</div>
 		</div>
 	</div>
+
+	<div class="row" aria-label="services">
+		<div class="col-12">
+			<kt-form-select
+				[form]="form"
+				[is_multi]="true"
+				[list]="services"
+				[label]="'MENUS.MARKETING.MENU.SERVICES' | translate"
+				[form_control_name]="'services'"
+				[validation_type]="'required'">
+			</kt-form-select>
+		</div>
+	</div>
+
 </div>

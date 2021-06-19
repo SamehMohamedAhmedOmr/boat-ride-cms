@@ -227,7 +227,7 @@ export const locale = {
 					},
 
 					/* Key Feature*/
-					key_feature: {
+					key_features: {
 						water_slider: 'زلاجة مياه',
 						safety_equipment: 'معدات السلامة',
 						soft_drinks_refreshments: 'مرطبات المشروبات الغازية',

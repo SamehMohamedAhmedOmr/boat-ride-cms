@@ -6,9 +6,11 @@ import {InitializeComponentInterface} from '../../../../../shared/Base-Interface
 import {FormErrorService} from '../../../../../../core/services/FormError.service';
 import {AuthNoticeService} from '../../../../../../core/services/auth-notice.service';
 import {HelperService} from '../../../../../../core/services/helper.service';
-import {YachtsService} from '../../../../../../core/services/Yacht-Module/yachts.service';
 import {YachtsEnumsModel} from '../../../../../../core/models/Yacht-Module/yachts.enums.model';
 import {YachtsModel} from '../../../../../../core/models/Yacht-Module/yachts.model';
+import {YachtsService} from '../../../../../../core/services/Yacht-Module/yachts/yachts.service';
+import {ServicesModel} from '../../../../../../core/models/Marketing-Module/services.model';
+import {YachtsObservableService} from '../../../../../../core/services/Yacht-Module/yachts/yachts.observable.service';
 
 
 @Component({
@@ -36,10 +38,12 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 	current_image: string;
 
 	enums: YachtsEnumsModel;
+	services: ServicesModel[] = [];
 
 
 	constructor(private formBuilder: FormBuilder,
 				private service: YachtsService,
+				private yachtsObservableService: YachtsObservableService,
 				private formErrorService: FormErrorService,
 				private route: ActivatedRoute,
 				private router: Router,
@@ -68,21 +72,30 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 		this.isLoadingResults = false;
 		this.is_result = false;
 		this.get();
+		this.getDependencies();
 	}
 
+	private getDependencies() {
+		this.yachtsObservableService.getEnums();
 
-	private getEnums() {
+		this.yachtsObservableService.enums_observable.subscribe((value:YachtsEnumsModel) => {
+			this.enums = value;
+			this.cdr.markForCheck();
+		});
 
-		this.service.listEnums().subscribe(
-			(resp) => {
-				this.enums = resp;
+		this.yachtsObservableService.services_observable.subscribe((value:ServicesModel[]) => {
+			this.services = value;
+			this.cdr.markForCheck();
+		});
+
+		this.yachtsObservableService.loading_observable.subscribe((value:boolean) => {
+			if (!value){
 				this.initializeForm();
 				this.is_result = true;
 				this.isLoadingResults = false;
 				this.cdr.markForCheck();
-			} , error => {
-				this.isLoadingResults = false;
-			});
+			}
+		});
 	}
 
 	private get() {
@@ -94,7 +107,6 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 				(data) => {
 					this.model = data;
 					///this.current_image = this.model.image;
-					this.getEnums();
 				}, error => {
 					this.authNoticeService.setNotice(this.translateService.instant('COMMON.Item_not_found',
 						{name: this.content_name}),
@@ -157,23 +169,24 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 
 
 			/* Key Feature*/
-			water_slider: ['', Validators.required] ,
-			safety_equipment: ['', Validators.required] ,
-			soft_drinks_refreshments: ['', Validators.required] ,
-			swimming_equipment: ['', Validators.required] ,
-			ice_tea_water: ['', Validators.required] ,
-			DVD_player: ['', Validators.required] ,
-			satellite_system: ['', Validators.required] ,
-			red_carpet_on_arrival: ['', Validators.required] ,
-			spacious_saloon: ['', Validators.required] ,
-			BBQ_grill_equipment: ['', Validators.required] ,
-			fresh_towels: ['', Validators.required] ,
-			yacht_slippers: ['', Validators.required] ,
-			bathroom_amenities: ['', Validators.required] ,
-			under_water_light: ['', Validators.required] ,
-			LED_screen_tv: ['', Validators.required] ,
-			sunbathing_on_the_foredeck: ['', Validators.required] ,
-			fishing_equipment: ['', Validators.required] ,
+			/* Key Feature*/
+			water_slider: [''] ,
+			safety_equipment: [''] ,
+			soft_drinks_refreshments: [''] ,
+			swimming_equipment: [''] ,
+			ice_tea_water: [''] ,
+			DVD_player: [''] ,
+			satellite_system: [''] ,
+			red_carpet_on_arrival: [''] ,
+			spacious_saloon: [''] ,
+			BBQ_grill_equipment: [''] ,
+			fresh_towels: [''] ,
+			yacht_slippers: [''] ,
+			bathroom_amenities: [''] ,
+			under_water_light: [''] ,
+			LED_screen_tv: [''] ,
+			sunbathing_on_the_foredeck: [''] ,
+			fishing_equipment: [''] ,
 		});
 
 		this.isLoadingResults = false;

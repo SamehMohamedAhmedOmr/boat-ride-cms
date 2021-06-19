@@ -1,0 +1,17 @@
+<div [formGroup]="form">
+	<div class="my-3">
+		<div aria-label="input">
+			<mat-checkbox
+				formControlName="{{form_control_name}}"
+				class="example-margin">
+				{{label | titlecase}}
+			</mat-checkbox>
+		</div>
+		<kt-form-error *ngIf="validation_type"
+					   [form]="form"
+					   [controlName]="form_control_name"
+					   [validationType]="validation_type"
+					   [controlText]="label"
+		></kt-form-error>
+	</div>
+</div>

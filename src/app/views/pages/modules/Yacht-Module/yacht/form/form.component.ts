@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {FormGroup} from '@angular/forms';
 import {YachtsEnumsModel} from '../../../../../../core/models/Yacht-Module/yachts.enums.model';
+import {ServicesModel} from '../../../../../../core/models/Marketing-Module/services.model';
 
 @Component({
 	selector: 'kt-form',
@@ -11,6 +12,7 @@ export class FormComponent implements OnInit {
 
 	@Input() form: FormGroup;
 	@Input() enumsModel: YachtsEnumsModel;
+	@Input() services: ServicesModel[];
 	@Input() imgURL: string;
 
 	constructor() {

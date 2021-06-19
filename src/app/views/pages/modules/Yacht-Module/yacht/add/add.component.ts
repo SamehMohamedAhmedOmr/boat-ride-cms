@@ -6,9 +6,11 @@ import {InitializeComponentInterface} from '../../../../../shared/Base-Interface
 import {FormErrorService} from '../../../../../../core/services/FormError.service';
 import {AuthNoticeService} from '../../../../../../core/services/auth-notice.service';
 import {HelperService} from '../../../../../../core/services/helper.service';
-import {YachtsService} from '../../../../../../core/services/Yacht-Module/yachts.service';
 import {YachtsModel} from '../../../../../../core/models/Yacht-Module/yachts.model';
 import {YachtsEnumsModel} from '../../../../../../core/models/Yacht-Module/yachts.enums.model';
+import {YachtsService} from '../../../../../../core/services/Yacht-Module/yachts/yachts.service';
+import {YachtsObservableService} from '../../../../../../core/services/Yacht-Module/yachts/yachts.observable.service';
+import {ServicesModel} from '../../../../../../core/models/Marketing-Module/services.model';
 
 @Component({
 	selector: 'kt-add',
@@ -30,9 +32,11 @@ export class AddComponent implements OnInit, DoCheck, OnDestroy, InitializeCompo
 	selected_images: [] = [];
 
 	enums: YachtsEnumsModel;
+	services: ServicesModel[] = [];
 
 	constructor(private fb: FormBuilder,
 				private service: YachtsService,
+				private yachtsObservableService: YachtsObservableService,
 				private formErrorService: FormErrorService,
 				private cdr: ChangeDetectorRef,
 				private route: ActivatedRoute,
@@ -60,21 +64,30 @@ export class AddComponent implements OnInit, DoCheck, OnDestroy, InitializeCompo
 	}
 
 	initialiseComponent() {
-		this.getEnums();
+		this.getDependencies();
 	}
 
-	private getEnums() {
+	private getDependencies() {
+		this.yachtsObservableService.getEnums();
 
-		this.service.listEnums().subscribe(
-			(resp) => {
-				this.enums = resp;
+		this.yachtsObservableService.enums_observable.subscribe((value:YachtsEnumsModel) => {
+			this.enums = value;
+			this.cdr.markForCheck();
+		});
+
+		this.yachtsObservableService.services_observable.subscribe((value:ServicesModel[]) => {
+			this.services = value;
+			this.cdr.markForCheck();
+		});
+
+		this.yachtsObservableService.loading_observable.subscribe((value:boolean) => {
+			if (!value){
 				this.initForm();
 				this.is_result = true;
 				this.isLoadingResults = false;
 				this.cdr.markForCheck();
-			} , error => {
-				this.isLoadingResults = false;
-			});
+			}
+		});
 	}
 	/**
 	 * Initiate the form
@@ -127,23 +140,26 @@ export class AddComponent implements OnInit, DoCheck, OnDestroy, InitializeCompo
 
 
 			/* Key Feature*/
-			water_slider: ['', Validators.required] ,
-			safety_equipment: ['', Validators.required] ,
-			soft_drinks_refreshments: ['', Validators.required] ,
-			swimming_equipment: ['', Validators.required] ,
-			ice_tea_water: ['', Validators.required] ,
-			DVD_player: ['', Validators.required] ,
-			satellite_system: ['', Validators.required] ,
-			red_carpet_on_arrival: ['', Validators.required] ,
-			spacious_saloon: ['', Validators.required] ,
-			BBQ_grill_equipment: ['', Validators.required] ,
-			fresh_towels: ['', Validators.required] ,
-			yacht_slippers: ['', Validators.required] ,
-			bathroom_amenities: ['', Validators.required] ,
-			under_water_light: ['', Validators.required] ,
-			LED_screen_tv: ['', Validators.required] ,
-			sunbathing_on_the_foredeck: ['', Validators.required] ,
-			fishing_equipment: ['', Validators.required] ,
+			water_slider: [''] ,
+			safety_equipment: [''] ,
+			soft_drinks_refreshments: [''] ,
+			swimming_equipment: [''] ,
+
+			ice_tea_water: [''] ,
+			DVD_player: [''] ,
+			satellite_system: [''] ,
+			red_carpet_on_arrival: [''] ,
+
+			spacious_saloon: [''] ,
+			BBQ_grill_equipment: [''] ,
+			fresh_towels: [''] ,
+			yacht_slippers: [''] ,
+
+			bathroom_amenities: [''] ,
+			under_water_light: [''] ,
+			LED_screen_tv: [''] ,
+			sunbathing_on_the_foredeck: [''] ,
+			fishing_equipment: [''] ,
 		});
 	}
 
