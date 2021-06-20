@@ -29,6 +29,9 @@ export class AddComponent implements OnInit, DoCheck, OnDestroy, InitializeCompo
 
 	selected_images: [] = [];
 
+	keywords_arabic: [] = [];
+	keywords_english: [] = [];
+
 	constructor(private fb: FormBuilder,
 				private service: SeoService,
 				private formErrorService: FormErrorService,
@@ -53,8 +56,8 @@ export class AddComponent implements OnInit, DoCheck, OnDestroy, InitializeCompo
 	}
 
 	initializePageName(){
-		this.page_name = this.translateService.instant('Components.OFFERS.name');
-		this.content_name = this.translateService.instant('Components.OFFERS.single');
+		this.page_name = this.translateService.instant('Components.SEO.name');
+		this.content_name = this.translateService.instant('Components.SEO.single');
 	}
 
 	initialiseComponent() {
@@ -77,7 +80,6 @@ export class AddComponent implements OnInit, DoCheck, OnDestroy, InitializeCompo
 			description_ar: ['', Validators.required] ,
 
 			url: ['', Validators.required] ,
-			keywords: ['', Validators.required] ,
 		});
 	}
 
@@ -102,8 +104,10 @@ export class AddComponent implements OnInit, DoCheck, OnDestroy, InitializeCompo
 		model.description.en = controls['description_en'].value;
 		model.description.ar = controls['description_ar'].value;
 
+		model.keywords.ar = this.keywords_arabic;
+		model.keywords.en = this.keywords_english;
+
 		model.url = controls['url'].value;
-		model.keywords = controls['keywords'].value;
 
 		// call service to store Banner
 		this.isLoadingResults = true;
@@ -137,8 +141,11 @@ export class AddComponent implements OnInit, DoCheck, OnDestroy, InitializeCompo
 
 	}
 
+	keywordsArabicEvent($event: []) {
+		this.keywords_arabic = $event;
+	}
 
-	handleSelectedImage($event: []) {
-		this.selected_images = $event;
+	keywordsEnglishEvent($event: []) {
+		this.keywords_english = $event;
 	}
 }

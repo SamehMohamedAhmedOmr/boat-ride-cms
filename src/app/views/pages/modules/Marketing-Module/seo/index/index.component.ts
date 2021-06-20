@@ -32,7 +32,7 @@ export class IndexComponent implements OnInit , DoCheck, OnDestroy, IndexInterfa
 
 	//Data table variables
 	dataSource;
-	displayedColumns: string[] = ['id' , 'name' , 'image' , 'valid_date', 'is_active' , 'options'];
+	displayedColumns: string[] = ['title' , 'url' , 'options'];
 	isLoadingResults:boolean = true;
 	// pagination variables
 	resultsLength = 0;
@@ -68,8 +68,8 @@ export class IndexComponent implements OnInit , DoCheck, OnDestroy, IndexInterfa
 	}
 
 	initializePageName(){
-		this.page_name = this.translateService.instant('Components.OFFERS.name');
-		this.content_name = this.translateService.instant('Components.OFFERS.single');
+		this.page_name = this.translateService.instant('Components.SEO.name');
+		this.content_name = this.translateService.instant('Components.SEO.single');
 	}
 
 	initialiseComponent() {

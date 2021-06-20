@@ -10,7 +10,8 @@ import {FormComponent} from './form/form.component';
 import {PagesModule} from '../../../pages.module';
 import {TranslateModule} from '@ngx-translate/core';
 import {GalleryModule} from '@ngx-gallery/core';
-import {MatDividerModule} from '@angular/material';
+import {MAT_CHIPS_DEFAULT_OPTIONS, MatChipsModule, MatDividerModule} from '@angular/material';
+import {COMMA, ENTER} from '@angular/cdk/keycodes';
 
 
 @NgModule({
@@ -25,6 +26,15 @@ import {MatDividerModule} from '@angular/material';
 		TranslateModule,
 		GalleryModule,
 		MatDividerModule,
+		MatChipsModule,
+	],
+	providers: [
+		{
+			provide: MAT_CHIPS_DEFAULT_OPTIONS,
+			useValue: {
+				separatorKeyCodes: [ENTER, COMMA]
+			}
+		}
 	]
 })
 export class SeoModule {

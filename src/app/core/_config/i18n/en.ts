@@ -165,6 +165,16 @@ export const locale = {
 				}
 			},
 
+			SEO: {
+				name: 'SEO',
+				single: 'SEO',
+				columns: {
+					url: 'Url',
+					keywords_ar: 'Keywords in Arabic',
+					keywords_en: 'Keywords in English',
+				}
+			},
+
 			BANNERS: {
 				name: 'Banners',
 				single: 'Banner',

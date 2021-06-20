@@ -15,8 +15,12 @@
 	<div *ngIf="!isLoadingResults">
 
 		<div *ngIf="is_result">
-			<kt-form [form]="form"
-					 [imgURL]="current_image"></kt-form>
+			<div *ngIf="is_result">
+				<kt-form [form]="form"
+						 [keywords_ar]="keywords_arabic"
+						 [keywords_en]="keywords_english"
+						 (keywordsArabicEvent)="keywordsArabicEvent($event)"
+						 (keywordsEnglishEvent)="keywordsEnglishEvent($event)"></kt-form>
 
 			<div class="col-12 text-center px-3">
 				<button type="submit" class="btn btn-success mx-3" (click)="updateForm()">

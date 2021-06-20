@@ -162,6 +162,16 @@ export const locale = {
 				}
 			},
 
+			SEO: {
+				name: 'تحسينات محرك البحث',
+				single: 'تحسين',
+				columns: {
+					url: 'رابط',
+					keywords_ar: 'الكلمات الدلالية باللغة العربية',
+					keywords_en: 'الكلمات الدلالية باللغة الانجليزية',
+				}
+			},
+
 			BANNERS: {
 				name: 'اللافتات',
 				single: 'اللافتة',

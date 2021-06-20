@@ -13,7 +13,11 @@
 	<div [hidden]="isLoadingResults" class="my-4">
 
 		<div *ngIf="is_result">
-			<kt-form [form]="form"></kt-form>
+			<kt-form [form]="form"
+					 [keywords_ar]="keywords_arabic"
+					 [keywords_en]="keywords_english"
+					 (keywordsArabicEvent)="keywordsArabicEvent($event)"
+					 (keywordsEnglishEvent)="keywordsEnglishEvent($event)"></kt-form>
 
 			<div class="col-12 text-center px-3">
 				<button type="submit" class="btn btn-success mx-3" (click)="submitForm()">

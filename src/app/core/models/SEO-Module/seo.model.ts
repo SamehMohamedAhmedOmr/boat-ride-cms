@@ -28,5 +28,9 @@ export class SeoModel extends ModelBase {
 	public createObjects(){
 		this.title = new MultiLanguageModel();
 		this.description = new MultiLanguageModel();
+		this.keywords = {
+			ar: [],
+			en: []
+		};
 	}
 }

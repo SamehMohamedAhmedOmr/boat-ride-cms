@@ -2,7 +2,6 @@
 
 	<form class="p-3" [formGroup]="form" autocomplete="off">
 
-
 		<div class="row">
 			<div class="col-md-6">
 				<kt-form-input
@@ -42,43 +41,66 @@
 		</div>
 
 		<div class="row">
+
 			<div class="col-md-6">
+				<mat-form-field class="w-100">
+					<mat-label>
+						{{ 'Components.SEO.columns.keywords_ar' | translate }}
+					</mat-label>
+					<mat-chip-list #chipList>
+						<mat-chip *ngFor="let keyword of keywords_ar"
+								  [selectable]="true"
+								  [removable]="true"
+								  (removed)="remove(keyword, true)">
+							{{keyword}}
+							<mat-icon matChipRemove>cancel</mat-icon>
+						</mat-chip>
+						<input
+							[matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+							[matChipInputAddOnBlur]="true"
+							(matChipInputTokenEnd)="add($event, true)"
+							placeholder="{{ 'Components.SEO.columns.keywords_ar' | translate }}"
+							[matChipInputFor]="chipList">
+					</mat-chip-list>
+				</mat-form-field>
+			</div>
+
+			<div class="col-md-6">
+				<mat-form-field class="w-100">
+					<mat-label>
+						{{ 'Components.SEO.columns.keywords_en' | translate }}
+					</mat-label>
+					<mat-chip-list #chipList2>
+						<mat-chip *ngFor="let keyword of keywords_en"
+								  [selectable]="true"
+								  [removable]="true"
+								  (removed)="remove(keyword)">
+							{{keyword}}
+							<mat-icon matChipRemove>cancel</mat-icon>
+						</mat-chip>
+						<input
+							[matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+							[matChipInputAddOnBlur]="true"
+							(matChipInputTokenEnd)="add($event)"
+							placeholder="{{ 'Components.SEO.columns.keywords_en' | translate }}"
+							[matChipInputFor]="chipList2">
+					</mat-chip-list>
+				</mat-form-field>
+			</div>
+
+		</div>
+
+		<div class="row">
+			<div class="col-12">
 				<kt-form-input
 					[form]="form"
-					[label]="'Components.OFFERS.columns.valid_date' | translate"
-					[type]="'date'"
-					[form_control_name]="'valid_date'"
+					[label]="'Components.SEO.columns.url' | translate"
+					[form_control_name]="'url'"
 					[validation_type]="'required'">
 				</kt-form-input>
 			</div>
 		</div>
 
-		<div class="row">
-			<div class="col-12">
-				<kt-form-radio-group
-					[form]="form"
-					[label]="'COMMON.activation' | translate"
-					[form_control_name]="'is_active'"
-					[default]="false"
-					[first_choice]="'COMMON.active' | translate"
-					[second_choice]="'COMMON.in_active' | translate"
-					[validation_type]="'required'">
-				</kt-form-radio-group>
-			</div>
-		</div>
-
-		<div class="row">
-			<div class="col-md-6">
-				<kt-form-upload-image
-					[form]="form"
-					[to_base64]="true"
-					[validation_type]="'required'"
-					[imgURL]="imgURL"
-					[label]="'Components.image' | translate"
-					[form_control_name]="'image'">
-				</kt-form-upload-image>
-			</div>
-		</div>
 
 	</form>
 

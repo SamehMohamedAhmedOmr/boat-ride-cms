@@ -32,6 +32,9 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 
 	selected_images: [] = [];
 
+	keywords_arabic: [] = [];
+	keywords_english: [] = [];
+
 	constructor(private formBuilder: FormBuilder,
 				private service: SeoService,
 				private formErrorService: FormErrorService,
@@ -54,8 +57,8 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 	}
 
 	initializePageName() {
-		this.page_name = this.translateService.instant('Components.OFFERS.name');
-		this.content_name = this.translateService.instant('Components.OFFERS.single');
+		this.page_name = this.translateService.instant('Components.SEO.name');
+		this.content_name = this.translateService.instant('Components.SEO.single');
 	}
 
 	initialiseComponent() {
@@ -103,9 +106,10 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 			description_ar: [this.model.description?.ar, Validators.required],
 
 			url: [this.model.url, Validators.required],
-			keywords: ['', Validators.required],
 		});
-		console.log(this.model);
+
+		this.keywords_arabic = this.model?.keywords?.ar ? this.model?.keywords?.ar : [];
+		this.keywords_english = this.model?.keywords?.en ? this.model?.keywords?.en : [];
 
 		this.isLoadingResults = false;
 		this.cdr.markForCheck();
@@ -138,12 +142,13 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 		this.model.description.en = controls['description_en'].value;
 		this.model.description.ar = controls['description_ar'].value;
 		this.model.url = controls['url'].value;
-		this.model.keywords = controls['keywords'].value;
 
+		this.model.keywords.ar = this.keywords_arabic;
+		this.model.keywords.en = this.keywords_english;
 
 		// call service to store shipping rule
 		this.isLoadingResults = true;
-		this.service.update(this.model.id, this.model).subscribe(resp => {
+		this.service.update(this.id, this.model).subscribe(resp => {
 			this.isLoadingResults = false;
 			this.authNoticeService.setNotice(this.translateService.instant('COMMON.Edited_successfully',
 				{name: this.content_name}),
@@ -172,7 +177,13 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 		if (this.isValidationError) {
 			this.authNoticeService.setNotice(null);
 		}
-
 	}
 
+	keywordsArabicEvent($event: []) {
+		this.keywords_arabic = $event;
+	}
+
+	keywordsEnglishEvent($event: []) {
+		this.keywords_english = $event;
+	}
 }
