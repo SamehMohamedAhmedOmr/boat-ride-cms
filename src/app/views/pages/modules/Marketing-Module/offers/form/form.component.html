@@ -45,51 +45,25 @@
 			<div class="col-md-6">
 				<kt-form-input
 					[form]="form"
-					[label]="'Components.price' | translate"
-					[type]="'number'"
-					[form_control_name]="'price'"
+					[label]="'Components.OFFERS.columns.valid_date' | translate"
+					[type]="'date'"
+					[form_control_name]="'valid_date'"
 					[validation_type]="'required'">
 				</kt-form-input>
-			</div>
-			<div class="col-md-6">
-				<div class="my-3">
-					<div aria-label="select-box">
-						<mat-form-field appearance="fill" class="w-100">
-							<mat-label> {{ 'Components.SERVICES.columns.price_model' | translate }}</mat-label>
-							<mat-select formControlName="price_model">
-								<mat-option *ngFor="let item of price_model.price_models" [value]="item.value">
-									{{ item.key.replace('_', ' ') | titlecase }}
-								</mat-option>
-							</mat-select>
-						</mat-form-field>
-					</div>
-					<kt-form-error [form]="form"
-								   [controlName]="'price_model'"
-								   [validationType]="'required'"
-								   [controlText]="'Components.SERVICES.columns.price_model' | translate "
-					></kt-form-error>
-				</div>
 			</div>
 		</div>
 
 		<div class="row">
-			<div class="col-md-6">
-				<kt-form-input
+			<div class="col-12">
+				<kt-form-radio-group
 					[form]="form"
-					[label]="'Components.SERVICES.columns.minimum_hours_booking' | translate"
-					[type]="'number'"
-					[form_control_name]="'minimum_hours_booking'"
+					[label]="'COMMON.activation' | translate"
+					[form_control_name]="'is_active'"
+					[default]="false"
+					[first_choice]="'COMMON.active' | translate"
+					[second_choice]="'COMMON.in_active' | translate"
 					[validation_type]="'required'">
-				</kt-form-input>
-			</div>
-			<div class="col-md-6">
-				<kt-form-input
-					[form]="form"
-					[label]="'Components.SERVICES.columns.max_quantity' | translate"
-					[type]="'number'"
-					[form_control_name]="'max_quantity'"
-					[validation_type]="'required'">
-				</kt-form-input>
+				</kt-form-radio-group>
 			</div>
 		</div>
 

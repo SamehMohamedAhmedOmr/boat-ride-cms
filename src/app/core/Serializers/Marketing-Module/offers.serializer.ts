@@ -15,7 +15,7 @@ export class OffersSerializer extends BaseSerializer implements Serializer {
 	toJson(model: OffersModel): any {
 		let object = {
 			'id' : model.id,
-			'name' : model.name,
+			'title' : model.name,
 			'description' : model.description,
 			'valid_date' : model.valid_date,
 			'is_active' : model.is_active,
@@ -36,7 +36,7 @@ export class OffersSerializer extends BaseSerializer implements Serializer {
 	public adapt(item: any): OffersModel {
 		let model =  new OffersModel(item.id);
 
-		model.name = item.name;
+		model.name = item.title;
 		model.description = item.description;
 		model.valid_date = item.valid_date;
 		model.is_active = item.is_active;

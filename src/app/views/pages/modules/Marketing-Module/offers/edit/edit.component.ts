@@ -76,6 +76,9 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 				(data) => {
 					this.model = data;
 					this.current_image = this.model.image;
+					this.isLoadingResults = false;
+					this.is_result = true;
+					this.cdr.markForCheck();
 					this.initializeForm();
 				}, error => {
 					this.authNoticeService.setNotice(this.translateService.instant('COMMON.Item_not_found',
@@ -103,10 +106,11 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 			description_ar: [this.model.description?.ar, Validators.required],
 
 			valid_date: [this.model.valid_date, Validators.required],
-			is_active: [this.model.is_active + '', Validators.required],
+			is_active: [this.model.is_active == true ? '1' : '0', Validators.required],
 			image: [''],
 
 		});
+		console.log(this.model);
 
 		this.isLoadingResults = false;
 		this.cdr.markForCheck();

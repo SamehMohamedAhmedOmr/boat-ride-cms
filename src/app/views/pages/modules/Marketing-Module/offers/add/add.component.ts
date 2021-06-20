@@ -58,6 +58,9 @@ export class AddComponent implements OnInit, DoCheck, OnDestroy, InitializeCompo
 	}
 
 	initialiseComponent() {
+		this.isLoadingResults = false;
+		this.is_result = true;
+		this.cdr.markForCheck();
 		this.initForm();
 	}
 
