@@ -1,0 +1,85 @@
+<div class="form-div">
+
+	<form class="p-3" [formGroup]="form" autocomplete="off">
+
+
+		<div class="row">
+			<div class="col-md-6">
+				<kt-form-input
+					[form]="form"
+					[label]="'COMMON.name_ar' | translate"
+					[form_control_name]="'name_ar'"
+					[validation_type]="'required'">
+				</kt-form-input>
+			</div>
+			<div class="col-md-6">
+				<kt-form-input
+					[form]="form"
+					[label]="'COMMON.name_en' | translate"
+					[form_control_name]="'name_en'"
+					[validation_type]="'required'">
+				</kt-form-input>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-6">
+				<kt-form-textarea
+					[form]="form"
+					[label]="'COMMON.description_ar' | translate"
+					[form_control_name]="'description_ar'"
+					[validation_type]="'required'">
+				</kt-form-textarea>
+			</div>
+			<div class="col-md-6">
+				<kt-form-textarea
+					[form]="form"
+					[label]="'COMMON.description_en' | translate"
+					[form_control_name]="'description_en'"
+					[validation_type]="'required'">
+				</kt-form-textarea>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-6">
+				<kt-form-input
+					[form]="form"
+					[label]="'Components.OFFERS.columns.valid_date' | translate"
+					[type]="'date'"
+					[form_control_name]="'valid_date'"
+					[validation_type]="'required'">
+				</kt-form-input>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-12">
+				<kt-form-radio-group
+					[form]="form"
+					[label]="'COMMON.activation' | translate"
+					[form_control_name]="'is_active'"
+					[default]="false"
+					[first_choice]="'COMMON.active' | translate"
+					[second_choice]="'COMMON.in_active' | translate"
+					[validation_type]="'required'">
+				</kt-form-radio-group>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-6">
+				<kt-form-upload-image
+					[form]="form"
+					[to_base64]="true"
+					[validation_type]="'required'"
+					[imgURL]="imgURL"
+					[label]="'Components.image' | translate"
+					[form_control_name]="'image'">
+				</kt-form-upload-image>
+			</div>
+		</div>
+
+	</form>
+
+</div>

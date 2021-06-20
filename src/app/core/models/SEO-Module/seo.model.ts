@@ -5,6 +5,7 @@ export class SeoModel extends ModelBase {
 
 	public title:MultiLanguageModel;
 	public description:MultiLanguageModel;
+	public url:string;
 	public keywords:{
 		ar:[],
 		en:[]
@@ -19,6 +20,7 @@ export class SeoModel extends ModelBase {
 		return {
 			'id': this.id,
 			'title' : this.title,
+			'url' : this.url,
 			'description' : this.description,
 		};
 	}
