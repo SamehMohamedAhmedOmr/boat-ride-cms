@@ -6,9 +6,8 @@ import {InitializeComponentInterface} from '../../../../../shared/Base-Interface
 import {FormErrorService} from '../../../../../../core/services/FormError.service';
 import {AuthNoticeService} from '../../../../../../core/services/auth-notice.service';
 import {HelperService} from '../../../../../../core/services/helper.service';
-import {ServicesService} from '../../../../../../core/services/Marketing-Module/services.service';
-import {ServicesEnumsModel} from '../../../../../../core/models/Marketing-Module/services.enums.model';
-import {ServicesModel} from '../../../../../../core/models/Marketing-Module/services.model';
+import {OffersService} from '../../../../../../core/services/Marketing-Module/offers.service';
+import {OffersModel} from '../../../../../../core/models/Marketing-Module/offers.model';
 
 @Component({
 	selector: 'kt-edit',
@@ -26,7 +25,7 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 	isLoadingResults: any = true;
 	form: FormGroup;
 
-	model: ServicesModel;
+	model: OffersModel;
 
 	id = null;
 	is_result: boolean;
@@ -34,11 +33,8 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 	selected_images: [] = [];
 	current_image: string;
 
-	enums: ServicesEnumsModel;
-
-
 	constructor(private formBuilder: FormBuilder,
-				private service: ServicesService,
+				private service: OffersService,
 				private formErrorService: FormErrorService,
 				private route: ActivatedRoute,
 				private router: Router,
@@ -70,19 +66,6 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 	}
 
 
-	private getEnums() {
-
-		this.service.listEnums().subscribe(
-			(resp) => {
-				this.enums = resp;
-				this.initializeForm();
-				this.is_result = true;
-				this.isLoadingResults = false;
-				this.cdr.markForCheck();
-			} , error => {
-				this.isLoadingResults = false;
-			});
-	}
 
 	private get() {
 		this.isLoadingResults = true;
@@ -93,7 +76,7 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 				(data) => {
 					this.model = data;
 					this.current_image = this.model.image;
-					this.getEnums();
+					this.initializeForm();
 				}, error => {
 					this.authNoticeService.setNotice(this.translateService.instant('COMMON.Item_not_found',
 						{name: this.content_name}),
@@ -119,10 +102,8 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 			description_en: [this.model.description?.en, Validators.required],
 			description_ar: [this.model.description?.ar, Validators.required],
 
-			price: [this.model.price, Validators.required],
-			price_model: [this.model.price_model + '', Validators.required],
-			minimum_hours_booking: [this.model.minimum_hours_booking, Validators.required],
-			max_quantity: [this.model.max_quantity, Validators.required],
+			valid_date: [this.model.valid_date, Validators.required],
+			is_active: [this.model.is_active + '', Validators.required],
 			image: [''],
 
 		});
@@ -157,10 +138,8 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 
 		this.model.description.en = controls['description_en'].value;
 		this.model.description.ar = controls['description_ar'].value;
-		this.model.price = controls['price'].value;
-		this.model.price_model = controls['price_model'].value;
-		this.model.minimum_hours_booking = controls['minimum_hours_booking'].value;
-		this.model.max_quantity = controls['max_quantity'].value;
+		this.model.is_active = controls['is_active'].value;
+		this.model.valid_date = controls['valid_date'].value;
 		this.model.seo.title = this.model.name;
 		this.model.seo.description = this.model.description;
 		this.model.image = controls['image'].value;
