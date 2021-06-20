@@ -43,6 +43,7 @@ import {FormRichtextComponent} from './forms/form-richtext/form-richtext.compone
 import {CKEditorModule} from '@ckeditor/ckeditor5-angular';
 import {FormCheckboxComponent} from './forms/form-checkbox/form-checkbox.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { FormSeoDescriptionComponent } from './forms/form-seo-description/form-seo-description.component';
 
 
 @NgModule({
@@ -62,6 +63,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 		FormDatePickerComponent,
 		FormRichtextComponent,
 		FormCheckboxComponent,
+		FormSeoDescriptionComponent,
 	],
 	imports: [
 		CommonModule,
@@ -118,8 +120,9 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
         FormUploadImageComponent,
         MatMenuModule,
         FormDatePickerComponent,
-		FormRichtextComponent,
-		FormCheckboxComponent,
+        FormRichtextComponent,
+        FormCheckboxComponent,
+        FormSeoDescriptionComponent,
     ]
 })
 export class SharedModule {

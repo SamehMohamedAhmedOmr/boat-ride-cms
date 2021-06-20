@@ -119,6 +119,9 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 			description_en: [this.model.description?.en, Validators.required],
 			description_ar: [this.model.description?.ar, Validators.required],
 
+			seo_description_en: [this.model.seo?.description?.en, Validators.required],
+			seo_description_ar: [this.model.seo?.description?.ar, Validators.required],
+
 			price: [this.model.price, Validators.required],
 			price_model: [this.model.price_model + '', Validators.required],
 			minimum_hours_booking: [this.model.minimum_hours_booking, Validators.required],
@@ -162,7 +165,8 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 		this.model.minimum_hours_booking = controls['minimum_hours_booking'].value;
 		this.model.max_quantity = controls['max_quantity'].value;
 		this.model.seo.title = this.model.name;
-		this.model.seo.description = this.model.description;
+		this.model.seo.description.en = controls['seo_description_en'].value;
+		this.model.seo.description.ar = controls['seo_description_ar'].value;
 		this.model.image = controls['image'].value;
 
 		// call service to store shipping rule

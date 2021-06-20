@@ -1,0 +1,20 @@
+<div [formGroup]="form">
+	<div class="row">
+		<div class="col-md-6">
+			<kt-form-textarea
+				[form]="form"
+				[label]="'COMMON.seo_description_ar' | translate"
+				[form_control_name]="'seo_description_ar'"
+				[validation_type]="'required'">
+			</kt-form-textarea>
+		</div>
+		<div class="col-md-6">
+			<kt-form-textarea
+				[form]="form"
+				[label]="'COMMON.seo_description_en' | translate"
+				[form_control_name]="'seo_description_en'"
+				[validation_type]="'required'">
+			</kt-form-textarea>
+		</div>
+	</div>
+</div>

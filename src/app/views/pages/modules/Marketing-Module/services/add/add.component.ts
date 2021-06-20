@@ -89,6 +89,9 @@ export class AddComponent implements OnInit, DoCheck, OnDestroy, InitializeCompo
 			description_en: ['', Validators.required] ,
 			description_ar: ['', Validators.required] ,
 
+			seo_description_en: ['', Validators.required] ,
+			seo_description_ar: ['', Validators.required] ,
+
 			price: ['', Validators.required] ,
 			price_model: ['', Validators.required] ,
 			minimum_hours_booking: ['', Validators.required] ,
@@ -123,8 +126,8 @@ export class AddComponent implements OnInit, DoCheck, OnDestroy, InitializeCompo
 		model.minimum_hours_booking = controls['minimum_hours_booking'].value;
 		model.max_quantity = controls['max_quantity'].value;
 		model.seo.title = model.name;
-		model.seo.description = model.description;
-
+		model.seo.description.en = controls['seo_description_en'].value;
+		model.seo.description.ar = controls['seo_description_ar'].value;
 		model.image = controls['image'].value;
 
 		// call service to store Banner

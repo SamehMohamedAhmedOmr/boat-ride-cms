@@ -41,7 +41,7 @@ export class WaterSportsModel extends ModelBase {
 			// @ts-ignore
 			'image' : this?.images?.length ? this.images[0].image : '',
 			'selling_per_hour' : this.selling_per_hour,
-			'status' : this.status,
+			'status' : this.status_name,
 		};
 	}
 

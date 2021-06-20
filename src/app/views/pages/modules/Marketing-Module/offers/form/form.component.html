@@ -24,22 +24,24 @@
 
 		<div class="row">
 			<div class="col-md-6">
-				<kt-form-textarea
+				<kt-form-richtext
 					[form]="form"
 					[label]="'COMMON.description_ar' | translate"
 					[form_control_name]="'description_ar'"
 					[validation_type]="'required'">
-				</kt-form-textarea>
+				</kt-form-richtext>
 			</div>
 			<div class="col-md-6">
-				<kt-form-textarea
+				<kt-form-richtext
 					[form]="form"
 					[label]="'COMMON.description_en' | translate"
 					[form_control_name]="'description_en'"
 					[validation_type]="'required'">
-				</kt-form-textarea>
+				</kt-form-richtext>
 			</div>
 		</div>
+
+		<kt-form-seo-description [form]="form"></kt-form-seo-description>
 
 		<div class="row">
 			<div class="col-md-6">

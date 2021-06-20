@@ -352,6 +352,10 @@ export const locale = {
 			name_en: 'الاسم بالغة الانجليزية',
 			description_ar: 'الوصف باللغة العربية',
 			description_en: 'الوصف بالغة الانجليزية',
+
+			seo_description_ar: 'الوصف الخاص بمحرك البحث باللغة العربية',
+			seo_description_en: 'الوصف الخاص بمحرك البحث بالغة الانجليزية',
+
 			title: 'العنوان',
 			images: 'الصور',
 			image: 'الصورة',

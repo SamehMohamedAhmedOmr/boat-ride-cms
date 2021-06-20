@@ -46,7 +46,9 @@ export class YachtsService extends BaseService<YachtsModel> {
 
 
 		model.seo.title = model.name;
-		model.seo.description = model.facilities;
+		model.seo.description.en = controls['seo_description_en'].value;
+		model.seo.description.ar = controls['seo_description_ar'].value;
+
 
 		model.type = controls['type'].value;
 		model.code = controls['code'].value;

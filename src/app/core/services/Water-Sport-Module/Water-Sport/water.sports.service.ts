@@ -48,7 +48,8 @@ export class WaterSportsService extends BaseService<WaterSportsModel> {
 
 
 		model.seo.title = model.name;
-		model.seo.description = model.water_sport_description;
+		model.seo.description.en = controls['seo_description_en'].value;
+		model.seo.description.ar = controls['seo_description_ar'].value;
 
 		model.code = controls['code'].value;
 		model.color = controls['color'].value;

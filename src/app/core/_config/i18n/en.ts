@@ -357,6 +357,10 @@ export const locale = {
 			name_en: 'Name in English',
 			description_ar: 'Description in Arabic',
 			description_en: 'Description in English',
+
+			seo_description_ar: 'SEO Description in Arabic',
+			seo_description_en: 'SEO Description in English',
+
 			title: 'Title',
 			images: 'Images',
 			image: 'Image',

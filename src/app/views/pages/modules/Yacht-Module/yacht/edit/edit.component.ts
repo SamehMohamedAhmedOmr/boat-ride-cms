@@ -138,6 +138,9 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 			what_expect_description_en: [this.model.what_expect_description?.en, Validators.required] ,
 			what_expect_description_ar: [this.model.what_expect_description?.ar, Validators.required] ,
 
+			seo_description_en: [this.model.seo?.description?.en, Validators.required],
+			seo_description_ar: [this.model.seo?.description?.ar, Validators.required],
+
 			type: [this.model.type, Validators.required] ,
 			code: [this.model.code, Validators.required] ,
 			color: [this.model.color, Validators.required] ,

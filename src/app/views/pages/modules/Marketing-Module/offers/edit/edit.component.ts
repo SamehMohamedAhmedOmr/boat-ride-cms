@@ -105,6 +105,9 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 			description_en: [this.model.description?.en, Validators.required],
 			description_ar: [this.model.description?.ar, Validators.required],
 
+			seo_description_en: [this.model.seo?.description?.en, Validators.required],
+			seo_description_ar: [this.model.seo?.description?.ar, Validators.required],
+
 			valid_date: [this.model.valid_date, Validators.required],
 			is_active: [this.model.is_active == true ? '1' : '0', Validators.required],
 			image: [''],
@@ -145,7 +148,8 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 		this.model.is_active = controls['is_active'].value;
 		this.model.valid_date = controls['valid_date'].value;
 		this.model.seo.title = this.model.name;
-		this.model.seo.description = this.model.description;
+		this.model.seo.description.en = controls['seo_description_en'].value;
+		this.model.seo.description.ar = controls['seo_description_ar'].value;
 		this.model.image = controls['image'].value;
 
 		// call service to store shipping rule
