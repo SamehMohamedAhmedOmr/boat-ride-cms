@@ -12,7 +12,6 @@ export class BasicInformationFormComponent implements OnInit {
 
 	@Input() form: FormGroup;
 	@Input() enumsModel: WaterSportsEnumsModel;
-	@Input() services: ServicesModel[];
 
 	constructor() {
 	}
