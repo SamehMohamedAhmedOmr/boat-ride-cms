@@ -13,6 +13,8 @@ export class WaterSportsModel extends ModelBase {
 	public seo:SeoModel;
 
 	public status:number;
+	public status_name:string;
+
 	public code:string;
 	public color:string;
 

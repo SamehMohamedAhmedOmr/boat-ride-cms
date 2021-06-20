@@ -69,6 +69,7 @@ export class WaterSportsSerializer extends BaseSerializer implements Serializer 
 		model.minimum_booking = item.minimum_booking;
 		model.apply_vat = item.apply_vat;
 		model.status = item.status;
+		model.status_name = item.status_name;
 
 		model.images = item.images;
 

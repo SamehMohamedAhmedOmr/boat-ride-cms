@@ -42,7 +42,7 @@ export class RoutesName {
 	}
 
 	public static yachtsReservation() {
-		return 'yachts-reservation';
+		return 'yacht-reservation';
 	}
 
 	public static waterSports() {
@@ -50,7 +50,7 @@ export class RoutesName {
 	}
 
 	public static waterSportsReservation() {
-		return 'water-sports-reservation';
+		return 'water-sport-reservation';
 	}
 
 	public static seo() {

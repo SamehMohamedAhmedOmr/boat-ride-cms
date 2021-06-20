@@ -27,7 +27,7 @@ export class YachtsModel extends ModelBase {
 	public minimum_hours_booking:number;
 	public apply_vat:boolean;
 	public status:number;
-
+	public status_name:string;
 
 	/* Technical Information*/
 	public manufacturer:string;
@@ -78,7 +78,7 @@ export class YachtsModel extends ModelBase {
 			// @ts-ignore
 			'image' : this?.images?.length ? this.images[0].image : '',
 			'selling_per_hour' : this.selling_per_hour,
-			'status' : this.status,
+			'status' : this.status_name,
 		};
 	}
 
