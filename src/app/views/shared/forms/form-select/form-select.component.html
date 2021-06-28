@@ -2,7 +2,7 @@
 	<div class="my-3">
 		<div aria-label="select-box">
 			<mat-form-field appearance="fill" class="w-100">
-				<mat-label>{{label}}</mat-label>
+				<mat-label>{{label | titlecase}}</mat-label>
 				<mat-select formControlName="{{form_control_name}}" [multiple]="is_multi">
 					<mat-option *ngFor="let item of list" [value]="item.id">
 						{{ item.name }}

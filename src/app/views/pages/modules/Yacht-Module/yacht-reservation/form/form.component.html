@@ -6,18 +6,18 @@
 			<mat-step>
 				<form [formGroup]="form">
 					<ng-template matStepLabel>
-						{{ 'Components.YACHTS.basic_information' | translate | titlecase }}
+						{{ 'Components.YACHTS_RESERVATION.customer_information' | translate | titlecase }}
 					</ng-template>
 
-<!--					<kt-basic-information-form [form]="form"-->
-<!--											   [services]="services"-->
-<!--											   [enumsModel]="enumsModel"></kt-basic-information-form>-->
+					<kt-customer-information-form [form]="form"
+												  [countries]="countries"
+												  [enumsModel]="enumsModel"></kt-customer-information-form>
 				</form>
 			</mat-step>
 			<mat-step>
 				<form [formGroup]="form">
 					<ng-template matStepLabel>
-						{{ 'Components.YACHTS.technical_information' | translate | titlecase }}
+						{{ 'Components.YACHTS_RESERVATION.trip_information' | translate | titlecase }}
 					</ng-template>
 
 <!--					<kt-technical-form [form]="form"-->
@@ -25,33 +25,6 @@
 				</form>
 			</mat-step>
 
-			<mat-step>
-				<form [formGroup]="form">
-					<ng-template matStepLabel>
-						{{ 'Components.YACHTS.key_features' | translate | titlecase }}
-					</ng-template>
-<!--					<kt-key-feature-form [form]="form"></kt-key-feature-form>-->
-				</form>
-			</mat-step>
-
-			<mat-step>
-				<form [formGroup]="form">
-					<ng-template matStepLabel>
-						{{ 'Components.YACHTS.descriptions' | translate | titlecase }}
-					</ng-template>
-
-<!--					<kt-descriptions-form [form]="form"></kt-descriptions-form>-->
-				</form>
-			</mat-step>
-
-			<mat-step>
-				<form [formGroup]="form">
-					<ng-template matStepLabel>
-						{{ 'Components.images' | translate | titlecase }}
-					</ng-template>
-<!--					<kt-images-form [form]="form" [image_urls]="image_urls"></kt-images-form>-->
-				</form>
-			</mat-step>
 		</mat-vertical-stepper>
 
 	</form>

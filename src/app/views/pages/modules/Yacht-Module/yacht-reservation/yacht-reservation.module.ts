@@ -11,11 +11,13 @@ import {PagesModule} from '../../../pages.module';
 import {TranslateModule} from '@ngx-translate/core';
 import {GalleryModule} from '@ngx-gallery/core';
 import {MatDividerModule, MatStepperModule} from '@angular/material';
+import {CustomerInformationFormComponent} from './customer-information-form/customer-information-form.component';
 
 
 @NgModule({
 	declarations: [
-		YachtReservationComponent, AddComponent, EditComponent, IndexComponent, FormComponent
+		YachtReservationComponent, AddComponent, EditComponent,
+		IndexComponent, FormComponent, CustomerInformationFormComponent
 	],
 	imports: [
 		CommonModule,

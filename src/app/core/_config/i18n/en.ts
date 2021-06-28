@@ -274,6 +274,8 @@ export const locale = {
 			YACHTS_RESERVATION: {
 				name: 'Yachts Reservations',
 				single: 'Yacht Reservation',
+				customer_information: 'Customer Information',
+				trip_information: 'Trip Information',
 				columns: {
 					start_hour: 'Start hour',
 					start_date: 'Start Date',
@@ -295,6 +297,8 @@ export const locale = {
 					minimum_Advance_Payment: 'minimum advance payment',
 					client_notes: 'client notes',
 					admin_notes: 'admin notes',
+					mr:'Mr',
+					mrs:'Mrs',
 				},
 			},
 

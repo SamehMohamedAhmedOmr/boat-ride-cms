@@ -1,0 +1,79 @@
+<div [formGroup]="form">
+
+	<div class="row" aria-label="title, name, phone">
+
+		<div class="col-md-4" aria-label="title">
+			<div class="my-3 w-100">
+				<div aria-label="select-box">
+					<mat-form-field appearance="fill" class="w-100">
+						<mat-label> {{ 'Components.YACHTS_RESERVATION.columns.title' | translate | titlecase }}</mat-label>
+						<mat-select formControlName="title">
+							<mat-option [value]="0">
+								{{ 'Components.YACHTS_RESERVATION.columns.mr' | translate | titlecase }}
+							</mat-option>
+							<mat-option [value]="1">
+								{{ 'Components.YACHTS_RESERVATION.columns.mrs' | translate | titlecase }}
+							</mat-option>
+						</mat-select>
+					</mat-form-field>
+				</div>
+				<kt-form-error [form]="form"
+							   [controlName]="'title'"
+							   [validationType]="'required'"
+							   [controlText]="'Components.YACHTS_RESERVATION.columns.title' | translate "
+				></kt-form-error>
+			</div>
+		</div>
+
+		<div class="col-md-4">
+			<kt-form-input
+				[form]="form"
+				[label]="'COMMON.name' | translate"
+				[form_control_name]="'name'"
+				[validation_type]="'required'">
+			</kt-form-input>
+		</div>
+
+		<div class="col-md-4">
+			<kt-form-input
+				[form]="form"
+				[label]="'COMMON.name' | translate"
+				[form_control_name]="'name'"
+				[validation_type]="'required'">
+			</kt-form-input>
+		</div>
+	</div>
+
+	<div class="row" aria-label="address, email, country">
+		<div class="col-md-4">
+			<kt-form-input
+				[form]="form"
+				[label]="'Components.YACHTS_RESERVATION.columns.address' | translate"
+				[form_control_name]="'address'"
+				[validation_type]="'required'">
+			</kt-form-input>
+		</div>
+
+		<div class="col-md-4">
+			<kt-form-input
+				[form]="form"
+				[label]="'Components.YACHTS_RESERVATION.columns.email' | translate"
+				[form_control_name]="'email'"
+				[type]="'email'"
+				[validation_type]="'required'">
+			</kt-form-input>
+		</div>
+
+		<div class="col-md-4">
+			<kt-form-select
+				[form]="form"
+				[list]="countries"
+				[label]="'Components.YACHTS_RESERVATION.columns.country' | translate"
+				[form_control_name]="'country_id'"
+				[validation_type]="'required'">
+			</kt-form-select>
+		</div>
+
+	</div>
+
+</div>

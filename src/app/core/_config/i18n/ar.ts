@@ -268,9 +268,10 @@ export const locale = {
 			},
 
 			YACHTS_RESERVATION: {
-
 				name: 'حجوزات اليخوت',
 				single: 'حجز يخت',
+				customer_information: 'معلومات العميل',
+				trip_information: 'معلومات الرحلة',
 				columns: {
 					start_hour: 'ساعة البداية',
 					start_date: 'تاريخ البدء',
@@ -292,6 +293,8 @@ export const locale = {
 					minimum_Advance_Payment: 'الحد الأدنى للدفع المسبق',
 					client_notes: 'ملاحظات العميل',
 					admin_notes: 'ملاحظات المشرف',
+					mr:'استاذ',
+					mrs:'استاذة',
 				},
 			},
 
