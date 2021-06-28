@@ -6,11 +6,11 @@ import {InitializeComponentInterface} from '../../../../../shared/Base-Interface
 import {FormErrorService} from '../../../../../../core/services/FormError.service';
 import {AuthNoticeService} from '../../../../../../core/services/auth-notice.service';
 import {HelperService} from '../../../../../../core/services/helper.service';
-import {YachtsEnumsModel} from '../../../../../../core/models/Yacht-Module/yachts.enums.model';
-import {YachtsModel} from '../../../../../../core/models/Yacht-Module/yachts.model';
-import {YachtsService} from '../../../../../../core/services/Yacht-Module/yachts/yachts.service';
-import {ServicesModel} from '../../../../../../core/models/Marketing-Module/services.model';
-import {YachtsObservableService} from '../../../../../../core/services/Yacht-Module/yachts/yachts.observable.service';
+import {YachtsTripService} from '../../../../../../core/services/Yacht-Module/reservations/yachts.trip.service';
+import {YachtsTripModel} from '../../../../../../core/models/Yacht-Module/yachts.trip.model';
+import {YachtsTripObservableService} from '../../../../../../core/services/Yacht-Module/reservations/yachts.trip.observable.service';
+import {YachtsTripEnumsModel} from '../../../../../../core/models/Yacht-Module/yachts.trip.enums.model';
+import {CountryModel} from '../../../../../../core/models/Marketing-Module/country.model';
 
 
 @Component({
@@ -29,20 +29,18 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 	isLoadingResults: any = true;
 	form: FormGroup;
 
-	model: YachtsModel;
+	model: YachtsTripModel;
 
 	id = null;
 	is_result: boolean;
 
-	selected_images: [] = [];
-
-	enums: YachtsEnumsModel;
-	services: ServicesModel[] = [];
+	enums: YachtsTripEnumsModel;
+	countries: CountryModel[] = [];
 
 
 	constructor(private formBuilder: FormBuilder,
-				private service: YachtsService,
-				private yachtsObservableService: YachtsObservableService,
+				private service: YachtsTripService,
+				private yachtsTripObservableService: YachtsTripObservableService,
 				private formErrorService: FormErrorService,
 				private route: ActivatedRoute,
 				private router: Router,
@@ -75,19 +73,19 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 	}
 
 	private getDependencies() {
-		this.yachtsObservableService.getEnums();
+		this.yachtsTripObservableService.getEnums();
 
-		this.yachtsObservableService.enums_observable.subscribe((value:YachtsEnumsModel) => {
+		this.yachtsTripObservableService.enums_observable.subscribe((value:YachtsTripEnumsModel) => {
 			this.enums = value;
 			this.cdr.markForCheck();
 		});
 
-		this.yachtsObservableService.services_observable.subscribe((value:ServicesModel[]) => {
-			this.services = value;
+		this.yachtsTripObservableService.country_observable.subscribe((value:CountryModel[]) => {
+			this.countries = value;
 			this.cdr.markForCheck();
 		});
 
-		this.yachtsObservableService.loading_observable.subscribe((value:boolean) => {
+		this.yachtsTripObservableService.loading_observable.subscribe((value:boolean) => {
 			if ((!value) && this.model){
 				this.initializeForm();
 				this.is_result = true;
@@ -126,70 +124,31 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 	initializeForm() {
 		this.form = this.formBuilder.group({
 			/* Basic Information*/
-			name_en: [this.model.name?.en, Validators.required] ,
-			name_ar: [this.model.name?.ar, Validators.required] ,
+			start_hour: [this.model.start_hour, Validators.required] ,
+			start_date: [this.model.start_date, Validators.required] ,
 
-			facilities_en: [this.model.facilities?.en, Validators.required] ,
-			facilities_ar: [this.model.facilities?.ar, Validators.required] ,
+			end_hour: [this.model.end_hour, Validators.required] ,
+			end_date: [this.model.end_date, Validators.required] ,
 
-			what_is_included_en: [this.model.what_is_included?.en, Validators.required] ,
-			what_is_included_ar: [this.model.what_is_included?.ar, Validators.required] ,
-
-			what_expect_description_en: [this.model.what_expect_description?.en, Validators.required] ,
-			what_expect_description_ar: [this.model.what_expect_description?.ar, Validators.required] ,
-
-			seo_description_en: [this.model.seo?.description?.en, Validators.required],
-			seo_description_ar: [this.model.seo?.description?.ar, Validators.required],
-
-			type: [this.model.type, Validators.required] ,
-			code: [this.model.code, Validators.required] ,
-			color: [this.model.color, Validators.required] ,
-			passenger_capacity: [this.model.passenger_capacity, Validators.required] ,
-			size: [this.model.size, Validators.required] ,
-			no_of_captain: [this.model.no_of_captain, Validators.required] ,
-			crew_members: [this.model.crew_members, Validators.required] ,
-			corporate_company: [this.model.corporate_company, Validators.required] ,
-			corporate_price: [this.model.corporate_price, Validators.required] ,
-			selling_per_hour: [this.model.selling_per_hour, Validators.required] ,
-			yacht_special_price: [this.model.yacht_special_price, Validators.required] ,
-			minimum_hours_booking: [this.model.minimum_hours_booking, Validators.required] ,
-			apply_vat: [this.model.apply_vat ? '1' : '0', Validators.required] ,
 			status: [this.model.status, Validators.required] ,
+			payment_method: [this.model.payment_method, Validators.required] ,
 
-			// @ts-ignore
-			services: [this.model.services.map(k => k.id), Validators.required] ,
-			images: [''] ,
+			name: [this.model.name, Validators.required] ,
+			title: [this.model.title, Validators.required] ,
+			phone: [this.model.phone, Validators.required] ,
+			email: [this.model.email, Validators.required],
+			address: [this.model.address, Validators.required],
+			country_id: [this.model.country_id, Validators.required] ,
 
-			/* Technical Information*/
-			manufacturer: [this.model.manufacturer, Validators.required] ,
-			fuel_type: [this.model.fuel_type + '', Validators.required] ,
-			hull_type: [this.model.hull_type + '', Validators.required] ,
-			engine_type: [this.model.engine_type + '', Validators.required] ,
-			horse_Power: [this.model.horse_Power , Validators.required] ,
-			max_speed: [this.model.max_speed, Validators.required] ,
-			cruising_speed: [this.model.cruising_speed, Validators.required] ,
-			length: [this.model.length, Validators.required] ,
-			beam: [this.model.beam, Validators.required] ,
+			yacht_id: [this.model.yacht_id, Validators.required],
+			number_of_people: [this.model.number_of_people, Validators.required] ,
+			rate_per_hour: [this.model.rate_per_hour, Validators.required],
+			other_charges: [this.model.other_charges, Validators.required],
+			discount: [this.model.discount, Validators.required] ,
+			minimum_Advance_Payment: [this.model.minimum_Advance_Payment, Validators.required] ,
 
-
-			/* Key Feature*/
-			water_slider: [this.model.water_slider] ,
-			safety_equipment: [this.model.safety_equipment] ,
-			soft_drinks_refreshments: [this.model.soft_drinks_refreshments] ,
-			swimming_equipment: [this.model.swimming_equipment] ,
-			ice_tea_water: [this.model.ice_tea_water] ,
-			DVD_player: [this.model.DVD_player] ,
-			satellite_system: [this.model.satellite_system] ,
-			red_carpet_on_arrival: [this.model.red_carpet_on_arrival] ,
-			spacious_saloon: [this.model.spacious_saloon] ,
-			BBQ_grill_equipment: [this.model.BBQ_grill_equipment] ,
-			fresh_towels: [this.model.fresh_towels] ,
-			yacht_slippers: [this.model.yacht_slippers] ,
-			bathroom_amenities: [this.model.bathroom_amenities] ,
-			under_water_light: [this.model.under_water_light] ,
-			LED_screen_tv: [this.model.LED_screen_tv] ,
-			sunbathing_on_the_foredeck: [this.model.sunbathing_on_the_foredeck] ,
-			fishing_equipment: [this.model.fishing_equipment] ,
+			client_notes: [this.model.client_notes, Validators.required] ,
+			admin_notes: [this.model.admin_notes, Validators.required],
 		});
 
 		this.isLoadingResults = false;

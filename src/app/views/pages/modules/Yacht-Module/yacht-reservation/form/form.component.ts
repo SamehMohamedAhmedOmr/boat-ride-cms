@@ -2,6 +2,8 @@ import {Component, Input, OnInit} from '@angular/core';
 import {FormGroup} from '@angular/forms';
 import {YachtsEnumsModel} from '../../../../../../core/models/Yacht-Module/yachts.enums.model';
 import {ServicesModel} from '../../../../../../core/models/Marketing-Module/services.model';
+import {YachtsTripEnumsModel} from '../../../../../../core/models/Yacht-Module/yachts.trip.enums.model';
+import {CountryModel} from '../../../../../../core/models/Marketing-Module/country.model';
 
 @Component({
 	selector: 'kt-form',
@@ -11,10 +13,9 @@ import {ServicesModel} from '../../../../../../core/models/Marketing-Module/serv
 export class FormComponent implements OnInit {
 
 	@Input() form: FormGroup;
-	@Input() enumsModel: YachtsEnumsModel;
-	@Input() services: ServicesModel[];
+	@Input() enumsModel: YachtsTripEnumsModel;
+	@Input() countries: CountryModel[];
 	@Input() imgURL: string;
-	@Input() image_urls: [] = [];
 
 	constructor() {
 	}
