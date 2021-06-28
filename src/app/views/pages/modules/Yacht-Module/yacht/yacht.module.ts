@@ -18,7 +18,12 @@ import { KeyFeatureFormComponent } from './key-feature-form/key-feature-form.com
 import { ImagesFormComponent } from './images-form/images-form.component';
 
 @NgModule({
-	declarations: [YachtComponent, IndexComponent, AddComponent, EditComponent, FormComponent, BasicInformationFormComponent, DescriptionsFormComponent, TechnicalFormComponent, KeyFeatureFormComponent, ImagesFormComponent,],
+	declarations: [
+		YachtComponent, IndexComponent, AddComponent,
+		EditComponent, FormComponent, BasicInformationFormComponent,
+		DescriptionsFormComponent, TechnicalFormComponent, KeyFeatureFormComponent,
+		ImagesFormComponent
+	],
 	imports: [
 		CommonModule,
 		SharedModule,

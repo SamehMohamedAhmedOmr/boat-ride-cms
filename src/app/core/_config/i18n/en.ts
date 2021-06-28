@@ -268,9 +268,34 @@ export const locale = {
 						sunbathing_on_the_foredeck: 'sunbathing on the foredeck',
 						fishing_equipment: 'fishing equipment',
 					},
-
-
 				}
+			},
+
+			YACHTS_RESERVATION: {
+				name: 'Yachts Reservations',
+				single: 'Yacht Reservation',
+				columns: {
+					start_hour: 'Start hour',
+					start_date: 'Start Date',
+					end_hour: 'End hour',
+					end_date: 'End date',
+					status: 'status',
+					payment_method: 'payment method',
+					name: 'name',
+					title: 'title',
+					phone: 'phone',
+					email: 'email',
+					address: 'address',
+					country: 'country',
+					yacht: 'yacht',
+					number_of_people: 'number of people',
+					rate_per_hour: 'rate per hour',
+					other_charges: 'other charges',
+					discount: 'discount',
+					minimum_Advance_Payment: 'minimum advance payment',
+					client_notes: 'client notes',
+					admin_notes: 'admin notes',
+				},
 			},
 
 			WATER_SPORTS: {
@@ -303,6 +328,14 @@ export const locale = {
 						status: 'Status',
 					},
 				}
+			},
+
+			WATER_SPORTS_RESERVATION: {
+				name: '',
+				single: '',
+				columns: {
+
+				},
 			},
 
 			Gallery: {

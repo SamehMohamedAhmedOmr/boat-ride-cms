@@ -264,9 +264,35 @@ export const locale = {
 						sunbathing_on_the_foredeck: 'حمامات الشمس على مقدمة السفينة',
 						fishing_equipment: 'معدات الصيد',
 					},
-
-
 				}
+			},
+
+			YACHTS_RESERVATION: {
+
+				name: 'حجوزات اليخوت',
+				single: 'حجز يخت',
+				columns: {
+					start_hour: 'ساعة البداية',
+					start_date: 'تاريخ البدء',
+					end_hour: 'ساعة النهاية',
+					end_date: 'تاريخ الانتهاء',
+					status: 'الحالة',
+					payment_method: 'طريقة الدفع',
+					name: 'الاسم',
+					title: 'اللقب',
+					phone: 'الهاتف',
+					email: 'البريد الإلكتروني',
+					address: 'العنوان',
+					country: 'البلد',
+					yacht: 'اليخت',
+					number_of_people: 'عدد الاشخاص',
+					rate_per_hour: 'سعر لكل ساعة',
+					other_charges: 'رسوم أخرى',
+					discount: 'خصم',
+					minimum_Advance_Payment: 'الحد الأدنى للدفع المسبق',
+					client_notes: 'ملاحظات العميل',
+					admin_notes: 'ملاحظات المشرف',
+				},
 			},
 
 			WATER_SPORTS: {
@@ -299,6 +325,15 @@ export const locale = {
 					},
 				}
 			},
+
+			WATER_SPORTS_RESERVATION: {
+				name: '',
+				single: '',
+				columns: {
+
+				},
+			},
+
 
 			Gallery: {
 				name: 'المعرض',
