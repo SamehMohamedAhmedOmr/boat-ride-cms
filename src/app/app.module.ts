@@ -51,6 +51,8 @@ import * as json from 'highlight.js/lib/languages/json';
 import {Interceptor} from './interceptor';
 import {NgxMatSelectSearchModule} from 'ngx-mat-select-search';
 import {DatePipe} from '@angular/common';
+import {BsDropdownConfig, BsDropdownModule} from 'ngx-bootstrap/dropdown';
+import {CollapseModule} from 'ngx-bootstrap/collapse';
 
 
 // tslint:disable-next-line:class-name
@@ -95,9 +97,8 @@ export function hljsLanguages(): HighlightLanguage[] {
 		InlineSVGModule.forRoot(),
 		ThemeModule,
 		NgxMatSelectSearchModule,
-
-		
-
+		BsDropdownModule.forRoot(),
+		CollapseModule.forRoot(),
 	],
 	exports: [],
 	providers: [
@@ -140,6 +141,7 @@ export function hljsLanguages(): HighlightLanguage[] {
 		TypesUtilsService,
 		LayoutUtilsService,
 		DatePipe,
+		BsDropdownConfig
 	],
 	bootstrap: [AppComponent]
 })
