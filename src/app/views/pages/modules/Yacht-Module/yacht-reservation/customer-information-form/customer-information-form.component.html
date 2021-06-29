@@ -37,28 +37,10 @@
 
 	<div class="row" aria-label="address, phone">
 		<div class="col-md-6">
-			<label class="w-100 mb-2">
-				{{ 'Components.YACHTS_RESERVATION.columns.phone' | translate | titlecase }}
-			</label>
-			<ngx-intl-tel-input
-				[cssClass]="'custom-select'"
-				[preferredCountries]="[CountryISO.Egypt, CountryISO.UnitedArabEmirates]"
-				[enableAutoCountrySelect]="false"
-				[enablePlaceholder]="true"
-				[searchCountryFlag]="true"
-				[searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
-				[selectFirstCountry]="false"
-				[selectedCountryISO]="CountryISO.Egypt"
-				[separateDialCode]='true'
-				[maxLength]="15"
-				[phoneValidation]="true"
-				formControlName="phone">
-			</ngx-intl-tel-input>
-
-			<mat-error *ngIf="isControlHasError('phone', 'required')" class="my-3">
-				<strong>{{ 'VALIDATION.REQUIRED' | translate:
-					{name : 'Components.YACHTS_RESERVATION.columns.phone' | translate}  | titlecase}}</strong>
-			</mat-error>
+			<kt-form-intl-tel [form]="form"
+							  [label]="'Components.YACHTS_RESERVATION.columns.phone' | translate"
+							  [form_control_name]="'phone'">
+			</kt-form-intl-tel>
 		</div>
 
 		<div class="col-md-6">

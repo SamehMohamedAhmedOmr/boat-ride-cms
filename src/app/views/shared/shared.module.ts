@@ -44,6 +44,8 @@ import {CKEditorModule} from '@ckeditor/ckeditor5-angular';
 import {FormCheckboxComponent} from './forms/form-checkbox/form-checkbox.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { FormSeoDescriptionComponent } from './forms/form-seo-description/form-seo-description.component';
+import { FormIntlTelComponent } from './forms/form-intl-tel/form-intl-tel.component';
+import {NgxIntlTelInputModule} from 'ngx-intl-tel-input';
 
 
 @NgModule({
@@ -64,6 +66,7 @@ import { FormSeoDescriptionComponent } from './forms/form-seo-description/form-s
 		FormRichtextComponent,
 		FormCheckboxComponent,
 		FormSeoDescriptionComponent,
+		FormIntlTelComponent,
 	],
 	imports: [
 		CommonModule,
@@ -91,39 +94,41 @@ import { FormSeoDescriptionComponent } from './forms/form-seo-description/form-s
 		MatListModule,
 		MatMenuModule,
 		CKEditorModule,
-		NgbModule
+		NgbModule,
+		NgxIntlTelInputModule
 	],
 	entryComponents: [
 		DeleteModalComponent,
 		SuccessModalComponent,
 		PopupGalleryComponent,
 	],
-    exports: [
-        FilterComponent,
-        ApiLoaderComponent,
-        DeleteModalComponent,
-        SuccessModalComponent,
-        GalleryComponent,
-        AuthNoticeComponent,
-        GlobalNoticeComponent,
-        NextPreviousListComponent,
+	exports: [
+		FilterComponent,
+		ApiLoaderComponent,
+		DeleteModalComponent,
+		SuccessModalComponent,
+		GalleryComponent,
+		AuthNoticeComponent,
+		GlobalNoticeComponent,
+		NextPreviousListComponent,
 
-        FormErrorComponent,
-        ListOptionsComponent,
-        NoRecordFoundComponent,
-        SoonComponent,
-        FormTextareaComponent,
-        FormInputComponent,
-        FormRadioGroupComponent,
-        FormSelectComponent,
-        FormShowComponent,
-        FormUploadImageComponent,
-        MatMenuModule,
-        FormDatePickerComponent,
-        FormRichtextComponent,
-        FormCheckboxComponent,
-        FormSeoDescriptionComponent,
-    ]
+		FormErrorComponent,
+		ListOptionsComponent,
+		NoRecordFoundComponent,
+		SoonComponent,
+		FormTextareaComponent,
+		FormInputComponent,
+		FormRadioGroupComponent,
+		FormSelectComponent,
+		FormShowComponent,
+		FormUploadImageComponent,
+		MatMenuModule,
+		FormDatePickerComponent,
+		FormRichtextComponent,
+		FormCheckboxComponent,
+		FormSeoDescriptionComponent,
+		FormIntlTelComponent,
+	]
 })
 export class SharedModule {
 }

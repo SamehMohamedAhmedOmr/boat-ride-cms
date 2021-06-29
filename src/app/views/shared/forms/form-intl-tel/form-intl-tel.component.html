@@ -1,0 +1,23 @@
+<div [formGroup]="form">
+	<label class="w-100 mb-2">
+		{{ label | titlecase }}
+	</label>
+	<ngx-intl-tel-input
+		[cssClass]="'custom-select'"
+		[preferredCountries]="[CountryISO.UnitedArabEmirates, CountryISO.Egypt]"
+		[enableAutoCountrySelect]="false"
+		[enablePlaceholder]="true"
+		[searchCountryFlag]="true"
+		[searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
+		[selectFirstCountry]="false"
+		[selectedCountryISO]="CountryISO.Egypt"
+		[separateDialCode]='true'
+		[maxLength]="15"
+		[phoneValidation]="true"
+		formControlName="{{form_control_name}}">
+	</ngx-intl-tel-input>
+
+	<mat-error *ngIf="isControlHasError(form_control_name, 'required')" class="my-3">
+		<strong>{{ 'VALIDATION.REQUIRED' | translate:{name : label}  | titlecase }}</strong>
+	</mat-error>
+</div>
