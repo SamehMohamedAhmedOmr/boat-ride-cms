@@ -5,7 +5,7 @@ import {SeoModel} from '../SEO-Module/seo.model';
 export class YachtsModel extends ModelBase {
 
 	/* Basic Information*/
-	public name:MultiLanguageModel;
+	public name:MultiLanguageModel | string;
 	public type:number;
 	public code:string;
 	public color:string;
@@ -79,6 +79,8 @@ export class YachtsModel extends ModelBase {
 			'image' : this?.images?.length ? this.images[0].image : '',
 			'selling_per_hour' : this.selling_per_hour,
 			'status' : this.status_name,
+			'yacht_special_price' : this.yacht_special_price,
+			'minimum_hours_booking' : this.minimum_hours_booking,
 		};
 	}
 

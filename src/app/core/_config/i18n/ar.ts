@@ -416,6 +416,9 @@ export const locale = {
 			status_changed: 'تم تغيير التفعيل بنجاح',
 			old_password: 'كلمة المرور الحالية',
 			new_password: 'كلمة المرور الجديدة',
+			min: 'الحد الأدنى',
+			hrs: 'ساعة',
+			AED: 'درهم إماراتي',
 		},
 
 		MSG: {},
