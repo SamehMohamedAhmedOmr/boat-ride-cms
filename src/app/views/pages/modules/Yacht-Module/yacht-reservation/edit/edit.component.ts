@@ -11,6 +11,7 @@ import {YachtsTripModel} from '../../../../../../core/models/Yacht-Module/yachts
 import {YachtsTripObservableService} from '../../../../../../core/services/Yacht-Module/reservations/yachts.trip.observable.service';
 import {YachtsTripEnumsModel} from '../../../../../../core/models/Yacht-Module/yachts.trip.enums.model';
 import {CountryModel} from '../../../../../../core/models/Marketing-Module/country.model';
+import {YachtsModel} from '../../../../../../core/models/Yacht-Module/yachts.model';
 
 
 @Component({
@@ -36,6 +37,7 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 
 	enums: YachtsTripEnumsModel;
 	countries: CountryModel[] = [];
+	yachts: YachtsModel[] = [];
 
 
 	constructor(private formBuilder: FormBuilder,
@@ -77,6 +79,11 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 
 		this.yachtsTripObservableService.enums_observable.subscribe((value:YachtsTripEnumsModel) => {
 			this.enums = value;
+			this.cdr.markForCheck();
+		});
+
+		this.yachtsTripObservableService.yachts_observable.subscribe((value:YachtsModel[]) => {
+			this.yachts = value;
 			this.cdr.markForCheck();
 		});
 
@@ -123,31 +130,30 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 	 */
 	initializeForm() {
 		this.form = this.formBuilder.group({
-			/* Basic Information*/
-			start_hour: [this.model.start_hour, Validators.required] ,
-			start_date: [this.model.start_date, Validators.required] ,
-
-			end_hour: [this.model.end_hour, Validators.required] ,
-			end_date: [this.model.end_date, Validators.required] ,
-
-			status: [this.model.status, Validators.required] ,
-			payment_method: [this.model.payment_method, Validators.required] ,
-
-			name: [this.model.name, Validators.required] ,
-			title: [this.model.title, Validators.required] ,
-			phone: [this.model.phone, Validators.required] ,
+			name: [this.model.name, Validators.required],
+			title: [this.model.title, Validators.required],
+			phone: [this.model.phone, Validators.required],
 			email: [this.model.email, Validators.required],
 			address: [this.model.address, Validators.required],
-			country_id: [this.model.country_id, Validators.required] ,
+			country_id: [this.model.country_id, Validators.required],
+
+			start_hour: [this.model.start_hour, Validators.required],
+			start_date: [this.model.start_date, Validators.required],
+
+			end_hour: [this.model.end_hour, Validators.required],
+			end_date: [this.model.end_date, Validators.required],
+
+			status: [this.model.status, Validators.required],
+			payment_method: [this.model.payment_method, Validators.required],
 
 			yacht_id: [this.model.yacht_id, Validators.required],
-			number_of_people: [this.model.number_of_people, Validators.required] ,
+			number_of_people: [this.model.number_of_people, Validators.required],
 			rate_per_hour: [this.model.rate_per_hour, Validators.required],
 			other_charges: [this.model.other_charges, Validators.required],
-			discount: [this.model.discount, Validators.required] ,
-			minimum_Advance_Payment: [this.model.minimum_Advance_Payment, Validators.required] ,
+			discount: [this.model.discount, Validators.required],
+			minimum_Advance_Payment: [this.model.minimum_Advance_Payment, Validators.required],
 
-			client_notes: [this.model.client_notes, Validators.required] ,
+			client_notes: [this.model.client_notes, Validators.required],
 			admin_notes: [this.model.admin_notes, Validators.required],
 		});
 

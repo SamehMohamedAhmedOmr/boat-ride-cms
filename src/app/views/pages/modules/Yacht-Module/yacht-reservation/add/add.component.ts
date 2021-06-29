@@ -11,6 +11,7 @@ import {YachtsTripModel} from '../../../../../../core/models/Yacht-Module/yachts
 import {YachtsTripObservableService} from '../../../../../../core/services/Yacht-Module/reservations/yachts.trip.observable.service';
 import {YachtsTripEnumsModel} from '../../../../../../core/models/Yacht-Module/yachts.trip.enums.model';
 import {CountryModel} from '../../../../../../core/models/Marketing-Module/country.model';
+import {YachtsModel} from '../../../../../../core/models/Yacht-Module/yachts.model';
 
 @Component({
 	selector: 'kt-add',
@@ -33,6 +34,7 @@ export class AddComponent implements OnInit, DoCheck, OnDestroy, InitializeCompo
 
 	enums: YachtsTripEnumsModel;
 	countries: CountryModel[] = [];
+	yachts: YachtsModel[] = [];
 
 	constructor(private fb: FormBuilder,
 				private service: YachtsTripService,
@@ -75,6 +77,11 @@ export class AddComponent implements OnInit, DoCheck, OnDestroy, InitializeCompo
 			this.cdr.markForCheck();
 		});
 
+		this.yachtsTripObservableService.yachts_observable.subscribe((value:YachtsModel[]) => {
+			this.yachts = value;
+			this.cdr.markForCheck();
+		});
+
 		this.yachtsTripObservableService.country_observable.subscribe((value:CountryModel[]) => {
 			this.countries = value;
 			this.cdr.markForCheck();
@@ -95,16 +102,6 @@ export class AddComponent implements OnInit, DoCheck, OnDestroy, InitializeCompo
 	 */
 	private initForm() {
 		this.form = this.fb.group({
-			/* Basic Information*/
-			start_hour: ['', Validators.required] ,
-			start_date: ['', Validators.required] ,
-
-			end_hour: ['', Validators.required] ,
-			end_date: ['', Validators.required] ,
-
-			status: ['', Validators.required] ,
-			payment_method: ['', Validators.required] ,
-
 			name: ['', Validators.required],
 			title: ['', Validators.required],
 			phone: ['', Validators.required],
@@ -112,7 +109,14 @@ export class AddComponent implements OnInit, DoCheck, OnDestroy, InitializeCompo
 			address: ['', Validators.required],
 			country_id: ['', Validators.required],
 
+			start_hour: ['', Validators.required],
+			start_date: ['', Validators.required],
+			end_hour: ['', Validators.required],
+			end_date: ['', Validators.required],
 			yacht_id: ['', Validators.required],
+
+			status: ['', Validators.required],
+			payment_method: ['', Validators.required],
 			number_of_people: ['', Validators.required],
 			rate_per_hour: ['', Validators.required],
 			other_charges: ['', Validators.required],

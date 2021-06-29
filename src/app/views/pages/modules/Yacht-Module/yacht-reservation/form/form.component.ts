@@ -4,6 +4,7 @@ import {YachtsEnumsModel} from '../../../../../../core/models/Yacht-Module/yacht
 import {ServicesModel} from '../../../../../../core/models/Marketing-Module/services.model';
 import {YachtsTripEnumsModel} from '../../../../../../core/models/Yacht-Module/yachts.trip.enums.model';
 import {CountryModel} from '../../../../../../core/models/Marketing-Module/country.model';
+import {YachtsModel} from '../../../../../../core/models/Yacht-Module/yachts.model';
 
 @Component({
 	selector: 'kt-form',
@@ -16,6 +17,7 @@ export class FormComponent implements OnInit {
 	@Input() enumsModel: YachtsTripEnumsModel;
 	@Input() countries: CountryModel[];
 	@Input() imgURL: string;
+	@Input() yachts: YachtsModel[];
 
 	constructor() {
 	}

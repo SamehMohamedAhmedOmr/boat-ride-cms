@@ -13,7 +13,11 @@
 	<div [hidden]="isLoadingResults" class="my-4">
 
 		<div *ngIf="is_result">
-			<kt-form [form]="form" [enumsModel]="enums" [countries]="countries"></kt-form>
+			<kt-form [form]="form"
+					 [enumsModel]="enums"
+					 [yachts]="yachts"
+					 [countries]="countries">
+			</kt-form>
 
 			<div class="col-12 text-center px-3">
 				<button type="submit" class="btn btn-success mx-3" (click)="submitForm()">

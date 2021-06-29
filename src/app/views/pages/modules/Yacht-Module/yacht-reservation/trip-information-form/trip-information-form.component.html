@@ -1,0 +1,143 @@
+<div [formGroup]="form">
+
+	<div class="row">
+		<div class="col-md-6 row">
+			<div class="col-12">
+				<div class="my-3 w-100">
+					<div aria-label="select-box" class="w-100">
+						<mat-form-field appearance="fill" class="w-100">
+							<mat-label>
+								{{ 'Components.YACHTS.name' | translate | titlecase }}
+							</mat-label>
+							<mat-select formControlName="yacht_id">
+								<mat-option *ngFor="let yacht of yachts" [value]="yacht.id">
+									{{ yacht.name | titlecase }}
+								</mat-option>
+							</mat-select>
+						</mat-form-field>
+					</div>
+					<kt-form-error [form]="form"
+								   [controlName]="'yacht_id'"
+								   [validationType]="'required'"
+								   [controlText]="'Components.YACHTS.name' | translate ">
+					</kt-form-error>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+		</div>
+	</div>
+
+	<div class="row" aria-label="number_of_people, rate_per_hour, other_charges">
+		<div class="col-md-4">
+			<kt-form-input
+				[form]="form"
+				[label]="'Components.YACHTS_RESERVATION.columns.number_of_people' | translate"
+				[form_control_name]="'number_of_people'"
+				[type]="'number'"
+				[validation_type]="'required'">
+			</kt-form-input>
+		</div>
+		<div class="col-md-4">
+			<kt-form-input
+				[form]="form"
+				[label]="'Components.YACHTS_RESERVATION.columns.rate_per_hour' | translate"
+				[form_control_name]="'rate_per_hour'"
+				[type]="'number'"
+				[validation_type]="'required'">
+			</kt-form-input>
+		</div>
+		<div class="col-md-4">
+			<kt-form-input
+				[form]="form"
+				[label]="'Components.YACHTS_RESERVATION.columns.other_charges' | translate"
+				[form_control_name]="'other_charges'"
+				[type]="'number'"
+				[validation_type]="'required'">
+			</kt-form-input>
+		</div>
+	</div>
+
+	<div class="row" aria-label="discount, minimum_Advance_Payment, payment_method">
+		<div class="col-md-4">
+			<kt-form-input
+				[form]="form"
+				[label]="'Components.YACHTS_RESERVATION.columns.discount' | translate"
+				[form_control_name]="'discount'"
+				[type]="'number'"
+				[validation_type]="'required'">
+			</kt-form-input>
+		</div>
+		<div class="col-md-4">
+			<kt-form-input
+				[form]="form"
+				[label]="'Components.YACHTS_RESERVATION.columns.minimum_Advance_Payment' | translate"
+				[form_control_name]="'minimum_Advance_Payment'"
+				[type]="'number'"
+				[validation_type]="'required'">
+			</kt-form-input>
+		</div>
+		<div class="col-md-4">
+			<div class="my-3 w-100">
+				<div aria-label="select-box" class="w-100">
+					<mat-form-field appearance="fill" class="w-100">
+						<mat-label>
+							{{ 'Components.YACHTS_RESERVATION.columns.payment_method' | translate | titlecase }}
+						</mat-label>
+						<mat-select formControlName="payment_method">
+							<mat-option *ngFor="let item of enumsModel.payment_methods" [value]="item.value">
+								{{ item.key.replace('_', ' ') | titlecase }}
+							</mat-option>
+						</mat-select>
+					</mat-form-field>
+				</div>
+				<kt-form-error [form]="form"
+							   [controlName]="'payment_method'"
+							   [validationType]="'required'"
+							   [controlText]="'Components.YACHTS_RESERVATION.columns.payment_method' | translate ">
+				</kt-form-error>
+			</div>
+		</div>
+	</div>
+
+	<div class="row" aria-label="status, client_notes, admin_notes">
+		<div class="col-md-4">
+			<div class="my-3 w-100">
+				<div aria-label="select-box" class="w-100">
+					<mat-form-field appearance="fill" class="w-100">
+						<mat-label>
+							{{ 'Components.YACHTS_RESERVATION.columns.status' | translate | titlecase }}
+						</mat-label>
+						<mat-select formControlName="status">
+							<mat-option *ngFor="let item of enumsModel.trip_status" [value]="item.value">
+								{{ item.key.replace('_', ' ') | titlecase }}
+							</mat-option>
+						</mat-select>
+					</mat-form-field>
+				</div>
+				<kt-form-error [form]="form"
+							   [controlName]="'status'"
+							   [validationType]="'required'"
+							   [controlText]="'Components.YACHTS_RESERVATION.columns.status' | translate ">
+				</kt-form-error>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<kt-form-textarea
+				[form]="form"
+				[label]="'Components.YACHTS_RESERVATION.columns.client_notes' | translate"
+				[form_control_name]="'client_notes'"
+				[validation_type]="'required'">
+			</kt-form-textarea>
+		</div>
+		<div class="col-md-4">
+			<kt-form-textarea
+				[form]="form"
+				[label]="'Components.YACHTS_RESERVATION.columns.admin_notes' | translate"
+				[form_control_name]="'admin_notes'"
+				[validation_type]="'required'">
+			</kt-form-textarea>
+		</div>
+	</div>
+
+</div>

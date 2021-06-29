@@ -12,12 +12,13 @@ import {TranslateModule} from '@ngx-translate/core';
 import {GalleryModule} from '@ngx-gallery/core';
 import {MatDividerModule, MatStepperModule} from '@angular/material';
 import {CustomerInformationFormComponent} from './customer-information-form/customer-information-form.component';
+import { TripInformationFormComponent } from './trip-information-form/trip-information-form.component';
 
 
 @NgModule({
 	declarations: [
 		YachtReservationComponent, AddComponent, EditComponent,
-		IndexComponent, FormComponent, CustomerInformationFormComponent
+		IndexComponent, FormComponent, CustomerInformationFormComponent, TripInformationFormComponent
 	],
 	imports: [
 		CommonModule,

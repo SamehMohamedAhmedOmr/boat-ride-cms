@@ -2,7 +2,7 @@
 	<div class="my-3">
 		<div aria-label="text-area">
 			<mat-form-field class="w-100">
-				<mat-label>{{label}}</mat-label>
+				<mat-label>{{label | titlecase}}</mat-label>
 				<label class="w-100">
 						<textarea matInput
 								  formControlName="{{form_control_name}}"
