@@ -77,6 +77,7 @@ export class YachtsModel extends ModelBase {
 		return {
 			'id': this.id,
 			'name' : this.name,
+			'yacht_name' : this.yacht_name,
 			// @ts-ignore
 			'image' : this?.images?.length ? this.images[0].image : '',
 			'selling_per_hour' : this.selling_per_hour,

@@ -14,7 +14,8 @@ export class TripInformationFormComponent implements OnInit {
 	@Input() form: FormGroup;
 	@Input() enumsModel: YachtsTripEnumsModel;
 	@Input() yachts: YachtsModel[];
-	@Input() timeSlots: TimeSlotsModel[];
+	@Input() start_timeSlots: TimeSlotsModel[];
+	@Input() end_timeSlots: TimeSlotsModel[];
 
 	constructor() {
 	}

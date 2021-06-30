@@ -48,8 +48,8 @@
 									{{ 'Components.YACHTS_RESERVATION.columns.start_hour' | translate | titlecase }}
 								</mat-label>
 								<mat-select formControlName="start_hour">
-									<mat-option *ngFor="let timeSlot of timeSlots" [value]="timeSlot.time">
-										{{ timeSlot.label | titlecase }}
+									<mat-option *ngFor="let timeSlot of start_timeSlots" [value]="timeSlot.time">
+										{{ timeSlot.label | uppercase }}
 									</mat-option>
 								</mat-select>
 							</mat-form-field>
@@ -81,8 +81,8 @@
 									{{ 'Components.YACHTS_RESERVATION.columns.end_hour' | translate | titlecase }}
 								</mat-label>
 								<mat-select formControlName="end_hour">
-									<mat-option *ngFor="let timeSlot of timeSlots" [value]="timeSlot.time">
-										{{ timeSlot.label | titlecase }}
+									<mat-option *ngFor="let timeSlot of end_timeSlots" [value]="timeSlot.time">
+										{{ timeSlot.label | uppercase }}
 									</mat-option>
 								</mat-select>
 							</mat-form-field>

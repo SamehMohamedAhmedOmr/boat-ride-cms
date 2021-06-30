@@ -2,7 +2,7 @@ import {BaseSerializer} from '../Base/Base.serializer';
 import {Serializer} from '../Base/Serializer';
 import {YachtsTimeSlotsModel} from '../../models/Yacht-Module/yachts.time.slots.model';
 
-export class TimeSlotsSerializer extends BaseSerializer implements Serializer {
+export class YachtsTimeSlotsSerializer extends BaseSerializer implements Serializer {
 
 	fromJson(json: any): YachtsTimeSlotsModel {
 		return this.adapt(json.body);

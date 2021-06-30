@@ -84,7 +84,7 @@ export class AddComponent implements OnInit, DoCheck, OnDestroy, InitializeCompo
 			this.cdr.markForCheck();
 		});
 
-		this.yachtsTripObservableService.yachts_time_slots_observable.subscribe((value:TimeSlotsModel[]) => {
+		this.yachtsTripObservableService.time_slots_observable.subscribe((value:TimeSlotsModel[]) => {
 			this.timeSlots = value;
 			this.cdr.markForCheck();
 		});

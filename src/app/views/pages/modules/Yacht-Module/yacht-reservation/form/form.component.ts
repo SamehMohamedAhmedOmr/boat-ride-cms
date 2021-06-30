@@ -19,7 +19,8 @@ export class FormComponent implements OnInit {
 	@Input() countries: CountryModel[];
 	@Input() imgURL: string;
 	@Input() yachts: YachtsModel[];
-	@Input() timeSlots: TimeSlotsModel[];
+	@Input() start_timeSlots: TimeSlotsModel[];
+	@Input() end_timeSlots: TimeSlotsModel[];
 
 	constructor() {
 	}

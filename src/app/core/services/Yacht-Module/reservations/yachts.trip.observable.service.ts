@@ -25,8 +25,8 @@ export class YachtsTripObservableService  {
 	private yachts_subject = new BehaviorSubject<YachtsModel[]>(null);
 	public yachts_observable = this.yachts_subject.asObservable();
 
-	private yachts_time_slots_subject = new BehaviorSubject<TimeSlotsModel[]>(null);
-	public yachts_time_slots_observable = this.yachts_time_slots_subject.asObservable();
+	private time_slots_subject = new BehaviorSubject<TimeSlotsModel[]>(null);
+	public time_slots_observable = this.time_slots_subject.asObservable();
 
 	private loading_subject = new BehaviorSubject<boolean>(true);
 	public loading_observable = this.loading_subject.asObservable();
@@ -59,7 +59,7 @@ export class YachtsTripObservableService  {
 	getTimeSlots() {
 		this.timeSlotsService.list().subscribe(
 			(resp) => {
-				this.yachts_time_slots_subject.next(resp);
+				this.time_slots_subject.next(resp);
 				this.getCountries();
 			} , error => {
 			});

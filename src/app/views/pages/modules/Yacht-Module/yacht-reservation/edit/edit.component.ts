@@ -89,7 +89,7 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 			this.cdr.markForCheck();
 		});
 
-		this.yachtsTripObservableService.yachts_time_slots_observable.subscribe((value:TimeSlotsModel[]) => {
+		this.yachtsTripObservableService.time_slots_observable.subscribe((value:TimeSlotsModel[]) => {
 			this.timeSlots = value;
 			this.cdr.markForCheck();
 		});
