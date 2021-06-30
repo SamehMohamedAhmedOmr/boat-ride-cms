@@ -12,7 +12,7 @@
 							</mat-label>
 							<mat-select formControlName="yacht_id">
 								<mat-option *ngFor="let yacht of yachts" [value]="yacht.id">
-									{{ yacht.name | titlecase }} |
+									{{ yacht.yacht_name | titlecase }} |
 									{{ 'COMMON.AED' | translate | uppercase  }}
 									{{  yacht.yacht_special_price }} |
 									{{ 'COMMON.min' | translate | titlecase  }}
@@ -40,6 +40,27 @@
 						[validation_type]="'required'">
 					</kt-form-input>
 				</div>
+				<div class="col-md-6">
+					<div class="my-3 w-100">
+						<div aria-label="select-box" class="w-100">
+							<mat-form-field appearance="fill" class="w-100">
+								<mat-label>
+									{{ 'Components.YACHTS_RESERVATION.columns.start_hour' | translate | titlecase }}
+								</mat-label>
+								<mat-select formControlName="start_hour">
+									<mat-option *ngFor="let timeSlot of timeSlots" [value]="timeSlot.time">
+										{{ timeSlot.label | titlecase }}
+									</mat-option>
+								</mat-select>
+							</mat-form-field>
+						</div>
+						<kt-form-error [form]="form"
+									   [controlName]="'start_hour'"
+									   [validationType]="'required'"
+									   [controlText]="'Components.YACHTS_RESERVATION.columns.start_hour' | translate ">
+						</kt-form-error>
+					</div>
+				</div>
 			</div>
 
 			<div class="col-12 row" aria-label="end date & time">
@@ -51,6 +72,27 @@
 						[type]="'date'"
 						[validation_type]="'required'">
 					</kt-form-input>
+				</div>
+				<div class="col-md-6">
+					<div class="my-3 w-100">
+						<div aria-label="select-box" class="w-100">
+							<mat-form-field appearance="fill" class="w-100">
+								<mat-label>
+									{{ 'Components.YACHTS_RESERVATION.columns.end_hour' | translate | titlecase }}
+								</mat-label>
+								<mat-select formControlName="end_hour">
+									<mat-option *ngFor="let timeSlot of timeSlots" [value]="timeSlot.time">
+										{{ timeSlot.label | titlecase }}
+									</mat-option>
+								</mat-select>
+							</mat-form-field>
+						</div>
+						<kt-form-error [form]="form"
+									   [controlName]="'end_hour'"
+									   [validationType]="'required'"
+									   [controlText]="'Components.YACHTS_RESERVATION.columns.end_hour' | translate ">
+						</kt-form-error>
+					</div>
 				</div>
 			</div>
 

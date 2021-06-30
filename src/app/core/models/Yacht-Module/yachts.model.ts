@@ -5,7 +5,9 @@ import {SeoModel} from '../SEO-Module/seo.model';
 export class YachtsModel extends ModelBase {
 
 	/* Basic Information*/
-	public name:MultiLanguageModel | string;
+	public name:MultiLanguageModel;
+	public yacht_name:string;
+
 	public type:number;
 	public code:string;
 	public color:string;

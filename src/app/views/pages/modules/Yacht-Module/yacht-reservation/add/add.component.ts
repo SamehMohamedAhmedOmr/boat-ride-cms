@@ -12,6 +12,7 @@ import {YachtsTripObservableService} from '../../../../../../core/services/Yacht
 import {YachtsTripEnumsModel} from '../../../../../../core/models/Yacht-Module/yachts.trip.enums.model';
 import {CountryModel} from '../../../../../../core/models/Marketing-Module/country.model';
 import {YachtsModel} from '../../../../../../core/models/Yacht-Module/yachts.model';
+import {TimeSlotsModel} from '../../../../../../core/models/Marketing-Module/time.slots.model';
 
 @Component({
 	selector: 'kt-add',
@@ -35,6 +36,8 @@ export class AddComponent implements OnInit, DoCheck, OnDestroy, InitializeCompo
 	enums: YachtsTripEnumsModel;
 	countries: CountryModel[] = [];
 	yachts: YachtsModel[] = [];
+	timeSlots: TimeSlotsModel[] = [];
+
 
 	constructor(private fb: FormBuilder,
 				private service: YachtsTripService,
@@ -48,7 +51,6 @@ export class AddComponent implements OnInit, DoCheck, OnDestroy, InitializeCompo
 				private helper: HelperService) {
 		this.navigationSubscription = this.helper.routingSubscribe(this);
 	}
-
 
 
 	ngOnInit() {
@@ -79,6 +81,11 @@ export class AddComponent implements OnInit, DoCheck, OnDestroy, InitializeCompo
 
 		this.yachtsTripObservableService.yachts_observable.subscribe((value:YachtsModel[]) => {
 			this.yachts = value;
+			this.cdr.markForCheck();
+		});
+
+		this.yachtsTripObservableService.yachts_time_slots_observable.subscribe((value:TimeSlotsModel[]) => {
+			this.timeSlots = value;
 			this.cdr.markForCheck();
 		});
 

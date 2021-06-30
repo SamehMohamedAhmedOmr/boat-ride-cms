@@ -5,6 +5,7 @@ import {ServicesModel} from '../../../../../../core/models/Marketing-Module/serv
 import {YachtsTripEnumsModel} from '../../../../../../core/models/Yacht-Module/yachts.trip.enums.model';
 import {CountryModel} from '../../../../../../core/models/Marketing-Module/country.model';
 import {YachtsModel} from '../../../../../../core/models/Yacht-Module/yachts.model';
+import {TimeSlotsModel} from '../../../../../../core/models/Marketing-Module/time.slots.model';
 
 @Component({
 	selector: 'kt-form',
@@ -18,6 +19,7 @@ export class FormComponent implements OnInit {
 	@Input() countries: CountryModel[];
 	@Input() imgURL: string;
 	@Input() yachts: YachtsModel[];
+	@Input() timeSlots: TimeSlotsModel[];
 
 	constructor() {
 	}

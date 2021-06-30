@@ -1,11 +1,10 @@
 import {BaseSerializer} from '../Base/Base.serializer';
 import {Serializer} from '../Base/Serializer';
-import {CountryModel} from '../../models/Marketing-Module/country.model';
-import {TimeSlotsModel} from '../../models/Marketing-Module/time.slots.model';
+import {YachtsTimeSlotsModel} from '../../models/Yacht-Module/yachts.time.slots.model';
 
 export class TimeSlotsSerializer extends BaseSerializer implements Serializer {
 
-	fromJson(json: any): TimeSlotsModel {
+	fromJson(json: any): YachtsTimeSlotsModel {
 		return this.adapt(json.body);
 	}
 
@@ -13,24 +12,29 @@ export class TimeSlotsSerializer extends BaseSerializer implements Serializer {
 		return this.adaptList(json.body, json.pagination);
 	}
 
-	toJson(model: TimeSlotsModel): any {
-		return {};
+	toJson(model: YachtsTimeSlotsModel): any {
+		return {
+			'yacht_id' : model.yacht_id,
+			'date' : model.date
+		};
 	}
 
 	toFormData(object: any): FormData {
 		return null;
 	}
 
-	public adapt(item: any): TimeSlotsModel {
-		let model =  new TimeSlotsModel(item.id);
+	public adapt(item: any): YachtsTimeSlotsModel {
+		let model =  new YachtsTimeSlotsModel(item.id);
 
 		model.time = item.time;
 		model.label = item.label;
+		model.status = item.status;
 
 		return model;
 	}
 
 	status(status): any {
+
 		return {
 
 		};

@@ -6,7 +6,8 @@ import {CountryService} from '../../Marketing-Module/country.service';
 import {CountryModel} from '../../../models/Marketing-Module/country.model';
 import {YachtsModel} from '../../../models/Yacht-Module/yachts.model';
 import {YachtsService} from '../yachts/yachts.service';
-
+import {TimeSlotsService} from '../../Marketing-Module/time.slots.service';
+import {TimeSlotsModel} from '../../../models/Marketing-Module/time.slots.model';
 
 @Injectable({
 	providedIn: 'root'
@@ -24,12 +25,16 @@ export class YachtsTripObservableService  {
 	private yachts_subject = new BehaviorSubject<YachtsModel[]>(null);
 	public yachts_observable = this.yachts_subject.asObservable();
 
+	private yachts_time_slots_subject = new BehaviorSubject<TimeSlotsModel[]>(null);
+	public yachts_time_slots_observable = this.yachts_time_slots_subject.asObservable();
+
 	private loading_subject = new BehaviorSubject<boolean>(true);
 	public loading_observable = this.loading_subject.asObservable();
 
 
 	constructor(private yachtsTripService: YachtsTripService,
 				private yachtsService: YachtsService,
+				private timeSlotsService:TimeSlotsService,
 				private countryService: CountryService) {
 	}
 
@@ -46,6 +51,15 @@ export class YachtsTripObservableService  {
 		this.yachtsService.list(null).subscribe(
 			(resp) => {
 				this.yachts_subject.next(resp);
+				this.getTimeSlots();
+			} , error => {
+			});
+	}
+
+	getTimeSlots() {
+		this.timeSlotsService.list().subscribe(
+			(resp) => {
+				this.yachts_time_slots_subject.next(resp);
 				this.getCountries();
 			} , error => {
 			});

@@ -94,6 +94,7 @@ export class YachtsSerializer extends BaseSerializer implements Serializer {
 
 		/* Basic Information*/
 		model.name = item.name;
+		model.yacht_name = item.name;
 		model.type = item.type;
 		model.code = item.code;
 		model.color = item.color;
