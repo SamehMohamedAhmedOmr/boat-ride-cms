@@ -4,7 +4,7 @@
 	.time-slots-flags{
 		.slots{
 			font-weight: bold;
-			span{
+			div{
 				border-radius: 6px;
 			}
 		}
@@ -36,4 +36,11 @@
 
 .date-label{
 	color: #0f0f16;
+}
+
+
+.no-time-slots{
+	i{
+		font-size: 30px;
+	}
 }

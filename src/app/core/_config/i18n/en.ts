@@ -299,6 +299,9 @@ export const locale = {
 					admin_notes: 'admin notes',
 					mr:'Mr',
 					mrs:'Mrs',
+					coupon_code:'coupon code',
+					booking_number:'booking number',
+					trip_duration:'trip duration',
 				},
 			},
 

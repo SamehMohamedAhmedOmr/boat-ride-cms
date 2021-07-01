@@ -162,6 +162,9 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 
 			client_notes: [this.model.client_notes, Validators.required],
 			admin_notes: [this.model.admin_notes, Validators.required],
+
+			coupon_code: [this.model.coupon_code],
+			trip_duration: [this.model.trip_duration],
 		});
 
 		this.isLoadingResults = false;

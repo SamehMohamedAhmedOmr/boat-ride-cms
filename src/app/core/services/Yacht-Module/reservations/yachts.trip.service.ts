@@ -57,6 +57,9 @@ export class YachtsTripService extends BaseService<YachtsTripModel> {
 		model.client_notes = controls['client_notes'].value;
 		model.admin_notes = controls['admin_notes'].value;
 
+		model.coupon_code = controls['coupon_code'].value;
+		model.trip_duration = controls['trip_duration'].value;
+
 		return model;
 	}
 

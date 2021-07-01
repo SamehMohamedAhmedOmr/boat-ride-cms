@@ -3,7 +3,8 @@
 	<form class="p-3" [formGroup]="form" autocomplete="off">
 
 		<mat-vertical-stepper #stepper (selectionChange)="stepChanged($event, stepper);">
-			<mat-step>
+
+			<mat-step aria-label="customer_information">
 				<form [formGroup]="form">
 					<ng-template matStepLabel>
 						{{ 'Components.YACHTS_RESERVATION.customer_information' | translate | titlecase }}
@@ -11,10 +12,12 @@
 
 					<kt-customer-information-form [form]="form"
 												  [countries]="countries"
-												  [enumsModel]="enumsModel"></kt-customer-information-form>
+												  [enumsModel]="enumsModel">
+					</kt-customer-information-form>
 				</form>
 			</mat-step>
-			<mat-step>
+
+			<mat-step aria-label="trip_information">
 				<form [formGroup]="form">
 					<ng-template matStepLabel>
 						{{ 'Components.YACHTS_RESERVATION.trip_information' | translate | titlecase }}
@@ -24,7 +27,8 @@
 											  [yachts]="yachts"
 											  [start_timeSlots]="start_timeSlots"
 											  [end_timeSlots]="end_timeSlots"
-											  [enumsModel]="enumsModel"></kt-trip-information-form>
+											  [enumsModel]="enumsModel"
+					></kt-trip-information-form>
 				</form>
 			</mat-step>
 

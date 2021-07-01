@@ -2,208 +2,26 @@
 
 	<div class="row">
 
-		<div class="col-md-6 row">
-			<div class="col-12" aria-label="yachts">
-				<div class="my-3 w-100">
-					<div aria-label="select-box" class="w-100">
-						<mat-form-field appearance="fill" class="w-100">
-							<mat-label>
-								{{ 'Components.YACHTS.name' | translate | titlecase }}
-							</mat-label>
-							<mat-select formControlName="yacht_id">
-								<mat-option *ngFor="let yacht of yachts" [value]="yacht.id">
-									{{ yacht.yacht_name | titlecase }} |
-									{{ 'COMMON.AED' | translate | uppercase  }}
-									{{  yacht.yacht_special_price }} |
-									{{ 'COMMON.min' | translate | titlecase  }}
-									{{ yacht.minimum_hours_booking }}
-									{{ 'COMMON.hrs' | translate | titlecase  }}
-								</mat-option>
-							</mat-select>
-						</mat-form-field>
-					</div>
-					<kt-form-error [form]="form"
-								   [controlName]="'yacht_id'"
-								   [validationType]="'required'"
-								   [controlText]="'Components.YACHTS.name' | translate ">
-					</kt-form-error>
-				</div>
-			</div>
-
-			<div class="col-12 row" aria-label="start date & time">
-				<div class="col-md-6">
-					<kt-form-input
-						[form]="form"
-						[label]="'Components.YACHTS_RESERVATION.columns.start_date' | translate"
-						[form_control_name]="'start_date'"
-						[type]="'date'"
-						[validation_type]="'required'">
-					</kt-form-input>
-				</div>
-				<div class="col-md-6">
-					<div class="my-3 w-100">
-						<div aria-label="select-box" class="w-100">
-							<mat-form-field appearance="fill" class="w-100">
-								<mat-label>
-									{{ 'Components.YACHTS_RESERVATION.columns.start_hour' | translate | titlecase }}
-								</mat-label>
-								<mat-select formControlName="start_hour">
-									<mat-option *ngFor="let timeSlot of start_timeSlots" [value]="timeSlot.time">
-										{{ timeSlot.label | uppercase }}
-									</mat-option>
-								</mat-select>
-							</mat-form-field>
-						</div>
-						<kt-form-error [form]="form"
-									   [controlName]="'start_hour'"
-									   [validationType]="'required'"
-									   [controlText]="'Components.YACHTS_RESERVATION.columns.start_hour' | translate ">
-						</kt-form-error>
-					</div>
-				</div>
-			</div>
-
-			<div class="col-12 row" aria-label="end date & time">
-				<div class="col-md-6">
-					<kt-form-input
-						[form]="form"
-						[label]="'Components.YACHTS_RESERVATION.columns.end_date' | translate"
-						[form_control_name]="'end_date'"
-						[type]="'date'"
-						[validation_type]="'required'">
-					</kt-form-input>
-				</div>
-				<div class="col-md-6">
-					<div class="my-3 w-100">
-						<div aria-label="select-box" class="w-100">
-							<mat-form-field appearance="fill" class="w-100">
-								<mat-label>
-									{{ 'Components.YACHTS_RESERVATION.columns.end_hour' | translate | titlecase }}
-								</mat-label>
-								<mat-select formControlName="end_hour">
-									<mat-option *ngFor="let timeSlot of end_timeSlots" [value]="timeSlot.time">
-										{{ timeSlot.label | uppercase }}
-									</mat-option>
-								</mat-select>
-							</mat-form-field>
-						</div>
-						<kt-form-error [form]="form"
-									   [controlName]="'end_hour'"
-									   [validationType]="'required'"
-									   [controlText]="'Components.YACHTS_RESERVATION.columns.end_hour' | translate ">
-						</kt-form-error>
-					</div>
-				</div>
-			</div>
-
-			<div class="col-12 row" aria-label="number_of_people, rate_per_hour">
-				<div class="col-md-6">
-					<kt-form-input
-						[form]="form"
-						[label]="'Components.YACHTS_RESERVATION.columns.number_of_people' | translate"
-						[form_control_name]="'number_of_people'"
-						[type]="'number'"
-						[validation_type]="'required'">
-					</kt-form-input>
-				</div>
-				<div class="col-md-6">
-					<kt-form-input
-						[form]="form"
-						[label]="'Components.YACHTS_RESERVATION.columns.rate_per_hour' | translate"
-						[form_control_name]="'rate_per_hour'"
-						[type]="'number'"
-						[validation_type]="'required'">
-					</kt-form-input>
-				</div>
-			</div>
-
+		<div class="col-lg-7 row">
+			<kt-trip-fields-form class="col-12"
+								 [form]="form"
+								 [yachts]="yachts"
+								 [enumsModel]="enumsModel"
+								 [end_timeSlots]="end_timeSlots"
+								 [start_timeSlots]="start_timeSlots">
+			</kt-trip-fields-form>
 		</div>
 
-		<div class="col-md-6">
-			<kt-time-slots-table [first_day_time_slots]="start_timeSlots"
-								 [end_date]="end_date"
+		<div class="col-lg-5">
+			<kt-time-slots-table [first_day_time_slots]="yacht_start_timeSlots"
+								 [next_start_date]="next_start_date"
 								 [start_date]="start_date"
-								 [second_day_time_slots]="start_timeSlots">
+								 [second_day_time_slots]="yacht_next_day_timeSlots">
 			</kt-time-slots-table>
 		</div>
 	</div>
 
 	<mat-divider class="my-3"></mat-divider>
-
-	<div class="row" aria-label="other_charges, discount, minimum_Advance_Payment">
-		<div class="col-md-4">
-			<kt-form-input
-				[form]="form"
-				[label]="'Components.YACHTS_RESERVATION.columns.other_charges' | translate"
-				[form_control_name]="'other_charges'"
-				[type]="'number'"
-				[validation_type]="'required'">
-			</kt-form-input>
-		</div>
-		<div class="col-md-4">
-			<kt-form-input
-				[form]="form"
-				[label]="'Components.YACHTS_RESERVATION.columns.discount' | translate"
-				[form_control_name]="'discount'"
-				[type]="'number'"
-				[validation_type]="'required'">
-			</kt-form-input>
-		</div>
-		<div class="col-md-4">
-			<kt-form-input
-				[form]="form"
-				[label]="'Components.YACHTS_RESERVATION.columns.minimum_Advance_Payment' | translate"
-				[form_control_name]="'minimum_Advance_Payment'"
-				[type]="'number'"
-				[validation_type]="'required'">
-			</kt-form-input>
-		</div>
-	</div>
-
-	<div class="row" aria-label="payment_method, status">
-		<div class="col-md-6">
-			<div class="my-3 w-100">
-				<div aria-label="select-box" class="w-100">
-					<mat-form-field appearance="fill" class="w-100">
-						<mat-label>
-							{{ 'Components.YACHTS_RESERVATION.columns.payment_method' | translate | titlecase }}
-						</mat-label>
-						<mat-select formControlName="payment_method">
-							<mat-option *ngFor="let item of enumsModel.payment_methods" [value]="item.value">
-								{{ item.key.replace('_', ' ') | titlecase }}
-							</mat-option>
-						</mat-select>
-					</mat-form-field>
-				</div>
-				<kt-form-error [form]="form"
-							   [controlName]="'payment_method'"
-							   [validationType]="'required'"
-							   [controlText]="'Components.YACHTS_RESERVATION.columns.payment_method' | translate ">
-				</kt-form-error>
-			</div>
-		</div>
-		<div class="col-md-6">
-			<div class="my-3 w-100">
-				<div aria-label="select-box" class="w-100">
-					<mat-form-field appearance="fill" class="w-100">
-						<mat-label>
-							{{ 'Components.YACHTS_RESERVATION.columns.status' | translate | titlecase }}
-						</mat-label>
-						<mat-select formControlName="status">
-							<mat-option *ngFor="let item of enumsModel.trip_status" [value]="item.value">
-								{{ item.key.replace('_', ' ') | titlecase }}
-							</mat-option>
-						</mat-select>
-					</mat-form-field>
-				</div>
-				<kt-form-error [form]="form"
-							   [controlName]="'status'"
-							   [validationType]="'required'"
-							   [controlText]="'Components.YACHTS_RESERVATION.columns.status' | translate ">
-				</kt-form-error>
-			</div>
-		</div>
-	</div>
 
 	<div class="row" aria-label="client_notes, admin_notes">
 		<div class="col-md-6">

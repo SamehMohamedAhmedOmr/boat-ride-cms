@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {TimeSlotsModel} from '../../../../../../core/models/Marketing-Module/time.slots.model';
-import {YachtsTimeSlotsModel} from '../../../../../../core/models/Yacht-Module/yachts.time.slots.model';
+import {TimeSlotsHelperService} from '../../../../../../core/services/Helpers/time.slots.helper.service';
 
 @Component({
 	selector: 'kt-time-slots-table',
@@ -12,20 +12,16 @@ export class TimeSlotsTableComponent implements OnInit {
 	@Input() first_day_time_slots: TimeSlotsModel[];
 	@Input() second_day_time_slots: TimeSlotsModel[];
 	@Input() start_date: string;
-	@Input() end_date: string;
+	@Input() next_start_date: string;
 	now: Date = new Date();
 
-	constructor() {
+	constructor(private timeSlotsHelperService: TimeSlotsHelperService) {
 	}
 
 	ngOnInit() {
 	}
 
 	checkDate(slot) {
-		let times = slot.time.split(':');
-		let date: Date = new Date();
-		date.setHours(Number(times[0]), Number(times[1]), Number(times[2]));
-
-		return (date <= this.now) ? 'past' : 'available';
+		return  this.timeSlotsHelperService.checkDate(slot, this.now);
 	}
 }

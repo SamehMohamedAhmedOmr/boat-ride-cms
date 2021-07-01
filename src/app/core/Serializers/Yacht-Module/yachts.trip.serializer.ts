@@ -13,7 +13,7 @@ export class YachtsTripSerializer extends BaseSerializer implements Serializer {
 	}
 
 	toJson(model: YachtsTripModel): any {
-		return {
+		let object = {
 			'start_hour' : model.start_hour,
 			'start_date' : model.start_date,
 			'end_hour' : model.end_hour,
@@ -38,7 +38,14 @@ export class YachtsTripSerializer extends BaseSerializer implements Serializer {
 
 			'client_notes' : model.client_notes,
 			'admin_notes' : model.admin_notes,
+			'trip_duration' : model.trip_duration,
 		};
+
+		if (model.coupon_code){
+			object['coupon_code'] = model.coupon_code
+		}
+
+		return object;
 	}
 
 	toFormData(object: any): FormData {
@@ -72,6 +79,10 @@ export class YachtsTripSerializer extends BaseSerializer implements Serializer {
 
 		model.client_notes = item.client_notes;
 		model.admin_notes = item.admin_notes;
+
+		model.coupon_code = item.coupon_code;
+		model.booking_number = item.booking_number;
+		model.trip_duration = item.trip_duration;
 
 		return model;
 	}

@@ -132,6 +132,9 @@ export class AddComponent implements OnInit, DoCheck, OnDestroy, InitializeCompo
 
 			client_notes: ['', Validators.required],
 			admin_notes: ['', Validators.required],
+
+			coupon_code: [''],
+			trip_duration: [0],
 		});
 	}
 

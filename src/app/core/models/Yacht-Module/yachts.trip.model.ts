@@ -28,6 +28,10 @@ export class YachtsTripModel extends ModelBase {
 	public client_notes:string;
 	public admin_notes:string;
 
+	public coupon_code:string;
+	public booking_number:string;
+	public trip_duration:string;
+
 
 	constructor(id: number){
 		super(id);
@@ -38,6 +42,7 @@ export class YachtsTripModel extends ModelBase {
 		return {
 			'id': this.id,
 			'name' : this.name,
+			'booking_number' : this.booking_number,
 		};
 	}
 

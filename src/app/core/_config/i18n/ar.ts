@@ -295,6 +295,9 @@ export const locale = {
 					admin_notes: 'ملاحظات المشرف',
 					mr:'استاذ',
 					mrs:'استاذة',
+					coupon_code:'رمز الكوبون',
+					booking_number:'رقم الحجز',
+					trip_duration:'مدة الرحلة',
 				},
 			},
 

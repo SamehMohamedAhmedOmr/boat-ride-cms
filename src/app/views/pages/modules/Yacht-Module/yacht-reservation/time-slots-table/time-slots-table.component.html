@@ -1,22 +1,31 @@
 <div class="time-slots py-4  px-3 text-center">
+
 	<div aria-label="time-slots-flags" class="time-slots-flags">
 		<div aria-label="slots" class="slots">
-			<span class="past px-3 py-2 mr-2">
+			<div class="past px-3 py-2 mr-2 mb-3 d-inline-block">
 				<i class="far fa-hand-point-left mr-2"></i>
 				{{ 'COMMON.past' | translate | titlecase }}
-			</span>
-			<span class="booked px-3 py-2 mr-2">
+			</div>
+			<div class="booked px-3 py-2 mr-2 mb-3 d-inline-block">
 				<i class="fas fa-check mr-2"></i>
 				{{ 'COMMON.booked' | translate | titlecase }}
-			</span>
-			<span class="available px-3 py-2 mr-2">
+			</div>
+			<div class="available px-3 py-2 mr-2 mb-3 d-inline-block">
 				<i class="far fa-thumbs-up mr-2"></i>
 				{{ 'COMMON.available' | translate | titlecase }}
-			</span>
+			</div>
 		</div>
 	</div>
 
-	<div aria-label="time-slots-first day" class="mt-4">
+
+	<div class="no-time-slots" *ngIf="!first_day_time_slots.length && !second_day_time_slots.length" style="height: 96%;">
+		<div class="h-100 d-flex justify-content-center align-items-center">
+			<i class="far fa-calendar-alt"></i>
+		</div>
+	</div>
+
+
+	<div aria-label="time-slots day" class="mt-4" *ngIf="first_day_time_slots.length && second_day_time_slots.length">
 		<div class="first-day">
 			<div class="mb-3 text-left date-label" *ngIf="start_date">
 				<i class="far fa-calendar-check mx-2"></i>
@@ -28,9 +37,9 @@
 			</div>
 		</div>
 		<div class="second-day mt-3">
-			<div class="mb-3 text-left date-label" *ngIf="end_date">
+			<div class="mb-3 text-left date-label" *ngIf="next_start_date">
 				<i class="far fa-calendar-check mx-2"></i>
-				{{ end_date | date:'fullDate' }}
+				{{ next_start_date | date:'fullDate' }}
 			</div>
 			<div class="px-3 py-2 mr-2 mb-2 d-inline-block {{checkDate(slot)}}"
 				 *ngFor="let slot of second_day_time_slots">

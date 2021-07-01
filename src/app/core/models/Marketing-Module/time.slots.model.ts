@@ -4,6 +4,7 @@ export class TimeSlotsModel extends ModelBase {
 
 	public time:string;
 	public label:string;
+	public status:string;
 
 	constructor(id: number){
 		super(id);

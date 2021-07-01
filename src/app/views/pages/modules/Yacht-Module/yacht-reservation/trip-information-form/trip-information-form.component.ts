@@ -5,6 +5,7 @@ import {YachtsModel} from '../../../../../../core/models/Yacht-Module/yachts.mod
 import {TimeSlotsModel} from '../../../../../../core/models/Marketing-Module/time.slots.model';
 import {YachtsTimeSlotsService} from '../../../../../../core/services/Yacht-Module/reservations/yachts.time.slots.service';
 import {YachtsTimeSlotsModel} from '../../../../../../core/models/Yacht-Module/yachts.time.slots.model';
+import {TimeSlotsHelperService} from '../../../../../../core/services/Helpers/time.slots.helper.service';
 
 @Component({
 	selector: 'kt-trip-information-form',
@@ -16,13 +17,18 @@ export class TripInformationFormComponent implements OnInit {
 	@Input() form: FormGroup;
 	@Input() enumsModel: YachtsTripEnumsModel;
 	@Input() yachts: YachtsModel[];
-	@Input() start_timeSlots: TimeSlotsModel[];
-	@Input() end_timeSlots: TimeSlotsModel[];
+	@Input() start_timeSlots: TimeSlotsModel[] = [];
+	@Input() end_timeSlots: TimeSlotsModel[] = [];
+
+	@Input() yacht_start_timeSlots: TimeSlotsModel[] = [];
+	@Input() yacht_next_day_timeSlots: TimeSlotsModel[] = [];
 
 	start_date: string;
 	end_date: string;
+	next_start_date: string;
 
 	constructor(private yachtsTimeSlotsService: YachtsTimeSlotsService,
+				private timeSlotsHelperService: TimeSlotsHelperService,
 				private cdr: ChangeDetectorRef) {
 	}
 
@@ -46,10 +52,6 @@ export class TripInformationFormComponent implements OnInit {
 		this.start_date = this.form.controls['start_date'].value;
 		this.end_date = this.form.controls['end_date'].value;
 
-		console.log(yacht_id);
-		console.log(this.start_date);
-		console.log(this.end_date);
-
 		if (yacht_id) {
 			if (this.start_date) {
 				let model = new YachtsTimeSlotsModel(null);
@@ -58,11 +60,28 @@ export class TripInformationFormComponent implements OnInit {
 				this.yachtsTimeSlotsService.list(model).subscribe(
 					(resp) => {
 						this.start_timeSlots = resp;
+						this.yacht_start_timeSlots = resp;
+						this.cdr.markForCheck();
+					}, error => {
+					});
+
+				let next = new Date(this.start_date);
+				next.setDate(next.getDate()+1);
+
+				this.next_start_date = this.timeSlotsHelperService.transformDate(next);
+
+				let next_day = new YachtsTimeSlotsModel(null);
+				next_day.yacht_id = yacht_id;
+				next_day.date = this.next_start_date;
+				this.yachtsTimeSlotsService.list(next_day).subscribe(
+					(resp) => {
+						this.yacht_next_day_timeSlots = resp;
 						this.cdr.markForCheck();
 					}, error => {
 					});
 			}
-			if (this.end_date) {
+
+			if (this.end_date){
 				let model = new YachtsTimeSlotsModel(null);
 				model.yacht_id = yacht_id;
 				model.date = this.end_date;

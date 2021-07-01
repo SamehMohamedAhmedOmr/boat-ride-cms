@@ -5,15 +5,14 @@ import {YachtsTimeSlotsModel} from '../../models/Yacht-Module/yachts.time.slots.
 export class YachtsTimeSlotsSerializer extends BaseSerializer implements Serializer {
 
 	fromJson(json: any): YachtsTimeSlotsModel {
-		return this.adapt(json.data);
+		return this.adapt(json.body);
 	}
 
 	fromJsonList(json: any): [] {
-		return this.adaptList(json.data, json.pagination);
+		return this.adaptList(json.body, json.pagination);
 	}
 
 	toJson(model: YachtsTimeSlotsModel): any {
-		console.log(model);
 		return {
 			'yacht_id' : model.yacht_id,
 			'date' : model.date

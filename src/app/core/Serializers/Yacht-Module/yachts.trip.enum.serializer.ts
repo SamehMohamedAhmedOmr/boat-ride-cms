@@ -26,6 +26,9 @@ export class YachtsTripEnumSerializer extends BaseSerializer implements Serializ
 		model.trip_status = item.trip_status;
 		model.payment_methods = item.payment_methods;
 
+		model.time_slots = item.time_slots;
+		model.countries = item.countries;
+
 		return model;
 	}
 

@@ -6,6 +6,8 @@
 				<label class="w-100">
 					<input matInput
 						   [type]="type"
+						   [disabled]="disabled"
+						   [readonly]="readonly"
 						   [min]="0.1"
 						   formControlName="{{form_control_name}}"
 						   placeholder="{{label | titlecase}}">
