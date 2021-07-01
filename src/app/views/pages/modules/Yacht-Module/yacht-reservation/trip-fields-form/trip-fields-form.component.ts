@@ -23,6 +23,21 @@ export class TripFieldsFormComponent implements OnInit {
 	}
 
 	ngOnInit() {
+		this.form.get('start_hour').valueChanges.subscribe(x => {
+			this.calculateTripDuration();
+		});
+
+		this.form.get('start_date').valueChanges.subscribe(x => {
+			this.calculateTripDuration();
+		});
+
+		this.form.get('end_hour').valueChanges.subscribe(x => {
+			this.calculateTripDuration();
+		});
+
+		this.form.get('end_date').valueChanges.subscribe(x => {
+			this.calculateTripDuration();
+		});
 	}
 
 	checkDate(slot) {
@@ -31,5 +46,19 @@ export class TripFieldsFormComponent implements OnInit {
 		}
 		let status =  this.timeSlotsHelperService.checkDate(slot, this.now);
 		return (status != 'available');
+	}
+
+
+	calculateTripDuration(){
+		let start_date = this.form.controls['start_date'].value;
+		let end_date = this.form.controls['end_date'].value;
+		let start_hour = this.form.controls['start_hour'].value;
+		let end_hour = this.form.controls['end_hour'].value;
+
+		if (start_hour && start_date && end_hour && end_date){
+			let hours = this.timeSlotsHelperService.differenceBetweenDates(start_date, start_hour, end_date, end_hour);
+			this.form.controls['trip_duration'].setValue(hours);
+		}
+
 	}
 }

@@ -13,8 +13,6 @@ export class FormInputComponent implements OnInit {
 	@Input() form_control_name:string = null;
 	@Input() validation_type: string = null;
 	@Input() type: string = 'text';
-	@Input() disabled: boolean = false;
-	@Input() readonly : boolean = false;
 
 	constructor() {
 	}

@@ -1,5 +1,5 @@
 import {ChangeDetectorRef, Component, DoCheck, OnDestroy, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 import {TranslateService} from '@ngx-translate/core';
 import {InitializeComponentInterface} from '../../../../../shared/Base-Interface/Initialize.Component.Interface';
@@ -164,7 +164,7 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 			admin_notes: [this.model.admin_notes, Validators.required],
 
 			coupon_code: [this.model.coupon_code],
-			trip_duration: [this.model.trip_duration],
+			trip_duration: new FormControl({value: this.model.trip_duration, disabled: true}),
 		});
 
 		this.isLoadingResults = false;

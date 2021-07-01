@@ -1,5 +1,5 @@
 import {ChangeDetectorRef, Component, DoCheck, OnDestroy, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 import {TranslateService} from '@ngx-translate/core';
 import {InitializeComponentInterface} from '../../../../../shared/Base-Interface/Initialize.Component.Interface';
@@ -134,7 +134,7 @@ export class AddComponent implements OnInit, DoCheck, OnDestroy, InitializeCompo
 			admin_notes: ['', Validators.required],
 
 			coupon_code: [''],
-			trip_duration: [0],
+			trip_duration: new FormControl({value: 0, disabled: true}),
 		});
 	}
 
