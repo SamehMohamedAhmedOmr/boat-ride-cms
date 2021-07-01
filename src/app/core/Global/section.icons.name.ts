@@ -76,4 +76,8 @@ export class SectionIconsName {
 	public static waterSportsReservation() {
 		return 'flaticon-squares';
 	}
+
+	public static blogs() {
+		return 'flaticon-squares';
+	}
 }

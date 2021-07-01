@@ -54,6 +54,7 @@ export const locale = {
 					BANNERS: 'اللافتات',
 					SERVICES: 'الخدمات',
 					OFFERS: 'العروض',
+					BLOGS: 'المقالات',
 					SEO: 'محرك البحث',
 				}
 			},
@@ -159,6 +160,13 @@ export const locale = {
 				single: 'عرض',
 				columns: {
 					valid_date: 'صالح حتى',
+				}
+			},
+
+			BLOGS: {
+				name: 'مقالات',
+				single: 'مقالة',
+				columns: {
 				}
 			},
 

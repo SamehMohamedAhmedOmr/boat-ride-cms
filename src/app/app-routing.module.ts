@@ -78,6 +78,17 @@ const routes: Routes = [
 				loadChildren: () => import('./views/pages/modules/Marketing-Module/offers/offers.module')
 					.then(m => m.OffersModule)
 			},
+
+			// blogs
+			{
+				path: RoutesName.blogs(), // <= Page URL ,
+				// canActivate: [PermissionsGuard],
+				// data: {
+				// 	permissions: permissionCatalogueConfig.product_permissions,
+				// },
+				loadChildren: () => import('./views/pages/modules/Marketing-Module/blogs/blogs.module')
+					.then(m => m.BlogsModule)
+			},
 			// seo
 			{
 				path: RoutesName.seo(), // <= Page URL ,

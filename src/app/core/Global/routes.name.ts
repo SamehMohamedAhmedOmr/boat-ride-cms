@@ -61,5 +61,8 @@ export class RoutesName {
 		return 'offers';
 	}
 
+	public static blogs() {
+		return 'blogs';
+	}
 
 }

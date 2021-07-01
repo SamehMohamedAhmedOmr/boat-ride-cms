@@ -56,6 +56,7 @@ export const locale = {
 					BANNERS: 'Banners',
 					SERVICES: 'Services',
 					OFFERS: 'Offers',
+					BLOGS: 'Blogs',
 					SEO: 'Seo',
 				}
 			},
@@ -162,6 +163,13 @@ export const locale = {
 				single: 'Offer',
 				columns: {
 					valid_date: 'Valid Date',
+				}
+			},
+
+			BLOGS: {
+				name: 'Blogs',
+				single: 'Blog',
+				columns: {
 				}
 			},
 

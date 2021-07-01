@@ -47,6 +47,14 @@ export class MarketingMenuConfig {
 		page: RoutesName.offers()
 	};
 
+
+	public BLOGS = {
+		icon: SectionIconsName.blogs(),
+		title: 'MENUS.MARKETING.MENU.BLOGS',
+		translate: 'MENUS.MARKETING.MENU.BLOGS',
+		page: RoutesName.blogs()
+	};
+
 	public SEO = {
 		icon: SectionIconsName.seo(),
 		title: 'MENUS.MARKETING.MENU.SEO',
@@ -65,6 +73,7 @@ export class MarketingMenuConfig {
 		// this.attachMenuItem([],this.BANNERS);
 		this.attachMenuItem([],this.SERVICES);
 		this.attachMenuItem([],this.OFFERS);
+		this.attachMenuItem([],this.BLOGS);
 		this.attachMenuItem([],this.SEO);
 
 		this.attachMenu();
