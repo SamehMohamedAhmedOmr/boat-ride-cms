@@ -71,7 +71,7 @@ export class AddComponent implements OnInit, DoCheck, OnDestroy, InitializeCompo
 			name: ['', Validators.required] ,
 			email: ['', Validators.required] ,
 			password: ['', Validators.required] ,
-			is_active: ['0', Validators.required] ,
+			is_active: ['1', Validators.required] ,
 		});
 	}
 

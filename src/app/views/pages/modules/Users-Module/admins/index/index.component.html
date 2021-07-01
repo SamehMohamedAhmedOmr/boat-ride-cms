@@ -7,7 +7,7 @@
 		   [isLoadingResults]="isLoadingResults"
 		   [currentComponent] = "this"
 		   [HasItemPerPage]="true"
-		   [HasActive]="false"
+		   [HasActive]="true"
 		   [HasSearchFilter]="true"
 		   [HasExport]="false"
 		   [headerParams]="headerParams"
@@ -39,14 +39,12 @@
 				<td mat-cell *matCellDef="let element"> {{ displayContent(element.name) }} </td>
 			</ng-container>
 
-			<!-- image Column -->
-			<ng-container matColumnDef="image">
+			<!-- email Column -->
+			<ng-container matColumnDef="email">
 				<th mat-header-cell *matHeaderCellDef mat-sort-header>
-					{{ 'Components.image' | translate }}
+					{{ 'Components.email' | translate }}
 				</th>
-				<td mat-cell *matCellDef="let element">
-					<img class="img-thumbnail" src="{{element.image}}" style="width: 100%">
-				</td>
+				<td mat-cell *matCellDef="let element"> {{ displayContent(element.email) }} </td>
 			</ng-container>
 
 			<ng-container matColumnDef="is_active">
@@ -70,10 +68,11 @@
 						[currentService]="service"
 						[element]="element"
 						[enabled_change_status]="false"
+						[enabled_delete]="false"
 						[currentComponent]="this"
 						[headerParams]="headerParams"
-						[content_name]="content_name"
-					></kt-list-options>
+						[content_name]="content_name">
+					</kt-list-options>
 
 				</td>
 			</ng-container>

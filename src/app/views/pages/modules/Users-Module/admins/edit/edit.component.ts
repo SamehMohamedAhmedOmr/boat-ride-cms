@@ -101,7 +101,7 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 			name: [this.model.name, Validators.required] ,
 			email: [this.model.email, Validators.required] ,
 			password: [''] ,
-			is_active: [this.model.is_active, Validators.required] ,
+			is_active: [this.model.is_active + '', Validators.required] ,
 
 		});
 
@@ -133,8 +133,9 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 
 		this.model.password = controls['password'].value;
 		this.model.is_active = controls['is_active'].value;
+		// @ts-ignore
+		this.model.roles = [1];
 
-		// call service to store shipping rule
 		this.isLoadingResults = true;
 		this.service.update(this.model.id, this.model).subscribe(resp => {
 			this.isLoadingResults = false;
