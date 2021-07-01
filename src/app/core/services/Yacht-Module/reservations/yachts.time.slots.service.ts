@@ -2,9 +2,9 @@ import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
-import {YachtsTimeSlotsSerializer} from '../../../Serializers/Yacht-Module/yachts.time.slots.serializer';
 import {environment} from '../../../../../environments/environment';
 import {YachtsTimeSlotsModel} from '../../../models/Yacht-Module/yachts.time.slots.model';
+import {YachtsTimeSlotsSerializer} from '../../../Serializers/Yacht-Module/yachts.time.slots.serializer';
 
 
 @Injectable({

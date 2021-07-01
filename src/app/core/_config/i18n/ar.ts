@@ -419,6 +419,9 @@ export const locale = {
 			min: 'الحد الأدنى',
 			hrs: 'ساعة',
 			AED: 'درهم إماراتي',
+			past:'ماضي',
+			booked: 'محجوز',
+			available: 'متوفرة',
 		},
 
 		MSG: {},

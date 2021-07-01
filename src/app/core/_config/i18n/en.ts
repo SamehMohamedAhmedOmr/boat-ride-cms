@@ -423,6 +423,9 @@ export const locale = {
 			min: 'min',
 			hrs: 'hrs',
 			AED: 'aed',
+			past:'Past',
+			booked: 'Booked',
+			available: 'Available',
 		},
 
 		MSG: {},

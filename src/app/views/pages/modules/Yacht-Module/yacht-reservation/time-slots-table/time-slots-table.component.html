@@ -1,0 +1,42 @@
+<div class="time-slots py-4  px-3 text-center">
+	<div aria-label="time-slots-flags" class="time-slots-flags">
+		<div aria-label="slots" class="slots">
+			<span class="past px-3 py-2 mr-2">
+				<i class="far fa-hand-point-left mr-2"></i>
+				{{ 'COMMON.past' | translate | titlecase }}
+			</span>
+			<span class="booked px-3 py-2 mr-2">
+				<i class="fas fa-check mr-2"></i>
+				{{ 'COMMON.booked' | translate | titlecase }}
+			</span>
+			<span class="available px-3 py-2 mr-2">
+				<i class="far fa-thumbs-up mr-2"></i>
+				{{ 'COMMON.available' | translate | titlecase }}
+			</span>
+		</div>
+	</div>
+
+	<div aria-label="time-slots-first day" class="mt-4">
+		<div class="first-day">
+			<div class="mb-3 text-left date-label" *ngIf="start_date">
+				<i class="far fa-calendar-check mx-2"></i>
+				{{ start_date | date:'fullDate' }}
+			</div>
+			<div class="px-3 py-2 mr-2 mb-2 d-inline-block {{checkDate(slot)}}"
+				  *ngFor="let slot of first_day_time_slots">
+				{{ slot.time | slice:0:5 }}
+			</div>
+		</div>
+		<div class="second-day mt-3">
+			<div class="mb-3 text-left date-label" *ngIf="end_date">
+				<i class="far fa-calendar-check mx-2"></i>
+				{{ end_date | date:'fullDate' }}
+			</div>
+			<div class="px-3 py-2 mr-2 mb-2 d-inline-block {{checkDate(slot)}}"
+				 *ngFor="let slot of second_day_time_slots">
+				{{ slot.time | slice:0:5 }}
+			</div>
+		</div>
+	</div>
+
+</div>

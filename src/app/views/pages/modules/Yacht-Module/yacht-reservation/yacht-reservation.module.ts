@@ -13,12 +13,13 @@ import {GalleryModule} from '@ngx-gallery/core';
 import {MatDividerModule, MatStepperModule} from '@angular/material';
 import {CustomerInformationFormComponent} from './customer-information-form/customer-information-form.component';
 import { TripInformationFormComponent } from './trip-information-form/trip-information-form.component';
+import { TimeSlotsTableComponent } from './time-slots-table/time-slots-table.component';
 
 
 @NgModule({
 	declarations: [
 		YachtReservationComponent, AddComponent, EditComponent,
-		IndexComponent, FormComponent, CustomerInformationFormComponent, TripInformationFormComponent
+		IndexComponent, FormComponent, CustomerInformationFormComponent, TripInformationFormComponent, TimeSlotsTableComponent
 	],
 	imports: [
 		CommonModule,
