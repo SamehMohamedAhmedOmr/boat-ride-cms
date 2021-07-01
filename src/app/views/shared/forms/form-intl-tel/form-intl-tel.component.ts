@@ -29,4 +29,12 @@ export class FormIntlTelComponent implements OnInit {
 		}
 		return control.hasError(validationType) && (control.touched);
 	}
+
+	iPhoneHasError(controlName, validationType): boolean {
+		const control = this.form.controls[controlName];
+		if (!control) {
+			return false;
+		}
+		return control.hasError(validationType) && (control.touched);
+	}
 }

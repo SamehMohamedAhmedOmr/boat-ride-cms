@@ -30,7 +30,7 @@ export const locale = {
 			REQUIRED_FIELD: 'Required field',
 			MIN_LENGTH_FIELD: 'Minimum field length:',
 			MAX_LENGTH_FIELD: 'Maximum field length:',
-			INVALID_FIELD: 'Field is not valid',
+			INVALID_FIELD: '{{name}} is not valid',
 		},
 
 		STATISTICS: {

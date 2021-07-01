@@ -41,7 +41,7 @@ export class YachtsTripService extends BaseService<YachtsTripModel> {
 
 		model.name = controls['name'].value;
 		model.title = controls['title'].value;
-		model.phone = controls['phone'].value;
+		model.phone = controls['phone'].value.e164Number;
 		model.email = controls['email'].value;
 		model.address = controls['address'].value;
 

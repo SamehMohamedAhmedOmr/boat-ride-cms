@@ -20,4 +20,8 @@
 	<mat-error *ngIf="isControlHasError(form_control_name, 'required')" class="my-3">
 		<strong>{{ 'VALIDATION.REQUIRED' | translate:{name : label}  | titlecase }}</strong>
 	</mat-error>
+	<mat-error *ngIf="iPhoneHasError(form_control_name, 'validatePhoneNumber')" class="my-3">
+		<strong>{{ 'VALIDATION.INVALID_FIELD' | translate:{name : label}  | titlecase }}</strong>
+	</mat-error>
 </div>
+

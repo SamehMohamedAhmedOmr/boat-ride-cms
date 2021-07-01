@@ -12,7 +12,7 @@ import {HelperService} from '../../../../../../core/services/helper.service';
 import {RoutesName} from '../../../../../../core/Global/routes.name';
 import {SectionIconsName} from '../../../../../../core/Global/section.icons.name';
 import {MatTableDataSource} from '@angular/material';
-import {YachtsService} from '../../../../../../core/services/Yacht-Module/yachts/yachts.service';
+import {YachtsTripService} from '../../../../../../core/services/Yacht-Module/reservations/yachts.trip.service';
 
 @Component({
 	selector: 'kt-index',
@@ -32,7 +32,11 @@ export class IndexComponent implements OnInit , DoCheck, OnDestroy, IndexInterfa
 
 	//Data table variables
 	dataSource;
-	displayedColumns: string[] = ['id' , 'name' , 'image' , 'selling_per_hour', 'status' , 'options'];
+	displayedColumns: string[] = [
+		'id', 'booking_number', 'name' ,
+		'start_date', 'end_date', 'trip_duration',
+		'status' , 'options'
+	];
 	isLoadingResults:boolean = true;
 	// pagination variables
 	resultsLength = 0;
@@ -48,7 +52,7 @@ export class IndexComponent implements OnInit , DoCheck, OnDestroy, IndexInterfa
 	};
 
 	constructor(private cdr: ChangeDetectorRef ,
-				public service: YachtsService,
+				public service: YachtsTripService,
 				private authNoticeService: AuthNoticeService,
 				public translateService : TranslateService,
 				private router: Router,
