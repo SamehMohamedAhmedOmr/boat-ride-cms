@@ -6,8 +6,8 @@ import {InitializeComponentInterface} from '../../../../../shared/Base-Interface
 import {FormErrorService} from '../../../../../../core/services/FormError.service';
 import {AuthNoticeService} from '../../../../../../core/services/auth-notice.service';
 import {HelperService} from '../../../../../../core/services/helper.service';
-import {OffersService} from '../../../../../../core/services/Marketing-Module/offers.service';
-import {OffersModel} from '../../../../../../core/models/Marketing-Module/offers.model';
+import {BlogService} from '../../../../../../core/services/Marketing-Module/blog.service';
+import {BlogModel} from '../../../../../../core/models/Marketing-Module/blogs.model';
 
 
 @Component({
@@ -30,7 +30,7 @@ export class AddComponent implements OnInit, DoCheck, OnDestroy, InitializeCompo
 	selected_images: [] = [];
 
 	constructor(private fb: FormBuilder,
-				private service: OffersService,
+				private service: BlogService,
 				private formErrorService: FormErrorService,
 				private cdr: ChangeDetectorRef,
 				private route: ActivatedRoute,
@@ -79,7 +79,6 @@ export class AddComponent implements OnInit, DoCheck, OnDestroy, InitializeCompo
 			seo_description_en: ['', Validators.required] ,
 			seo_description_ar: ['', Validators.required] ,
 
-			valid_date: ['', Validators.required] ,
 			is_active: ['0', Validators.required] ,
 			image: ['', Validators.required] ,
 		});
@@ -98,7 +97,7 @@ export class AddComponent implements OnInit, DoCheck, OnDestroy, InitializeCompo
 			return this.formErrorService.markAsTouched(controls);
 		}
 
-		const model = new OffersModel(null);
+		const model = new BlogModel(null);
 
 		model.name.en = controls['name_en'].value;
 		model.name.ar = controls['name_ar'].value;
@@ -106,7 +105,6 @@ export class AddComponent implements OnInit, DoCheck, OnDestroy, InitializeCompo
 		model.description.en = controls['description_en'].value;
 		model.description.ar = controls['description_ar'].value;
 
-		model.valid_date = controls['valid_date'].value;
 		model.is_active = controls['is_active'].value;
 		model.seo.title = model.name;
 		model.seo.description.en = controls['seo_description_en'].value;

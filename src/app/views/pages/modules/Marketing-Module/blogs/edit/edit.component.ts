@@ -6,8 +6,8 @@ import {InitializeComponentInterface} from '../../../../../shared/Base-Interface
 import {FormErrorService} from '../../../../../../core/services/FormError.service';
 import {AuthNoticeService} from '../../../../../../core/services/auth-notice.service';
 import {HelperService} from '../../../../../../core/services/helper.service';
-import {OffersService} from '../../../../../../core/services/Marketing-Module/offers.service';
-import {OffersModel} from '../../../../../../core/models/Marketing-Module/offers.model';
+import {BlogService} from '../../../../../../core/services/Marketing-Module/blog.service';
+import {BlogModel} from '../../../../../../core/models/Marketing-Module/blogs.model';
 
 @Component({
 	selector: 'kt-edit',
@@ -25,7 +25,7 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 	isLoadingResults: any = true;
 	form: FormGroup;
 
-	model: OffersModel;
+	model: BlogModel;
 
 	id = null;
 	is_result: boolean;
@@ -34,7 +34,7 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 	current_image: string;
 
 	constructor(private formBuilder: FormBuilder,
-				private service: OffersService,
+				private service: BlogService,
 				private formErrorService: FormErrorService,
 				private route: ActivatedRoute,
 				private router: Router,
@@ -108,7 +108,6 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 			seo_description_en: [this.model.seo?.description?.en, Validators.required],
 			seo_description_ar: [this.model.seo?.description?.ar, Validators.required],
 
-			valid_date: [this.model.valid_date, Validators.required],
 			is_active: [this.model.is_active == true ? '1' : '0', Validators.required],
 			image: [''],
 
@@ -146,7 +145,6 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 		this.model.description.en = controls['description_en'].value;
 		this.model.description.ar = controls['description_ar'].value;
 		this.model.is_active = controls['is_active'].value;
-		this.model.valid_date = controls['valid_date'].value;
 		this.model.seo.title = this.model.name;
 		this.model.seo.description.en = controls['seo_description_en'].value;
 		this.model.seo.description.ar = controls['seo_description_ar'].value;
