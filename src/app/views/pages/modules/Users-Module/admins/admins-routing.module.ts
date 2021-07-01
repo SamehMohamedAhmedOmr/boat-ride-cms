@@ -1,27 +1,30 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {AdminsComponent} from './admins.component';
-
+import {IndexComponent} from './index/index.component';
+import {AddComponent} from './add/add.component';
+import {RoutesName} from '../../../../../core/Global/routes.name';
+import {EditComponent} from './edit/edit.component';
 
 const routes: Routes = [
 	{
 		path: '',
 		component: AdminsComponent,
-		// children: [
-		// 	{
-		// 		path: '',
-		// 		component: IndexComponent
-		// 	},
-		// 	{
-		// 		path: RoutesName.add(),
-		// 		component: AddComponent
-		// 	},
-		// 	{
-		// 		path: ':id',
-		// 		component: EditComponent
-		// 	},
-		// 	{path: '**', redirectTo: '', pathMatch: ''},
-		// ]
+		children: [
+			{
+				path: '',
+				component: IndexComponent
+			},
+			{
+				path: RoutesName.add(),
+				component: AddComponent
+			},
+			{
+				path: ':id',
+				component: EditComponent
+			},
+			{path: '**', redirectTo: '', pathMatch: ''},
+		]
 	}
 ];
 

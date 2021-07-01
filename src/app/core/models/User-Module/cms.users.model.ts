@@ -7,7 +7,7 @@ export class CmsUsersModel extends ModelBase {
 	public password: string;
 	public is_active: boolean;
 
-	public roles:[];
+	public roles:[] = [];
 
 	constructor(id: number) {
 		super(id);

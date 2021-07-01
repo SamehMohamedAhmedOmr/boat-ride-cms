@@ -14,24 +14,26 @@ export class CmsUsersSerializer extends BaseSerializer implements Serializer {
 	}
 
 	toJson(model: CmsUsersModel): any {
-		if (model.password){
-			return {
-				'id' : model.id,
-				'email' : model.email,
-				'is_active' : model.is_active,
-				'name' : model.name,
-				'password' : model.password,
-
-				'roles' : model.roles,
-			};
-		}
-		return {
+		let object = {
 			'id' : model.id,
 			'email' : model.email,
 			'is_active' : model.is_active,
 			'name' : model.name,
+			'password' : model.password,
+
 			'roles' : model.roles,
 		};
+
+		if (model.password){
+			object['password'] = model.password;
+		}
+
+
+		if (model.roles){
+			object['roles'] = model.roles;
+		}
+
+		return object;
 	}
 
 	toFormData(object: any): FormData {
