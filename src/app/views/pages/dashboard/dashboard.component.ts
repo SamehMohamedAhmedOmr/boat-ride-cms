@@ -44,7 +44,7 @@ export class DashboardComponent implements OnInit, OnDestroy, InitializeComponen
 	orders_prices: any[] = [];
 
 
-	Dashbard: DashboardModel;
+	dashboardModel: DashboardModel;
 
 	base_url: string;
 
@@ -74,7 +74,7 @@ export class DashboardComponent implements OnInit, OnDestroy, InitializeComponen
 			(resp) => {
 				this.isResults = true;
 				this.isLoadingResults = false;
-				this.Dashbard = resp;
+				this.dashboardModel = resp;
 				this.cdr.markForCheck();
 			}, error => {
 				this.isLoadingResults = false;

@@ -23,19 +23,18 @@ export class DashboardSerializer extends BaseSerializer implements Serializer {
 		return null;
 	}
 
-	public adapt(Count: any): DashboardModel {
+	public adapt(item: any): DashboardModel {
 		let model = new DashboardModel(null);
 
-		model.PackagesCount = Count.packages_count;
-		model.ServicesCount = Count.services_count
+		model.yacht_count = item.yacht_count;
+		model.water_sport_count = item.water_sport_count;
 
-		model.SpecialitesCount = Count.specialites_count;
-		model.AppointmentsCount = Count.appointments_count;
+		model.yacht_reserved_trips_count = item.yacht_reserved_trips_count;
+		model.yacht_confirmed_trips_count = item.yacht_confirmed_trips_count;
 
 
-		model.OperationsCount = Count.operations_count;
-		model.DoctorCount = Count.doctors_count;
-		model.PatientsCount = Count.patients_count;
+		model.water_sport_reserved_trips = item.water_sport_reserved_trips;
+		model.water_sport_confirmed_trips = item.water_sport_confirmed_trips;
 		return model;
 	}
 

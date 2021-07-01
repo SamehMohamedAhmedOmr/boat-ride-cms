@@ -19,7 +19,7 @@ export class DashboardService {
 
 	constructor(Http: HttpClient) {
 		this.http = Http;
-		this.endpoint = 'admins/dashboard';
+		this.endpoint = 'admins/dashboard-report';
 		this.url = environment.url();
 		this.serializer = new DashboardSerializer();
 	};

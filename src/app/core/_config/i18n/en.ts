@@ -36,9 +36,13 @@ export const locale = {
 		STATISTICS: {
 			name: 'Statistics',
 			visitors_count: '',
-              link  : 'Open {{title}} List'
-
-
+			link: 'Open {{title}} List',
+			yacht_count: 'yacht count',
+			water_sport_count: 'water sport count',
+			yacht_reserved_trips_count: 'yacht reserved trips count',
+			yacht_confirmed_trips_count: 'yacht confirmed trips count',
+			water_sport_reserved_trips: 'water sport reserved trips',
+			water_sport_confirmed_trips: 'water sport confirmed trips',
 		},
 
 		MENUS: {
@@ -135,9 +139,9 @@ export const locale = {
 			Select: 'Select',
 			export: 'Export',
 			no_image: 'No Image Yet',
-            Accept : "Accept" ,
-			Reject : "Reject",
-			Pending : "Pending",
+			Accept: 'Accept',
+			Reject: 'Reject',
+			Pending: 'Pending',
 
 			price: 'Price',
 			image: 'Image',
@@ -169,8 +173,7 @@ export const locale = {
 			BLOGS: {
 				name: 'Blogs',
 				single: 'Blog',
-				columns: {
-				}
+				columns: {}
 			},
 
 			SEO: {
@@ -189,7 +192,7 @@ export const locale = {
 				columns: {
 					type: 'Type',
 					link: 'Link',
-					image : "Image",
+					image: 'Image',
 				}
 			},
 
@@ -206,8 +209,7 @@ export const locale = {
 			CMS_USERS: {
 				name: 'CMS Users',
 				single: 'CMS User',
-				columns: {
-				}
+				columns: {}
 			},
 
 			YACHTS: {
@@ -257,7 +259,7 @@ export const locale = {
 					},
 
 					/* Key Feature*/
-					key_features:{
+					key_features: {
 						water_slider: 'water slider',
 						safety_equipment: 'safety equipment',
 						soft_drinks_refreshments: 'soft drinks refreshments',
@@ -305,11 +307,11 @@ export const locale = {
 					minimum_Advance_Payment: 'minimum advance payment',
 					client_notes: 'client notes',
 					admin_notes: 'admin notes',
-					mr:'Mr',
-					mrs:'Mrs',
-					coupon_code:'coupon code',
-					booking_number:'booking number',
-					trip_duration:'trip duration',
+					mr: 'Mr',
+					mrs: 'Mrs',
+					coupon_code: 'coupon code',
+					booking_number: 'booking number',
+					trip_duration: 'trip duration',
 				},
 			},
 
@@ -348,9 +350,7 @@ export const locale = {
 			WATER_SPORTS_RESERVATION: {
 				name: '',
 				single: '',
-				columns: {
-
-				},
+				columns: {},
 			},
 
 			Gallery: {
@@ -389,8 +389,8 @@ export const locale = {
 
 			activation_button: 'Active',
 			deactivation_button: 'Inactive',
-			accepted : 'Accepted',
-			rejected : 'Rejected',
+			accepted: 'Accepted',
+			rejected: 'Rejected',
 
 			email: 'Email',
 			password: 'Password',
@@ -434,7 +434,7 @@ export const locale = {
 			min: 'min',
 			hrs: 'hrs',
 			AED: 'aed',
-			past:'Past',
+			past: 'Past',
 			booked: 'Booked',
 			available: 'Available',
 		},
@@ -447,7 +447,6 @@ export const locale = {
 			error: 'Please Enter the Required Data'
 
 		},
-
 
 
 	}

@@ -36,8 +36,13 @@ export const locale = {
 		STATISTICS: {
 			name: 'الاحصائيات',
 			visitors_count: '',
-			link: 'افتح قائمه {{title}}'
-
+			link: 'افتح قائمه {{title}}',
+			yacht_count: 'عدد اليخوت',
+			water_sport_count: 'عدد الرياضات المائية',
+			yacht_reserved_trips_count: 'عدد رحلات اليخوت المحجوزة',
+			yacht_confirmed_trips_count: 'عدد رحلات اليخت المؤكدة',
+			water_sport_reserved_trips: 'رحلات الرياضات المائية المحجوزة',
+			water_sport_confirmed_trips: 'رحلات الرياضات المائية المؤكدة',
 		},
 
 		MENUS: {

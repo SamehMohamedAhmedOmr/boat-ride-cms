@@ -2,13 +2,12 @@ import {ModelBase} from '../Base/base.model';
 
 export class DashboardModel extends ModelBase {
 
-	public PackagesCount:number;
-	public ServicesCount: number;
-	public SpecialitesCount:number;
-	public AppointmentsCount: number;
-	public OperationsCount: number;
-	public DoctorCount: number;
-	public PatientsCount:number;
+	public yacht_count:number;
+	public water_sport_count: number;
+	public yacht_reserved_trips_count:number;
+	public yacht_confirmed_trips_count: number;
+	public water_sport_reserved_trips: number;
+	public water_sport_confirmed_trips: number;
 
 	constructor(id: number){
 		super(id);
@@ -16,7 +15,7 @@ export class DashboardModel extends ModelBase {
 
 	public list() {
 		return {
-			
+
 		};
 	}
 

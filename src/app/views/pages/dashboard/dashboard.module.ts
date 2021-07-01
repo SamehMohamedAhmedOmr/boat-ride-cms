@@ -8,6 +8,9 @@ import { DashboardComponent } from './dashboard.component';
 import {NgxChartsModule} from '@swimlane/ngx-charts';
 import {TranslateModule} from '@ngx-translate/core';
 import {SharedModule} from '../../shared/shared.module';
+import {PagesModule} from '../pages.module';
+import { IndexComponent } from './index/index.component';
+import { BoxesComponent } from './boxes/boxes.component';
 
 @NgModule({
 	imports: [
@@ -22,10 +25,13 @@ import {SharedModule} from '../../shared/shared.module';
 		NgxChartsModule,
 		TranslateModule,
 		SharedModule,
+		PagesModule,
 	],
 	providers: [],
 	declarations: [
 		DashboardComponent,
+		IndexComponent,
+		BoxesComponent,
 	]
 })
 export class DashboardModule {
