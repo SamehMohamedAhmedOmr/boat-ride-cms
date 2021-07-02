@@ -42,6 +42,7 @@ export class WaterSportTripService extends BaseService<WaterSportTripModel> {
 		model.name = controls['name'].value;
 		model.title = controls['title'].value;
 		model.phone = controls['phone'].value.e164Number;
+		model.country_code = controls['phone'].value.countryCode;
 		model.email = controls['email'].value;
 		model.address = controls['address'].value;
 

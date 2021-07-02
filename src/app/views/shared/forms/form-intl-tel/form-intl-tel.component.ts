@@ -16,10 +16,13 @@ export class FormIntlTelComponent implements OnInit {
 	SearchCountryField = SearchCountryField;
 	CountryISO = CountryISO;
 
+	@Input() selectedCountryISO:CountryISO = CountryISO.UnitedArabEmirates;
+
 	constructor() {
 	}
 
 	ngOnInit() {
+		console.log(this.selectedCountryISO);
 	}
 
 	isControlHasError(controlName, validationType): boolean {

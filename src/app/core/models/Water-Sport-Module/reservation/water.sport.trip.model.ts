@@ -16,6 +16,7 @@ export class WaterSportTripModel extends ModelBase {
 	public name:string;
 	public title:string;
 	public phone:string;
+	public country_code:string;
 	public email:string;
 	public address:string;
 

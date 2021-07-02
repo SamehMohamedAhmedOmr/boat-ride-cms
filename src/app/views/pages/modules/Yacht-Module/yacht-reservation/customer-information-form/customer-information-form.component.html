@@ -38,6 +38,7 @@
 	<div class="row" aria-label="address, phone">
 		<div class="col-md-6">
 			<kt-form-intl-tel [form]="form"
+							  [selectedCountryISO]="country_code ? country_code : default_country_code"
 							  [label]="'Components.YACHTS_RESERVATION.columns.phone' | translate"
 							  [form_control_name]="'phone'">
 			</kt-form-intl-tel>

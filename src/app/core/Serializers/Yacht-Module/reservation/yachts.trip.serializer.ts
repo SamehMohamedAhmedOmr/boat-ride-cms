@@ -25,6 +25,7 @@ export class YachtsTripSerializer extends BaseSerializer implements Serializer {
 			'name' : model.name,
 			'title' : model.title,
 			'phone' : model.phone,
+			'country_code' : model.country_code,
 			'email' : model.email,
 			'address' : model.address,
 
@@ -88,6 +89,7 @@ export class YachtsTripSerializer extends BaseSerializer implements Serializer {
 
 		model.country = item.country;
 		model.yacht = item.yacht;
+		model.country_code = item.country_code;
 
 		return model;
 	}

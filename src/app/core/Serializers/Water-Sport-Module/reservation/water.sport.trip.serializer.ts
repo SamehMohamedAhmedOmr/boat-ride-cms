@@ -25,6 +25,7 @@ export class WaterSportTripSerializer extends BaseSerializer implements Serializ
 			'name' : model.name,
 			'title' : model.title,
 			'phone' : model.phone,
+			'country_code' : model.country_code,
 			'email' : model.email,
 			'address' : model.address,
 
@@ -88,6 +89,7 @@ export class WaterSportTripSerializer extends BaseSerializer implements Serializ
 
 		model.country = item.country;
 		model.water_sport = item.water_sport;
+		model.country_code = item.country_code;
 
 		return model;
 	}

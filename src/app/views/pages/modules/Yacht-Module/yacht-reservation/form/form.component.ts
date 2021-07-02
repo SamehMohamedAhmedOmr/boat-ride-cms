@@ -1,7 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {FormGroup} from '@angular/forms';
-import {YachtsEnumsModel} from '../../../../../../core/models/Yacht-Module/yachts.enums.model';
-import {ServicesModel} from '../../../../../../core/models/Marketing-Module/services.model';
 import {YachtsTripEnumsModel} from '../../../../../../core/models/Yacht-Module/reservartion/yachts.trip.enums.model';
 import {CountryModel} from '../../../../../../core/models/Marketing-Module/country.model';
 import {YachtsModel} from '../../../../../../core/models/Yacht-Module/yachts.model';
@@ -22,6 +20,7 @@ export class FormComponent implements OnInit {
 	@Input() start_timeSlots: TimeSlotsModel[];
 	@Input() end_timeSlots: TimeSlotsModel[];
 	@Input() from_edit: boolean = false;
+	@Input() country_code: string = null;
 
 	constructor() {
 	}

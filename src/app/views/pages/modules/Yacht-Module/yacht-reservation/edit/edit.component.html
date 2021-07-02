@@ -9,9 +9,7 @@
 
 <!-- Form-->
 <div class="example-container">
-	<div class="mb-4">
-		<kt-auth-notice></kt-auth-notice>
-	</div>
+	<kt-auth-notice></kt-auth-notice>
 	<div *ngIf="!isLoadingResults">
 
 		<div *ngIf="is_result">
@@ -20,6 +18,7 @@
 					 [yachts]="yachts"
 					 [start_timeSlots]="timeSlots"
 					 [end_timeSlots]="timeSlots"
+					 [country_code]="model.country_code"
 					 [from_edit]="true"
 					 [countries]="countries">
 			</kt-form>
