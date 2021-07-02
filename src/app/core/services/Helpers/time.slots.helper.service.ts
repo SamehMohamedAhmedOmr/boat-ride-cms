@@ -19,7 +19,11 @@ export class TimeSlotsHelperService {
 		let date: Date = new Date();
 		date.setHours(Number(times[0]), Number(times[1]), Number(times[2]));
 
-		return (date <= now) ? 'past' : (slot.status == 'AVAILABLE') ? 'available' : 'booked' ;
+		if (slot.status == 'UNAVAILABLE'){
+			return 'booked' ;
+		}
+
+		return (date <= now) ? 'past' : 'available' ;
 	}
 
 	transformDate(date) {

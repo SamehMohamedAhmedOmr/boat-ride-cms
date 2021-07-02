@@ -113,12 +113,9 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 		this.isLoadingResults = true;
 		this.route.params.subscribe((resp) => {
 			this.id = resp['id'];
-			// call api to get shipping rule
-			this.service.get(this.id).subscribe(
+			this.service.get(this.id, false).subscribe(
 				(data) => {
 					this.model = data;
-					// @ts-ignore
-					this.selected_images = this.model.images.map(k => k.image);
 				}, error => {
 					this.authNoticeService.setNotice(this.translateService.instant('COMMON.Item_not_found',
 						{name: this.content_name}),
@@ -142,7 +139,7 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 			phone: [this.model.phone, Validators.required],
 			email: [this.model.email, Validators.required],
 			address: [this.model.address, Validators.required],
-			country_id: [this.model.country_id, Validators.required],
+			country_id: [this.model.country?.id, Validators.required],
 
 			start_hour: [this.model.start_hour, Validators.required],
 			start_date: [this.model.start_date, Validators.required],
@@ -153,7 +150,7 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 			status: [this.model.status, Validators.required],
 			payment_method: [this.model.payment_method, Validators.required],
 
-			yacht_id: [this.model.yacht_id, Validators.required],
+			yacht_id: [this.model.yacht?.id, Validators.required],
 			number_of_people: [this.model.number_of_people, Validators.required],
 			rate_per_hour: [this.model.rate_per_hour, Validators.required],
 			other_charges: [this.model.other_charges, Validators.required],

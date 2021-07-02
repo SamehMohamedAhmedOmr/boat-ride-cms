@@ -85,6 +85,10 @@ export class WaterSportTripSerializer extends BaseSerializer implements Serializ
 		model.trip_duration = item.trip_duration;
 
 		model.status_name = item.status_name;
+
+		model.country = item.country;
+		model.water_sport = item.water_sport;
+
 		return model;
 	}
 

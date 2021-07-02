@@ -85,6 +85,10 @@ export class YachtsTripSerializer extends BaseSerializer implements Serializer {
 		model.trip_duration = item.trip_duration;
 
 		model.status_name = item.status_name;
+
+		model.country = item.country;
+		model.yacht = item.yacht;
+
 		return model;
 	}
 

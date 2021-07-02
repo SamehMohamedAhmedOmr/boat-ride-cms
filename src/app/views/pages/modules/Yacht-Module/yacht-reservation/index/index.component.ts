@@ -47,7 +47,7 @@ export class IndexComponent implements OnInit , DoCheck, OnDestroy, IndexInterfa
 		per_page: GlobalConfig.pagination_per_page ,
 		search_key: null ,
 		sort_key: null ,
-		sort_order: null ,
+		sort_order: 'desc' ,
 		next_page_index: 0,
 	};
 

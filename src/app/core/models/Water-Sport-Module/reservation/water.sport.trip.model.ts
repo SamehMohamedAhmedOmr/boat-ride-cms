@@ -1,4 +1,6 @@
 import {ModelBase} from '../../Base/base.model';
+import {CountryModel} from '../../Marketing-Module/country.model';
+import {WaterSportsModel} from '../water.sports.model';
 
 export class WaterSportTripModel extends ModelBase {
 
@@ -33,6 +35,9 @@ export class WaterSportTripModel extends ModelBase {
 	public trip_duration:string;
 
 	public status_name:string;
+
+	public country:CountryModel;
+	public water_sport:WaterSportsModel;
 
 	constructor(id: number){
 		super(id);

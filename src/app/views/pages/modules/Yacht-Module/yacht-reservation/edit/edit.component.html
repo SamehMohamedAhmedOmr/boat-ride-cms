@@ -20,11 +20,12 @@
 					 [yachts]="yachts"
 					 [start_timeSlots]="timeSlots"
 					 [end_timeSlots]="timeSlots"
+					 [from_edit]="true"
 					 [countries]="countries">
 			</kt-form>
 
 			<div class="col-12 text-center px-3">
-				<button type="submit" class="btn btn-success mx-3" (click)="updateForm()">
+				<button type="submit" mat-raised-button class="btn btn-success mx-3" (click)="updateForm()">
 					{{ 'COMMON.Edit_Button' | translate : {name: content_name} }}
 				</button>
 			</div>

@@ -21,6 +21,7 @@ export class FormComponent implements OnInit {
 	@Input() yachts: YachtsModel[];
 	@Input() start_timeSlots: TimeSlotsModel[];
 	@Input() end_timeSlots: TimeSlotsModel[];
+	@Input() from_edit: boolean = false;
 
 	constructor() {
 	}

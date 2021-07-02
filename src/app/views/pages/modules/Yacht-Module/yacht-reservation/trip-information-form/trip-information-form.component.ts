@@ -23,6 +23,8 @@ export class TripInformationFormComponent implements OnInit {
 	@Input() yacht_start_timeSlots: TimeSlotsModel[] = [];
 	@Input() yacht_next_day_timeSlots: TimeSlotsModel[] = [];
 
+	@Input() from_edit: boolean = false;
+
 	start_date: string;
 	end_date: string;
 	next_start_date: string;
@@ -33,6 +35,10 @@ export class TripInformationFormComponent implements OnInit {
 	}
 
 	ngOnInit() {
+		if (this.from_edit){
+			this.getTimeSlots();
+		}
+
 		this.form.get('yacht_id').valueChanges.subscribe(x => {
 			this.getTimeSlots();
 		});

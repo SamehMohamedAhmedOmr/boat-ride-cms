@@ -1,4 +1,6 @@
 import {ModelBase} from '../../Base/base.model';
+import {CountryModel} from '../../Marketing-Module/country.model';
+import {YachtsModel} from '../yachts.model';
 
 export class YachtsTripModel extends ModelBase {
 
@@ -33,6 +35,9 @@ export class YachtsTripModel extends ModelBase {
 	public trip_duration:string;
 
 	public status_name:string;
+
+	public country:CountryModel;
+	public yacht:YachtsModel;
 
 	constructor(id: number){
 		super(id);
