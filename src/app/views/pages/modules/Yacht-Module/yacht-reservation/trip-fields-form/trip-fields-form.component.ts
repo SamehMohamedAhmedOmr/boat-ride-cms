@@ -1,8 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {FormGroup} from '@angular/forms';
 import {YachtsModel} from '../../../../../../core/models/Yacht-Module/yachts.model';
-import {YachtsTripEnumsModel} from '../../../../../../core/models/Yacht-Module/yachts.trip.enums.model';
-import {YachtsTimeSlotsModel} from '../../../../../../core/models/Yacht-Module/yachts.time.slots.model';
+import {YachtsTripEnumsModel} from '../../../../../../core/models/Yacht-Module/reservartion/yachts.trip.enums.model';
+import {YachtsTimeSlotsModel} from '../../../../../../core/models/Yacht-Module/reservartion/yachts.time.slots.model';
 import {TimeSlotsHelperService} from '../../../../../../core/services/Helpers/time.slots.helper.service';
 
 @Component({

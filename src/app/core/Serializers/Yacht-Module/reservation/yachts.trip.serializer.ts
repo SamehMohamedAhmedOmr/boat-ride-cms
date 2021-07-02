@@ -1,6 +1,6 @@
-import {BaseSerializer} from '../Base/Base.serializer';
-import {Serializer} from '../Base/Serializer';
-import {YachtsTripModel} from '../../models/Yacht-Module/yachts.trip.model';
+import {BaseSerializer} from '../../Base/Base.serializer';
+import {Serializer} from '../../Base/Serializer';
+import {YachtsTripModel} from '../../../models/Yacht-Module/reservartion/yachts.trip.model';
 
 export class YachtsTripSerializer extends BaseSerializer implements Serializer {
 

@@ -1,4 +1,4 @@
-import {ModelBase} from '../Base/base.model';
+import {ModelBase} from '../../Base/base.model';
 
 export class YachtsTripModel extends ModelBase {
 

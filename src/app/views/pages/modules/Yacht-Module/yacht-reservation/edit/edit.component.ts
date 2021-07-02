@@ -7,9 +7,9 @@ import {FormErrorService} from '../../../../../../core/services/FormError.servic
 import {AuthNoticeService} from '../../../../../../core/services/auth-notice.service';
 import {HelperService} from '../../../../../../core/services/helper.service';
 import {YachtsTripService} from '../../../../../../core/services/Yacht-Module/reservations/yachts.trip.service';
-import {YachtsTripModel} from '../../../../../../core/models/Yacht-Module/yachts.trip.model';
+import {YachtsTripModel} from '../../../../../../core/models/Yacht-Module/reservartion/yachts.trip.model';
 import {YachtsTripObservableService} from '../../../../../../core/services/Yacht-Module/reservations/yachts.trip.observable.service';
-import {YachtsTripEnumsModel} from '../../../../../../core/models/Yacht-Module/yachts.trip.enums.model';
+import {YachtsTripEnumsModel} from '../../../../../../core/models/Yacht-Module/reservartion/yachts.trip.enums.model';
 import {CountryModel} from '../../../../../../core/models/Marketing-Module/country.model';
 import {YachtsModel} from '../../../../../../core/models/Yacht-Module/yachts.model';
 import {TimeSlotsModel} from '../../../../../../core/models/Marketing-Module/time.slots.model';

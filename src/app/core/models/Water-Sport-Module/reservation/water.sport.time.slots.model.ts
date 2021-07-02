@@ -1,6 +1,6 @@
-import {ModelBase} from '../Base/base.model';
+import {ModelBase} from '../../Base/base.model';
 
-export class YachtsTimeSlotsModel extends ModelBase {
+export class WaterSportTimeSlotsModel extends ModelBase {
 
 	public time:string;
 	public label:string;

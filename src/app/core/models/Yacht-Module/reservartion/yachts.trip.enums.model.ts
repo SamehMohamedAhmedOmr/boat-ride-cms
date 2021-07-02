@@ -1,6 +1,6 @@
-import {ModelBase} from '../Base/base.model';
-import {TimeSlotsModel} from '../Marketing-Module/time.slots.model';
-import {CountryModel} from '../Marketing-Module/country.model';
+import {ModelBase} from '../../Base/base.model';
+import {TimeSlotsModel} from '../../Marketing-Module/time.slots.model';
+import {CountryModel} from '../../Marketing-Module/country.model';
 
 export class YachtsTripEnumsModel extends ModelBase {
 

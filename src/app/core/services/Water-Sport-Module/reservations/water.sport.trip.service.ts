@@ -4,32 +4,32 @@ import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {BaseService} from '../../Base/base.service';
 import {environment} from '../../../../../environments/environment';
-import {YachtsTripModel} from '../../../models/Yacht-Module/reservartion/yachts.trip.model';
-import {YachtsTripEnumsModel} from '../../../models/Yacht-Module/reservartion/yachts.trip.enums.model';
-import {YachtsTripSerializer} from '../../../Serializers/Yacht-Module/reservation/yachts.trip.serializer';
-import {YachtsTripEnumSerializer} from '../../../Serializers/Yacht-Module/reservation/yachts.trip.enum.serializer';
+import {WaterSportTripModel} from '../../../models/Water-Sport-Module/reservation/water.sport.trip.model';
+import {WaterSportTripSerializer} from '../../../Serializers/Water-Sport-Module/reservation/water.sport.trip.serializer';
+import {WaterSportTripEnumsModel} from '../../../models/Water-Sport-Module/reservation/water.sport.trip.enums.model';
+import {WaterSportTripEnumSerializer} from '../../../Serializers/Water-Sport-Module/reservation/water.sport.trip.enum.serializer';
 
 
 @Injectable({
 	providedIn: 'root'
 })
 
-export class YachtsTripService extends BaseService<YachtsTripModel> {
+export class WaterSportTripService extends BaseService<WaterSportTripModel> {
 	constructor(Http: HttpClient) {
 		super(
 			Http,
 			environment.url(),
-			'admins/trips',
-			new YachtsTripSerializer());
+			'admins/water_sport_trips',
+			new WaterSportTripSerializer());
 	}
 
-	public listEnums(): Observable<YachtsTripEnumsModel> {
-		let serializer = new YachtsTripEnumSerializer();
+	public listEnums(): Observable<WaterSportTripEnumsModel> {
+		let serializer = new WaterSportTripEnumSerializer();
 		return this.http.get(`${this.url}${this.endpoint}/list-enums`)
-			.pipe(map((data: any) => serializer.fromJson(data) as YachtsTripEnumsModel));
+			.pipe(map((data: any) => serializer.fromJson(data) as WaterSportTripEnumsModel));
 	}
 
-	public prepareObject(model: YachtsTripModel, controls) {
+	public prepareObject(model: WaterSportTripModel, controls) {
 		model.start_hour = controls['start_hour'].value;
 		model.start_date = controls['start_date'].value;
 

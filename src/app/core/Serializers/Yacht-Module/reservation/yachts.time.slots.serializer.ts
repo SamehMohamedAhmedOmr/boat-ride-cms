@@ -1,6 +1,6 @@
-import {BaseSerializer} from '../Base/Base.serializer';
-import {Serializer} from '../Base/Serializer';
-import {YachtsTimeSlotsModel} from '../../models/Yacht-Module/yachts.time.slots.model';
+import {BaseSerializer} from '../../Base/Base.serializer';
+import {Serializer} from '../../Base/Serializer';
+import {YachtsTimeSlotsModel} from '../../../models/Yacht-Module/reservartion/yachts.time.slots.model';
 
 export class YachtsTimeSlotsSerializer extends BaseSerializer implements Serializer {
 

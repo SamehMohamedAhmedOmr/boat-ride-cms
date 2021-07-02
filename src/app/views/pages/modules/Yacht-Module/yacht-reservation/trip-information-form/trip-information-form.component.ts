@@ -1,10 +1,10 @@
 import {ChangeDetectorRef, Component, Input, OnInit} from '@angular/core';
 import {FormGroup} from '@angular/forms';
-import {YachtsTripEnumsModel} from '../../../../../../core/models/Yacht-Module/yachts.trip.enums.model';
+import {YachtsTripEnumsModel} from '../../../../../../core/models/Yacht-Module/reservartion/yachts.trip.enums.model';
 import {YachtsModel} from '../../../../../../core/models/Yacht-Module/yachts.model';
 import {TimeSlotsModel} from '../../../../../../core/models/Marketing-Module/time.slots.model';
 import {YachtsTimeSlotsService} from '../../../../../../core/services/Yacht-Module/reservations/yachts.time.slots.service';
-import {YachtsTimeSlotsModel} from '../../../../../../core/models/Yacht-Module/yachts.time.slots.model';
+import {YachtsTimeSlotsModel} from '../../../../../../core/models/Yacht-Module/reservartion/yachts.time.slots.model';
 import {TimeSlotsHelperService} from '../../../../../../core/services/Helpers/time.slots.helper.service';
 
 @Component({

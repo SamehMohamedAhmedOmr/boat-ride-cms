@@ -2,7 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {FormGroup} from '@angular/forms';
 import {YachtsEnumsModel} from '../../../../../../core/models/Yacht-Module/yachts.enums.model';
 import {ServicesModel} from '../../../../../../core/models/Marketing-Module/services.model';
-import {YachtsTripEnumsModel} from '../../../../../../core/models/Yacht-Module/yachts.trip.enums.model';
+import {YachtsTripEnumsModel} from '../../../../../../core/models/Yacht-Module/reservartion/yachts.trip.enums.model';
 import {CountryModel} from '../../../../../../core/models/Marketing-Module/country.model';
 import {YachtsModel} from '../../../../../../core/models/Yacht-Module/yachts.model';
 import {TimeSlotsModel} from '../../../../../../core/models/Marketing-Module/time.slots.model';

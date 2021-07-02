@@ -3,8 +3,8 @@ import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {environment} from '../../../../../environments/environment';
-import {YachtsTimeSlotsModel} from '../../../models/Yacht-Module/yachts.time.slots.model';
-import {YachtsTimeSlotsSerializer} from '../../../Serializers/Yacht-Module/yachts.time.slots.serializer';
+import {YachtsTimeSlotsModel} from '../../../models/Yacht-Module/reservartion/yachts.time.slots.model';
+import {YachtsTimeSlotsSerializer} from '../../../Serializers/Yacht-Module/reservation/yachts.time.slots.serializer';
 
 
 @Injectable({

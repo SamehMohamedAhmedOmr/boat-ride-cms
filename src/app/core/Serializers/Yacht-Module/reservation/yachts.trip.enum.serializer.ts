@@ -1,6 +1,6 @@
-import {BaseSerializer} from '../Base/Base.serializer';
-import {Serializer} from '../Base/Serializer';
-import {YachtsTripEnumsModel} from '../../models/Yacht-Module/yachts.trip.enums.model';
+import {BaseSerializer} from '../../Base/Base.serializer';
+import {Serializer} from '../../Base/Serializer';
+import {YachtsTripEnumsModel} from '../../../models/Yacht-Module/reservartion/yachts.trip.enums.model';
 
 export class YachtsTripEnumSerializer extends BaseSerializer implements Serializer {
 
