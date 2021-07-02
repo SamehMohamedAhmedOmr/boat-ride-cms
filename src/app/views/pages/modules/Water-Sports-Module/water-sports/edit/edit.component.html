@@ -9,10 +9,8 @@
 
 <!-- Form-->
 <div class="example-container">
-	<div class="my-4">
-		<kt-auth-notice></kt-auth-notice>
-	</div>
-	<div *ngIf="!isLoadingResults">
+	<kt-auth-notice></kt-auth-notice>
+	<div *ngIf="!isLoadingResults" class="mb-4">
 
 		<div *ngIf="is_result">
 			<kt-form [form]="form"

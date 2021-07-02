@@ -285,6 +285,7 @@ export const locale = {
 				name: 'Yachts Reservations',
 				single: 'Yacht Reservation',
 				customer_information: 'Customer Information',
+				trip_date_time: 'Trip Date/Time',
 				trip_information: 'Trip Information',
 				columns: {
 					start_hour: 'Start hour',

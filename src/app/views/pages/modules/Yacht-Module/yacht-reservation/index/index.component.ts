@@ -19,11 +19,11 @@ import {YachtsTripService} from '../../../../../../core/services/Yacht-Module/re
 	templateUrl: './index.component.html',
 	styleUrls: ['./index.component.scss']
 })
-export class IndexComponent implements OnInit , DoCheck, OnDestroy, IndexInterface , InitializeComponentInterface {
+export class IndexComponent implements OnInit, DoCheck, OnDestroy, IndexInterface, InitializeComponentInterface {
 
-	page_name:string;
-	content_name:string;
-	add_route:string;
+	page_name: string;
+	content_name: string;
+	add_route: string;
 
 	navigationSubscription;
 
@@ -33,28 +33,32 @@ export class IndexComponent implements OnInit , DoCheck, OnDestroy, IndexInterfa
 	//Data table variables
 	dataSource;
 	displayedColumns: string[] = [
-		'id', 'booking_number', 'name' ,
-		'start_date', 'end_date', 'trip_duration',
-		'status' , 'options'
+		'id',
+		'booking_number',
+		'yacht',
+		'customer',
+		'trip_date_time',
+		'status',
+		'options'
 	];
-	isLoadingResults:boolean = true;
+	isLoadingResults: boolean = true;
 	// pagination variables
 	resultsLength = 0;
 	pageIndex = 0;
 	//filter variables
-	headerParams : PaginateParams = {
-		active : null,
-		per_page: GlobalConfig.pagination_per_page ,
-		search_key: null ,
-		sort_key: null ,
-		sort_order: 'desc' ,
+	headerParams: PaginateParams = {
+		active: null,
+		per_page: GlobalConfig.pagination_per_page,
+		search_key: null,
+		sort_key: null,
+		sort_order: 'desc',
 		next_page_index: 0,
 	};
 
-	constructor(private cdr: ChangeDetectorRef ,
+	constructor(private cdr: ChangeDetectorRef,
 				public service: YachtsTripService,
 				private authNoticeService: AuthNoticeService,
-				public translateService : TranslateService,
+				public translateService: TranslateService,
 				private router: Router,
 				private helper: HelperService) {
 		this.navigationSubscription = this.helper.routingSubscribe(this);
@@ -71,7 +75,7 @@ export class IndexComponent implements OnInit , DoCheck, OnDestroy, IndexInterfa
 		this.initializePageName();
 	}
 
-	initializePageName(){
+	initializePageName() {
 		this.page_name = this.translateService.instant('Components.YACHTS_RESERVATION.name');
 		this.content_name = this.translateService.instant('Components.YACHTS_RESERVATION.single');
 	}
@@ -86,13 +90,13 @@ export class IndexComponent implements OnInit , DoCheck, OnDestroy, IndexInterfa
 		this.isLoadingResults = true;
 		let data = this.service.list(headerParams).subscribe(
 			(resp) => {
-				this.dataSource =  new MatTableDataSource(resp);
+				this.dataSource = new MatTableDataSource(resp);
 				this.dataSource.sort = this.sort;
 				this.isLoadingResults = false;
 				this.resultsLength = (resp['pagination'] ? resp['pagination'].total : 0);
 				this.cdr.markForCheck();
-			} , error => {
-				this.dataSource =  new MatTableDataSource([]);
+			}, error => {
+				this.dataSource = new MatTableDataSource([]);
 				this.dataSource.sort = this.sort;
 				this.isLoadingResults = false;
 				this.cdr.markForCheck();
@@ -100,7 +104,7 @@ export class IndexComponent implements OnInit , DoCheck, OnDestroy, IndexInterfa
 	}
 
 	// pagination data tables
-	public pagination (event?:PageEvent) {
+	public pagination(event?: PageEvent) {
 		this.pageIndex = event.pageIndex;
 		this.headerParams.next_page_index = this.pageIndex;
 		this.get(this.headerParams);
@@ -118,11 +122,11 @@ export class IndexComponent implements OnInit , DoCheck, OnDestroy, IndexInterfa
 		}
 	}
 
-	pageIcon(){
+	pageIcon() {
 		return SectionIconsName.services();
 	}
 
-	displayContent(text){
+	displayContent(text) {
 		return (text.length > 70) ? text.substring(0, 70) + ' ......' : text;
 	}
 

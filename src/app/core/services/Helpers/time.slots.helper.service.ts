@@ -7,7 +7,7 @@ import {DatePipe} from '@angular/common';
 })
 export class TimeSlotsHelperService {
 
-	constructor(private datePipe: DatePipe) {
+	constructor(public datePipe: DatePipe) {
 	}
 
 	checkDate(slot, now, next = 0) {
@@ -39,4 +39,8 @@ export class TimeSlotsHelperService {
 		return diffInMilliseconds / 3600000;
 	}
 
+	static transformListDate(date) {
+		let datePipe = new DatePipe('en-US');
+		return datePipe.transform(date, 'MMM d, y, h:mm a');
+	}
 }

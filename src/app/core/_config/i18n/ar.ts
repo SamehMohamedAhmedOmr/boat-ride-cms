@@ -284,6 +284,7 @@ export const locale = {
 				name: 'حجوزات اليخوت',
 				single: 'حجز يخت',
 				customer_information: 'معلومات العميل',
+				trip_date_time: 'تاريخ / وقت الرحلة',
 				trip_information: 'معلومات الرحلة',
 				columns: {
 					start_hour: 'ساعة البداية',
