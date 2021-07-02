@@ -152,6 +152,9 @@ export const locale = {
 			yes: 'Yes',
 			no: 'No',
 
+			from: 'From',
+			to: 'To',
+
 			SERVICES: {
 				name: 'Services',
 				single: 'Service',

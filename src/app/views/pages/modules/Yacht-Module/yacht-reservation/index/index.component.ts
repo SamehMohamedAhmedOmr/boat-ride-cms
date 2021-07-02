@@ -85,10 +85,10 @@ export class IndexComponent implements OnInit, DoCheck, OnDestroy, IndexInterfac
 	}
 
 	// call api to get Banner Data from the server
-	get(headerParams) {
+	get(headerParams, extra_filters = {}) {
 		this.headerParams = headerParams;
 		this.isLoadingResults = true;
-		let data = this.service.list(headerParams).subscribe(
+		let data = this.service.list(headerParams, 1, extra_filters).subscribe(
 			(resp) => {
 				this.dataSource = new MatTableDataSource(resp);
 				this.dataSource.sort = this.sort;
@@ -130,4 +130,7 @@ export class IndexComponent implements OnInit, DoCheck, OnDestroy, IndexInterfac
 		return (text.length > 70) ? text.substring(0, 70) + ' ......' : text;
 	}
 
+	filterEvent($event) {
+		this.get(this.headerParams, $event);
+	}
 }

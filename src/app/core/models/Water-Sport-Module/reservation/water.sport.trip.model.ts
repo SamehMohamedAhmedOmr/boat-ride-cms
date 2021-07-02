@@ -1,6 +1,7 @@
 import {ModelBase} from '../../Base/base.model';
 import {CountryModel} from '../../Marketing-Module/country.model';
 import {WaterSportsModel} from '../water.sports.model';
+import {TimeSlotsHelperService} from '../../../services/Helpers/time.slots.helper.service';
 
 export class WaterSportTripModel extends ModelBase {
 
@@ -46,16 +47,21 @@ export class WaterSportTripModel extends ModelBase {
 	}
 
 	public list() {
+		let start_date_time = TimeSlotsHelperService.transformListDate(this.start_date + ' ' + this.start_hour);
+		let end_date_time = TimeSlotsHelperService.transformListDate(this.end_date + ' ' + this.end_hour);
+
 		return {
 			'id': this.id,
-			'name' : this.name,
-			'booking_number' : this.booking_number,
 
-			'start_date' : this.start_date,
-			'end_date' : this.end_date,
-			'trip_duration' : this.trip_duration,
-			'status' : this.status_name,
-		};
+			'water_sport': this.water_sport?.name,
+
+			'customer': this.name + ' | ' + this.email + ' | ' + this.phone,
+			'booking_number': this.booking_number,
+
+			'trip_date_time': start_date_time + ' | ' + end_date_time,
+
+			'status': this.status_name,
+		}
 	}
 
 	public createObjects(){

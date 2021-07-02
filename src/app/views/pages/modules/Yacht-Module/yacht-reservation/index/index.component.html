@@ -11,8 +11,9 @@
 		   [HasSearchFilter]="true"
 		   [HasExport]="false"
 		   [headerParams]="headerParams"
-		   [currentService]="service"
-></kt-filter>
+		   [currentService]="service">
+	<kt-filters (filterEvent)="filterEvent($event)"></kt-filters>
+</kt-filter>
 
 <kt-api-loader [isLoadingResults]="isLoadingResults"></kt-api-loader>
 

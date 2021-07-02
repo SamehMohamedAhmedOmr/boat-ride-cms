@@ -149,6 +149,9 @@ export const locale = {
 			images: 'الصور',
 			yes: 'نعم',
 			no: 'لا',
+			from: 'من',
+			to: 'الي',
+
 
 			SERVICES: {
 				name: 'الخدمات',

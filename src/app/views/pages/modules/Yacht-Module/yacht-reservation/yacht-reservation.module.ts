@@ -15,13 +15,14 @@ import {CustomerInformationFormComponent} from './customer-information-form/cust
 import {TripInformationFormComponent} from './trip-information-form/trip-information-form.component';
 import {TimeSlotsTableComponent} from './time-slots-table/time-slots-table.component';
 import {TripFieldsFormComponent} from './trip-fields-form/trip-fields-form.component';
+import { FiltersComponent } from './filters/filters.component';
 
 
 @NgModule({
 	declarations: [
 		YachtReservationComponent, AddComponent, EditComponent, IndexComponent, FormComponent,
 		CustomerInformationFormComponent, TripInformationFormComponent,
-		TimeSlotsTableComponent, TripFieldsFormComponent
+		TimeSlotsTableComponent, TripFieldsFormComponent, FiltersComponent
 	],
 	imports: [
 		CommonModule,

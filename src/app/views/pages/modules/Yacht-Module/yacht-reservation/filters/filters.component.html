@@ -1,0 +1,84 @@
+<div aria-label="filters">
+	<mat-divider class="my-4"></mat-divider>
+
+	<div class="row my-4">
+
+		<div aria-label="trip_id" class="col-md-4 col-12 d-flex flex-column mb-3 form-group">
+			<label class="form-label mx-2">{{ 'COMMON.id' | translate }}</label>
+			<label>
+				<input [(ngModel)]="trip_id"
+					   class="form-control form-control-lg"
+					   placeholder="{{ 'COMMON.id' | translate }}"
+					   type="number" min="1">
+			</label>
+		</div>
+
+		<div aria-label="email" class="col-md-4 col-12 d-flex flex-column mb-3 form-group">
+			<label class="form-label mx-2">{{ 'COMMON.email' | translate }}</label>
+			<label>
+				<input [(ngModel)]="email"
+					   class="form-control form-control-lg"
+					   placeholder="{{ 'COMMON.email' | translate }}"
+					   type="email">
+			</label>
+		</div>
+
+		<div aria-label="phone" class="col-md-4 col-12 d-flex flex-column mb-3 form-group">
+			<label class="form-label mx-2">{{ 'COMMON.phone' | translate }}</label>
+			<label>
+				<input [(ngModel)]="phone"
+					   class="form-control form-control-lg"
+					   placeholder="{{ 'COMMON.phone' | translate }}"
+					   type="text">
+			</label>
+		</div>
+
+
+		<div aria-label="status" class="col-md-4 col-12 d-flex flex-column mb-3 form-group">
+			<label class="form-label mx-2">{{ 'Components.status' | translate }}</label>
+			<label>
+				<select class="form-control" [(ngModel)]="status">
+					<option selected [value]="0">
+						{{ 'Components.status' | translate }}
+					</option>
+					<option *ngFor="let trip_status of enumsModels?.trip_status"
+							[value]="trip_status.value">
+						{{ trip_status.key }}
+					</option>
+				</select>
+			</label>
+		</div>
+
+		<div aria-label="date_from" class="col-md-4 col-12 d-flex flex-column mb-3 form-group">
+			<label class="form-label mx-2">{{ 'Components.from' | translate }}</label>
+			<label>
+				<input [(ngModel)]="from_date"
+					   class="form-control form-control-lg"
+					   placeholder="{{ 'Components.from' | translate }}"
+					   type="date">
+			</label>
+		</div>
+
+		<div aria-label="date_to" class="col-md-4 col-12 d-flex flex-column mb-3 form-group">
+			<label class="form-label mx-2">{{ 'Components.to' | translate }}</label>
+			<label>
+				<input [(ngModel)]="to_date"
+					   class="form-control form-control-lg"
+					   placeholder="{{ 'Components.to' | translate }}"
+					   type="date">
+			</label>
+		</div>
+
+	</div>
+
+
+	<div aria-label="button" class="d-flex justify-content-end">
+		<button (click)="search()" class="btn btn-primary" mat-raised-button>
+			{{ 'Components.Search' | translate }}
+		</button>
+		<button (click)="reset()" class="btn btn-secondary mx-2" mat-raised-button>
+			{{ 'COMMON.clear_form' | translate }}
+		</button>
+	</div>
+
+</div>

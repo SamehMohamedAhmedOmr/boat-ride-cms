@@ -1,8 +1,8 @@
 <div class="col-12 my-4">
 
-	<div class="row">
+	<div class="w-100 d-flex justify-content-between">
 
-		<div class="row col-sm-6 col-12 px-4">
+		<div class="row px-4">
 			<!-- Select Number of item Per Page -->
 			<mat-form-field *ngIf="HasItemPerPage" class="filter-height" >
 				<mat-label [translate]="'Components.item_per_page'" ></mat-label>
@@ -26,7 +26,7 @@
 			</mat-form-field>
 		</div>
 
-		<div class="row col-sm-6 col-12 px-4 justify-content-end">
+		<div class="row px-4 justify-content-end">
 			<!--Add New Item Button-->
 			<button mat-raised-button class="btn btn-success btn-sm filter-height"
 					[routerLink]="ButtonAddUrl" *ngIf="HasAdd">
@@ -35,6 +35,9 @@
 			</button>
 		</div>
 	</div>
+
+	<ng-content></ng-content>
+
 	<!--Search Filter-->
 	<div class="" *ngIf="!isLoadingResults">
 		<div class="my-4">
