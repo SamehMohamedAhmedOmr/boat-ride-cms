@@ -102,7 +102,10 @@ export class TripFieldsFormComponent implements OnInit {
 		if (slot.status == null){
 			return  false;
 		}
-		let status =  this.timeSlotsHelperService.checkDate(slot, this.now);
+		let start_date = this.form.get('start_date').value;
+		start_date = (start_date) ? start_date : null;
+
+		let status =  this.timeSlotsHelperService.checkDate(slot, this.now, start_date);
 		return (status != 'available');
 	}
 

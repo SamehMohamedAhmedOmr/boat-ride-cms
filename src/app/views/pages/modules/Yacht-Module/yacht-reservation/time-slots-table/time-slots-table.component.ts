@@ -21,7 +21,7 @@ export class TimeSlotsTableComponent implements OnInit {
 	ngOnInit() {
 	}
 
-	checkDate(slot, next = 0) {
-		return  this.timeSlotsHelperService.checkDate(slot, this.now, next);
+	checkDate(slot, date) {
+		return  this.timeSlotsHelperService.checkDate(slot, this.now, date);
 	}
 }

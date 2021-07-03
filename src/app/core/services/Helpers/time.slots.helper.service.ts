@@ -10,9 +10,18 @@ export class TimeSlotsHelperService {
 	constructor(public datePipe: DatePipe) {
 	}
 
-	checkDate(slot, now, next = 0) {
-		if (next){
+	checkDate(slot, now, current_date) {
+
+		let target_date = new Date(current_date + ' 00:00:00');
+		let target_current_date = new Date(now.toDateString());
+		if (target_date > target_current_date){
 			return (slot.status == 'AVAILABLE') ? 'available' : 'booked' ;
+		}
+		else if (target_date < target_current_date){
+			if (slot.status == 'UNAVAILABLE'){
+				return 'booked' ;
+			}
+			return  'past';
 		}
 
 		let times = slot.time.split(':');

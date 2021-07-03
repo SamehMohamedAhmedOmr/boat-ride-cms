@@ -31,7 +31,7 @@
 				<i class="far fa-calendar-check mx-2"></i>
 				{{ start_date | date:'fullDate' }}
 			</div>
-			<div class="px-3 py-2 mr-2 mb-2 d-inline-block {{checkDate(slot)}}"
+			<div class="px-3 py-2 mr-2 mb-2 d-inline-block {{checkDate(slot, start_date)}}"
 				  *ngFor="let slot of first_day_time_slots">
 				{{ slot.time | slice:0:5 }}
 			</div>
@@ -41,7 +41,7 @@
 				<i class="far fa-calendar-check mx-2"></i>
 				{{ next_start_date | date:'fullDate' }}
 			</div>
-			<div class="px-3 py-2 mr-2 mb-2 d-inline-block {{checkDate(slot, 1)}}"
+			<div class="px-3 py-2 mr-2 mb-2 d-inline-block {{checkDate(slot, next_start_date)}}"
 				 *ngFor="let slot of second_day_time_slots">
 				{{ slot.time | slice:0:5 }}
 			</div>
