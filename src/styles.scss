@@ -273,3 +273,8 @@ input{
 	padding-top: 21px;
 	padding-bottom: 21px;
 }
+
+.mat-form-field-disabled .mat-form-field-infix{
+	font-weight: bold !important;
+	color: #000 !important;
+}

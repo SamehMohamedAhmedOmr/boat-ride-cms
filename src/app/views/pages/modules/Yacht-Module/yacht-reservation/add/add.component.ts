@@ -126,8 +126,8 @@ export class AddComponent implements OnInit, DoCheck, OnDestroy, InitializeCompo
 			payment_method: ['', Validators.required],
 			number_of_people: ['', Validators.required],
 			rate_per_hour: new FormControl({value: 0, disabled: true}),
-			other_charges: ['', Validators.required],
-			discount: ['', Validators.required],
+			other_charges: [0, Validators.required],
+			discount: [0, Validators.required],
 			minimum_Advance_Payment: ['', Validators.required],
 			total_price: new FormControl({value: 0, disabled: true}),
 

@@ -24,13 +24,60 @@ export class TripFieldsFormComponent implements OnInit {
 
 	ngOnInit() {
 		this.listenOnTripDuration();
+		this.listenOnPriceChanges();
 	}
 
 
 	listenOnPriceChanges(){
-		this.form.get('yacht_id').valueChanges.subscribe(x => {
-			//this.getTimeSlots();
+		this.form.get('yacht_id').valueChanges.subscribe(yacht_id => {
+			let target_yacht = this.yachts.find(m => m.id == yacht_id);
+			if (target_yacht){
+				this.form.get('rate_per_hour').setValue(target_yacht.selling_per_hour);
+			}
 		});
+
+		this.form.get('rate_per_hour').valueChanges.subscribe(price => {
+			this.calculateTotalPrice();
+		});
+
+		this.form.get('other_charges').valueChanges.subscribe(price => {
+			this.calculateTotalPrice();
+		});
+
+		this.form.get('discount').valueChanges.subscribe(price => {
+			this.calculateTotalPrice();
+		});
+
+		this.form.get('trip_duration').valueChanges.subscribe(price => {
+			this.calculateTotalPrice();
+		});
+	}
+
+
+	calculateTotalPrice(){
+		let rate_per_hour = this.form.controls['rate_per_hour'].value;
+		let trip_duration = this.form.controls['trip_duration'].value;
+		let other_charges = this.form.controls['other_charges'].value;
+		let discount = this.form.controls['discount'].value;
+
+		rate_per_hour = this.convertToNumber(rate_per_hour);
+		trip_duration = this.convertToNumber(trip_duration);
+		other_charges = this.convertToNumber(other_charges);
+		discount = this.convertToNumber(discount);
+
+
+		let total_price = (rate_per_hour * trip_duration) + other_charges - discount;
+
+		total_price = (total_price < 0) ? 0 : total_price;
+
+		this.form.get('total_price').setValue(total_price);
+	}
+
+	convertToNumber(value){
+		if (!value){
+			return 0;
+		}
+		return parseFloat(value);
 	}
 
 

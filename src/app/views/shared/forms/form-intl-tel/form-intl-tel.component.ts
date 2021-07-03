@@ -22,7 +22,6 @@ export class FormIntlTelComponent implements OnInit {
 	}
 
 	ngOnInit() {
-		console.log(this.selectedCountryISO);
 	}
 
 	isControlHasError(controlName, validationType): boolean {
