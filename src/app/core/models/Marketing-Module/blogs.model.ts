@@ -9,6 +9,9 @@ export class BlogModel extends ModelBase {
 	public is_active:boolean;
 	public image:string;
 	public seo:SeoModel;
+	public author:string;
+	public label:MultiLanguageModel;
+
 
 	constructor(id: number){
 		super(id);
@@ -19,6 +22,7 @@ export class BlogModel extends ModelBase {
 		return {
 			'id': this.id,
 			'name' : this.name,
+			'author' : this.author,
 			'description' : this.description,
 			'is_active' : this.is_active,
 			'image' : this.image,
@@ -27,6 +31,7 @@ export class BlogModel extends ModelBase {
 
 	public createObjects(){
 		this.name = new MultiLanguageModel();
+		this.label = new MultiLanguageModel();
 		this.description = new MultiLanguageModel();
 		this.seo = new SeoModel(null);
 	}

@@ -23,6 +23,18 @@ export class TripFieldsFormComponent implements OnInit {
 	}
 
 	ngOnInit() {
+		this.listenOnTripDuration();
+	}
+
+
+	listenOnPriceChanges(){
+		this.form.get('yacht_id').valueChanges.subscribe(x => {
+			//this.getTimeSlots();
+		});
+	}
+
+
+	listenOnTripDuration(){
 		this.form.get('start_hour').valueChanges.subscribe(x => {
 			this.calculateTripDuration();
 		});

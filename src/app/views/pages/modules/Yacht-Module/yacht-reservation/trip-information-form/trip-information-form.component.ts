@@ -39,6 +39,10 @@ export class TripInformationFormComponent implements OnInit {
 			this.getTimeSlots();
 		}
 
+		this.listenOnYachtDateChanges();
+	}
+
+	listenOnYachtDateChanges(){
 		this.form.get('yacht_id').valueChanges.subscribe(x => {
 			this.getTimeSlots();
 		});

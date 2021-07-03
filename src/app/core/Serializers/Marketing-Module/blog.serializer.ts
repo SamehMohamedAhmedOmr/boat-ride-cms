@@ -18,6 +18,8 @@ export class BlogSerializer extends BaseSerializer implements Serializer {
 			'title' : model.name,
 			'description' : model.description,
 			'is_active' : model.is_active,
+			'label' : model.label,
+			'author' : model.author,
 			'seo' : model.seo,
 		};
 
@@ -39,6 +41,8 @@ export class BlogSerializer extends BaseSerializer implements Serializer {
 		model.description = item.description;
 		model.is_active = item.is_active;
 		model.seo = item.seo;
+		model.label = item.label;
+		model.author = item.author;
 
 		model.image = item.image;
 		return model;

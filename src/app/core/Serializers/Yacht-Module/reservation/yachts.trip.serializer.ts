@@ -36,6 +36,7 @@ export class YachtsTripSerializer extends BaseSerializer implements Serializer {
 			'other_changes' : model.other_charges,
 			'discount' : model.discount,
 			'minimum_Advance_Payment' : model.minimum_Advance_Payment,
+			'total_price' : model.total_price,
 
 			'client_notes' : model.client_notes,
 			'admin_notes' : model.admin_notes,
@@ -77,6 +78,8 @@ export class YachtsTripSerializer extends BaseSerializer implements Serializer {
 		model.other_charges = item.other_changes;
 		model.discount = item.discount;
 		model.minimum_Advance_Payment = item.minimum_Advance_Payment;
+		model.total_price = item.total_price;
+
 
 		model.client_notes = item.client_notes;
 		model.admin_notes = item.admin_notes;

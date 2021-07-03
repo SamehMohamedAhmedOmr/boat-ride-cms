@@ -11,7 +11,7 @@
 						<mat-option *ngFor="let yacht of yachts" [value]="yacht.id">
 							{{ yacht.yacht_name | titlecase }} |
 							{{ 'COMMON.AED' | translate | uppercase  }}
-							{{  yacht.yacht_special_price }} |
+							{{  yacht.selling_per_hour }} |
 							{{ 'COMMON.min' | translate | titlecase  }}
 							{{ yacht.minimum_hours_booking }}
 							{{ 'COMMON.hrs' | translate | titlecase  }}
@@ -145,9 +145,9 @@
 		</div>
 	</div>
 
-	<div class="col-12" aria-label="other_charges, discount, minimum_Advance_Payment">
+	<div class="col-12" aria-label="other_charges, discount">
 		<div class="row" >
-			<div class="col-md-4">
+			<div class="col-md-6">
 				<kt-form-input
 					[form]="form"
 					[label]="'Components.YACHTS_RESERVATION.columns.other_charges' | translate"
@@ -156,7 +156,7 @@
 					[validation_type]="'required'">
 				</kt-form-input>
 			</div>
-			<div class="col-md-4">
+			<div class="col-md-6">
 				<kt-form-input
 					[form]="form"
 					[label]="'Components.YACHTS_RESERVATION.columns.discount' | translate"
@@ -165,11 +165,25 @@
 					[validation_type]="'required'">
 				</kt-form-input>
 			</div>
-			<div class="col-md-4">
+		</div>
+	</div>
+
+	<div class="col-12" aria-label="minimum_Advance_Payment, total_price">
+		<div class="row" >
+			<div class="col-md-6">
 				<kt-form-input
 					[form]="form"
 					[label]="'Components.YACHTS_RESERVATION.columns.minimum_Advance_Payment' | translate"
 					[form_control_name]="'minimum_Advance_Payment'"
+					[type]="'number'"
+					[validation_type]="'required'">
+				</kt-form-input>
+			</div>
+			<div class="col-md-6">
+				<kt-form-input
+					[form]="form"
+					[label]="'Components.YACHTS_RESERVATION.columns.total_price' | translate"
+					[form_control_name]="'total_price'"
 					[type]="'number'"
 					[validation_type]="'required'">
 				</kt-form-input>

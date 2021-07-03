@@ -11,7 +11,7 @@ import {WaterSportTripService} from './water.sport.trip.service';
 	providedIn: 'root'
 })
 
-export class YachtsTripObservableService  {
+export class WaterSportTripObservableService  {
 
 
 	private enums_subject = new BehaviorSubject<WaterSportTripEnumsModel>(null);

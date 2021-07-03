@@ -24,6 +24,25 @@
 
 		<div class="row">
 			<div class="col-md-6">
+				<kt-form-input
+					[form]="form"
+					[label]="'Components.BLOGS.columns.label_ar' | translate"
+					[form_control_name]="'label_ar'"
+					[validation_type]="'required'">
+				</kt-form-input>
+			</div>
+			<div class="col-md-6">
+				<kt-form-input
+					[form]="form"
+					[label]="'Components.BLOGS.columns.label_en' | translate"
+					[form_control_name]="'label_en'"
+					[validation_type]="'required'">
+				</kt-form-input>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-6">
 				<kt-form-richtext
 					[form]="form"
 					[label]="'COMMON.description_ar' | translate"
@@ -44,7 +63,15 @@
 		<kt-form-seo-description [form]="form"></kt-form-seo-description>
 
 		<div class="row">
-			<div class="col-12">
+			<div class="col-md-6">
+				<kt-form-input
+					[form]="form"
+					[label]="'Components.BLOGS.columns.author' | translate"
+					[form_control_name]="'author'"
+					[validation_type]="'required'">
+				</kt-form-input>
+			</div>
+			<div class="col-md-6">
 				<kt-form-radio-group
 					[form]="form"
 					[label]="'COMMON.activation' | translate"

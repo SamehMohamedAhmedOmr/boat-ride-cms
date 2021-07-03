@@ -28,6 +28,7 @@ export class YachtsTripModel extends ModelBase {
 	public other_charges:number;
 	public discount:number
 	public minimum_Advance_Payment:number;
+	public total_price:number;
 
 	public client_notes:string;
 	public admin_notes:string;

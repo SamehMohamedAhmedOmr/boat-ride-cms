@@ -53,6 +53,7 @@ export class YachtsTripService extends BaseService<YachtsTripModel> {
 		model.other_charges = controls['other_charges'].value;
 		model.discount = controls['discount'].value;
 		model.minimum_Advance_Payment = controls['minimum_Advance_Payment'].value;
+		model.total_price = controls['total_price'].value;
 
 		model.client_notes = controls['client_notes'].value;
 		model.admin_notes = controls['admin_notes'].value;

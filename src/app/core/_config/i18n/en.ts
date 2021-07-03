@@ -176,7 +176,11 @@ export const locale = {
 			BLOGS: {
 				name: 'Blogs',
 				single: 'Blog',
-				columns: {}
+				columns: {
+					label_en: 'Label in English',
+					label_ar: 'Label in Arabic',
+					author: 'Author',
+				}
 			},
 
 			SEO: {
@@ -316,6 +320,7 @@ export const locale = {
 					coupon_code: 'coupon code',
 					booking_number: 'booking number',
 					trip_duration: 'trip duration',
+					total_price: 'Total Price',
 				},
 			},
 
@@ -382,6 +387,7 @@ export const locale = {
 					coupon_code: 'coupon code',
 					booking_number: 'booking number',
 					trip_duration: 'trip duration',
+					total_price: 'Total Price',
 				},
 			},
 

@@ -175,6 +175,9 @@ export const locale = {
 				name: 'مقالات',
 				single: 'مقالة',
 				columns: {
+					label_ar: 'العنوان باللغة العربية',
+					label_en: 'العنوان بالغة الانجليزية',
+					author: 'المؤلف',
 				}
 			},
 
@@ -315,6 +318,7 @@ export const locale = {
 					coupon_code:'رمز الكوبون',
 					booking_number:'رقم الحجز',
 					trip_duration:'مدة الرحلة',
+					total_price: 'الاجمالي',
 				},
 			},
 
@@ -380,6 +384,7 @@ export const locale = {
 					coupon_code:'رمز الكوبون',
 					booking_number:'رقم الحجز',
 					trip_duration:'مدة الرحلة',
+					total_price: 'الاجمالي',
 				},
 			},
 
