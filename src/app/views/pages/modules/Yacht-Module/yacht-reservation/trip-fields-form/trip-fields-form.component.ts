@@ -65,7 +65,6 @@ export class TripFieldsFormComponent implements OnInit {
 		other_charges = this.convertToNumber(other_charges);
 		discount = this.convertToNumber(discount);
 
-
 		let total_price = (rate_per_hour * trip_duration) + other_charges - discount;
 
 		total_price = (total_price < 0) ? 0 : total_price;

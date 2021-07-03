@@ -61,6 +61,8 @@ export class YachtsTripModel extends ModelBase {
 
 			'trip_date_time' : start_date_time + ' | ' + end_date_time,
 
+			'total_price' : this.total_price,
+
 			'status' : this.status_name,
 		};
 	}
