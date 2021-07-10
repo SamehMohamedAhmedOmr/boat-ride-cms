@@ -1,6 +1,6 @@
 import {ChangeDetectorRef, Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {YachtsTripService} from '../../../../../../core/services/Yacht-Module/reservations/yachts.trip.service';
-import {YachtsTripEnumsModel} from '../../../../../../core/models/Yacht-Module/reservartion/yachts.trip.enums.model';
+import {WaterSportTripService} from '../../../../../../core/services/Water-Sport-Module/reservations/water.sport.trip.service';
+import {WaterSportTripEnumsModel} from '../../../../../../core/models/Water-Sport-Module/reservation/water.sport.trip.enums.model';
 
 @Component({
 	selector: 'kt-filters',
@@ -17,9 +17,9 @@ export class FiltersComponent implements OnInit {
 
 	@Output() filterEvent = new EventEmitter<object>();
 
-	enumsModels: YachtsTripEnumsModel;
+	enumsModels: WaterSportTripEnumsModel;
 
-	constructor(private yachtsService: YachtsTripService,
+	constructor(private waterSportTripService: WaterSportTripService,
 				private cdr: ChangeDetectorRef,) {
 	}
 
@@ -28,7 +28,7 @@ export class FiltersComponent implements OnInit {
 	}
 
 	getEnums() {
-		this.yachtsService.listEnums().subscribe(
+		this.waterSportTripService.listEnums().subscribe(
 			(resp) => {
 				this.enumsModels = resp;
 				this.cdr.markForCheck();

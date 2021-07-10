@@ -14,7 +14,7 @@ export class WaterSportTimeSlotsSerializer extends BaseSerializer implements Ser
 
 	toJson(model: WaterSportTimeSlotsModel): any {
 		return {
-			'yacht_id' : model.yacht_id,
+			'water_sport_id' : model.water_sport_id,
 			'date' : model.date
 		};
 	}

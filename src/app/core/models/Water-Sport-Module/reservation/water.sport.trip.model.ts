@@ -22,7 +22,7 @@ export class WaterSportTripModel extends ModelBase {
 	public address:string;
 
 	public country_id:number;
-	public yacht_id:number;
+	public water_sport_id:number;
 	public number_of_people:number;
 	public rate_per_hour:number;
 	public other_charges:number;

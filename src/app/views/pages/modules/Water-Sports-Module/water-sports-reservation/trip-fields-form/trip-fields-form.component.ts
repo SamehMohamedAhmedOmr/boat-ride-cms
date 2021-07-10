@@ -1,9 +1,9 @@
 import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {FormGroup} from '@angular/forms';
-import {YachtsModel} from '../../../../../../core/models/Yacht-Module/yachts.model';
-import {YachtsTripEnumsModel} from '../../../../../../core/models/Yacht-Module/reservartion/yachts.trip.enums.model';
-import {YachtsTimeSlotsModel} from '../../../../../../core/models/Yacht-Module/reservartion/yachts.time.slots.model';
 import {TimeSlotsHelperService} from '../../../../../../core/services/Helpers/time.slots.helper.service';
+import {WaterSportsModel} from '../../../../../../core/models/Water-Sport-Module/water.sports.model';
+import {WaterSportTimeSlotsModel} from '../../../../../../core/models/Water-Sport-Module/reservation/water.sport.time.slots.model';
+import {WaterSportTripEnumsModel} from '../../../../../../core/models/Water-Sport-Module/reservation/water.sport.trip.enums.model';
 
 @Component({
 	selector: 'kt-trip-fields-form',
@@ -13,10 +13,10 @@ import {TimeSlotsHelperService} from '../../../../../../core/services/Helpers/ti
 export class TripFieldsFormComponent implements OnInit, OnChanges {
 
 	@Input() form: FormGroup;
-	@Input() yachts: YachtsModel[];
-	@Input() start_timeSlots: YachtsTimeSlotsModel[] = [];
-	@Input() end_timeSlots: YachtsTimeSlotsModel[] = [];
-	@Input() enumsModel: YachtsTripEnumsModel;
+	@Input() water_sports: WaterSportsModel[];
+	@Input() start_timeSlots: WaterSportTimeSlotsModel[] = [];
+	@Input() end_timeSlots: WaterSportTimeSlotsModel[] = [];
+	@Input() enumsModel: WaterSportTripEnumsModel;
 	now: Date = new Date();
 
 	constructor(private timeSlotsHelperService:TimeSlotsHelperService) {
@@ -32,8 +32,8 @@ export class TripFieldsFormComponent implements OnInit, OnChanges {
 	}
 
 	listenOnPriceChanges(){
-		this.form.get('yacht_id').valueChanges.subscribe(yacht_id => {
-			let target_yacht = this.yachts.find(m => m.id == yacht_id);
+		this.form.get('water_sport_id').valueChanges.subscribe(water_sport_id => {
+			let target_yacht = this.water_sports.find(m => m.id == water_sport_id);
 			if (target_yacht){
 				this.form.get('rate_per_hour').setValue(target_yacht.selling_per_hour);
 			}

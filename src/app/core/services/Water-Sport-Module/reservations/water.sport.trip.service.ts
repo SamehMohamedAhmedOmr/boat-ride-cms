@@ -48,7 +48,7 @@ export class WaterSportTripService extends BaseService<WaterSportTripModel> {
 
 
 		model.country_id = controls['country_id'].value;
-		model.yacht_id = controls['yacht_id'].value;
+		model.water_sport_id = controls['water_sport_id'].value;
 		model.number_of_people = controls['number_of_people'].value;
 		model.rate_per_hour = controls['rate_per_hour'].value;
 		model.other_charges = controls['other_charges'].value;

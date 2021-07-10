@@ -5,7 +5,7 @@
 		<div class="col-lg-7 row">
 			<kt-trip-fields-form class="col-12"
 								 [form]="form"
-								 [yachts]="yachts"
+								 [water_sports]="water_sports"
 								 [enumsModel]="enumsModel"
 								 [end_timeSlots]="end_timeSlots"
 								 [start_timeSlots]="start_timeSlots">
@@ -13,10 +13,10 @@
 		</div>
 
 		<div class="col-lg-5">
-			<kt-time-slots-table [first_day_time_slots]="yacht_start_timeSlots"
+			<kt-time-slots-table [first_day_time_slots]="water_sport_start_timeSlots"
 								 [next_start_date]="next_start_date"
 								 [start_date]="start_date"
-								 [second_day_time_slots]="yacht_next_day_timeSlots">
+								 [second_day_time_slots]="water_sport_next_day_timeSlots">
 			</kt-time-slots-table>
 		</div>
 	</div>

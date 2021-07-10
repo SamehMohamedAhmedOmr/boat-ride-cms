@@ -1,11 +1,11 @@
 import {ChangeDetectorRef, Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {FormGroup} from '@angular/forms';
-import {YachtsTripEnumsModel} from '../../../../../../core/models/Yacht-Module/reservartion/yachts.trip.enums.model';
-import {YachtsModel} from '../../../../../../core/models/Yacht-Module/yachts.model';
 import {TimeSlotsModel} from '../../../../../../core/models/Marketing-Module/time.slots.model';
-import {YachtsTimeSlotsService} from '../../../../../../core/services/Yacht-Module/reservations/yachts.time.slots.service';
-import {YachtsTimeSlotsModel} from '../../../../../../core/models/Yacht-Module/reservartion/yachts.time.slots.model';
 import {TimeSlotsHelperService} from '../../../../../../core/services/Helpers/time.slots.helper.service';
+import {WaterSportsModel} from '../../../../../../core/models/Water-Sport-Module/water.sports.model';
+import {WaterSportTripEnumsModel} from '../../../../../../core/models/Water-Sport-Module/reservation/water.sport.trip.enums.model';
+import {WaterSportTimeSlotsService} from '../../../../../../core/services/Water-Sport-Module/reservations/water.sport.time.slots.service';
+import {WaterSportTimeSlotsModel} from '../../../../../../core/models/Water-Sport-Module/reservation/water.sport.time.slots.model';
 
 @Component({
 	selector: 'kt-trip-information-form',
@@ -16,13 +16,13 @@ import {TimeSlotsHelperService} from '../../../../../../core/services/Helpers/ti
 export class TripInformationFormComponent implements OnInit, OnChanges {
 
 	@Input() form: FormGroup;
-	@Input() enumsModel: YachtsTripEnumsModel;
-	@Input() yachts: YachtsModel[];
+	@Input() enumsModel: WaterSportTripEnumsModel;
+	@Input() water_sports: WaterSportsModel[];
 	@Input() start_timeSlots: TimeSlotsModel[] = [];
 	@Input() end_timeSlots: TimeSlotsModel[] = [];
 
-	@Input() yacht_start_timeSlots: TimeSlotsModel[] = [];
-	@Input() yacht_next_day_timeSlots: TimeSlotsModel[] = [];
+	@Input() water_sport_start_timeSlots: TimeSlotsModel[] = [];
+	@Input() water_sport_next_day_timeSlots: TimeSlotsModel[] = [];
 
 	@Input() from_edit: boolean = false;
 
@@ -30,7 +30,7 @@ export class TripInformationFormComponent implements OnInit, OnChanges {
 	end_date: string;
 	next_start_date: string;
 
-	constructor(private yachtsTimeSlotsService: YachtsTimeSlotsService,
+	constructor(private waterSportTimeSlotsService: WaterSportTimeSlotsService,
 				private timeSlotsHelperService: TimeSlotsHelperService,
 				private cdr: ChangeDetectorRef) {
 	}
@@ -46,7 +46,7 @@ export class TripInformationFormComponent implements OnInit, OnChanges {
 	}
 
 	listenOnYachtDateChanges(){
-		this.form.get('yacht_id').valueChanges.subscribe(x => {
+		this.form.get('water_sport_id').valueChanges.subscribe(x => {
 			this.getTimeSlots();
 		});
 
@@ -61,19 +61,19 @@ export class TripInformationFormComponent implements OnInit, OnChanges {
 
 
 	getTimeSlots() {
-		let yacht_id = this.form.controls['yacht_id'].value;
+		let water_sport_id = this.form.controls['water_sport_id'].value;
 		this.start_date = this.form.controls['start_date'].value;
 		this.end_date = this.form.controls['end_date'].value;
 
-		if (yacht_id) {
+		if (water_sport_id) {
 			if (this.start_date) {
-				let model = new YachtsTimeSlotsModel(null);
-				model.yacht_id = yacht_id;
+				let model = new WaterSportTimeSlotsModel(null);
+				model.water_sport_id = water_sport_id;
 				model.date = this.start_date;
-				this.yachtsTimeSlotsService.list(model).subscribe(
+				this.waterSportTimeSlotsService.list(model).subscribe(
 					(resp) => {
 						this.start_timeSlots = resp;
-						this.yacht_start_timeSlots = resp;
+						this.water_sport_start_timeSlots = resp;
 						this.cdr.markForCheck();
 					}, error => {
 					});
@@ -83,22 +83,22 @@ export class TripInformationFormComponent implements OnInit, OnChanges {
 
 				this.next_start_date = this.timeSlotsHelperService.transformDate(next);
 
-				let next_day = new YachtsTimeSlotsModel(null);
-				next_day.yacht_id = yacht_id;
+				let next_day = new WaterSportTimeSlotsModel(null);
+				next_day.water_sport_id = water_sport_id;
 				next_day.date = this.next_start_date;
-				this.yachtsTimeSlotsService.list(next_day).subscribe(
+				this.waterSportTimeSlotsService.list(next_day).subscribe(
 					(resp) => {
-						this.yacht_next_day_timeSlots = resp;
+						this.water_sport_next_day_timeSlots = resp;
 						this.cdr.markForCheck();
 					}, error => {
 					});
 			}
 
 			if (this.end_date){
-				let model = new YachtsTimeSlotsModel(null);
-				model.yacht_id = yacht_id;
+				let model = new WaterSportTimeSlotsModel(null);
+				model.water_sport_id = water_sport_id;
 				model.date = this.end_date;
-				this.yachtsTimeSlotsService.list(model).subscribe(
+				this.waterSportTimeSlotsService.list(model).subscribe(
 					(resp) => {
 						this.end_timeSlots = resp;
 						this.cdr.markForCheck();

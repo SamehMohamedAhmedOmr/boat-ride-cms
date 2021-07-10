@@ -53,6 +53,7 @@ export class WaterSportsSerializer extends BaseSerializer implements Serializer 
 
 		/* Basic Information*/
 		model.name = item.name;
+		model.water_sport_name = item.name;
 		model.code = item.code;
 		model.color = item.color;
 

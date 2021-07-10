@@ -6,14 +6,15 @@ import {InitializeComponentInterface} from '../../../../../shared/Base-Interface
 import {FormErrorService} from '../../../../../../core/services/FormError.service';
 import {AuthNoticeService} from '../../../../../../core/services/auth-notice.service';
 import {HelperService} from '../../../../../../core/services/helper.service';
-import {YachtsTripService} from '../../../../../../core/services/Yacht-Module/reservations/yachts.trip.service';
-import {YachtsTripModel} from '../../../../../../core/models/Yacht-Module/reservartion/yachts.trip.model';
-import {YachtsTripObservableService} from '../../../../../../core/services/Yacht-Module/reservations/yachts.trip.observable.service';
-import {YachtsTripEnumsModel} from '../../../../../../core/models/Yacht-Module/reservartion/yachts.trip.enums.model';
 import {CountryModel} from '../../../../../../core/models/Marketing-Module/country.model';
-import {YachtsModel} from '../../../../../../core/models/Yacht-Module/yachts.model';
 import {TimeSlotsModel} from '../../../../../../core/models/Marketing-Module/time.slots.model';
 import {ErrorMsgHelperService} from '../../../../../../core/services/Helpers/error.msg.helper.service';
+import {WaterSportTripService} from '../../../../../../core/services/Water-Sport-Module/reservations/water.sport.trip.service';
+import {WaterSportTripObservableService} from '../../../../../../core/services/Water-Sport-Module/reservations/water.sport.trip.observable.service';
+import {WaterSportTripEnumsModel} from '../../../../../../core/models/Water-Sport-Module/reservation/water.sport.trip.enums.model';
+import {WaterSportsModel} from '../../../../../../core/models/Water-Sport-Module/water.sports.model';
+import {WaterSportTripModel} from '../../../../../../core/models/Water-Sport-Module/reservation/water.sport.trip.model';
+
 
 @Component({
 	selector: 'kt-add',
@@ -34,15 +35,15 @@ export class AddComponent implements OnInit, DoCheck, OnDestroy, InitializeCompo
 
 	selected_images: [] = [];
 
-	enums: YachtsTripEnumsModel;
+	enums: WaterSportTripEnumsModel;
 	countries: CountryModel[] = [];
-	yachts: YachtsModel[] = [];
+	water_sports: WaterSportsModel[] = [];
 	timeSlots: TimeSlotsModel[] = [];
 
 
 	constructor(private fb: FormBuilder,
-				private service: YachtsTripService,
-				private yachtsTripObservableService: YachtsTripObservableService,
+				private service: WaterSportTripService,
+				private waterSportTripObservableService: WaterSportTripObservableService,
 				private formErrorService: FormErrorService,
 				private errorMsgHelperService: ErrorMsgHelperService,
 				private cdr: ChangeDetectorRef,
@@ -74,29 +75,29 @@ export class AddComponent implements OnInit, DoCheck, OnDestroy, InitializeCompo
 	}
 
 	private getDependencies() {
-		this.yachtsTripObservableService.getEnums();
+		this.waterSportTripObservableService.getEnums();
 
-		this.yachtsTripObservableService.enums_observable.subscribe((value:YachtsTripEnumsModel) => {
+		this.waterSportTripObservableService.enums_observable.subscribe((value:WaterSportTripEnumsModel) => {
 			this.enums = value;
 			this.cdr.markForCheck();
 		});
 
-		this.yachtsTripObservableService.yachts_observable.subscribe((value:YachtsModel[]) => {
-			this.yachts = value;
+		this.waterSportTripObservableService.water_sport_observable.subscribe((value:WaterSportsModel[]) => {
+			this.water_sports = value;
 			this.cdr.markForCheck();
 		});
 
-		this.yachtsTripObservableService.time_slots_observable.subscribe((value:TimeSlotsModel[]) => {
+		this.waterSportTripObservableService.time_slots_observable.subscribe((value:TimeSlotsModel[]) => {
 			this.timeSlots = value;
 			this.cdr.markForCheck();
 		});
 
-		this.yachtsTripObservableService.country_observable.subscribe((value:CountryModel[]) => {
+		this.waterSportTripObservableService.country_observable.subscribe((value:CountryModel[]) => {
 			this.countries = value;
 			this.cdr.markForCheck();
 		});
 
-		this.yachtsTripObservableService.loading_observable.subscribe((value:boolean) => {
+		this.waterSportTripObservableService.loading_observable.subscribe((value:boolean) => {
 			if (!value){
 				this.initForm();
 				this.is_result = true;
@@ -122,7 +123,7 @@ export class AddComponent implements OnInit, DoCheck, OnDestroy, InitializeCompo
 			start_date: ['', Validators.required],
 			end_hour: ['', Validators.required],
 			end_date: ['', Validators.required],
-			yacht_id: ['', Validators.required],
+			water_sport_id: ['', Validators.required],
 
 			status: ['', Validators.required],
 			payment_method: ['', Validators.required],
@@ -157,7 +158,7 @@ export class AddComponent implements OnInit, DoCheck, OnDestroy, InitializeCompo
 			return;
 		}
 
-		let model = new YachtsTripModel(null);
+		let model = new WaterSportTripModel(null);
 		model = this.service.prepareObject(model, controls);
 
 		this.isLoadingResults = true;

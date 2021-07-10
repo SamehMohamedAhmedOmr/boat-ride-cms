@@ -6,14 +6,14 @@ import {InitializeComponentInterface} from '../../../../../shared/Base-Interface
 import {FormErrorService} from '../../../../../../core/services/FormError.service';
 import {AuthNoticeService} from '../../../../../../core/services/auth-notice.service';
 import {HelperService} from '../../../../../../core/services/helper.service';
-import {YachtsTripService} from '../../../../../../core/services/Yacht-Module/reservations/yachts.trip.service';
-import {YachtsTripModel} from '../../../../../../core/models/Yacht-Module/reservartion/yachts.trip.model';
-import {YachtsTripObservableService} from '../../../../../../core/services/Yacht-Module/reservations/yachts.trip.observable.service';
-import {YachtsTripEnumsModel} from '../../../../../../core/models/Yacht-Module/reservartion/yachts.trip.enums.model';
 import {CountryModel} from '../../../../../../core/models/Marketing-Module/country.model';
-import {YachtsModel} from '../../../../../../core/models/Yacht-Module/yachts.model';
 import {TimeSlotsModel} from '../../../../../../core/models/Marketing-Module/time.slots.model';
 import {ErrorMsgHelperService} from '../../../../../../core/services/Helpers/error.msg.helper.service';
+import {WaterSportTripService} from '../../../../../../core/services/Water-Sport-Module/reservations/water.sport.trip.service';
+import {WaterSportTripObservableService} from '../../../../../../core/services/Water-Sport-Module/reservations/water.sport.trip.observable.service';
+import {WaterSportTripEnumsModel} from '../../../../../../core/models/Water-Sport-Module/reservation/water.sport.trip.enums.model';
+import {WaterSportsModel} from '../../../../../../core/models/Water-Sport-Module/water.sports.model';
+import {WaterSportTripModel} from '../../../../../../core/models/Water-Sport-Module/reservation/water.sport.trip.model';
 
 
 @Component({
@@ -32,20 +32,20 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 	isLoadingResults: any = true;
 	form: FormGroup;
 
-	model: YachtsTripModel;
+	model: WaterSportTripModel;
 
 	id = null;
 	is_result: boolean;
 
-	enums: YachtsTripEnumsModel;
+	enums: WaterSportTripEnumsModel;
 	countries: CountryModel[] = [];
-	yachts: YachtsModel[] = [];
+	water_sports: WaterSportsModel[] = [];
 	timeSlots: TimeSlotsModel[] = [];
 
 
 	constructor(private formBuilder: FormBuilder,
-				private service: YachtsTripService,
-				private yachtsTripObservableService: YachtsTripObservableService,
+				private service: WaterSportTripService,
+				private waterSportTripObservableService: WaterSportTripObservableService,
 				private formErrorService: FormErrorService,
 				private errorMsgHelperService: ErrorMsgHelperService,
 				private route: ActivatedRoute,
@@ -79,29 +79,29 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 	}
 
 	private getDependencies() {
-		this.yachtsTripObservableService.getEnums();
+		this.waterSportTripObservableService.getEnums();
 
-		this.yachtsTripObservableService.enums_observable.subscribe((value:YachtsTripEnumsModel) => {
+		this.waterSportTripObservableService.enums_observable.subscribe((value:WaterSportTripEnumsModel) => {
 			this.enums = value;
 			this.cdr.markForCheck();
 		});
 
-		this.yachtsTripObservableService.yachts_observable.subscribe((value:YachtsModel[]) => {
-			this.yachts = value;
+		this.waterSportTripObservableService.water_sport_observable.subscribe((value:WaterSportsModel[]) => {
+			this.water_sports = value;
 			this.cdr.markForCheck();
 		});
 
-		this.yachtsTripObservableService.time_slots_observable.subscribe((value:TimeSlotsModel[]) => {
+		this.waterSportTripObservableService.time_slots_observable.subscribe((value:TimeSlotsModel[]) => {
 			this.timeSlots = value;
 			this.cdr.markForCheck();
 		});
 
-		this.yachtsTripObservableService.country_observable.subscribe((value:CountryModel[]) => {
+		this.waterSportTripObservableService.country_observable.subscribe((value:CountryModel[]) => {
 			this.countries = value;
 			this.cdr.markForCheck();
 		});
 
-		this.yachtsTripObservableService.loading_observable.subscribe((value:boolean) => {
+		this.waterSportTripObservableService.loading_observable.subscribe((value:boolean) => {
 			if ((!value) && this.model){
 				this.initializeForm();
 				this.is_result = true;
@@ -152,7 +152,7 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 			status: [this.model.status, Validators.required],
 			payment_method: [this.model.payment_method, Validators.required],
 
-			yacht_id: [this.model.yacht?.id, Validators.required],
+			water_sport_id: [this.model.water_sport?.id, Validators.required],
 			number_of_people: [this.model.number_of_people, Validators.required],
 			rate_per_hour: new FormControl({value: this.model.rate_per_hour, disabled: true}),
 			other_charges: [this.model.other_charges ?? 0, Validators.required],

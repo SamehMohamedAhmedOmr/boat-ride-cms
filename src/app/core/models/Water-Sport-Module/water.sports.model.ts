@@ -6,6 +6,7 @@ export class WaterSportsModel extends ModelBase {
 
 	/* Basic Information*/
 	public name:MultiLanguageModel;
+	public water_sport_name:string;
 	public what_to_expect_description:MultiLanguageModel;
 	public water_sport_description:MultiLanguageModel;
 	public routes:MultiLanguageModel;
@@ -38,6 +39,7 @@ export class WaterSportsModel extends ModelBase {
 		return {
 			'id': this.id,
 			'name' : this.name,
+			'water_sport_name' : this.name,
 			// @ts-ignore
 			'image' : this?.images?.length ? this.images[0].image : '',
 			'selling_per_hour' : this.selling_per_hour,

@@ -7,7 +7,7 @@ export class WaterSportTimeSlotsModel extends ModelBase {
 	public status:string;
 
 	public date:string;
-	public yacht_id:number;
+	public water_sport_id:number;
 
 	constructor(id: number){
 		super(id);

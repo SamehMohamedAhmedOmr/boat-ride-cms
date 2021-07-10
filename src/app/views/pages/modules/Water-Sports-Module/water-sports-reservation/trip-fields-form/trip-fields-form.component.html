@@ -5,24 +5,24 @@
 			<div aria-label="select-box" class="w-100">
 				<mat-form-field appearance="fill" class="w-100">
 					<mat-label>
-						{{ 'Components.YACHTS.name' | translate | titlecase }}
+						{{ 'Components.WATER_SPORTS.name' | translate | titlecase }}
 					</mat-label>
-					<mat-select formControlName="yacht_id">
-						<mat-option *ngFor="let yacht of yachts" [value]="yacht.id">
-							{{ yacht.yacht_name | titlecase }} |
+					<mat-select formControlName="water_sport_id">
+						<mat-option *ngFor="let water_sport of water_sports" [value]="water_sport.id">
+							{{ water_sport.water_sport_name | titlecase }} |
 							{{ 'COMMON.AED' | translate | uppercase  }}
-							{{  yacht.selling_per_hour }} |
+							{{  water_sport.selling_per_hour }} |
 							{{ 'COMMON.min' | translate | titlecase  }}
-							{{ yacht.minimum_hours_booking }}
+							{{ water_sport.minimum_booking }}
 							{{ 'COMMON.hrs' | translate | titlecase  }}
 						</mat-option>
 					</mat-select>
 				</mat-form-field>
 			</div>
 			<kt-form-error [form]="form"
-						   [controlName]="'yacht_id'"
+						   [controlName]="'water_sport_id'"
 						   [validationType]="'required'"
-						   [controlText]="'Components.YACHTS.name' | translate ">
+						   [controlText]="'Components.WATER_SPORTS.name' | translate ">
 			</kt-form-error>
 		</div>
 	</div>
@@ -32,7 +32,7 @@
 			<div class="col-md-6">
 				<kt-form-input
 					[form]="form"
-					[label]="'Components.YACHTS_RESERVATION.columns.start_date' | translate"
+					[label]="'Components.WATER_SPORTS_RESERVATION.columns.start_date' | translate"
 					[form_control_name]="'start_date'"
 					[type]="'date'"
 					[validation_type]="'required'">
@@ -43,7 +43,7 @@
 					<div aria-label="select-box" class="w-100">
 						<mat-form-field appearance="fill" class="w-100">
 							<mat-label>
-								{{ 'Components.YACHTS_RESERVATION.columns.start_hour' | translate | titlecase }}
+								{{ 'Components.WATER_SPORTS_RESERVATION.columns.start_hour' | translate | titlecase }}
 							</mat-label>
 							<mat-select formControlName="start_hour">
 								<mat-option *ngFor="let timeSlot of start_timeSlots"
@@ -57,7 +57,7 @@
 					<kt-form-error [form]="form"
 								   [controlName]="'start_hour'"
 								   [validationType]="'required'"
-								   [controlText]="'Components.YACHTS_RESERVATION.columns.start_hour' | translate ">
+								   [controlText]="'Components.WATER_SPORTS_RESERVATION.columns.start_hour' | translate ">
 					</kt-form-error>
 				</div>
 			</div>
@@ -69,7 +69,7 @@
 			<div class="col-md-6">
 				<kt-form-input
 					[form]="form"
-					[label]="'Components.YACHTS_RESERVATION.columns.end_date' | translate"
+					[label]="'Components.WATER_SPORTS_RESERVATION.columns.end_date' | translate"
 					[form_control_name]="'end_date'"
 					[type]="'date'"
 					[validation_type]="'required'">
@@ -80,7 +80,7 @@
 					<div aria-label="select-box" class="w-100">
 						<mat-form-field appearance="fill" class="w-100">
 							<mat-label>
-								{{ 'Components.YACHTS_RESERVATION.columns.end_hour' | translate | titlecase }}
+								{{ 'Components.WATER_SPORTS_RESERVATION.columns.end_hour' | translate | titlecase }}
 							</mat-label>
 							<mat-select formControlName="end_hour">
 								<mat-option *ngFor="let timeSlot of end_timeSlots"
@@ -93,7 +93,7 @@
 					<kt-form-error [form]="form"
 								   [controlName]="'end_hour'"
 								   [validationType]="'required'"
-								   [controlText]="'Components.YACHTS_RESERVATION.columns.end_hour' | translate ">
+								   [controlText]="'Components.WATER_SPORTS_RESERVATION.columns.end_hour' | translate ">
 					</kt-form-error>
 				</div>
 			</div>
@@ -105,7 +105,7 @@
 			<div class="col-md-6">
 				<kt-form-input
 					[form]="form"
-					[label]="'Components.YACHTS_RESERVATION.columns.trip_duration' | translate"
+					[label]="'Components.WATER_SPORTS_RESERVATION.columns.trip_duration' | translate"
 					[form_control_name]="'trip_duration'"
 					[type]="'number'"
 					[validation_type]="'required'">
@@ -114,7 +114,7 @@
 			<div class="col-md-6">
 				<kt-form-input
 					[form]="form"
-					[label]="'Components.YACHTS_RESERVATION.columns.coupon_code' | translate"
+					[label]="'Components.WATER_SPORTS_RESERVATION.columns.coupon_code' | translate"
 					[form_control_name]="'coupon_code'"
 					[validation_type]="'required'">
 				</kt-form-input>
@@ -127,7 +127,7 @@
 			<div class="col-md-6">
 				<kt-form-input
 					[form]="form"
-					[label]="'Components.YACHTS_RESERVATION.columns.number_of_people' | translate"
+					[label]="'Components.WATER_SPORTS_RESERVATION.columns.number_of_people' | translate"
 					[form_control_name]="'number_of_people'"
 					[type]="'number'"
 					[validation_type]="'required'">
@@ -136,7 +136,7 @@
 			<div class="col-md-6">
 				<kt-form-input
 					[form]="form"
-					[label]="'Components.YACHTS_RESERVATION.columns.rate_per_hour' | translate"
+					[label]="'Components.WATER_SPORTS_RESERVATION.columns.rate_per_hour' | translate"
 					[form_control_name]="'rate_per_hour'"
 					[type]="'number'"
 					[validation_type]="'required'">
@@ -150,7 +150,7 @@
 			<div class="col-md-6">
 				<kt-form-input
 					[form]="form"
-					[label]="'Components.YACHTS_RESERVATION.columns.other_charges' | translate"
+					[label]="'Components.WATER_SPORTS_RESERVATION.columns.other_charges' | translate"
 					[form_control_name]="'other_charges'"
 					[type]="'number'"
 					[validation_type]="'required'">
@@ -159,7 +159,7 @@
 			<div class="col-md-6">
 				<kt-form-input
 					[form]="form"
-					[label]="'Components.YACHTS_RESERVATION.columns.discount' | translate"
+					[label]="'Components.WATER_SPORTS_RESERVATION.columns.discount' | translate"
 					[form_control_name]="'discount'"
 					[type]="'number'"
 					[validation_type]="'required'">
@@ -173,7 +173,7 @@
 			<div class="col-md-6">
 				<kt-form-input
 					[form]="form"
-					[label]="'Components.YACHTS_RESERVATION.columns.minimum_Advance_Payment' | translate"
+					[label]="'Components.WATER_SPORTS_RESERVATION.columns.minimum_Advance_Payment' | translate"
 					[form_control_name]="'minimum_Advance_Payment'"
 					[type]="'number'"
 					[validation_type]="'required'">
@@ -182,7 +182,7 @@
 			<div class="col-md-6">
 				<kt-form-input
 					[form]="form"
-					[label]="'Components.YACHTS_RESERVATION.columns.total_price' | translate"
+					[label]="'Components.WATER_SPORTS_RESERVATION.columns.total_price' | translate"
 					[form_control_name]="'total_price'"
 					[type]="'number'"
 					[validation_type]="'required'">
@@ -198,7 +198,7 @@
 					<div aria-label="select-box" class="w-100">
 						<mat-form-field appearance="fill" class="w-100">
 							<mat-label>
-								{{ 'Components.YACHTS_RESERVATION.columns.payment_method' | translate | titlecase }}
+								{{ 'Components.WATER_SPORTS_RESERVATION.columns.payment_method' | translate | titlecase }}
 							</mat-label>
 							<mat-select formControlName="payment_method">
 								<mat-option *ngFor="let item of enumsModel.payment_methods" [value]="item.value">
@@ -210,7 +210,7 @@
 					<kt-form-error [form]="form"
 								   [controlName]="'payment_method'"
 								   [validationType]="'required'"
-								   [controlText]="'Components.YACHTS_RESERVATION.columns.payment_method' | translate ">
+								   [controlText]="'Components.WATER_SPORTS_RESERVATION.columns.payment_method' | translate ">
 					</kt-form-error>
 				</div>
 			</div>
@@ -219,7 +219,7 @@
 					<div aria-label="select-box" class="w-100">
 						<mat-form-field appearance="fill" class="w-100">
 							<mat-label>
-								{{ 'Components.YACHTS_RESERVATION.columns.status' | translate | titlecase }}
+								{{ 'Components.WATER_SPORTS_RESERVATION.columns.status' | translate | titlecase }}
 							</mat-label>
 							<mat-select formControlName="status">
 								<mat-option *ngFor="let item of enumsModel.trip_status" [value]="item.value">
@@ -231,7 +231,7 @@
 					<kt-form-error [form]="form"
 								   [controlName]="'status'"
 								   [validationType]="'required'"
-								   [controlText]="'Components.YACHTS_RESERVATION.columns.status' | translate ">
+								   [controlText]="'Components.WATER_SPORTS_RESERVATION.columns.status' | translate ">
 					</kt-form-error>
 				</div>
 			</div>
