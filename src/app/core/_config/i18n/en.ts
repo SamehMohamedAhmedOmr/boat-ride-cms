@@ -449,6 +449,9 @@ export const locale = {
 			title_ar: 'Title in Arabic',
 			title_en: 'Title in English',
 
+			seo_title_ar: 'SEO Title in Arabic',
+			seo_title_en: 'SEO Title in English',
+
 			seo_description_ar: 'SEO Description in Arabic',
 			seo_description_en: 'SEO Description in English',
 

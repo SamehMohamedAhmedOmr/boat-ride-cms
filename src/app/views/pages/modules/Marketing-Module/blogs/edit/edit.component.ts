@@ -107,6 +107,8 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 
 			author: [this.model.author, Validators.required],
 
+			seo_title_en: [this.model.seo?.title?.en, Validators.required],
+			seo_title_ar: [this.model.seo?.title?.ar, Validators.required],
 			seo_description_en: [this.model.seo?.description?.en, Validators.required],
 			seo_description_ar: [this.model.seo?.description?.ar, Validators.required],
 
@@ -148,7 +150,8 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 		this.model.is_active = controls['is_active'].value;
 		this.model.author = controls['author'].value;
 
-		this.model.seo.title = this.model.name;
+		this.model.seo.title.en = controls['seo_title_en'].value;
+		this.model.seo.title.ar = controls['seo_title_ar'].value;
 		this.model.seo.description.en = controls['seo_description_en'].value;
 		this.model.seo.description.ar = controls['seo_description_ar'].value;
 		this.model.image = controls['image'].value;

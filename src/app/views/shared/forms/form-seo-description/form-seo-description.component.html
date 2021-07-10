@@ -1,5 +1,24 @@
-<div [formGroup]="form">
-	<div class="row">
+<div  [formGroup]="form">
+	<div aria-label="seo_title" class="row">
+		<div class="col-md-6">
+			<kt-form-input
+				[form]="form"
+				[label]="'COMMON.seo_title_ar' | translate"
+				[form_control_name]="'seo_title_ar'"
+				[validation_type]="'required'">
+			</kt-form-input>
+		</div>
+		<div class="col-md-6">
+			<kt-form-input
+				[form]="form"
+				[label]="'COMMON.seo_title_en' | translate"
+				[form_control_name]="'seo_title_en'"
+				[validation_type]="'required'">
+			</kt-form-input>
+		</div>
+	</div>
+
+	<div aria-label="seo_description" class="row">
 		<div class="col-md-6">
 			<kt-form-textarea
 				[form]="form"
@@ -17,4 +36,5 @@
 			</kt-form-textarea>
 		</div>
 	</div>
+
 </div>
