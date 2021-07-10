@@ -9,6 +9,8 @@ import {FormGroup} from '@angular/forms';
 export class FormSeoDescriptionComponent implements OnInit {
 
 	@Input() form: FormGroup;
+	@Input() meta_tags_ar: [] =[];
+	@Input() meta_tags_en: [] =[];
 
 	constructor() {
 	}

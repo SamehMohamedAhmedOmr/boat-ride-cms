@@ -10,6 +10,8 @@ export class FormComponent implements OnInit {
 
 	@Input() form: FormGroup;
 	@Input() imgURL: string;
+	@Input() meta_tags_ar: [] =[];
+	@Input() meta_tags_en: [] =[];
 
 	constructor() {
 	}

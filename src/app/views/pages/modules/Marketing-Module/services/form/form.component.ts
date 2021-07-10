@@ -12,6 +12,8 @@ export class FormComponent implements OnInit {
 	@Input() form: FormGroup;
 	@Input() price_model: ServicesEnumsModel;
 	@Input() imgURL: string;
+	@Input() meta_tags_ar: [] =[];
+	@Input() meta_tags_en: [] =[];
 
 	constructor() {
 	}

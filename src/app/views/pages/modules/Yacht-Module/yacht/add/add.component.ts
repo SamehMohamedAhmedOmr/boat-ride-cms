@@ -114,6 +114,9 @@ export class AddComponent implements OnInit, DoCheck, OnDestroy, InitializeCompo
 			seo_description_en: ['', Validators.required] ,
 			seo_description_ar: ['', Validators.required] ,
 
+			seo_meta_tags_en: [''],
+			seo_meta_tags_ar: [''],
+
 			type: ['', Validators.required] ,
 			code: ['', Validators.required] ,
 			color: ['', Validators.required] ,

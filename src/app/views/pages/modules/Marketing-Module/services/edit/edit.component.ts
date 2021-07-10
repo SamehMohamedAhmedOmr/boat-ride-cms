@@ -123,6 +123,8 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 			seo_title_ar: [this.model.seo?.title?.ar, Validators.required],
 			seo_description_en: [this.model.seo?.description?.en, Validators.required],
 			seo_description_ar: [this.model.seo?.description?.ar, Validators.required],
+			seo_meta_tags_en: [this.model.seo?.keywords?.en],
+			seo_meta_tags_ar: [this.model.seo?.keywords?.ar],
 
 			price: [this.model.price, Validators.required],
 			price_model: [this.model.price_model + '', Validators.required],
@@ -171,6 +173,9 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 		this.model.seo.title.ar = controls['seo_title_ar'].value;
 		this.model.seo.description.en = controls['seo_description_en'].value;
 		this.model.seo.description.ar = controls['seo_description_ar'].value;
+		this.model.seo.keywords.en = controls['seo_meta_tags_en'].value;
+		this.model.seo.keywords.ar = controls['seo_meta_tags_ar'].value;
+
 		this.model.image = controls['image'].value;
 
 		// call service to store shipping rule

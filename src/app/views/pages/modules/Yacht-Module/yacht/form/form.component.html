@@ -40,7 +40,10 @@
 						{{ 'Components.YACHTS.descriptions' | translate | titlecase }}
 					</ng-template>
 
-					<kt-descriptions-form [form]="form"></kt-descriptions-form>
+					<kt-descriptions-form [form]="form"
+										  [meta_tags_en]="meta_tags_en"
+										  [meta_tags_ar]="meta_tags_ar">
+					</kt-descriptions-form>
 				</form>
 			</mat-step>
 

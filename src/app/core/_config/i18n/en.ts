@@ -455,6 +455,9 @@ export const locale = {
 			seo_description_ar: 'SEO Description in Arabic',
 			seo_description_en: 'SEO Description in English',
 
+			seo_meta_tags_ar: 'SEO Meta Tags in Arabic',
+			seo_meta_tags_en: 'SEO Meta Tags in English',
+
 			title: 'Title',
 			images: 'Images',
 			image: 'Image',

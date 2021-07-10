@@ -51,6 +51,8 @@ export class WaterSportsService extends BaseService<WaterSportsModel> {
 		model.seo.title.ar = controls['seo_title_ar'].value;
 		model.seo.description.en = controls['seo_description_en'].value;
 		model.seo.description.ar = controls['seo_description_ar'].value;
+		model.seo.keywords.en = controls['seo_meta_tags_en'].value;
+		model.seo.keywords.ar = controls['seo_meta_tags_ar'].value;
 
 		model.code = controls['code'].value;
 		model.color = controls['color'].value;

@@ -8,7 +8,7 @@ import {
 	MatProgressSpinnerModule,
 	MatRadioModule,
 	MatSelectModule,
-	MatTooltipModule, MatButtonModule, MatDatepickerModule, MatCheckboxModule, MatIconModule, MatLineModule, MatListModule
+	MatTooltipModule, MatButtonModule, MatDatepickerModule, MatCheckboxModule, MatIconModule, MatLineModule, MatListModule, MatChipsModule
 } from '@angular/material';
 import {RouterModule} from '@angular/router';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -35,26 +35,35 @@ import {FormSelectComponent} from './forms/form-select/form-select.component';
 import {FormInputComponent} from './forms/form-input/form-input.component';
 import {FormRadioGroupComponent} from './forms/form-radio-group/form-radio-group.component';
 import {FormShowComponent} from './forms/form-show/form-show.component';
-import { FormUploadImageComponent } from './forms/form-upload-image/form-upload-image.component';
-import { FormStatusComponent } from './forms/form-status/form-status.component';
+import {FormUploadImageComponent} from './forms/form-upload-image/form-upload-image.component';
+import {FormStatusComponent} from './forms/form-status/form-status.component';
 import {MatMenuModule} from '@angular/material/menu';
-import { FormDatePickerComponent } from './forms/form-date-picker/form-date-picker.component';
+import {FormDatePickerComponent} from './forms/form-date-picker/form-date-picker.component';
 import {FormRichtextComponent} from './forms/form-richtext/form-richtext.component';
 import {CKEditorModule} from '@ckeditor/ckeditor5-angular';
 import {FormCheckboxComponent} from './forms/form-checkbox/form-checkbox.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import { FormSeoDescriptionComponent } from './forms/form-seo-description/form-seo-description.component';
-import { FormIntlTelComponent } from './forms/form-intl-tel/form-intl-tel.component';
+import {FormSeoDescriptionComponent} from './forms/form-seo-description/form-seo-description.component';
+import {FormIntlTelComponent} from './forms/form-intl-tel/form-intl-tel.component';
 import {NgxIntlTelInputModule} from 'ngx-intl-tel-input';
+import {FormTagInputComponent} from './forms/form-tag-input/form-tag-input.component';
 
 
 @NgModule({
 	declarations: [
-		AuthNoticeComponent, GlobalNoticeComponent,
-		FilterComponent, ApiLoaderComponent,
-		DeleteModalComponent, GalleryComponent,
-		SuccessModalComponent, NextPreviousListComponent, PopupGalleryComponent,
-		FormErrorComponent, ListOptionsComponent, NoRecordFoundComponent, SoonComponent,
+		AuthNoticeComponent,
+		GlobalNoticeComponent,
+		FilterComponent,
+		ApiLoaderComponent,
+		DeleteModalComponent,
+		GalleryComponent,
+		SuccessModalComponent,
+		NextPreviousListComponent,
+		PopupGalleryComponent,
+		FormErrorComponent,
+		ListOptionsComponent,
+		NoRecordFoundComponent,
+		SoonComponent,
 		FormTextareaComponent,
 		FormSelectComponent,
 		FormInputComponent,
@@ -67,6 +76,7 @@ import {NgxIntlTelInputModule} from 'ngx-intl-tel-input';
 		FormCheckboxComponent,
 		FormSeoDescriptionComponent,
 		FormIntlTelComponent,
+		FormTagInputComponent,
 	],
 	imports: [
 		CommonModule,
@@ -95,7 +105,8 @@ import {NgxIntlTelInputModule} from 'ngx-intl-tel-input';
 		MatMenuModule,
 		CKEditorModule,
 		NgbModule,
-		NgxIntlTelInputModule
+		NgxIntlTelInputModule,
+		MatChipsModule,
 	],
 	entryComponents: [
 		DeleteModalComponent,
@@ -111,7 +122,6 @@ import {NgxIntlTelInputModule} from 'ngx-intl-tel-input';
 		AuthNoticeComponent,
 		GlobalNoticeComponent,
 		NextPreviousListComponent,
-
 		FormErrorComponent,
 		ListOptionsComponent,
 		NoRecordFoundComponent,

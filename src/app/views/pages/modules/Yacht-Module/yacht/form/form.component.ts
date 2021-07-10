@@ -15,6 +15,8 @@ export class FormComponent implements OnInit {
 	@Input() services: ServicesModel[];
 	@Input() imgURL: string;
 	@Input() image_urls: [] = [];
+	@Input() meta_tags_ar: [] =[];
+	@Input() meta_tags_en: [] =[];
 
 	constructor() {
 	}

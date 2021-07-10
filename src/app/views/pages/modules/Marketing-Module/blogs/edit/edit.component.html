@@ -16,6 +16,8 @@
 
 		<div *ngIf="is_result">
 			<kt-form [form]="form"
+					 [meta_tags_ar]="model.seo?.keywords?.ar ? model.seo?.keywords?.ar: []"
+					 [meta_tags_en]="model.seo?.keywords?.en ? model.seo?.keywords?.en: []"
 					 [imgURL]="current_image"></kt-form>
 
 			<div class="col-12 text-center px-3">

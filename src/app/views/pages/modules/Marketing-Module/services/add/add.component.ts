@@ -95,6 +95,9 @@ export class AddComponent implements OnInit, DoCheck, OnDestroy, InitializeCompo
 			seo_description_en: ['', Validators.required] ,
 			seo_description_ar: ['', Validators.required] ,
 
+			seo_meta_tags_en: [''],
+			seo_meta_tags_ar: [''],
+
 			price: ['', Validators.required] ,
 			price_model: ['', Validators.required] ,
 			minimum_hours_booking: ['', Validators.required] ,
@@ -133,6 +136,8 @@ export class AddComponent implements OnInit, DoCheck, OnDestroy, InitializeCompo
 		model.seo.title.ar = controls['seo_title_ar'].value;
 		model.seo.description.en = controls['seo_description_en'].value;
 		model.seo.description.ar = controls['seo_description_ar'].value;
+		model.seo.keywords.en = controls['seo_meta_tags_en'].value;
+		model.seo.keywords.ar = controls['seo_meta_tags_ar'].value;
 
 		model.image = controls['image'].value;
 

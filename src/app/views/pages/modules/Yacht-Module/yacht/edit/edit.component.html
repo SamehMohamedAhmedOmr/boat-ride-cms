@@ -16,6 +16,8 @@
 			<kt-form [form]="form"
 					 [enumsModel]="enums"
 					 [services]="services"
+					 [meta_tags_ar]="model.seo?.keywords?.ar ? model.seo?.keywords?.ar: []"
+					 [meta_tags_en]="model.seo?.keywords?.en ? model.seo?.keywords?.en: []"
 					 [image_urls]="selected_images"></kt-form>
 
 			<div class="col-12 text-center px-3">

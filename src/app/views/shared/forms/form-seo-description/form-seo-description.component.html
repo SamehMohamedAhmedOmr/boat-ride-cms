@@ -37,4 +37,25 @@
 		</div>
 	</div>
 
+	<div aria-label="seo_meta_tags" class="row">
+		<div class="col-md-6">
+			<kt-form-tag-input
+				[form]="form"
+				[label]="'COMMON.seo_meta_tags_ar' | translate"
+				[form_control_name]="'seo_meta_tags_ar'"
+				[meta_tags]="meta_tags_ar"
+				[validation_type]="'required'">
+			</kt-form-tag-input>
+		</div>
+		<div class="col-md-6">
+			<kt-form-tag-input
+				[form]="form"
+				[label]="'COMMON.seo_meta_tags_en' | translate"
+				[form_control_name]="'seo_meta_tags_en'"
+				[meta_tags]="meta_tags_en"
+				[validation_type]="'required'">
+			</kt-form-tag-input>
+		</div>
+	</div>
+
 </div>

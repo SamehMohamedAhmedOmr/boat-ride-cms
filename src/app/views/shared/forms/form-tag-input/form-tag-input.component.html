@@ -1,0 +1,27 @@
+<div [formGroup]="form">
+	<div class="my-3">
+		<div aria-label="input">
+			<mat-form-field class="w-100">
+				<mat-label>{{label | titlecase}}</mat-label>
+				<mat-chip-list #chipList aria-label="Tags">
+					<mat-chip *ngFor="let tags of meta_tags" [selectable]="selectable"
+							  [removable]="removable" (removed)="remove(tags)">
+						{{tags}}
+						<mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+					</mat-chip>
+					<input placeholder="{{ label }}"
+						   [matChipInputFor]="chipList"
+						   [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+						   [matChipInputAddOnBlur]="addOnBlur"
+						   (matChipInputTokenEnd)="add($event)">
+				</mat-chip-list>
+			</mat-form-field>
+		</div>
+		<kt-form-error *ngIf="validation_type"
+					   [form]="form"
+					   [controlName]="form_control_name"
+					   [validationType]="validation_type"
+					   [controlText]="label"
+		></kt-form-error>
+	</div>
+</div>

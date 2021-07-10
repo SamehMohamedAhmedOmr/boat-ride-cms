@@ -110,6 +110,9 @@ export class AddComponent implements OnInit, DoCheck, OnDestroy, InitializeCompo
 			seo_description_en: ['', Validators.required] ,
 			seo_description_ar: ['', Validators.required] ,
 
+			seo_meta_tags_en: [''],
+			seo_meta_tags_ar: [''],
+
 			code: ['', Validators.required] ,
 			color: ['', Validators.required] ,
 
@@ -135,7 +138,6 @@ export class AddComponent implements OnInit, DoCheck, OnDestroy, InitializeCompo
 		const controls = this.form.controls;
 		/** showing Errors  */
 		if (this.form.invalid) {
-			console.log(this.form.controls);
 			return this.formErrorService.markAsTouched(controls);
 		}
 

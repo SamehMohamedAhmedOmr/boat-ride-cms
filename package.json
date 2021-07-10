@@ -68,6 +68,7 @@
     "ng2-file-upload": "^1.4.0",
     "ngrx-store-freeze": "^0.2.4",
     "ngx-bootstrap": "^6.2.0",
+    "ngx-chips": "^2.2.2",
     "ngx-clipboard": "^12.2.0",
     "ngx-highlightjs": "^3.0.3",
     "ngx-intl-tel-input": "^3.1.1",

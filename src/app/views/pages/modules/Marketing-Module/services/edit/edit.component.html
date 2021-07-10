@@ -15,7 +15,10 @@
 	<div *ngIf="!isLoadingResults">
 
 		<div *ngIf="is_result">
-			<kt-form [form]="form" [price_model]="enums" [imgURL]="current_image"></kt-form>
+			<kt-form [form]="form" [price_model]="enums"
+					 [meta_tags_ar]="model.seo?.keywords?.ar ? model.seo?.keywords?.ar: []"
+					 [meta_tags_en]="model.seo?.keywords?.en ? model.seo?.keywords?.en: []"
+					 [imgURL]="current_image"></kt-form>
 
 			<div class="col-12 text-center px-3">
 				<button mat-raised-button type="submit" class="btn btn-success mx-3" (click)="updateForm()">

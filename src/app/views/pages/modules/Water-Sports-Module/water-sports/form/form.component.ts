@@ -13,6 +13,8 @@ export class FormComponent implements OnInit {
 	@Input() enumsModel: WaterSportsEnumsModel;
 	@Input() imgURL: string;
 	@Input() image_urls: [] = [];
+	@Input() meta_tags_ar: [] =[];
+	@Input() meta_tags_en: [] =[];
 
 	constructor() {
 	}
