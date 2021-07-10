@@ -8,8 +8,13 @@ export class FormErrorService {
 	constructor() {}
 
 	public markAsTouched(controls){
+		const invalid = [];
 		Object.keys(controls).forEach(controlName => {
 				controls[controlName].markAsTouched();
+				if (controls[controlName].invalid){
+					invalid.push(controlName);
+				}
+
 				// loop to show languages errors
 				if(controlName == 'languages') {
 					// @ts-ignore
@@ -23,7 +28,7 @@ export class FormErrorService {
 				}
 			}
 		);
-		return;
+		return invalid;
 	}
 
 	public isControlHasError(form, controlName, validationType){

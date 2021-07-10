@@ -8,6 +8,7 @@ import {AuthNoticeService} from '../../../../../../core/services/auth-notice.ser
 import {HelperService} from '../../../../../../core/services/helper.service';
 import {AdminsService} from '../../../../../../core/services/User-Module/admins.service';
 import {CmsUsersModel} from '../../../../../../core/models/User-Module/cms.users.model';
+import {ErrorMsgHelperService} from '../../../../../../core/services/Helpers/error.msg.helper.service';
 
 @Component({
 	selector: 'kt-edit',
@@ -36,6 +37,7 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 	constructor(private formBuilder: FormBuilder,
 				private service: AdminsService,
 				private formErrorService: FormErrorService,
+				private errorMsgHelperService: ErrorMsgHelperService,
 				private route: ActivatedRoute,
 				private router: Router,
 				private cdr: ChangeDetectorRef,
@@ -64,8 +66,6 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 		this.is_result = false;
 		this.get();
 	}
-
-
 
 	private get() {
 		this.isLoadingResults = true;
@@ -97,7 +97,6 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 	 */
 	initializeForm() {
 		this.form = this.formBuilder.group({
-
 			name: [this.model.name, Validators.required] ,
 			email: [this.model.email, Validators.required] ,
 			password: [''] ,
@@ -107,7 +106,6 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 
 		this.isLoadingResults = false;
 		this.cdr.markForCheck();
-
 	}
 
 
@@ -125,7 +123,10 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 		const controls = this.form.controls;
 		/** showing Errors  */
 		if (this.form.invalid) {
-			return this.formErrorService.markAsTouched(controls);
+			let invalid_controls = this.formErrorService.markAsTouched(controls);
+			// @ts-ignore
+			this.errorMsgHelperService.handleErrors(invalid_controls);
+			return;
 		}
 
 		this.model.name = controls['name'].value;

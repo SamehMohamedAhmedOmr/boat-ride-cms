@@ -8,6 +8,7 @@ import {AuthNoticeService} from '../../../../../../core/services/auth-notice.ser
 import {HelperService} from '../../../../../../core/services/helper.service';
 import {BlogService} from '../../../../../../core/services/Marketing-Module/blog.service';
 import {BlogModel} from '../../../../../../core/models/Marketing-Module/blogs.model';
+import {ErrorMsgHelperService} from '../../../../../../core/services/Helpers/error.msg.helper.service';
 
 
 @Component({
@@ -32,6 +33,7 @@ export class AddComponent implements OnInit, DoCheck, OnDestroy, InitializeCompo
 	constructor(private fb: FormBuilder,
 				private service: BlogService,
 				private formErrorService: FormErrorService,
+				private errorMsgHelperService: ErrorMsgHelperService,
 				private cdr: ChangeDetectorRef,
 				private route: ActivatedRoute,
 				private router: Router,
@@ -102,7 +104,10 @@ export class AddComponent implements OnInit, DoCheck, OnDestroy, InitializeCompo
 		const controls = this.form.controls;
 		/** showing Errors  */
 		if (this.form.invalid) {
-			return this.formErrorService.markAsTouched(controls);
+			let invalid_controls = this.formErrorService.markAsTouched(controls);
+			// @ts-ignore
+			this.errorMsgHelperService.handleErrors(invalid_controls);
+			return;
 		}
 
 		const model = new BlogModel(null);

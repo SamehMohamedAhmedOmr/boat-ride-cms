@@ -484,6 +484,7 @@ export const locale = {
 			past:'ماضي',
 			booked: 'محجوز',
 			available: 'متوفرة',
+			errors: 'الأخطاء',
 		},
 
 		MSG: {},

@@ -66,7 +66,6 @@ export class Widget14Component implements OnInit, OnChanges {
 		if (this.chartJs) {
 			this.chartJs.destroy();
 		}
-		console.log(this.data);
 		// For more information about the chartjs, visit this link
 		// https://www.chartjs.org/docs/latest/getting-started/usage.html
 

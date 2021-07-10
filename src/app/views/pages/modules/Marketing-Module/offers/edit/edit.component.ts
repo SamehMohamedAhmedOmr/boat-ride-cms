@@ -8,6 +8,7 @@ import {AuthNoticeService} from '../../../../../../core/services/auth-notice.ser
 import {HelperService} from '../../../../../../core/services/helper.service';
 import {OffersService} from '../../../../../../core/services/Marketing-Module/offers.service';
 import {OffersModel} from '../../../../../../core/models/Marketing-Module/offers.model';
+import {ErrorMsgHelperService} from '../../../../../../core/services/Helpers/error.msg.helper.service';
 
 @Component({
 	selector: 'kt-edit',
@@ -36,6 +37,7 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 	constructor(private formBuilder: FormBuilder,
 				private service: OffersService,
 				private formErrorService: FormErrorService,
+				private errorMsgHelperService: ErrorMsgHelperService,
 				private route: ActivatedRoute,
 				private router: Router,
 				private cdr: ChangeDetectorRef,
@@ -138,7 +140,10 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 		const controls = this.form.controls;
 		/** showing Errors  */
 		if (this.form.invalid) {
-			return this.formErrorService.markAsTouched(controls);
+			let invalid_controls = this.formErrorService.markAsTouched(controls);
+			// @ts-ignore
+			this.errorMsgHelperService.handleErrors(invalid_controls);
+			return;
 		}
 
 		this.model.createObjects();

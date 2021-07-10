@@ -15,16 +15,6 @@ export class InterceptService implements HttpInterceptor {
 		request: HttpRequest<any>,
 		next: HttpHandler
 	): Observable<HttpEvent<any>> {
-		// tslint:disable-next-line:no-debugger
-		// modify request
-		// request = request.clone({
-		// 	setHeaders: {
-		// 		Authorization: `Bearer ${localStorage.getItem('accessToken')}`
-		// 	}
-		// });
-		// console.log('----request----');
-		// console.log(request);
-		// console.log('--- end of request---');
 
 		return next.handle(request).pipe(
 			tap(

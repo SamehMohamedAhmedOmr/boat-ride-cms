@@ -1,0 +1,23 @@
+<div class="modal-header">
+	<h2 mat-dialog-title>{{ data.title }}</h2>
+
+	<button type="button"
+			class="close"
+			(click)="onNoClick()">
+		<span aria-hidden="true">&times;</span>
+	</button>
+</div>
+<mat-dialog-content class="mat-typography">
+	<ul class="my-2 p-0">
+		<li class="alert alert-danger mb-2"  role="alert" *ngFor="let error of data.body">
+			{{ 'VALIDATION.REQUIRED' | translate: {name : error}  | titlecase}}
+		</li>
+	</ul>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+	<button type="button"
+			class="btn btn-secondary"
+			(click)="onNoClick()">
+		{{ 'Components.Close' | translate }}
+	</button>
+</mat-dialog-actions>

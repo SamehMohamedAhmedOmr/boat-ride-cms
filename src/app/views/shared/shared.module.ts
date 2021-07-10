@@ -47,6 +47,7 @@ import {FormSeoDescriptionComponent} from './forms/form-seo-description/form-seo
 import {FormIntlTelComponent} from './forms/form-intl-tel/form-intl-tel.component';
 import {NgxIntlTelInputModule} from 'ngx-intl-tel-input';
 import {FormTagInputComponent} from './forms/form-tag-input/form-tag-input.component';
+import {ErrorsModelComponent} from './errors-model/errors-model.component';
 
 
 @NgModule({
@@ -77,6 +78,7 @@ import {FormTagInputComponent} from './forms/form-tag-input/form-tag-input.compo
 		FormSeoDescriptionComponent,
 		FormIntlTelComponent,
 		FormTagInputComponent,
+		ErrorsModelComponent,
 	],
 	imports: [
 		CommonModule,
@@ -112,6 +114,7 @@ import {FormTagInputComponent} from './forms/form-tag-input/form-tag-input.compo
 		DeleteModalComponent,
 		SuccessModalComponent,
 		PopupGalleryComponent,
+		ErrorsModelComponent,
 	],
 	exports: [
 		FilterComponent,

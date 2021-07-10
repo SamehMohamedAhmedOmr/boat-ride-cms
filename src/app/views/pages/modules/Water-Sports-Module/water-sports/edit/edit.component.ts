@@ -10,6 +10,7 @@ import {WaterSportsEnumsModel} from '../../../../../../core/models/Water-Sport-M
 import {WaterSportsService} from '../../../../../../core/services/Water-Sport-Module/Water-Sport/water.sports.service';
 import {WaterSportObservableService} from '../../../../../../core/services/Water-Sport-Module/Water-Sport/water.sport.observable.service';
 import {WaterSportsModel} from '../../../../../../core/models/Water-Sport-Module/water.sports.model';
+import {ErrorMsgHelperService} from '../../../../../../core/services/Helpers/error.msg.helper.service';
 
 
 @Component({
@@ -41,6 +42,7 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 				private service: WaterSportsService,
 				private waterSportObservableService: WaterSportObservableService,
 				private formErrorService: FormErrorService,
+				private errorMsgHelperService: ErrorMsgHelperService,
 				private route: ActivatedRoute,
 				private router: Router,
 				private cdr: ChangeDetectorRef,
@@ -175,7 +177,10 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 		const controls = this.form.controls;
 		/** showing Errors  */
 		if (this.form.invalid) {
-			return this.formErrorService.markAsTouched(controls);
+			let invalid_controls = this.formErrorService.markAsTouched(controls);
+			// @ts-ignore
+			this.errorMsgHelperService.handleErrors(invalid_controls);
+			return;
 		}
 
 		this.model.createObjects();

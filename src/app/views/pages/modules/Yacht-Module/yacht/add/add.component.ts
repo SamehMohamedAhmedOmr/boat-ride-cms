@@ -11,6 +11,7 @@ import {YachtsEnumsModel} from '../../../../../../core/models/Yacht-Module/yacht
 import {YachtsService} from '../../../../../../core/services/Yacht-Module/yachts/yachts.service';
 import {YachtsObservableService} from '../../../../../../core/services/Yacht-Module/yachts/yachts.observable.service';
 import {ServicesModel} from '../../../../../../core/models/Marketing-Module/services.model';
+import {ErrorMsgHelperService} from '../../../../../../core/services/Helpers/error.msg.helper.service';
 
 @Component({
 	selector: 'kt-add',
@@ -38,6 +39,7 @@ export class AddComponent implements OnInit, DoCheck, OnDestroy, InitializeCompo
 				private service: YachtsService,
 				private yachtsObservableService: YachtsObservableService,
 				private formErrorService: FormErrorService,
+				private errorMsgHelperService: ErrorMsgHelperService,
 				private cdr: ChangeDetectorRef,
 				private route: ActivatedRoute,
 				private router: Router,
@@ -179,7 +181,10 @@ export class AddComponent implements OnInit, DoCheck, OnDestroy, InitializeCompo
 		const controls = this.form.controls;
 		/** showing Errors  */
 		if (this.form.invalid) {
-			return this.formErrorService.markAsTouched(controls);
+			let invalid_controls = this.formErrorService.markAsTouched(controls);
+			// @ts-ignore
+			this.errorMsgHelperService.handleErrors(invalid_controls);
+			return;
 		}
 
 		let model = new YachtsModel(null);
