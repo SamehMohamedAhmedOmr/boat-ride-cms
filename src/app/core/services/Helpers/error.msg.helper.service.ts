@@ -265,7 +265,6 @@ export class ErrorMsgHelperService {
 					break;
 			}
 		});
-		console.log(errors_msg);
 		if (errors_msg.length){
 			this.showErrorMsgComponent(errors_msg);
 		}
