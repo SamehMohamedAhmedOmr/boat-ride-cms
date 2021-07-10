@@ -357,6 +357,7 @@ export const locale = {
 				name: 'حجوزات العاب المياه',
 				single: 'حجز العاب المياه',
 				customer_information: 'معلومات العميل',
+				trip_date_time: 'تاريخ / وقت الرحلة',
 				trip_information: 'معلومات الرحلة',
 				columns: {
 					start_hour: 'ساعة البداية',

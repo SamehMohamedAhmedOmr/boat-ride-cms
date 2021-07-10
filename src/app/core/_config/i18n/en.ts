@@ -358,7 +358,8 @@ export const locale = {
 
 			WATER_SPORTS_RESERVATION: {
 				name: 'Water Sports Reservations',
-				single: 'Water Sport Reservations',
+				single: 'Water Sport Reservation',
+				trip_date_time: 'Trip Date/Time',
 				customer_information: 'Customer Information',
 				trip_information: 'Trip Information',
 				columns: {

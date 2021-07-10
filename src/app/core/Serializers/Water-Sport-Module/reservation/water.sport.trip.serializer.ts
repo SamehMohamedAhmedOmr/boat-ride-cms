@@ -30,7 +30,7 @@ export class WaterSportTripSerializer extends BaseSerializer implements Serializ
 			'address' : model.address,
 
 			'country_id' : model.country_id,
-			'yacht_id' : model.yacht_id,
+			'water_sport_id' : model.water_sport_id,
 			'number_of_people' : model.number_of_people,
 			'rate_per_hour' : model.rate_per_hour,
 			'other_changes' : model.other_charges,
@@ -72,7 +72,7 @@ export class WaterSportTripSerializer extends BaseSerializer implements Serializ
 		model.address = item.address;
 
 		model.country_id = item.country_id;
-		model.yacht_id = item.yacht_id;
+		model.water_sport_id = item.water_sport_id;
 		model.number_of_people = item.number_of_people;
 		model.rate_per_hour = item.rate_per_hour;
 		model.other_charges = item.other_changes;

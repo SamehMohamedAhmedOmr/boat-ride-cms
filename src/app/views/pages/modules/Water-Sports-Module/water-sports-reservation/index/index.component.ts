@@ -35,7 +35,7 @@ export class IndexComponent implements OnInit, DoCheck, OnDestroy, IndexInterfac
 	displayedColumns: string[] = [
 		'id',
 		'booking_number',
-		'yacht',
+		'water_sport',
 		'customer',
 		'trip_date_time',
 		'total_price',
