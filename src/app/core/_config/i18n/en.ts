@@ -439,10 +439,15 @@ export const locale = {
 			token: 'Token',
 			content: 'Content',
 			name: 'Name',
+
 			name_ar: 'Name in Arabic',
 			name_en: 'Name in English',
+
 			description_ar: 'Description in Arabic',
 			description_en: 'Description in English',
+
+			title_ar: 'Title in Arabic',
+			title_en: 'Title in English',
 
 			seo_description_ar: 'SEO Description in Arabic',
 			seo_description_en: 'SEO Description in English',

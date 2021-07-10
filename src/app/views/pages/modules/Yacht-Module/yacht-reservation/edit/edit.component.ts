@@ -153,13 +153,13 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 			yacht_id: [this.model.yacht?.id, Validators.required],
 			number_of_people: [this.model.number_of_people, Validators.required],
 			rate_per_hour: new FormControl({value: this.model.rate_per_hour, disabled: true}),
-			other_charges: [this.model.other_charges, Validators.required],
-			discount: [this.model.discount, Validators.required],
-			minimum_Advance_Payment: [this.model.minimum_Advance_Payment, Validators.required],
+			other_charges: [this.model.other_charges ?? 0, Validators.required],
+			discount: [this.model.discount ?? 0, Validators.required],
+			minimum_Advance_Payment: [this.model.minimum_Advance_Payment ?? 0, Validators.required],
 			total_price: new FormControl({value: this.model.total_price ?? 0, disabled: true}),
 
-			client_notes: [this.model.client_notes, Validators.required],
-			admin_notes: [this.model.admin_notes, Validators.required],
+			client_notes: [this.model.client_notes],
+			admin_notes: [this.model.admin_notes],
 
 			coupon_code: [this.model.coupon_code],
 			trip_duration: new FormControl({value: this.model.trip_duration, disabled: true}),

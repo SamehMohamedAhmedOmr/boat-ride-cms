@@ -1,4 +1,4 @@
-import {ChangeDetectorRef, Component, Input, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {FormGroup} from '@angular/forms';
 import {YachtsTripEnumsModel} from '../../../../../../core/models/Yacht-Module/reservartion/yachts.trip.enums.model';
 import {YachtsModel} from '../../../../../../core/models/Yacht-Module/yachts.model';
@@ -12,7 +12,8 @@ import {TimeSlotsHelperService} from '../../../../../../core/services/Helpers/ti
 	templateUrl: './trip-information-form.component.html',
 	styleUrls: ['./trip-information-form.component.scss']
 })
-export class TripInformationFormComponent implements OnInit {
+
+export class TripInformationFormComponent implements OnInit, OnChanges {
 
 	@Input() form: FormGroup;
 	@Input() enumsModel: YachtsTripEnumsModel;
@@ -38,7 +39,9 @@ export class TripInformationFormComponent implements OnInit {
 		if (this.from_edit){
 			this.getTimeSlots();
 		}
+	}
 
+	ngOnChanges(changes: SimpleChanges): void {
 		this.listenOnYachtDateChanges();
 	}
 

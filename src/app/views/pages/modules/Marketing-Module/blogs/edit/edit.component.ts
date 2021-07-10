@@ -102,9 +102,6 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 			name_en: [this.model.name?.en, Validators.required],
 			name_ar: [this.model.name?.ar, Validators.required],
 
-			label_en: [this.model.label?.en, Validators.required],
-			label_ar: [this.model.label?.ar, Validators.required],
-
 			description_en: [this.model.description?.en, Validators.required],
 			description_ar: [this.model.description?.ar, Validators.required],
 
@@ -145,9 +142,6 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 
 		this.model.name.en = controls['name_en'].value;
 		this.model.name.ar = controls['name_ar'].value;
-
-		this.model.label.en = controls['label_en'].value;
-		this.model.label.ar = controls['label_ar'].value;
 
 		this.model.description.en = controls['description_en'].value;
 		this.model.description.ar = controls['description_ar'].value;

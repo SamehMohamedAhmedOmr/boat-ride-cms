@@ -38,13 +38,19 @@ export class YachtsTripSerializer extends BaseSerializer implements Serializer {
 			'minimum_Advance_Payment' : model.minimum_Advance_Payment,
 			'total_price' : model.total_price,
 
-			'client_notes' : model.client_notes,
-			'admin_notes' : model.admin_notes,
 			'trip_duration' : model.trip_duration,
 		};
 
 		if (model.coupon_code){
 			object['coupon_code'] = model.coupon_code
+		}
+
+		if (model.client_notes){
+			object['client_notes'] = model.client_notes
+		}
+
+		if (model.admin_notes){
+			object['admin_notes'] = model.admin_notes
 		}
 
 		return object;

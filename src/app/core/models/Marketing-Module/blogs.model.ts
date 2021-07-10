@@ -10,7 +10,6 @@ export class BlogModel extends ModelBase {
 	public image:string;
 	public seo:SeoModel;
 	public author:string;
-	public label:MultiLanguageModel;
 
 
 	constructor(id: number){
@@ -31,7 +30,6 @@ export class BlogModel extends ModelBase {
 
 	public createObjects(){
 		this.name = new MultiLanguageModel();
-		this.label = new MultiLanguageModel();
 		this.description = new MultiLanguageModel();
 		this.seo = new SeoModel(null);
 	}

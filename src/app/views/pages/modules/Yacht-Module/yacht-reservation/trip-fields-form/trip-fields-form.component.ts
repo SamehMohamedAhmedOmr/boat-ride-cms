@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {FormGroup} from '@angular/forms';
 import {YachtsModel} from '../../../../../../core/models/Yacht-Module/yachts.model';
 import {YachtsTripEnumsModel} from '../../../../../../core/models/Yacht-Module/reservartion/yachts.trip.enums.model';
@@ -10,7 +10,7 @@ import {TimeSlotsHelperService} from '../../../../../../core/services/Helpers/ti
 	templateUrl: './trip-fields-form.component.html',
 	styleUrls: ['./trip-fields-form.component.scss']
 })
-export class TripFieldsFormComponent implements OnInit {
+export class TripFieldsFormComponent implements OnInit, OnChanges {
 
 	@Input() form: FormGroup;
 	@Input() yachts: YachtsModel[];
@@ -23,10 +23,13 @@ export class TripFieldsFormComponent implements OnInit {
 	}
 
 	ngOnInit() {
+
+	}
+
+	ngOnChanges(changes: SimpleChanges): void {
 		this.listenOnTripDuration();
 		this.listenOnPriceChanges();
 	}
-
 
 	listenOnPriceChanges(){
 		this.form.get('yacht_id').valueChanges.subscribe(yacht_id => {

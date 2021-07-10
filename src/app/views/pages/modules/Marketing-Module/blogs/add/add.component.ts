@@ -79,9 +79,6 @@ export class AddComponent implements OnInit, DoCheck, OnDestroy, InitializeCompo
 			seo_description_en: ['', Validators.required] ,
 			seo_description_ar: ['', Validators.required] ,
 
-			label_en: ['', Validators.required] ,
-			label_ar: ['', Validators.required] ,
-
 			author: ['', Validators.required] ,
 
 			is_active: ['0', Validators.required] ,
@@ -106,9 +103,6 @@ export class AddComponent implements OnInit, DoCheck, OnDestroy, InitializeCompo
 
 		model.name.en = controls['name_en'].value;
 		model.name.ar = controls['name_ar'].value;
-
-		model.label.en = controls['label_en'].value;
-		model.label.ar = controls['label_ar'].value;
 
 		model.description.en = controls['description_en'].value;
 		model.description.ar = controls['description_ar'].value;

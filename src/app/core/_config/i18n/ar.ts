@@ -256,11 +256,11 @@ export const locale = {
 						fuel_type: 'نوع الوقود',
 						hull_type: 'نوع بدن',
 						engine_type: 'نوع المحرك',
-						horse_power: 'قوة الحصام',
+						horse_power: 'قوة الحصان',
 						max_speed: 'السرعة القصوى',
 						cruising_speed: 'سرعة الانطلاق',
 						length: 'الطول',
-						beam: 'الكمرة',
+						beam: 'الشعاع',
 					},
 
 					/* Key Feature*/
@@ -278,7 +278,7 @@ export const locale = {
 						fresh_towels: 'مناشف جديدة',
 						yacht_slippers: 'النعال اليخوت',
 						bathroom_amenities: 'مرافق الحمام',
-						under_water_light: 'تحت ضوء الماء',
+						under_water_light: 'ضوء تحت الماء',
 						LED_screen_tv: 'تلفزيون بشاشة LED',
 						sunbathing_on_the_foredeck: 'حمامات الشمس على مقدمة السفينة',
 						fishing_equipment: 'معدات الصيد',
@@ -437,10 +437,15 @@ export const locale = {
 			token: 'الرمز',
 			content: 'المحتوى',
 			name: 'الاسم',
+
 			name_ar: 'الاسم باللغة العربية',
 			name_en: 'الاسم بالغة الانجليزية',
+
 			description_ar: 'الوصف باللغة العربية',
 			description_en: 'الوصف بالغة الانجليزية',
+
+			title_ar: 'العنوان باللغة العربية',
+			title_en: 'العنوان بالغة الانجليزية',
 
 			seo_description_ar: 'الوصف الخاص بمحرك البحث باللغة العربية',
 			seo_description_en: 'الوصف الخاص بمحرك البحث بالغة الانجليزية',
