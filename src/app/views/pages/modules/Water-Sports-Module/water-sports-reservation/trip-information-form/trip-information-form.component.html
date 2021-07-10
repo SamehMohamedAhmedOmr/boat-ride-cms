@@ -1,0 +1,45 @@
+<div [formGroup]="form">
+
+	<div class="row">
+
+		<div class="col-lg-7 row">
+			<kt-trip-fields-form class="col-12"
+								 [form]="form"
+								 [yachts]="yachts"
+								 [enumsModel]="enumsModel"
+								 [end_timeSlots]="end_timeSlots"
+								 [start_timeSlots]="start_timeSlots">
+			</kt-trip-fields-form>
+		</div>
+
+		<div class="col-lg-5">
+			<kt-time-slots-table [first_day_time_slots]="yacht_start_timeSlots"
+								 [next_start_date]="next_start_date"
+								 [start_date]="start_date"
+								 [second_day_time_slots]="yacht_next_day_timeSlots">
+			</kt-time-slots-table>
+		</div>
+	</div>
+
+	<mat-divider class="my-3"></mat-divider>
+
+	<div class="row" aria-label="client_notes, admin_notes">
+		<div class="col-md-6">
+			<kt-form-textarea
+				[form]="form"
+				[label]="'Components.YACHTS_RESERVATION.columns.client_notes' | translate"
+				[form_control_name]="'client_notes'"
+				[validation_type]="'required'">
+			</kt-form-textarea>
+		</div>
+		<div class="col-md-6">
+			<kt-form-textarea
+				[form]="form"
+				[label]="'Components.YACHTS_RESERVATION.columns.admin_notes' | translate"
+				[form_control_name]="'admin_notes'"
+				[validation_type]="'required'">
+			</kt-form-textarea>
+		</div>
+	</div>
+
+</div>
