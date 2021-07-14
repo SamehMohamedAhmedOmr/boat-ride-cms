@@ -77,7 +77,7 @@
 			</ng-container>
 
 			<!-- options Column -->
-			<ng-container matColumnDef="options">
+			<ng-container matColumnDef="options" width="20%">
 				<th mat-header-cell *matHeaderCellDef mat-sort-header>
 					{{ 'Components.options' | translate }}
 				</th>
@@ -88,8 +88,19 @@
 						[enabled_change_status]="false"
 						[currentComponent]="this"
 						[headerParams]="headerParams"
-						[content_name]="content_name"
-					></kt-list-options>
+						[content_name]="content_name">
+
+						<!--send-voucher-->
+						<div class="col-12 my-2 dropdown-option" send_voucher>
+							<button class="btn w-100 btn-outline-warning"
+									(click)="sendVoucher(element.booking_number)">
+
+								<span>{{ 'COMMON.send_voucher' | translate }} </span>
+
+								<i class="fas fa-envelope-open-text"></i>
+							</button>
+						</div>
+					</kt-list-options>
 
 				</td>
 			</ng-container>

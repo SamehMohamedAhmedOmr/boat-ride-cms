@@ -29,6 +29,11 @@ export class YachtsTripService extends BaseService<YachtsTripModel> {
 			.pipe(map((data: any) => serializer.fromJson(data) as YachtsTripEnumsModel));
 	}
 
+	public sendVoucher(booking_number: string): Observable<any> {
+		return this.http
+			.post(`${this.url}${this.endpoint}/send-voutcher-email/${booking_number}`, {});
+	}
+
 	public prepareObject(model: YachtsTripModel, controls) {
 		model.start_hour = controls['start_hour'].value;
 		model.start_date = controls['start_date'].value;

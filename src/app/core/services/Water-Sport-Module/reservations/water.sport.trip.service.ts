@@ -29,6 +29,11 @@ export class WaterSportTripService extends BaseService<WaterSportTripModel> {
 			.pipe(map((data: any) => serializer.fromJson(data) as WaterSportTripEnumsModel));
 	}
 
+	public sendVoucher(booking_number: string): Observable<any> {
+		return this.http
+			.post(`${this.url}${this.endpoint}/send-voutcher-email/${booking_number}`, {});
+	}
+
 	public prepareObject(model: WaterSportTripModel, controls) {
 		model.start_hour = controls['start_hour'].value;
 		model.start_date = controls['start_date'].value;

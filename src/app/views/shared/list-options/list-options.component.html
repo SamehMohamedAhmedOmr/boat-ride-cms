@@ -13,6 +13,8 @@
 			</button>
 		</div>
 
+		<ng-content select="[send_voucher]"></ng-content>
+
 		<!--change-status-->
 		<div class="col-12 my-2 dropdown-option" *ngIf="enabled_change_status">
 			<button class="btn w-100 {{element.is_active ? 'btn-outline-danger' : 'btn-outline-success'}}"

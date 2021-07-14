@@ -424,6 +424,7 @@ export const locale = {
 			active: 'مفعل',
 			activation: 'التفعيل',
 
+			send_voucher: 'ارسال ايميل التأكيد',
 			activation_button: 'تفعيل',
 			deactivation_button: 'تعطيل',
 			accepted: 'مقبول',
@@ -477,6 +478,7 @@ export const locale = {
 			Details: '{{name}} تفاصيل',
 			Item_not_found: '{{name}} غير موجود او تم حذفه',
 			status_changed: 'تم تغيير التفعيل بنجاح',
+			voucher_email_success: 'تم ارسال ايميل التأكيد بنجاح',
 			old_password: 'كلمة المرور الحالية',
 			new_password: 'كلمة المرور الجديدة',
 			min: 'الحد الأدنى',

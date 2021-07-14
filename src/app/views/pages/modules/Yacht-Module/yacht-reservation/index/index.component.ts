@@ -134,4 +134,12 @@ export class IndexComponent implements OnInit, DoCheck, OnDestroy, IndexInterfac
 	filterEvent($event) {
 		this.get(this.headerParams, $event);
 	}
+
+	sendVoucher(booking_number){
+		this.service.sendVoucher(booking_number).subscribe(res => {
+			this.authNoticeService.setNotice(this.translateService.instant('COMMON.voucher_email_success'), 'success');
+		}, handler => {
+			this.authNoticeService.setNotice(this.helper.showingErrors(handler.error), 'danger');
+		});
+	}
 }

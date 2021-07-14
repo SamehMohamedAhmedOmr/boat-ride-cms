@@ -426,6 +426,7 @@ export const locale = {
 			active: 'active',
 			activation: 'Activation',
 
+			send_voucher: 'Send Voucher Email',
 			activation_button: 'Active',
 			deactivation_button: 'Inactive',
 			accepted: 'Accepted',
@@ -479,6 +480,7 @@ export const locale = {
 			Details: '{{name}} details',
 			Item_not_found: '{{name}} is Not Found or not exists anymore',
 			status_changed: 'Status changed successfully',
+			voucher_email_success: 'Voucher Email Send successfully',
 			old_password: 'Old Password',
 			new_password: 'New Password',
 			min: 'min',
