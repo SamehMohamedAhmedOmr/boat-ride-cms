@@ -4,6 +4,7 @@ import {environment} from '../../../../environments/environment';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {PermissionsSerializer} from '../../Serializers/ACL-Module/permissions.serializer';
+import {PermissionsModel} from '../../models/ACL-Module/permissions.model';
 
 @Injectable({
 	providedIn: 'root'
@@ -20,9 +21,15 @@ export class PermissionsService {
 		this.http = http;
 	}
 
-	public list(): Observable<[]> {
+	public list(): Observable<PermissionsModel[]> {
 		return this.http.get (`${this.url}${this.endpoint}` )
-			.pipe(map((data: any) => this.serializer.fromJsonList(data) as []));
+			.pipe(map((data: any) => this.serializer.fromJsonList(data) as PermissionsModel[]));
+	}
+
+	public getMyPermission(): Observable<PermissionsModel[]> {
+		let end_point = 'admins/admins/get_permissions';
+		return this.http.get (`${this.url}${end_point}` )
+			.pipe(map((data: any) => this.serializer.fromJsonList(data) as PermissionsModel[]));
 	}
 
 }

@@ -20,7 +20,7 @@ export class CmsUsersSerializer extends BaseSerializer implements Serializer {
 			'is_active' : model.is_active,
 			'name' : model.name,
 			'password' : model.password,
-
+			"permissions" : model.permissions,
 			'roles' : model.roles,
 		};
 
@@ -46,6 +46,7 @@ export class CmsUsersSerializer extends BaseSerializer implements Serializer {
 		model.email = item.email;
 		model.is_active = item.is_active;
 		model.roles = item.roles;
+		model.permissions = item.permissions;
 		return  model;
 	}
 

@@ -9,6 +9,8 @@ import {HelperService} from '../../../../../../core/services/helper.service';
 import {AdminsService} from '../../../../../../core/services/User-Module/admins.service';
 import {CmsUsersModel} from '../../../../../../core/models/User-Module/cms.users.model';
 import {ErrorMsgHelperService} from '../../../../../../core/services/Helpers/error.msg.helper.service';
+import {PermissionsModel} from '../../../../../../core/models/ACL-Module/permissions.model';
+import {PermissionsService} from '../../../../../../core/services/ACL-Module/permissions.service';
 
 @Component({
 	selector: 'kt-edit',
@@ -34,8 +36,11 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 	selected_images: [] = [];
 	current_image: string;
 
+	permissions:PermissionsModel[];
+
 	constructor(private formBuilder: FormBuilder,
 				private service: AdminsService,
+				private permissionsService:PermissionsService,
 				private formErrorService: FormErrorService,
 				private errorMsgHelperService: ErrorMsgHelperService,
 				private route: ActivatedRoute,
@@ -75,10 +80,8 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 			this.service.get(this.id).subscribe(
 				(data) => {
 					this.model = data;
-					this.isLoadingResults = false;
-					this.is_result = true;
+					this.getPermissions();
 					this.cdr.markForCheck();
-					this.initializeForm();
 				}, error => {
 					this.authNoticeService.setNotice(this.translateService.instant('COMMON.Item_not_found',
 						{name: this.content_name}),
@@ -91,14 +94,36 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 		});
 	}
 
+	getPermissions(){
+		this.permissionsService.list().subscribe(
+			(data) => {
+				this.isLoadingResults = false;
+				this.is_result = true;
+				this.permissions = data;
+				this.cdr.markForCheck();
+				this.initializeForm();
+			}, error => {
+				this.authNoticeService.setNotice(this.translateService.instant('COMMON.Item_not_found',
+					{name: this.content_name}),
+					'danger');
+				this.isLoadingResults = false;
+				this.isValidationError = true;
+				this.cdr.markForCheck();
+			}
+		);
+	}
+
 	/**
 	 * Initiate the form
 	 *
 	 */
 	initializeForm() {
+		// @ts-ignore
+		let permission_id = this.model.permissions.map(permissions => permissions.id);
 		this.form = this.formBuilder.group({
 			name: [this.model.name, Validators.required] ,
 			email: [this.model.email, Validators.required] ,
+			permissions: [permission_id, Validators.required] ,
 			password: [''] ,
 			is_active: [this.model.is_active + '', Validators.required] ,
 
@@ -134,6 +159,7 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 
 		this.model.password = controls['password'].value;
 		this.model.is_active = controls['is_active'].value;
+		this.model.permissions = controls['permissions'].value;
 		// @ts-ignore
 		this.model.roles = [1];
 

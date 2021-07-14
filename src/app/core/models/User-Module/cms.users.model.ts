@@ -8,6 +8,7 @@ export class CmsUsersModel extends ModelBase {
 	public is_active: boolean;
 
 	public roles:[] = [];
+	public permissions:[] = [];
 
 	constructor(id: number) {
 		super(id);

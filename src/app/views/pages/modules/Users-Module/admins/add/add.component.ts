@@ -9,6 +9,8 @@ import {HelperService} from '../../../../../../core/services/helper.service';
 import {AdminsService} from '../../../../../../core/services/User-Module/admins.service';
 import {CmsUsersModel} from '../../../../../../core/models/User-Module/cms.users.model';
 import {ErrorMsgHelperService} from '../../../../../../core/services/Helpers/error.msg.helper.service';
+import {PermissionsModel} from '../../../../../../core/models/ACL-Module/permissions.model';
+import {PermissionsService} from '../../../../../../core/services/ACL-Module/permissions.service';
 
 
 @Component({
@@ -27,9 +29,11 @@ export class AddComponent implements OnInit, DoCheck, OnDestroy, InitializeCompo
 	isLoadingResults: any = true;
 	form: FormGroup;
 	is_result:boolean;
+	permissions:PermissionsModel[];
 
 	constructor(private fb: FormBuilder,
 				private service: AdminsService,
+				private permissionsService:PermissionsService,
 				private formErrorService: FormErrorService,
 				private errorMsgHelperService: ErrorMsgHelperService,
 				private cdr: ChangeDetectorRef,
@@ -58,10 +62,28 @@ export class AddComponent implements OnInit, DoCheck, OnDestroy, InitializeCompo
 	}
 
 	initialiseComponent() {
-		this.isLoadingResults = false;
-		this.is_result = true;
+		this.getPermissions();
 		this.cdr.markForCheck();
 		this.initForm();
+	}
+
+
+	getPermissions(){
+		this.permissionsService.list().subscribe(
+			(data) => {
+				this.permissions = data;
+				this.isLoadingResults = false;
+				this.is_result = true;
+				this.cdr.markForCheck();
+			}, error => {
+				this.authNoticeService.setNotice(this.translateService.instant('COMMON.Item_not_found',
+					{name: this.content_name}),
+					'danger');
+				this.isLoadingResults = false;
+				this.isValidationError = true;
+				this.cdr.markForCheck();
+			}
+		);
 	}
 
 	/**
@@ -73,6 +95,7 @@ export class AddComponent implements OnInit, DoCheck, OnDestroy, InitializeCompo
 			name: ['', Validators.required] ,
 			email: ['', Validators.required] ,
 			password: ['', Validators.required] ,
+			permissions: ['', Validators.required] ,
 			is_active: ['1', Validators.required] ,
 		});
 	}
@@ -99,6 +122,7 @@ export class AddComponent implements OnInit, DoCheck, OnDestroy, InitializeCompo
 		model.email = controls['email'].value;
 		model.password = controls['password'].value;
 		model.is_active = controls['is_active'].value;
+		model.permissions = controls['permissions'].value;
 		// @ts-ignore
 		model.roles = [1];
 

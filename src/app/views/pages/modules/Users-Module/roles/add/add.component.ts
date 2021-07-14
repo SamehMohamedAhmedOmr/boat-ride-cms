@@ -9,6 +9,7 @@ import {AuthNoticeService} from '../../../../../../core/services/auth-notice.ser
 import {HelperService} from '../../../../../../core/services/helper.service';
 import {RolesModel} from '../../../../../../core/models/ACL-Module/roles.model';
 import {TranslateService} from '@ngx-translate/core';
+import {PermissionsModel} from '../../../../../../core/models/ACL-Module/permissions.model';
 
 
 @Component({
@@ -31,7 +32,7 @@ export class AddComponent implements OnInit, DoCheck, OnDestroy, InitializeCompo
 	is_result: any = false;
 
 
-	permissions: [];
+	permissions: PermissionsModel[];
 	SelectedPermissions: [] = [];
 
 	constructor(private fb: FormBuilder,
@@ -193,7 +194,7 @@ export class AddComponent implements OnInit, DoCheck, OnDestroy, InitializeCompo
 		if (length == this.permissions.length) {
 			this.SelectedPermissions = [];
 		} else {
-			this.SelectedPermissions = this.permissions;
+		//	this.SelectedPermissions = this.permissions;
 		}
 	}
 
