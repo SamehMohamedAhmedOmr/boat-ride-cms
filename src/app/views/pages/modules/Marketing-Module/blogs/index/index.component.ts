@@ -13,6 +13,8 @@ import {RoutesName} from '../../../../../../core/Global/routes.name';
 import {SectionIconsName} from '../../../../../../core/Global/section.icons.name';
 import {MatTableDataSource} from '@angular/material';
 import {BlogService} from '../../../../../../core/services/Marketing-Module/blog.service';
+import {SystemPermissionsHelperService} from '../../../../../../core/services/Helpers/system.permissions.helper.service';
+import {PermissionMarketingConfig} from '../../../../../../core/Global/permissions/permission.marketing.config';
 
 @Component({
 	selector: 'kt-index',
@@ -47,8 +49,12 @@ export class IndexComponent implements OnInit , DoCheck, OnDestroy, IndexInterfa
 		next_page_index: 0,
 	};
 
+	can_manage:boolean;
+	can_delete:boolean;
+
 	constructor(private cdr: ChangeDetectorRef ,
 				public service: BlogService,
+				private systemPermissionsHelperService:SystemPermissionsHelperService,
 				private authNoticeService: AuthNoticeService,
 				public translateService : TranslateService,
 				private router: Router,
@@ -68,8 +74,13 @@ export class IndexComponent implements OnInit , DoCheck, OnDestroy, IndexInterfa
 	}
 
 	initializePageName(){
+		let permissions:PermissionMarketingConfig = new PermissionMarketingConfig();
+
 		this.page_name = this.translateService.instant('Components.BLOGS.name');
 		this.content_name = this.translateService.instant('Components.BLOGS.single');
+
+		this.can_manage = this.systemPermissionsHelperService.checkPermissions([permissions.MANAGE_BLOGS]);
+		this.can_delete = this.systemPermissionsHelperService.checkPermissions([permissions.DELETE_BLOGS])
 	}
 
 	initialiseComponent() {

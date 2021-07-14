@@ -5,7 +5,10 @@ import {IndexComponent} from './index/index.component';
 import {AddComponent} from './add/add.component';
 import {RoutesName} from '../../../../../core/Global/routes.name';
 import {EditComponent} from './edit/edit.component';
+import {PermissionsGuard} from '../../../../../core/guards/permissions.guard';
+import {PermissionMarketingConfig} from '../../../../../core/Global/permissions/permission.marketing.config';
 
+let permission = new PermissionMarketingConfig();
 
 const routes: Routes = [
 	{
@@ -18,11 +21,19 @@ const routes: Routes = [
 			},
 			{
 				path: RoutesName.add(),
-				component: AddComponent
+				component: AddComponent,
+				canActivate: [PermissionsGuard],
+				data: {
+					permissions: [permission.MANAGE_OFFERS],
+				},
 			},
 			{
 				path: ':id',
-				component: EditComponent
+				component: EditComponent,
+				canActivate: [PermissionsGuard],
+				data: {
+					permissions: [permission.MANAGE_OFFERS],
+				},
 			},
 			{path: '**', redirectTo: '', pathMatch: ''},
 		]

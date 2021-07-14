@@ -3,7 +3,7 @@
 
 <kt-filter [ButtonAddName]="'COMMON.Add_Button' | translate: {name : content_name}"
 		   [ButtonAddUrl]="add_route"
-		   [HasAdd]="true"
+		   [HasAdd]="can_manage"
 		   [isLoadingResults]="isLoadingResults"
 		   [currentComponent] = "this"
 		   [HasItemPerPage]="true"
@@ -77,10 +77,12 @@
 						[currentService]="service"
 						[element]="element"
 						[enabled_change_status]="false"
+						[enabled_edit]="can_manage"
+						[enabled_delete]="can_delete"
 						[currentComponent]="this"
 						[headerParams]="headerParams"
-						[content_name]="content_name"
-					></kt-list-options>
+						[content_name]="content_name">
+					</kt-list-options>
 
 				</td>
 			</ng-container>
