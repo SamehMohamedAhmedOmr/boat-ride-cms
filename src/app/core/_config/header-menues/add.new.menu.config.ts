@@ -75,13 +75,13 @@ export class AddNewMenuConfig {
 
 	public checkRoutePermissions(){
 
-		this.attachMenuItem(this.permissionMarketingConfig.SERVICES_PERMISSIONS, this.SERVICES);
+		this.attachMenuItem([this.permissionMarketingConfig.MANAGE_SERVICES], this.SERVICES);
 
-		this.attachMenuItem(this.permissionYachtsConfig.YACHTS_PERMISSIONS,this.YACHTS);
-		this.attachMenuItem(this.permissionYachtsConfig.YACHTS_RESERVATION_PERMISSIONS,this.YACHTS_RESERVATION);
+		this.attachMenuItem([this.permissionYachtsConfig.MANAGE_YACHT],this.YACHTS);
+		this.attachMenuItem([this.permissionYachtsConfig.MANAGE_YACHT_RESERVATION],this.YACHTS_RESERVATION);
 
-		this.attachMenuItem(this.permissionWaterSportConfig.WATER_SPORTS_PERMISSIONS,this.WATER_SPORTS);
-		this.attachMenuItem(this.permissionWaterSportConfig.WATER_SPORTS_RESERVATION_PERMISSIONS,this.WATER_SPORTS_RESERVATION);
+		this.attachMenuItem([this.permissionWaterSportConfig.MANAGE_WATER_SPORT],this.WATER_SPORTS);
+		this.attachMenuItem([this.permissionWaterSportConfig.MANAGE_WATER_SPORT_RESERVATION],this.WATER_SPORTS_RESERVATION);
 
 		this.attachMenu();
 	}
