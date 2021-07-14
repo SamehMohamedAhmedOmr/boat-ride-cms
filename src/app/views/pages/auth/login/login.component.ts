@@ -11,6 +11,8 @@ import {AuthNoticeService} from '../../../../core/services/auth-notice.service';
 import {Admin} from '../../../../core/models/admin.interface';
 import {HelperService} from '../../../../core/services/helper.service';
 import {AccountPermissionsService} from '../../../../core/services/ACL-Module/account.permissions.service';
+import {PermissionsService} from '../../../../core/services/ACL-Module/permissions.service';
+import {PermissionsModel} from '../../../../core/models/ACL-Module/permissions.model';
 
 /**
  * ! Just example => Should be removed in development
@@ -36,13 +38,14 @@ export class LoginComponent implements OnInit, OnDestroy {
 	private unsubscribe: Subject<any>;
 
 	private returnUrl: any;
+	permissions:PermissionsModel[];
 
 	/**
 	 * Component constructor
 	 *
 	 * @param router: Router
 	 * @param auth: AuthService
-	 * @param AccountPermissionsService
+	 * @param permissionsService
 	 * @param authNoticeService: AuthNoticeService
 	 * @param fb: FormBuilder
 	 * @param cdr
@@ -52,7 +55,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 	constructor(
 		private router: Router,
 		private auth: AuthService,
-		private AccountPermissionsService: AccountPermissionsService,
+		private permissionsService: PermissionsService,
 		private authNoticeService: AuthNoticeService,
 		private fb: FormBuilder,
 		private cdr: ChangeDetectorRef,
@@ -130,10 +133,8 @@ export class LoginComponent implements OnInit, OnDestroy {
 				localStorage.setItem('token', resp.body.token);
 				localStorage.setItem('name', resp.body.name);
 				localStorage.setItem('token_expired', String(resp.body.expire_at));
-
+				this.getPermissions();
 				this.cdr.markForCheck();
-				location.reload();
-			//	this.getPermission();
 			},
 			(handler) => {
 				this.authNoticeService.setNotice(this.helper.showingErrors(handler.error), 'danger');
@@ -144,22 +145,15 @@ export class LoginComponent implements OnInit, OnDestroy {
 	}
 
 
-	getPermission() {
-
-		this.loading = true;
-		this.AccountPermissionsService.list().subscribe(
-			(resp) => {
-
-				let permissions = this.AccountPermissionsService.preparePermissions(resp);
-				localStorage.setItem('permissions', JSON.stringify(permissions));
+	getPermissions(){
+		this.permissionsService.getMyPermission().subscribe(
+			(data) => {
+				this.permissions = data;
+				let permissions_keys = this.permissions.map(permission => permission.key);
+				localStorage.setItem('permissions', JSON.stringify(permissions_keys));
 				this.cdr.markForCheck();
 				location.reload();
-				this.loading = false;
-			},
-			(handler) => {
-				this.authNoticeService.setNotice(this.helper.showingErrors(handler.error), 'danger');
-				this.loginForm.reset();
-				this.loading = false;
+			}, error => {
 			}
 		);
 	}

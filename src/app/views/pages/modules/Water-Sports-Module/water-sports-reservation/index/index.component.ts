@@ -13,6 +13,8 @@ import {RoutesName} from '../../../../../../core/Global/routes.name';
 import {SectionIconsName} from '../../../../../../core/Global/section.icons.name';
 import {MatTableDataSource} from '@angular/material';
 import {WaterSportTripService} from '../../../../../../core/services/Water-Sport-Module/reservations/water.sport.trip.service';
+import {SystemPermissionsHelperService} from '../../../../../../core/services/Helpers/system.permissions.helper.service';
+import {PermissionWaterSportConfig} from '../../../../../../core/Global/permissions/permission.water.sport.config';
 
 @Component({
 	selector: 'kt-index',
@@ -56,8 +58,12 @@ export class IndexComponent implements OnInit, DoCheck, OnDestroy, IndexInterfac
 		next_page_index: 0,
 	};
 
+	can_manage:boolean;
+	can_delete:boolean;
+
 	constructor(private cdr: ChangeDetectorRef,
 				public service: WaterSportTripService,
+				private systemPermissionsHelperService:SystemPermissionsHelperService,
 				private authNoticeService: AuthNoticeService,
 				public translateService: TranslateService,
 				private router: Router,
@@ -77,8 +83,13 @@ export class IndexComponent implements OnInit, DoCheck, OnDestroy, IndexInterfac
 	}
 
 	initializePageName() {
+		let permissions:PermissionWaterSportConfig = new PermissionWaterSportConfig();
+
 		this.page_name = this.translateService.instant('Components.WATER_SPORTS_RESERVATION.name');
 		this.content_name = this.translateService.instant('Components.WATER_SPORTS_RESERVATION.single');
+
+		this.can_manage = this.systemPermissionsHelperService.checkPermissions([permissions.MANAGE_WATER_SPORT_RESERVATION]);
+		this.can_delete = this.systemPermissionsHelperService.checkPermissions([permissions.DELETE_WATER_SPORT_RESERVATION])
 	}
 
 	initialiseComponent() {

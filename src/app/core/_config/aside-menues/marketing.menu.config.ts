@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {SystemPermissionsHelperService} from '../../services/Helpers/system.permissions.helper.service';
 import {SectionIconsName} from '../../Global/section.icons.name';
 import {RoutesName} from '../../Global/routes.name';
+import {PermissionMarketingConfig} from '../../Global/permissions/permission.marketing.config';
 
 
 @Injectable({
@@ -10,9 +11,11 @@ import {RoutesName} from '../../Global/routes.name';
 export class MarketingMenuConfig {
 
 	systemPermissionsHelperService: SystemPermissionsHelperService;
+	permissionMarketingConfig: PermissionMarketingConfig;
 
 	constructor() {
 		this.systemPermissionsHelperService = new SystemPermissionsHelperService();
+		this.permissionMarketingConfig = new PermissionMarketingConfig();
 	}
 
 	private header = {section: 'MARKETING', translate: 'MENUS.MARKETING.TITLE'};
@@ -22,8 +25,7 @@ export class MarketingMenuConfig {
 		root: true,
 		translate: 'MENUS.MARKETING.TITLE',
 		icon: SectionIconsName.marketing(),
-		submenu: [
-		]
+		submenu: []
 	};
 
 	public BANNERS = {
@@ -63,36 +65,33 @@ export class MarketingMenuConfig {
 	};
 
 	public menu: any = {
-		items: [
-		]
+		items: []
 	};
 
 
-	public checkRoutePermissions(){
+	public checkRoutePermissions() {
 
-		// this.attachMenuItem([],this.BANNERS);
-		this.attachMenuItem([],this.SERVICES);
-		this.attachMenuItem([],this.OFFERS);
-		this.attachMenuItem([],this.BLOGS);
-		this.attachMenuItem([],this.SEO);
+		this.attachMenuItem(this.permissionMarketingConfig.SERVICES_PERMISSIONS, this.SERVICES);
+		this.attachMenuItem(this.permissionMarketingConfig.OFFERS_PERMISSIONS, this.OFFERS);
+		this.attachMenuItem(this.permissionMarketingConfig.BLOGS_PERMISSIONS, this.BLOGS);
+		this.attachMenuItem(this.permissionMarketingConfig.SEO_PERMISSIONS, this.SEO);
 
 		this.attachMenu();
-
 	}
 
-	attachMenuItem(permissions, url){
+	attachMenuItem(permissions, url) {
 		let check = this.systemPermissionsHelperService.checkPermissions(permissions);
-		if (check){
-			this.attach(url)
+		if (check) {
+			this.attach(url);
 		}
 	}
 
-	private attach(url){
-		this.section.submenu.push(url)
+	private attach(url) {
+		this.section.submenu.push(url);
 	}
 
-	private attachMenu(){
-		if (this.section.submenu.length){
+	private attachMenu() {
+		if (this.section.submenu.length) {
 			this.menu.items.push(this.header);
 			this.menu.items.push(this.section);
 		}

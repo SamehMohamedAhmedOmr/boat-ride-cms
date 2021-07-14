@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {SystemPermissionsHelperService} from '../../services/Helpers/system.permissions.helper.service';
 import {SectionIconsName} from '../../Global/section.icons.name';
 import {RoutesName} from '../../Global/routes.name';
+import {PermissionUsersConfig} from '../../Global/permissions/permission.users.config';
 
 
 @Injectable({
@@ -10,9 +11,11 @@ import {RoutesName} from '../../Global/routes.name';
 export class UsersMenuConfig {
 
 	systemPermissionsHelperService: SystemPermissionsHelperService;
+	permissionUsersConfig: PermissionUsersConfig;
 
 	constructor() {
 		this.systemPermissionsHelperService = new SystemPermissionsHelperService();
+		this.permissionUsersConfig = new PermissionUsersConfig();
 	}
 
 	private header = {section: 'Users', translate: 'MENUS.USERS.TITLE'};
@@ -22,8 +25,7 @@ export class UsersMenuConfig {
 		root: true,
 		translate: 'MENUS.USERS.TITLE',
 		icon: SectionIconsName.users(),
-		submenu: [
-		]
+		submenu: []
 	};
 
 
@@ -43,16 +45,14 @@ export class UsersMenuConfig {
 	};
 
 
-
 	public menu: any = {
-		items: [
-		]
+		items: []
 	};
 
 
-	public checkRoutePermissions(){
+	public checkRoutePermissions() {
 
-		this.attachMenuItem([],this.ADMINS);
+		this.attachMenuItem(this.permissionUsersConfig.ADMINS_PERMISSIONS, this.ADMINS);
 
 		// this.attachMenuItem([],this.ROLES);
 
@@ -60,19 +60,19 @@ export class UsersMenuConfig {
 
 	}
 
-	attachMenuItem(permissions, url){
+	attachMenuItem(permissions, url) {
 		let check = this.systemPermissionsHelperService.checkPermissions(permissions);
-		if (check){
-			this.attach(url)
+		if (check) {
+			this.attach(url);
 		}
 	}
 
-	private attach(url){
-		this.section.submenu.push(url)
+	private attach(url) {
+		this.section.submenu.push(url);
 	}
 
-	private attachMenu(){
-		if (this.section.submenu.length){
+	private attachMenu() {
+		if (this.section.submenu.length) {
 			this.menu.items.push(this.header);
 			this.menu.items.push(this.section);
 		}

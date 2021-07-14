@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
-import {ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot} from '@angular/router';
-import {AccountPermissionsService} from '../services/ACL-Module/account.permissions.service';
+import {ActivatedRouteSnapshot, Router, RouterStateSnapshot} from '@angular/router';
+import {PermissionsService} from '../services/ACL-Module/permissions.service';
 
 @Injectable({
 	providedIn: 'root'
@@ -9,7 +9,7 @@ export class PermissionsGuard {
 
 	route_permissions:Array<string>;
 	constructor(private router: Router,
-				private AccountPermissionsService: AccountPermissionsService) {
+				private permissionsService: PermissionsService) {
 
 	}
 
@@ -32,24 +32,28 @@ export class PermissionsGuard {
 
 	checkPermissions(stored_permissions, permissions){
 
+		let has_permission = false;
 		permissions.forEach((permission)=>{
 			let check = stored_permissions.includes(permission);
-			if (!check){
-				this.router.navigate(['/cms/dashboard']);
-				return false;
+			if (check){
+				has_permission = true;
 			}
 		});
 
-		return true;
+		if (!has_permission){
+			this.router.navigate(['/cms/dashboard']);
+		}
+
+		return has_permission;
 	}
 
 	getPermission() {
 		let check = false;
-		this.AccountPermissionsService.list().subscribe(
+		this.permissionsService.getMyPermission().subscribe(
 			(resp) => {
-				let permissions = this.AccountPermissionsService.preparePermissions(resp);
-				localStorage.setItem('permissions', JSON.stringify(permissions));
-				check = this.reactivate(permissions);
+				let permissions_keys = resp.map(permission => permission.key);
+				localStorage.setItem('permissions', JSON.stringify(permissions_keys));
+				check = this.reactivate(permissions_keys);
 			},
 			(handler) => {
 			}

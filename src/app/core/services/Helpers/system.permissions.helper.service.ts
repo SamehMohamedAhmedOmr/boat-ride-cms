@@ -10,19 +10,22 @@ export class SystemPermissionsHelperService {
 
 		let stored_permissions = JSON.parse(localStorage.getItem('permissions'));
 
-		let has_permission = true;
+		if (!stored_permissions){
+			return false;
+		}
 
-		// TODO :: TEMP DISABLE
-		// permissions.forEach((permission)=>{
-		// 	let check = stored_permissions.includes(permission);
-		// 	if (!check){
-		// 		has_permission = false;
-		// 	}
-		// });
-		//
-		// if (!permissions.length){
-		// 	has_permission = false;
-		// }
+		let has_permission = false;
+
+		permissions.forEach((permission)=>{
+			let check = stored_permissions.includes(permission);
+			if (check){
+				has_permission = true;
+			}
+		});
+
+		if (!permissions.length){
+			has_permission = false;
+		}
 
 		return has_permission;
 	}

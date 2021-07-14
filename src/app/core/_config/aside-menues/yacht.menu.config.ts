@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {SystemPermissionsHelperService} from '../../services/Helpers/system.permissions.helper.service';
 import {SectionIconsName} from '../../Global/section.icons.name';
 import {RoutesName} from '../../Global/routes.name';
+import {PermissionYachtsConfig} from '../../Global/permissions/permission.yachts.config';
 
 
 @Injectable({
@@ -10,9 +11,11 @@ import {RoutesName} from '../../Global/routes.name';
 export class YachtMenuConfig {
 
 	systemPermissionsHelperService: SystemPermissionsHelperService;
+	permissionYachtsConfig: PermissionYachtsConfig;
 
 	constructor() {
 		this.systemPermissionsHelperService = new SystemPermissionsHelperService();
+		this.permissionYachtsConfig = new PermissionYachtsConfig();
 	}
 
 	private header = {section: 'YACHT', translate: 'MENUS.YACHT_SETTINGS.TITLE'};
@@ -22,8 +25,7 @@ export class YachtMenuConfig {
 		root: true,
 		translate: 'MENUS.YACHT_SETTINGS.TITLE',
 		icon: SectionIconsName.setting(),
-		submenu: [
-		]
+		submenu: []
 	};
 
 
@@ -43,34 +45,31 @@ export class YachtMenuConfig {
 
 
 	public menu: any = {
-		items: [
-		]
+		items: []
 	};
 
 
-	public checkRoutePermissions(){
+	public checkRoutePermissions() {
 
-		this.attachMenuItem([],this.YACHTS);
-		this.attachMenuItem([],this.YACHTS_RESERVATION);
-
+		this.attachMenuItem(this.permissionYachtsConfig.YACHTS_PERMISSIONS, this.YACHTS);
+		this.attachMenuItem(this.permissionYachtsConfig.YACHTS_RESERVATION_PERMISSIONS, this.YACHTS_RESERVATION);
 
 		this.attachMenu();
-
 	}
 
-	attachMenuItem(permissions, url){
+	attachMenuItem(permissions, url) {
 		let check = this.systemPermissionsHelperService.checkPermissions(permissions);
-		if (check){
-			this.attach(url)
+		if (check) {
+			this.attach(url);
 		}
 	}
 
-	private attach(url){
-		this.section.submenu.push(url)
+	private attach(url) {
+		this.section.submenu.push(url);
 	}
 
-	private attachMenu(){
-		if (this.section.submenu.length){
+	private attachMenu() {
+		if (this.section.submenu.length) {
 			this.menu.items.push(this.header);
 			this.menu.items.push(this.section);
 		}

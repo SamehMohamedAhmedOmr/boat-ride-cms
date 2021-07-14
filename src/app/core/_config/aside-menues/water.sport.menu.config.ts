@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {SystemPermissionsHelperService} from '../../services/Helpers/system.permissions.helper.service';
 import {SectionIconsName} from '../../Global/section.icons.name';
 import {RoutesName} from '../../Global/routes.name';
+import {PermissionWaterSportConfig} from '../../Global/permissions/permission.water.sport.config';
 
 
 @Injectable({
@@ -10,9 +11,11 @@ import {RoutesName} from '../../Global/routes.name';
 export class WaterSportMenuConfig {
 
 	systemPermissionsHelperService: SystemPermissionsHelperService;
+	permissionWaterSportConfig: PermissionWaterSportConfig;
 
 	constructor() {
 		this.systemPermissionsHelperService = new SystemPermissionsHelperService();
+		this.permissionWaterSportConfig = new PermissionWaterSportConfig();
 	}
 
 	private header = {section: 'YACHT', translate: 'MENUS.WATER_SPORT_SETTINGS.TITLE'};
@@ -22,8 +25,7 @@ export class WaterSportMenuConfig {
 		root: true,
 		translate: 'MENUS.WATER_SPORT_SETTINGS.TITLE',
 		icon: SectionIconsName.setting(),
-		submenu: [
-		]
+		submenu: []
 	};
 
 
@@ -42,34 +44,32 @@ export class WaterSportMenuConfig {
 	};
 
 	public menu: any = {
-		items: [
-		]
+		items: []
 	};
 
 
-	public checkRoutePermissions(){
+	public checkRoutePermissions() {
 
-		this.attachMenuItem([],this.WATER_SPORTS);
-		this.attachMenuItem([],this.WATER_SPORTS_RESERVATION);
-
+		this.attachMenuItem(this.permissionWaterSportConfig.WATER_SPORTS_PERMISSIONS, this.WATER_SPORTS);
+		this.attachMenuItem(this.permissionWaterSportConfig.WATER_SPORTS_RESERVATION_PERMISSIONS, this.WATER_SPORTS_RESERVATION);
 
 		this.attachMenu();
 
 	}
 
-	attachMenuItem(permissions, url){
+	attachMenuItem(permissions, url) {
 		let check = this.systemPermissionsHelperService.checkPermissions(permissions);
-		if (check){
-			this.attach(url)
+		if (check) {
+			this.attach(url);
 		}
 	}
 
-	private attach(url){
-		this.section.submenu.push(url)
+	private attach(url) {
+		this.section.submenu.push(url);
 	}
 
-	private attachMenu(){
-		if (this.section.submenu.length){
+	private attachMenu() {
+		if (this.section.submenu.length) {
 			this.menu.items.push(this.header);
 			this.menu.items.push(this.section);
 		}
