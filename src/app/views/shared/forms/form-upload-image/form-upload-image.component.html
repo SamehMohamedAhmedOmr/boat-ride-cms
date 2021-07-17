@@ -27,13 +27,14 @@
 	</div>
 
 	<div *ngIf="multiple">
-		<ngb-carousel *ngIf="image_urls">
-			<ng-template ngbSlide *ngFor="let image of image_urls">
-				<div class="picsum-img-wrapper">
-					<img [src]="image" class="w-100">
-				</div>
-			</ng-template>
-		</ngb-carousel>
+		<div aria-label="images" class="row" >
+			<div class="col-md-6" *ngFor="let image of image_urls">
+				<button class="btn btn-danger my-3" (click)="deleteModal(image)">
+					{{ 'Components.Gallery.delete_image' | translate }}
+				</button>
+				<img [src]="image.image ? image.image : image" class="w-100" style="height: 400px">
+			</div>
+		</div>
 	</div>
 
 </div>

@@ -1,5 +1,8 @@
-import {ChangeDetectorRef, Component, Input, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormGroup} from '@angular/forms';
+import {DeleteModalComponent} from '../../delete-modal/delete-modal.component';
+import {TranslateService} from '@ngx-translate/core';
+import {MatDialog} from '@angular/material';
 
 @Component({
 	selector: 'kt-form-upload-image',
@@ -17,7 +20,11 @@ export class FormUploadImageComponent implements OnInit {
 	@Input() multiple:boolean = false;
 	@Input() image_urls: [] = [];
 
-	constructor(private cdr: ChangeDetectorRef,) {
+	@Output() delete_emitter = new EventEmitter<number>();
+
+	constructor(private cdr: ChangeDetectorRef,
+				public translateService : TranslateService,
+				public dialog: MatDialog) {
 	}
 
 	ngOnInit() {
@@ -80,4 +87,52 @@ export class FormUploadImageComponent implements OnInit {
 		};
 	}
 
+	deleteModal(image) {
+		const dialogRef = this.dialog.open(DeleteModalComponent, {
+			width: '40rem',
+			data: {
+				title: this.translateService.instant('Components.Gallery.delete_image'),
+				body: this.translateService.instant('Components.Gallery.delete_image_body'),
+				name: this.translateService.instant('Components.Gallery.single'),
+			}
+		});
+		dialogRef.afterClosed().subscribe(result => {
+			if (result) {
+				this.delete(image);
+			}
+		});
+	}
+
+	delete(image: any) {
+		if (image.id){ // DELETE UPLOADED IMAGE
+			// @ts-ignore
+			this.image_urls = this.image_urls.filter(value => {
+				// @ts-ignore
+				if (value.id){
+					// @ts-ignore
+					return  image.id != value.id;
+				}
+				return false;
+			});
+			this.delete_emitter.emit(image.id);
+		}
+		else { // DELETE FRESH IMAGE
+			let uploaded_images = this.form.controls[this.form_control_name].value;
+
+			// @ts-ignore
+			this.image_urls = this.image_urls.filter(value => {
+				// @ts-ignore
+				if (value.id){
+					return true;
+				}
+				return value != image;
+			});
+
+			uploaded_images = uploaded_images.filter(value => {
+				return value != image;
+			});
+
+			this.form.controls[this.form_control_name].setValue(uploaded_images);
+		}
+	}
 }

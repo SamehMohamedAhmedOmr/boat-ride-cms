@@ -29,6 +29,11 @@ export class WaterSportsService extends BaseService<WaterSportsModel> {
 			.pipe(map((data: any) => serializer.fromJson(data) as WaterSportsEnumsModel));
 	}
 
+	public deleteImage(id: number) {
+		return this.http
+			.delete(`${this.url}${this.endpoint}/delete/image/${id}`);
+	}
+
 	public prepareObject(model: WaterSportsModel, controls) {
 		/* Basic Information*/
 		model.name.en = controls['name_en'].value;

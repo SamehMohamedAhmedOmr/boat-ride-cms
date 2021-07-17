@@ -30,6 +30,11 @@ export class YachtsService extends BaseService<YachtsModel> {
 			.pipe(map((data: any) => serializer.fromJson(data) as YachtsEnumsModel));
 	}
 
+	public deleteImage(id: number) {
+		return this.http
+			.delete(`${this.url}${this.endpoint}/delete/image/${id}`);
+	}
+
 	public prepareObject(model: YachtsModel, controls) {
 		/* Basic Information*/
 		model.name.en = controls['name_en'].value;

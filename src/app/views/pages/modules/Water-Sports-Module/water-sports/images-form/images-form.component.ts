@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {FormGroup} from '@angular/forms';
+import {WaterSportsService} from '../../../../../../core/services/Water-Sport-Module/Water-Sport/water.sports.service';
 
 @Component({
 	selector: 'kt-images-form',
@@ -11,10 +12,20 @@ export class ImagesFormComponent implements OnInit {
 	@Input() form: FormGroup;
 	@Input() image_urls: [] = [];
 
-	constructor() {
+	constructor(private service:WaterSportsService) {
 	}
 
 	ngOnInit() {
+	}
+
+	deleteImage(image_id){
+		this.service.deleteImage(image_id).subscribe(
+			(data) => {
+
+			}, error => {
+
+			}
+		);
 	}
 
 }

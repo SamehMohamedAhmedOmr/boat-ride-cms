@@ -7,6 +7,7 @@
 				[multiple]="true"
 				[image_urls]="image_urls"
 				[validation_type]="'required'"
+				(delete_emitter)="deleteImage($event)"
 				[label]="'Components.image' | translate"
 				[form_control_name]="'images'">
 			</kt-form-upload-image>

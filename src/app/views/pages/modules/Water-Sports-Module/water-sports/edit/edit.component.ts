@@ -101,7 +101,7 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 				(data) => {
 					this.model = data;
 					// @ts-ignore
-					this.selected_images = this.model.images.map(k => k.image);
+					this.selected_images = this.model.images;
 				}, error => {
 					this.authNoticeService.setNotice(this.translateService.instant('COMMON.Item_not_found',
 						{name: this.content_name}),
