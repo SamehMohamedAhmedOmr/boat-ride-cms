@@ -488,6 +488,7 @@ export const locale = {
 			booked: 'محجوز',
 			available: 'متوفرة',
 			errors: 'الأخطاء',
+			live : 'لايف',
 		},
 
 		MSG: {},

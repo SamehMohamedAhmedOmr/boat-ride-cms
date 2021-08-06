@@ -1,16 +1,17 @@
 // Angular
-import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {RouterModule} from '@angular/router';
+import {CommonModule} from '@angular/common';
 // Core Module
-import { PartialsModule } from '../../partials/partials.module';
-import { DashboardComponent } from './dashboard.component';
+import {PartialsModule} from '../../partials/partials.module';
+import {DashboardComponent} from './dashboard.component';
 import {NgxChartsModule} from '@swimlane/ngx-charts';
 import {TranslateModule} from '@ngx-translate/core';
 import {SharedModule} from '../../shared/shared.module';
 import {PagesModule} from '../pages.module';
-import { IndexComponent } from './index/index.component';
-import { BoxesComponent } from './boxes/boxes.component';
+import {IndexComponent} from './index/index.component';
+import {BoxesComponent} from './boxes/boxes.component';
+import {ToggleLiveComponent} from './toggle-live/toggle-live.component';
 
 @NgModule({
 	imports: [
@@ -32,6 +33,7 @@ import { BoxesComponent } from './boxes/boxes.component';
 		DashboardComponent,
 		IndexComponent,
 		BoxesComponent,
+		ToggleLiveComponent,
 	]
 })
 export class DashboardModule {

@@ -1,4 +1,8 @@
-<kt-portlet-header [title]="'MENU.DASHBOARD' | translate"></kt-portlet-header>
+<kt-portlet-header [title]="'MENU.DASHBOARD' | translate">
+	<section ktPortletTools>
+		<kt-toggle-live [dashboardModel]="dashboardModel"></kt-toggle-live>
+	</section>
+</kt-portlet-header>
 
 <!--Loader-->
 <div class="example-container m-auto" *ngIf="isLoadingResults">

@@ -1,6 +1,6 @@
 import {BaseSerializer} from '../Base/Base.serializer';
 import {Serializer} from '../Base/Serializer';
-import { DashboardModel } from '../../models/Settings/dashboard.model';
+import {DashboardModel} from '../../models/Settings/dashboard.model';
 
 
 export class DashboardSerializer extends BaseSerializer implements Serializer {
@@ -14,9 +14,7 @@ export class DashboardSerializer extends BaseSerializer implements Serializer {
 	}
 
 	toJson(model: DashboardModel): any {
-		return {
-
-		};
+		return {};
 	}
 
 	toFormData(object: any): FormData {
@@ -35,6 +33,8 @@ export class DashboardSerializer extends BaseSerializer implements Serializer {
 
 		model.water_sport_reserved_trips = item.water_sport_reserved_trips;
 		model.water_sport_confirmed_trips = item.water_sport_confirmed_trips;
+		model.settings = item.settings;
+
 		return model;
 	}
 

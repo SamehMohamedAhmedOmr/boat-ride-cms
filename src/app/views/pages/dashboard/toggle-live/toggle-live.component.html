@@ -1,0 +1,6 @@
+<mat-slide-toggle *ngIf="settingModel"
+				  (change)="toggleLive()"
+				  [(ngModel)]="settingModel.enable_coming_soon"
+				  [checked]="dashboardModel?.settings?.enable_coming_soon">
+	{{ 'COMMON.live' | translate }}
+</mat-slide-toggle>

@@ -5,6 +5,8 @@ import {DashboardModel} from '../../models/Settings/dashboard.model';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {DashboardSerializer} from '../../Serializers/Setting/dashboard.serializer';
+import {SettingsModel} from '../../models/Settings/settings.model';
+import {SettingsSerializer} from '../../Serializers/Setting/settings.serializer';
 
 
 @Injectable({
@@ -30,5 +32,13 @@ export class DashboardService {
 			.pipe(map((data: any) => this.serializer.fromJson(data) as DashboardModel));
 	}
 
+
+	public createSettings(item: SettingsModel): Observable<SettingsModel> {
+		let endpoint = 'admins/settings';
+		let serializer = new SettingsSerializer();
+		return this.http
+			.post<SettingsModel>(`${this.url}${endpoint}`, serializer.toJson(item))
+			.pipe(map(data => serializer.fromJson(data) as SettingsModel));
+	}
 
 }

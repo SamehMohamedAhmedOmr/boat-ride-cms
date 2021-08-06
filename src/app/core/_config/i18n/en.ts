@@ -490,6 +490,7 @@ export const locale = {
 			booked: 'Booked',
 			available: 'Available',
 			errors: 'Errors',
+			live : 'Live',
 		},
 
 		MSG: {},
