@@ -250,6 +250,7 @@ export const locale = {
 						yacht_special_price: 'yacht special price',
 						minimum_hours_booking: 'minimum hours booking',
 						status: 'Status',
+						beds: 'Beds',
 					},
 
 					/* Technical Information*/

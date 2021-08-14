@@ -161,6 +161,7 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 			minimum_hours_booking: [this.model.minimum_hours_booking, Validators.required] ,
 			apply_vat: [this.model.apply_vat ? '1' : '0', Validators.required] ,
 			status: [this.model.status, Validators.required] ,
+			beds: [this.model.beds, Validators.required] ,
 
 			// @ts-ignore
 			services: [this.model.services.map(k => k.id), Validators.required] ,

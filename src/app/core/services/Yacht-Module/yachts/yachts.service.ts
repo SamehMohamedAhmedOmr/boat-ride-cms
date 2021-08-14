@@ -72,6 +72,7 @@ export class YachtsService extends BaseService<YachtsModel> {
 		model.minimum_hours_booking = controls['minimum_hours_booking'].value;
 		model.apply_vat = controls['apply_vat'].value;
 		model.status = controls['status'].value;
+		model.beds = controls['beds'].value;
 
 		model.services = controls['services'].value;
 		model.images = controls['images'].value;

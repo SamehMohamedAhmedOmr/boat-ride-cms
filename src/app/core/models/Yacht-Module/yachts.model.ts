@@ -30,6 +30,8 @@ export class YachtsModel extends ModelBase {
 	public apply_vat:boolean;
 	public status:number;
 	public status_name:string;
+	public beds:number;
+
 
 	/* Technical Information*/
 	public manufacturer:string;

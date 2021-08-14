@@ -134,6 +134,7 @@ export class AddComponent implements OnInit, DoCheck, OnDestroy, InitializeCompo
 			minimum_hours_booking: ['', Validators.required] ,
 			apply_vat: ['0', Validators.required] ,
 			status: ['', Validators.required] ,
+			beds: ['', Validators.required] ,
 
 			services: ['', Validators.required] ,
 			images: [''] ,

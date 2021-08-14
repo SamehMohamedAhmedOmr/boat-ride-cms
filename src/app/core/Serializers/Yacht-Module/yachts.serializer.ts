@@ -38,6 +38,7 @@ export class YachtsSerializer extends BaseSerializer implements Serializer {
 			'minimum_hours_booking' : model.minimum_hours_booking,
 			'apply_vat' : model.apply_vat,
 			'status' : model.status,
+			'beds' : model.beds,
 
 
 			/* Technical Information*/
@@ -117,6 +118,7 @@ export class YachtsSerializer extends BaseSerializer implements Serializer {
 		model.apply_vat = item.apply_vat;
 		model.status = item.status;
 		model.status_name = item.status_name;
+		model.beds = item.beds;
 
 
 		/* Technical Information*/

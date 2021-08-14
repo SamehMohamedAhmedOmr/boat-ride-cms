@@ -135,8 +135,17 @@
 		</div>
 	</div>
 
-	<div class="row" aria-label="minimum_hours_booking, apply_vat, status">
-		<div class="col-md-4">
+	<div class="row" aria-label="beds, minimum_hours_booking, apply_vat, status">
+		<div class="col-md-3">
+			<kt-form-input
+				[form]="form"
+				[label]="'Components.YACHTS.columns.basic_information.beds' | translate"
+				[form_control_name]="'beds'"
+				[type]="'number'"
+				[validation_type]="'required'">
+			</kt-form-input>
+		</div>
+		<div class="col-md-3">
 			<kt-form-input
 				[form]="form"
 				[label]="'Components.YACHTS.columns.basic_information.minimum_hours_booking' | translate"
@@ -145,7 +154,7 @@
 				[validation_type]="'required'">
 			</kt-form-input>
 		</div>
-		<div class="col-md-4">
+		<div class="col-md-3">
 			<div class="my-3 w-100">
 				<div aria-label="select-box">
 					<mat-form-field appearance="fill" class="w-100">
@@ -167,7 +176,7 @@
 				></kt-form-error>
 			</div>
 		</div>
-		<div class="col-md-4">
+		<div class="col-md-3">
 			<div class="my-3 w-100">
 				<div aria-label="select-box">
 					<mat-form-field appearance="fill" class="w-100">

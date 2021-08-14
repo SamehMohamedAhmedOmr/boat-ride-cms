@@ -248,6 +248,7 @@ export const locale = {
 						yacht_special_price: 'اليخت بسعر خاص',
 						minimum_hours_booking: 'الحد الأدنى من ساعات الحجز',
 						status: 'الحالة',
+						beds: 'الأسِرَّة',
 					},
 
 					/* Technical Information*/
