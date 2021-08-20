@@ -43,6 +43,8 @@ export class YachtsModel extends ModelBase {
 	public cruising_speed:number;
 	public length:number;
 	public beam:number;
+	public model:string;
+	public year:number;
 
 
 	/* Additional Information*/

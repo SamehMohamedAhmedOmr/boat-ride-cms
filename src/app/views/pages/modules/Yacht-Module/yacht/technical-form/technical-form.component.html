@@ -130,4 +130,28 @@
 		</div>
 
 	</div>
+
+	<div class="row" aria-label="model, year">
+
+		<div class="col-md-4">
+			<kt-form-input
+				[form]="form"
+				[label]="'Components.YACHTS.columns.technical_information.model' | translate"
+				[form_control_name]="'model'"
+				[validation_type]="'required'">
+			</kt-form-input>
+		</div>
+
+		<div class="col-md-4">
+			<kt-form-input
+				[form]="form"
+				[label]="'Components.YACHTS.columns.technical_information.year' | translate"
+				[form_control_name]="'year'"
+				[type]="'number'"
+				[validation_type]="'required'">
+			</kt-form-input>
+		</div>
+
+	</div>
+
 </div>

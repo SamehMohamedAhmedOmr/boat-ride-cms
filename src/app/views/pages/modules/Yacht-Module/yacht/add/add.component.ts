@@ -149,6 +149,8 @@ export class AddComponent implements OnInit, DoCheck, OnDestroy, InitializeCompo
 			cruising_speed: ['', Validators.required] ,
 			length: ['', Validators.required] ,
 			beam: ['', Validators.required] ,
+			model: ['', Validators.required] ,
+			year: ['', Validators.required] ,
 
 
 			/* Key Feature*/
@@ -192,6 +194,7 @@ export class AddComponent implements OnInit, DoCheck, OnDestroy, InitializeCompo
 		model = this.service.prepareObject(model, controls);
 
 		this.isLoadingResults = true;
+		this.authNoticeService.setNotice(null);
 		this.service.create(model).subscribe(resp => {
 			this.form.reset();
 			this.isLoadingResults = false;

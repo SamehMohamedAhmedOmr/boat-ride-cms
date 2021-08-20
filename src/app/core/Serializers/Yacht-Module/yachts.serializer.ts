@@ -51,6 +51,8 @@ export class YachtsSerializer extends BaseSerializer implements Serializer {
 			'cruising_speed' : model.cruising_speed,
 			'length' : model.length,
 			'beam' : model.beam,
+			'model' : model.model,
+			'year' : model.year,
 
 
 			/* Key Feature*/
@@ -119,6 +121,8 @@ export class YachtsSerializer extends BaseSerializer implements Serializer {
 		model.status = item.status;
 		model.status_name = item.status_name;
 		model.beds = item.beds;
+		model.model = item.model;
+		model.year = item.year
 
 
 		/* Technical Information*/

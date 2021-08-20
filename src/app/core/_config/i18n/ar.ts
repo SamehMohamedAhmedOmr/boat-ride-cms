@@ -262,6 +262,8 @@ export const locale = {
 						cruising_speed: 'سرعة الانطلاق',
 						length: 'الطول',
 						beam: 'الشعاع',
+						model: 'الموديل',
+						year: 'السنة',
 					},
 
 					/* Key Feature*/

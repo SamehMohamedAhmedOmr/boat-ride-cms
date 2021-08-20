@@ -264,6 +264,8 @@ export const locale = {
 						cruising_speed: 'cruising speed',
 						length: 'length',
 						beam: 'Beam',
+						model: 'Model',
+						year: 'Year',
 					},
 
 					/* Key Feature*/

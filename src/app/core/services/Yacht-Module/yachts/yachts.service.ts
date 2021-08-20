@@ -87,6 +87,8 @@ export class YachtsService extends BaseService<YachtsModel> {
 		model.cruising_speed = controls['cruising_speed'].value;
 		model.length = controls['length'].value;
 		model.beam = controls['beam'].value;
+		model.model = controls['model'].value;
+		model.year = controls['year'].value;
 
 
 		/* Key Feature*/

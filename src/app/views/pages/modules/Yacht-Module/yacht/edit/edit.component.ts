@@ -177,6 +177,8 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 			cruising_speed: [this.model.cruising_speed, Validators.required] ,
 			length: [this.model.length, Validators.required] ,
 			beam: [this.model.beam, Validators.required] ,
+			model: [this.model.model, Validators.required] ,
+			year: [this.model.year, Validators.required] ,
 
 
 			/* Key Feature*/
@@ -232,6 +234,7 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 
 		// call service to store shipping rule
 		this.isLoadingResults = true;
+		this.authNoticeService.setNotice(null);
 		this.service.update(this.model.id, this.model).subscribe(resp => {
 			this.isLoadingResults = false;
 			this.authNoticeService.setNotice(this.translateService.instant('COMMON.Edited_successfully',

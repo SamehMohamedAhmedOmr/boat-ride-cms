@@ -116,6 +116,9 @@ export class ErrorMsgHelperService {
 				case 'color':
 					errors_msg.push(this.translateService.instant('Components.YACHTS.columns.basic_information.color'));
 					break;
+				case 'beds':
+					errors_msg.push(this.translateService.instant('Components.YACHTS.columns.basic_information.beds'));
+					break;
 				case 'passenger_capacity':
 					errors_msg.push(this.translateService.instant('Components.YACHTS.columns.basic_information.passenger_capacity'));
 					break;
@@ -176,7 +179,12 @@ export class ErrorMsgHelperService {
 				case 'beam':
 					errors_msg.push(this.translateService.instant('Components.YACHTS.columns.technical_information.beam'));
 					break;
-
+				case 'year':
+					errors_msg.push(this.translateService.instant('Components.YACHTS.columns.technical_information.year'));
+					break;
+				case 'model':
+					errors_msg.push(this.translateService.instant('Components.YACHTS.columns.technical_information.model'));
+					break;
 
 				// WATER_SPORTS
 				case 'water_sport_description_en':
