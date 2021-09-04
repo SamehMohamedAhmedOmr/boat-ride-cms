@@ -57,7 +57,7 @@ export class YachtsService extends BaseService<YachtsModel> {
 		model.seo.keywords.en = controls['seo_meta_tags_en'].value;
 		model.seo.keywords.ar = controls['seo_meta_tags_ar'].value;
 
-
+		model.banner_image = controls['banner_image'].value;
 		model.type = controls['type'].value;
 		model.code = controls['code'].value;
 		model.color = controls['color'].value;

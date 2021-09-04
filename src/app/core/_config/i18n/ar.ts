@@ -336,6 +336,7 @@ export const locale = {
 						code: 'الكود',
 						color: 'اللون',
 						size: 'الحجم',
+						banner_image: 'صورة الغلاف',
 
 						description_en: 'الوصف باللغة الانجليزية',
 						description_ar: 'الوصف باللغة العربية',

@@ -146,6 +146,9 @@ export class ErrorMsgHelperService {
 				case 'status':
 					errors_msg.push(this.translateService.instant('Components.YACHTS.columns.basic_information.status'));
 					break;
+				case 'banner_image':
+					errors_msg.push(this.translateService.instant('Components.YACHTS.columns.basic_information.banner_image'));
+					break;
 				case 'services':
 					errors_msg.push(this.translateService.instant('MENUS.MARKETING.MENU.SERVICES'));
 					break;

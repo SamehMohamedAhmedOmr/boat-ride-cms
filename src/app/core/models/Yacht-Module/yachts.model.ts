@@ -12,6 +12,9 @@ export class YachtsModel extends ModelBase {
 	public code:string;
 	public color:string;
 
+	public banner_image:string;
+	public banner_thumbnail:string;
+
 	public passenger_capacity:number;
 	public size:number;
 	public no_of_captain:number;

@@ -236,6 +236,7 @@ export const locale = {
 						size: 'Size',
 						no_of_captain: 'Number of Captain',
 						crew_members: 'Number of Crew',
+						banner_image: 'Banner Image',
 
 						facilities_en: 'Facilities in English',
 						facilities_ar: 'Facilities in Arabic',

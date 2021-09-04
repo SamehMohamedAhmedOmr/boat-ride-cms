@@ -85,6 +85,10 @@ export class YachtsSerializer extends BaseSerializer implements Serializer {
 		}
 
 
+		if (model.banner_image){
+			object['banner'] = model.banner_image;
+		}
+
 		return object;
 	}
 
@@ -101,6 +105,8 @@ export class YachtsSerializer extends BaseSerializer implements Serializer {
 		model.type = item.type;
 		model.code = item.code;
 		model.color = item.color;
+		model.banner_image = item.banner_image;
+		model.banner_thumbnail = item.banner_thumbnail;
 
 		model.passenger_capacity = item.passenger_capacity;
 		model.size = item.size;

@@ -39,6 +39,7 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 
 	enums: YachtsEnumsModel;
 	services: ServicesModel[] = [];
+	banner_image: string;
 
 
 	constructor(private formBuilder: FormBuilder,
@@ -109,6 +110,7 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 					this.model = data;
 					// @ts-ignore
 					this.selected_images = this.model.images;
+					this.banner_image = this.model.banner_image;
 				}, error => {
 					this.authNoticeService.setNotice(this.translateService.instant('COMMON.Item_not_found',
 						{name: this.content_name}),
@@ -166,6 +168,7 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 			// @ts-ignore
 			services: [this.model.services.map(k => k.id), Validators.required] ,
 			images: [''] ,
+			banner_image: [''],
 
 			/* Technical Information*/
 			manufacturer: [this.model.manufacturer, Validators.required] ,
