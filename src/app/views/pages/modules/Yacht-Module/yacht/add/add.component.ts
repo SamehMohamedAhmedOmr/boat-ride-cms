@@ -142,17 +142,17 @@ export class AddComponent implements OnInit, DoCheck, OnDestroy, InitializeCompo
 			banner_image: ['', Validators.required],
 
 			/* Technical Information*/
-			manufacturer: ['', Validators.required] ,
-			fuel_type: ['', Validators.required] ,
-			hull_type: ['', Validators.required] ,
-			engine_type: ['', Validators.required] ,
-			horse_Power: ['', Validators.required] ,
-			max_speed: ['', Validators.required] ,
-			cruising_speed: ['', Validators.required] ,
-			length: ['', Validators.required] ,
-			beam: ['', Validators.required] ,
-			model: ['', Validators.required] ,
-			year: ['', Validators.required] ,
+			manufacturer: [''] ,
+			fuel_type: [''] ,
+			hull_type: [''] ,
+			engine_type: [''] ,
+			horse_Power: [''] ,
+			max_speed: [''] ,
+			cruising_speed: [''] ,
+			length: [''] ,
+			beam: [''] ,
+			model: [''] ,
+			year: [''] ,
 
 
 			/* Key Feature*/
