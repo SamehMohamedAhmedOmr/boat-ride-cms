@@ -83,6 +83,8 @@
 					[form]="form"
 					[label]="'Components.SERVICES.columns.minimum_hours_booking' | translate"
 					[type]="'number'"
+					[min]="0"
+					[is_integer]="true"
 					[form_control_name]="'minimum_hours_booking'"
 					[validation_type]="'required'">
 				</kt-form-input>

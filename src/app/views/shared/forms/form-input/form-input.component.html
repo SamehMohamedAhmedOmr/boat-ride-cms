@@ -5,8 +5,16 @@
 				<mat-label>{{label | titlecase}}</mat-label>
 				<label class="w-100">
 					<input matInput
+						   *ngIf="is_integer"
 						   [type]="type"
-						   [min]="0.1"
+						   [min]="min"
+						   oninput="this.value=this.value.replace(/[^0-9]/g,'');"
+						   formControlName="{{form_control_name}}"
+						   placeholder="{{label | titlecase}}">
+					<input matInput
+						   *ngIf="!is_integer"
+						   [type]="type"
+						   [min]="min"
 						   formControlName="{{form_control_name}}"
 						   placeholder="{{label | titlecase}}">
 				</label>

@@ -171,17 +171,17 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 			banner_image: [''],
 
 			/* Technical Information*/
-			manufacturer: [this.model.manufacturer, Validators.required] ,
-			fuel_type: [this.model.fuel_type + '', Validators.required] ,
-			hull_type: [this.model.hull_type + '', Validators.required] ,
-			engine_type: [this.model.engine_type + '', Validators.required] ,
-			horse_Power: [this.model.horse_Power , Validators.required] ,
-			max_speed: [this.model.max_speed, Validators.required] ,
-			cruising_speed: [this.model.cruising_speed, Validators.required] ,
-			length: [this.model.length, Validators.required] ,
-			beam: [this.model.beam, Validators.required] ,
-			model: [this.model.model, Validators.required] ,
-			year: [this.model.year, Validators.required] ,
+			manufacturer: [this.model.manufacturer] ,
+			fuel_type: [this.model.fuel_type + ''] ,
+			hull_type: [this.model.hull_type + ''] ,
+			engine_type: [this.model.engine_type + ''] ,
+			horse_Power: [this.model.horse_Power ] ,
+			max_speed: [this.model.max_speed] ,
+			cruising_speed: [this.model.cruising_speed] ,
+			length: [this.model.length] ,
+			beam: [this.model.beam] ,
+			model: [this.model.model] ,
+			year: [this.model.year] ,
 
 
 			/* Key Feature*/
