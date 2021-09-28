@@ -322,6 +322,7 @@ export const locale = {
 					booking_number:'رقم الحجز',
 					trip_duration:'مدة الرحلة',
 					total_price: 'الاجمالي',
+					paid_amount: 'المبلغ المدفوع',
 				},
 			},
 
@@ -390,6 +391,7 @@ export const locale = {
 					booking_number:'رقم الحجز',
 					trip_duration:'مدة الرحلة',
 					total_price: 'الاجمالي',
+					paid_amount: 'المبلغ المدفوع',
 				},
 			},
 

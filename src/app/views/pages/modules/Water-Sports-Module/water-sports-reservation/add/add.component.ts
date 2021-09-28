@@ -133,6 +133,7 @@ export class AddComponent implements OnInit, DoCheck, OnDestroy, InitializeCompo
 			discount: [0, Validators.required],
 			minimum_Advance_Payment: [0, Validators.required],
 			total_price: new FormControl({value: 0, disabled: true}),
+			paid_amount: [0],
 
 			client_notes: [''],
 			admin_notes: [''],

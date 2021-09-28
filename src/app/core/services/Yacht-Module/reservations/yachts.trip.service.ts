@@ -65,6 +65,7 @@ export class YachtsTripService extends BaseService<YachtsTripModel> {
 
 		model.coupon_code = controls['coupon_code'].value;
 		model.trip_duration = controls['trip_duration'].value;
+		model.paid_amount = controls['paid_amount'].value;
 
 		return model;
 	}
