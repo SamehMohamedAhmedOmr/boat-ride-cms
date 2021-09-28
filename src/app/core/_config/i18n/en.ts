@@ -325,6 +325,7 @@ export const locale = {
 					booking_number: 'booking number',
 					trip_duration: 'trip duration',
 					total_price: 'Total Price',
+					paid_amount: 'Paid Amount',
 				},
 			},
 
@@ -393,6 +394,7 @@ export const locale = {
 					booking_number: 'booking number',
 					trip_duration: 'trip duration',
 					total_price: 'Total Price',
+					paid_amount: 'Paid Amount',
 				},
 			},
 

@@ -42,6 +42,8 @@ export class WaterSportTripModel extends ModelBase {
 	public country:CountryModel;
 	public water_sport:WaterSportsModel;
 
+	public paid_amount:number;
+
 	constructor(id: number){
 		super(id);
 		this.createObjects();

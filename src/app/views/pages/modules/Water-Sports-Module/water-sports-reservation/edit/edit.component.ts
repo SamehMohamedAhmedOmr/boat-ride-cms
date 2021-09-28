@@ -159,6 +159,7 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 			discount: [this.model.discount ?? 0, Validators.required],
 			minimum_Advance_Payment: [this.model.minimum_Advance_Payment ?? 0, Validators.required],
 			total_price: new FormControl({value: this.model.total_price ?? 0, disabled: true}),
+			paid_amount: [this.model.paid_amount ?? 0],
 
 			client_notes: [this.model.client_notes],
 			admin_notes: [this.model.admin_notes],

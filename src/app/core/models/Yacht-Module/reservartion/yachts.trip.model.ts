@@ -42,6 +42,8 @@ export class YachtsTripModel extends ModelBase {
 	public country:CountryModel;
 	public yacht:YachtsModel;
 
+	public paid_amount:number;
+
 	constructor(id: number){
 		super(id);
 		this.createObjects();

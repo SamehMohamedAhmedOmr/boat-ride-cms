@@ -47,6 +47,10 @@ export class WaterSportTripSerializer extends BaseSerializer implements Serializ
 			object['coupon_code'] = model.coupon_code
 		}
 
+		if (model.paid_amount){
+			object['paid_amount'] = model.paid_amount
+		}
+
 		return object;
 	}
 
@@ -79,6 +83,7 @@ export class WaterSportTripSerializer extends BaseSerializer implements Serializ
 		model.discount = item.discount;
 		model.minimum_Advance_Payment = item.minimum_Advance_Payment;
 		model.total_price = item.total_price;
+		model.paid_amount = item.paid_amount;
 
 		model.client_notes = item.client_notes;
 		model.admin_notes = item.admin_notes;

@@ -53,6 +53,10 @@ export class YachtsTripSerializer extends BaseSerializer implements Serializer {
 			object['admin_notes'] = model.admin_notes
 		}
 
+		if (model.paid_amount){
+			object['paid_amount'] = model.paid_amount
+		}
+
 		return object;
 	}
 
@@ -93,6 +97,7 @@ export class YachtsTripSerializer extends BaseSerializer implements Serializer {
 		model.coupon_code = item.coupon_code;
 		model.booking_number = item.booking_number;
 		model.trip_duration = item.trip_duration;
+		model.paid_amount = item.paid_amount;
 
 		model.status_name = item.status_name;
 
