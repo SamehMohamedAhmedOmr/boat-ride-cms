@@ -40,6 +40,10 @@ export class WaterSportsSerializer extends BaseSerializer implements Serializer 
 			object['images'] = model.images;
 		}
 
+		if (model.banner_image){
+			object['banner'] = model.banner_image;
+		}
+
 
 		return object;
 	}
@@ -73,6 +77,7 @@ export class WaterSportsSerializer extends BaseSerializer implements Serializer 
 		model.status_name = item.status_name;
 
 		model.images = item.images;
+		model.banner_image = item.banner_image;
 
 		return model;
 	}
