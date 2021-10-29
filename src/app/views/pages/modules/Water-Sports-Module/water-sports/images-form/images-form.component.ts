@@ -11,6 +11,7 @@ export class ImagesFormComponent implements OnInit {
 
 	@Input() form: FormGroup;
 	@Input() image_urls: [] = [];
+	@Input() imgURL: string;
 
 	constructor(private service:WaterSportsService) {
 	}

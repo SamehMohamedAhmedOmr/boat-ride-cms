@@ -1,5 +1,16 @@
 <div [formGroup]="form">
 	<div class="my-4">
+		<div class="col-12">
+			<kt-form-upload-image
+				[form]="form"
+				[to_base64]="true"
+				[validation_type]="'required'"
+				[imgURL]="imgURL"
+				[label]="'Components.YACHTS.columns.basic_information.banner_image' | translate"
+				[form_control_name]="'banner_image'">
+			</kt-form-upload-image>
+		</div>
+		
 		<div class="col-19">
 			<kt-form-upload-image
 				[form]="form"

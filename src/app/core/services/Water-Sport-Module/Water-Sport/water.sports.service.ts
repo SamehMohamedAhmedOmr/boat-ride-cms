@@ -70,6 +70,7 @@ export class WaterSportsService extends BaseService<WaterSportsModel> {
 		model.status = controls['status'].value;
 
 		model.images = controls['images'].value;
+		model.banner_image = controls['banner_image'].value;
 
 
 		return model;
