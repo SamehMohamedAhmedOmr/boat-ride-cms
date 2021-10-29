@@ -127,6 +127,8 @@ export class AddComponent implements OnInit, DoCheck, OnDestroy, InitializeCompo
 			status: ['', Validators.required] ,
 
 			images: [''] ,
+			banner_image: ['', Validators.required],
+
 		});
 	}
 

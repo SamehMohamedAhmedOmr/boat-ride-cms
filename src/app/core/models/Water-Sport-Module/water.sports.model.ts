@@ -28,6 +28,8 @@ export class WaterSportsModel extends ModelBase {
 
 	public apply_vat:boolean;
 	public images:string[];
+	public banner_image:string;
+	public banner_thumbnail:string;
 
 
 	constructor(id: number){
