@@ -35,6 +35,7 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 	is_result: boolean;
 
 	selected_images: [] = [];
+	banner_image: string;
 
 	enums: WaterSportsEnumsModel;
 
@@ -102,6 +103,7 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 					this.model = data;
 					// @ts-ignore
 					this.selected_images = this.model.images;
+					this.banner_image = this.model.banner_image;
 				}, error => {
 					this.authNoticeService.setNotice(this.translateService.instant('COMMON.Item_not_found',
 						{name: this.content_name}),
@@ -155,6 +157,7 @@ export class EditComponent implements OnInit, DoCheck, OnDestroy, InitializeComp
 			status: [this.model.status, Validators.required] ,
 
 			images: [''] ,
+			banner_image: ['']
 		});
 
 		this.isLoadingResults = false;
