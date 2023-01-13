@@ -9,6 +9,7 @@ export const locale = {
 			ADD_NEW: 'اضافة جديد',
 			APPS: 'Apps',
 			DASHBOARD: 'لوحة التحكم',
+			SETTINGS:'الاعدادات',
 			STAND: 'الأساسيات',
 			LOGOUT: 'تسجيل الخروج',
 			ANALS: 'تحاليل البيانات',
@@ -214,6 +215,12 @@ export const locale = {
 			CMS_USERS: {
 				name: 'مستخدمين لوحة التحكم',
 				single: 'مستخدم لوحة التحكم',
+				columns: {}
+			},
+
+			Settings: {
+				name: 'الاعدادات',
+				single: 'الاعدادات',
 				columns: {}
 			},
 
@@ -429,6 +436,7 @@ export const locale = {
 			in_active: 'غير مفعل',
 			active: 'مفعل',
 			activation: 'التفعيل',
+			whatsapp_number: 'رقم الواتساب',
 
 			send_voucher: 'ارسال ايميل التأكيد',
 			activation_button: 'تفعيل',

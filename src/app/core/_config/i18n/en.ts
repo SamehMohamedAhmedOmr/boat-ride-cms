@@ -9,6 +9,7 @@ export const locale = {
 			ADD_NEW: 'Add new',
 			APPS: 'Apps',
 			DASHBOARD: 'Dashboard',
+			SETTINGS:'Settings',
 			STAND: 'standards',
 			LOGOUT: 'Logout',
 			ANALS: 'Analytics and Charts',
@@ -216,6 +217,12 @@ export const locale = {
 			CMS_USERS: {
 				name: 'CMS Users',
 				single: 'CMS User',
+				columns: {}
+			},
+
+			Settings: {
+				name: 'Settings',
+				single: 'Settings',
 				columns: {}
 			},
 
@@ -431,6 +438,7 @@ export const locale = {
 			in_active: 'Inactive',
 			active: 'active',
 			activation: 'Activation',
+			whatsapp_number: 'Whatsapp Number',
 
 			send_voucher: 'Send Voucher Email',
 			activation_button: 'Active',

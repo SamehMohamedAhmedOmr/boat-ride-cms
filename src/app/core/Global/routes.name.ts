@@ -65,4 +65,7 @@ export class RoutesName {
 		return 'blogs';
 	}
 
+	public static settings() {
+		return 'settings';
+	}
 }

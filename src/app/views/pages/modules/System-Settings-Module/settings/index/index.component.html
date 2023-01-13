@@ -1,0 +1,49 @@
+<kt-portlet-header [title]="content_name"
+				   [icon]="'flaticon-add'"></kt-portlet-header>
+<!--Loader-->
+<div class="example-container m-auto" *ngIf="isLoadingResults">
+	<div class="example-loading-shade mt-5 mb-5">
+		<mat-spinner diameter="50" *ngIf="isLoadingResults"></mat-spinner>
+	</div>
+</div>
+
+<!-- Form-->
+<div class="example-container">
+	<kt-auth-notice></kt-auth-notice>
+	<div [hidden]="isLoadingResults" class="my-4">
+
+		<div *ngIf="is_result">
+			<div class="form-div">
+
+                <form class="p-3" [formGroup]="form" autocomplete="off">
+            
+                    <div class="row">
+                        <div class="col-md-6">
+                            <kt-form-input
+                                [form]="form"
+                                [label]="'COMMON.whatsapp_number' | translate"
+                                [form_control_name]="'whatsapp_number'"
+                                [validation_type]="'required'">
+                            </kt-form-input>
+                        </div>
+                        <div class="col-md-6">
+                           
+                        </div>
+                    </div>            
+            
+                </form>
+            
+            </div>
+
+			<div class="col-12 text-center px-3">
+				<button mat-raised-button type="submit" class="btn btn-success mx-3" (click)="submitForm()">
+					{{ 'COMMON.Add_Button' | translate : {name : content_name} }}
+				</button>
+			</div>
+		</div>
+
+	</div>
+
+</div>
+
+
