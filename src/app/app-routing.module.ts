@@ -54,6 +54,16 @@ const routes: Routes = [
 					.then(m => m.RolesModule)
 			},
 
+			//settings
+			{
+				path: RoutesName.settings(), // <= Page URL ,
+				// canActivate: [PermissionsGuard],
+				// data: {
+				// 	permissions: permissionCatalogueConfig.product_permissions,
+				// },
+				loadChildren: () => import('./views/pages/modules/System-Settings-Module/settings/settings.module')
+					.then(m => m.SettingsModule)
+			},
 
 			/*  marketing-modules */
 			// banners

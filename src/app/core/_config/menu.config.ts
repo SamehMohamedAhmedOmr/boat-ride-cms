@@ -53,6 +53,14 @@ export class MenuConfig {
 					translate: 'MENU.DASHBOARD',
 					bullet: 'dot',
 				},
+				{
+					title: 'Settings',
+					root: true,
+					icon: 'flaticon-cogwheel-2',
+					page: '/cms/settings',
+					translate: 'MENU.SETTINGS',
+					bullet: 'dot',
+				},
 			]
 		},
 	};
