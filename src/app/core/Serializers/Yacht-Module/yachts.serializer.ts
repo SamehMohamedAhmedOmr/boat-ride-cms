@@ -41,20 +41,6 @@ export class YachtsSerializer extends BaseSerializer implements Serializer {
 			'beds' : model.beds,
 
 
-			/* Technical Information*/
-			'manufacturer' : model.manufacturer,
-			'fuel_type' : model.fuel_type,
-			'hull_type' : model.hull_type,
-			'engine_type' : model.engine_type,
-			'horse_Power' : model.horse_Power,
-			'max_speed' : model.max_speed,
-			'cruising_speed' : model.cruising_speed,
-			'length' : model.length,
-			'beam' : model.beam,
-			'model' : model.model,
-			'year' : model.year,
-
-
 			/* Key Feature*/
 			'water_slider' : model.water_slider,
 			'safety_equipment' : model.safety_equipment,
@@ -87,6 +73,59 @@ export class YachtsSerializer extends BaseSerializer implements Serializer {
 
 		if (model.banner_image){
 			object['banner'] = model.banner_image;
+		}
+
+		// Technical fields
+		object = this.handleTechnicalFields(model, object);
+
+		return object;
+	}
+
+
+	handleTechnicalFields(model:YachtsModel, object){
+
+		if (model.manufacturer){
+			object['manufacturer'] = model.manufacturer;
+		}
+
+		if (model.fuel_type){
+			object['fuel_type'] = model.fuel_type;
+		}
+
+		if (model.hull_type){
+			object['hull_type'] = model.hull_type;
+		}
+
+		if (model.engine_type){
+			object['engine_type'] = model.engine_type;
+		}
+
+		if (model.horse_Power){
+			object['horse_Power'] = model.horse_Power;
+		}
+
+		if (model.max_speed){
+			object['max_speed'] = model.max_speed;
+		}
+
+		if (model.cruising_speed){
+			object['cruising_speed'] = model.cruising_speed;
+		}
+
+		if (model.length){
+			object['length'] = model.length;
+		}
+
+		if (model.beam){
+			object['beam'] = model.beam;
+		}
+
+		if (model.model){
+			object['model'] = model.model;
+		}
+
+		if (model.year){
+			object['year'] = model.year;
 		}
 
 		return object;

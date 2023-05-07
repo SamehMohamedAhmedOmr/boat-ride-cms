@@ -14,10 +14,16 @@ export class SettingsSerializer extends BaseSerializer implements Serializer {
 	}
 
 	toJson(model: SettingsModel): any {
-		return {
+		let obj = {
 			'id': model.id,
 			'enable_coming_soon': model.enable_coming_soon,
 		};
+
+		if(model.whatsapp_number) {
+			obj['whatsapp_number'] = model.whatsapp_number;
+		}
+
+		return obj;
 	}
 
 	toFormData(object: any): FormData {

@@ -212,5 +212,8 @@
       }
     }
   },
-  "defaultProject": "metronic"
+  "defaultProject": "metronic",
+  "cli": {
+    "analytics": false
+  }
 }
