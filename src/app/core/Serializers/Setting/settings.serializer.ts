@@ -23,6 +23,10 @@ export class SettingsSerializer extends BaseSerializer implements Serializer {
 			obj['whatsapp_number'] = model.whatsapp_number;
 		}
 
+		if(model.home_section) {
+			obj['home_section'] = model.home_section;
+		}
+
 		return obj;
 	}
 

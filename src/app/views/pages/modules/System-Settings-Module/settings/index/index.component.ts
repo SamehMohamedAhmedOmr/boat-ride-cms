@@ -76,6 +76,7 @@ initialiseComponent() {
 private initForm() {
   this.form = this.fb.group({
     whatsapp_number: [this.dashboardModel?.settings?.whatsapp_number, Validators.required] ,
+    home_section: [this.dashboardModel?.settings?.home_section] ,
   });
 }
 
@@ -127,6 +128,7 @@ submitForm () {
   const model = new SettingsModel(null);
 
   model.whatsapp_number = controls['whatsapp_number'].value;
+  model.home_section = controls['home_section'].value;
 
   // call service to store Banner
   this.isLoadingResults = true;
