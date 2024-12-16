@@ -27,6 +27,14 @@
                             </kt-form-input>
                         </div>
                         <div class="col-md-6">
+                            <kt-form-input
+                                [form]="form"
+                                [label]="'COMMON.contact_number' | translate"
+                                [form_control_name]="'contact_number'"
+                                [validation_type]="'required'">
+                            </kt-form-input>
+                        </div>
+                        <div class="col-md-6">
                             <kt-form-richtext
                             [form]="form"
                             [label]="'COMMON.home_section' | translate"

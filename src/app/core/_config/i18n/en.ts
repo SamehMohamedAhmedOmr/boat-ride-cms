@@ -440,6 +440,8 @@ export const locale = {
 			activation: 'Activation',
 			whatsapp_number: 'Whatsapp Number',
 			home_section: 'Home Section',
+			contact_number: 'Contact Number',
+
 
 			send_voucher: 'Send Voucher Email',
 			activation_button: 'Active',

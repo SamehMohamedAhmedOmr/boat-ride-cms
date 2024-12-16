@@ -438,6 +438,7 @@ export const locale = {
 			activation: 'التفعيل',
 			whatsapp_number: 'رقم الواتساب',
 			home_section: 'محتوي الرئيسية',
+			contact_number: 'رقم التواصل',
 
 			send_voucher: 'ارسال ايميل التأكيد',
 			activation_button: 'تفعيل',
