@@ -27,6 +27,10 @@ export class SettingsSerializer extends BaseSerializer implements Serializer {
 			obj['home_section'] = model.home_section;
 		}
 
+		if(model.contact_number) {
+			obj['contact_number'] = model.contact_number;
+		}
+
 		return obj;
 	}
 
